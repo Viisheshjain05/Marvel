@@ -1,0 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+@layer components {
+  .nav-btn-font {
+    @apply px-3 py-2 rounded-lg font-semibold font-sans text-gray-700 hover:bg-gray-700 hover:text-gray-50;
+  }
+}

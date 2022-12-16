@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Sportz Interactive">
+    <meta name="viewport"
+        content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+        viewport-fit=cover />
+    <title>Rario | Super Over</title>
+
+    <script src="../config.js"></script>
+
+</head>
+
+<body>
+    <div class="px-5 bg-cyan-300">
+        <div id="pageLinkContainer">
+        </div>
+    </div>
+
+    <script>
+
+        /** 
+         *  Todo 
+         * 1) Link process for project Name
+         * 2) Get Static pages names from outside the inde.html file
+         * 3) create basic styles for links
+         */
+
+        // var config = require('../config.js')
+        // import config from '../config.js'
+        // config
+        // var projectName = process?.env?.PROJECT_NAME || 'Enter Project Name'
+        var FILE_KEY = '{{fileName}}'
+        var pagePath = `./pages/${FILE_KEY}`
+
+        // var staticPages =  'home.html'
+        var staticPages = [
+            "home.html",
+            // "menu.html",
+            // "leaderboard.html",
+            // "prizes.html",
+            // "terms.html",
+            // "homepage.html"
+        ]
+
+        // Change title of project 
+        // document.title = projectName
+
+        // Add Links of Pages to the project 
+        var target = document.getElementById('pageLinkContainer');
+        let template = `<div class="pageLink"><a href=${pagePath} target="_blank">${FILE_KEY}</a></div>`;
+        let links = '';
+        for (var i = 0; i < staticPages.length; i++) {
+            /{{page}}/g
+            links += template.replaceAll(FILE_KEY, staticPages[i]);
+        }
+
+        target.innerHTML = links;
+    </script>
+</body>
+
+</html>
