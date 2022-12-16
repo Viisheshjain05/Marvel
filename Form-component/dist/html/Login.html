@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link href="../css/output.css" rel="stylesheet">
+    
+
+    <title>Reset Password</title>
+</head>
+
+<body>
+
+
+
+    <div class="flex flex-wrap min-h-screen w-full content-center justify-center bg-whitw-200 py-10">
+        <!-- Login component -->
+        <div class="flex">
+            <!-- Login form  -->
+            <div class="flex flex-wrap content-center justify-center rounded-l-md m-9 "
+                style="width: '30rem'; height: '36rem';">
+                <div class="w-72 mb-8">
+                    <div>
+                        <p class="font-bold text-left text-1xl mb-1">Hi there,</p>
+                        <h1 class="font-bold text-left text-2xl mb-5">Welcome Back 🎉</h1>
+                        <div class="p-1">
+                            <div class=" flex  ">
+                                <button
+                                    class="w-full m-1 text-center border-slate-500 py-1 my-3 border flex space-x-2 items-center justify-center border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                                    <img src="https://www.svgrepo.com/show/355037/google.svg" class="w-4 h-4" alt='' />
+                                    <span>Google</span>
+                                </button>
+                                <button
+                                    class="w-full m-1 text-center border-slate-500 py-1 my-3 border flex space-x-2 items-center justify-center border-slate-200 rounded-lg text-slate-700 hover:border-slate-400 hover:text-slate-900 hover:shadow transition duration-150">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fa/Apple_logo_black.svg"
+                                        class="w-4 h-4" alt='' /> <span>Apple ID</span>
+                                </button>
+                            </div>
+                        </div>
+                        <p class=" text-left text-1xl ">or Continue with email address</p>
+                        <div class="bg-white  w-full rounded-lg divide-y divide-gray-200">
+                            <div class="py-2">
+                                <div class=" flex justify-start items-center relative">
+                                    <input placeholder="      Example@gmail.com"
+                                        class=" border  float-right border-sky-500 rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full m-1 bg-gray-200 " />
+                                    <img src="../img/Image/mail.svg" class="absolute m-5 ml-4 mt-3 w-5" alt="mail Icon" />
+                                </div>
+                                <div class=" flex justify-start items-center relative">
+                                    <input placeholder="       Enter your password"
+                                        class=" border  float-right border-sky-500 rounded-lg px-3 py-2 mt-1 mb-3 text-sm w-full m-1 bg-gray-200 " />
+                                    <img src="../img/Image/lock.svg" class="absolute m-5 ml-4 mt-3 w-5" alt="mail Icon" />
+                                </div>
+                                <div class="py-5">
+                                    <div class="grid grid-cols-2 gap-1">
+                                        <div class="text-center sm:text-left whitespace-nowrap">
+                                            <div class='flex'>
+
+                                                <input type="checkbox" />
+                                                <span class="inline-block ml-1">Remeber me</span>
+                                            </div>
+
+                                        </div>
+                                        <div class="text-center sm:text-right whitespace-nowrap">
+                                            <button
+                                                class="transition duration-200  px-3  cursor-pointer font-normal text-sm rounded-lg text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-200 focus:ring-2 focus:ring-gray-400 focus:ring-opacity-50 ring-inset">
+                                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                                    stroke="currentColor"
+                                                    class="w-4 h-4 inline-block align-text-bottom	">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                                        d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                                                </svg>
+                                                <span class="inline-block ml-1">Forgot Password</span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button type="button"
+                                    class="transition duration-200 bg-blue-500 hover:bg-blue-600 focus:bg-blue-700 focus:shadow-sm focus:ring-4 focus:ring-blue-500 focus:ring-opacity-50 text-white w-full py-2.5 rounded-lg text-sm shadow-sm hover:shadow-md font-semibold text-center inline-block">
+                                    <span class="inline-block mr-2">Sign in to your account</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                                        stroke="currentColor" class="w-4 h-4 inline-block">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                            d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                                    </svg>
+                                </button>
+                                <div class="text-center p-2 sm:text-center whitespace-nowrap">
+                                    <p class='text-[13px]'> Don't have an Account? <span class='font-bold'> Sign up for
+                                            free</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--  Login banner  -->
+            <div id='box2' class="flex flex-wrap content-center justify-center rounded-r-md ml-9"
+                style="width: '24rem'; height: '32rem';">
+                <img class="w-full h-full bg-center bg-no-repeat bg-cover rounded-r-md ml-4 " src="../img/Image/image1.png" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

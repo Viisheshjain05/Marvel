@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow-x: hidden; */
+}
+
+@media (max-width: 768px) {
+  #box2 {
+    display: none;
+  }
+}
+.boximg2 {
+  position: absolute;
+  width: 1521px;
+  height: 1014px;
+  left: 793.5px;
+  top: 1266.5px;
+}
