@@ -1,0 +1,124 @@
+$cache: "1.20";
+$image-version: "1.20";
+
+//Colors
+$transparent: transparent;
+$default: #1a1a1a;
+$gray: #848484;
+$white: #fff;
+$black: #000;
+$green: #33a037;
+$red: #eb4659;
+$disabled: #95a1a8;
+
+// btn colorcode
+$cta-primary-color: #ee2364;
+$progress-color: #fbe64d;
+
+//client colors
+$client-primary-color: #10044a;
+$client-secondary-color: #19398a;
+$client-complementary-color: #252525;
+$client-deactive-color: #dbdbdb;
+
+$light-grey-blue: #a3b0d0;
+$light-grey-blue-two: #93a5dc;
+$light-blue-grey: #a8a8a8;
+$light-blue-grey-two: #dce4f5;
+$light-blue-grey-three: #c7d1ec;
+$duck-egg-blue: #f6f8fa;
+$duck-egg-blue-two: #edfdfb;
+$steel: #7d839f;
+$dark-indigo: #100d48;
+$french-blue: #3c5baa;
+$blue-grey: #7d83a2;
+$faded-blue: #637fc5;
+$pale: #fffadb;
+$dark-cream: #fff1a1;
+$cobalt-two: #18398a;
+$yellow-tan: #ffe76b;
+$marigold: #ffcb05;
+$very-light-purple: #f5f6fd;
+$text-dark: #212121;
+$primary-ink-hover: #032b5b;
+$secondary-electric: #00b1e5;
+$text-body-grey: #51626f;
+$text-meta: #0d1123;
+$divider-stroke: #f5f7fd;
+// toastMsgColor
+$dark-blue-green: #003830;
+$dark-aquamarine: #33a037;
+$teal: #009a84;
+$light-teal: #77e5d5;
+$rust-red: #bb2308;
+$dark-red: #770e00;
+$status: #db0000;
+$tomato-red: #ef4123;
+$abandoned: #dd500f;
+$status-green: #33a037;
+
+// badges colors
+$badg-gold: #fffbea;
+$badg-gold--dark: #ede5c4;
+
+$badg-silver: #f3f4f7;
+$badg-silver--dark: #e3e5ea;
+
+$badg-bronze: #fdf4f0;
+$badg-bronze--dark: #f5dfd6;
+
+$badg-daimond: #f2f5ff;
+$badg-daimond--dark: #e0e5f5;
+
+$badg-booster: #f5f6fd;
+$badg-booster--dark: #e8eafa;
+
+$badg-earned: #ecfaf0;
+
+// social icons
+$googlePlus: #db4437;
+$facebook: #4460a0;
+$twitter: #1da1f2;
+$whatsApp: #7ad06d;
+$instagram: #3f729b;
+$youtube: #c4302b;
+
+//Media Breakpoints
+$media-mobile-min: 320px;
+$media-mobile-sm-min: 375px;
+$media-mobile-sm-max: 480px;
+$media-mobile-max: 767px; //Mobiles (Landscape)
+$media-tablet-min: 768px;
+$media-tablet-small-max: 812px; //for iphone10, vivov11 pro and one plus 6/6T @media screen and (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)
+$media-tablet-max: 992px; //Tablets, Ipads
+$media-desktop-min: 1025px;
+$media-desktop-max: 1280px; //Laptops, Desktops
+$media-lg-desktop-min: 1281px;
+$media-laptop-max: 1366px;
+$media-ex-large-max: 1441px;
+$media-ex-large-hd-max: 1601px;
+$media-xxlarge: 1900px;
+$media-xxxlarge: 1901px;
+$media-xxlarge-min: 2000px;
+
+// $media-mobile-ex-small-320: 320px;
+// $media-mobile-small: 360px;
+// $media-mobile-med: 375px;
+// $media-mobile-small-max: 480px;
+// $media-mobile-max: 767px; //Mobiles (Landscape)
+// $media-tablet-min: 768px;
+// $media-tablet-small-max : 812px; //for iphone10, vivov11 pro and one plus 6/6T @media screen and (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)
+// $media-tablet-max: 992px; //Tablets, Ipads
+// $media-desktop-min: 1024px;
+// $media-desktop-max: 1200px;
+// $media-laptop-min: 1280px; //Laptops, Desktops
+// $media-laptop-max: 1366px;
+// $media-ex-large-min: 1367px;
+// $media-ex-large-max: 1441px;
+// $media-ex-large-hd-max: 1601px;
+// $media-xxlarge: 1900px;
+// $media-xxlarge-min: 2000px;
+
+// @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+
+// }

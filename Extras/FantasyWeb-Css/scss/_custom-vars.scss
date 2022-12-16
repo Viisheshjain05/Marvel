@@ -1,0 +1,150 @@
+:root {
+  //font family
+  --uf-font-base-regular: "Roboto", sans-serif;
+  --uf-font-base-semibold: "Roboto", sans-serif;
+  --uf-font-base-bold: "Roboto", sans-serif;
+  --uf-font-comp-regular: "Champions Regular", Helvetica, Arial, sans-serif;
+  --uf-font-comp-bold: "Champions Bold", "Champions Bold Cyrillic", Helvetica,
+    Arial, sans-serif;
+
+  //font weights
+  --uf-font-weight-s: 300;
+  --uf-font-weight-m: 400;
+  --uf-font-weight-l: 500;
+  --uf-font-weight-xl: 700;
+}
+
+/*color palete light*/
+:root [uf-theme="light"] {
+  --uf-primary-01: #00004b;
+  --uf-primary-02: #61619f;
+  --uf-primary-03: #363683;
+  --uf-primary-04: #010141;
+  --uf-secondary-01: #0d3aff;
+  --uf-secondary-02: #0929c9;
+  --uf-secondary-03: #061da5;
+  --uf-secondary-04: #041181;
+  --uf-tertiary-01: #5af7dc;
+  --uf-tertiary-02: #a0fbeb;
+  --uf-tertiary-03: #74f7e0;
+  --uf-tertiary-04: #22e3c2;
+  --uf-accent-01: #ff16ff;
+  --uf-accent-02: #fc84fc;
+  --uf-accent-03: #c200c2;
+  --uf-accent-alt-01: #ffffff;
+  --uf-accent-alt-02: #ffffff;
+  --uf-accent-alt-03: #ffffff;
+  --uf-interaction: #0d3aff;
+  --uf-interaction-hover: #738dff;
+  --uf-interaction-pressed: #0028d9;
+  --uf-interaction-compl: #ffffff;
+  --uf-interaction-high-contrast: #ffffff;
+  /*The nreutral colours are used to built the interface. $basic colours should be used for text.*/
+  --uf-text-01: #30316e;
+  --uf-text-01-hover: #5153b3;
+  --uf-text-01-pressed: #30316e;
+  --uf-text-02: #606190;
+  --uf-text-03: #9192b3;
+  --uf-text-04: #ffffff;
+  --uf-text-05: #2c2c2c;
+  --uf-ui-00: #ffffff;
+  --uf-ui-01: #e8eaf3;
+  --uf-ui-02: #dbdde9;
+  --uf-ui-03: #c1c2d5;
+  --uf-ui-04: #a3a4b7;
+  --uf-ui-05: #252663;
+  --uf-ui-06: #0a0a2f;
+  /*The colours are used to build stats graphs and ensure the visual contrasted comparision between data when working with statistics.*/
+  --uf-data-01: #22e3c2;
+  --uf-data-02: #0d3aff;
+  --uf-data-03: #e131e1;
+  --uf-data-04: #606190;
+  /*Elevation is the relative distance between two surfaces along the z-axis. Use $elevation01 for cards and elements on top of the background (surface); use $elevation02 for cards on top of cards (i.e groupedCard)*/
+  --uf-background: #f1f3f8;
+  --uf-elevation-01: #ffffff;
+  --uf-elevation-02: #ffffff;
+  --uf-elevation-03: #ffffff;
+  /*These colours should be used to support a notification or information. The character semantic of the colours should help our users to better understand the typology of message.*/
+  --uf-support-01: #32a72c;
+  --uf-support-02: #0085e6;
+  --uf-support-03: #df6817;
+  --uf-support-03a: #d68d45;
+  --uf-support-04: #cb333b;
+  --uf-support-05: #ffcd44;
+  --uf-selected-state-gradient: #ffffff;
+  --uf-border-gradient: #ffffff;
+  --uf-swiper-bg: #ffffff;
+  --uf-filter-bg: #ffffff;
+  --uf-common-bg: #ffffff;
+}
+
+/*color palete dark*/
+/*This colours are used to build brand when working in the interface. To see the full set of available colours for creative purposes visit the FAME web.*/
+:root,
+:root [uf-theme="dark"] {
+  --uf-primary-01: #00004b;
+  --uf-primary-02: #61619f;
+  --uf-primary-03: #363683;
+  --uf-primary-04: #010141;
+  --uf-secondary-01: #0d3aff;
+  --uf-secondary-02: #0929c9;
+  --uf-secondary-03: #061da5;
+  --uf-secondary-04: #041181;
+  --uf-tertiary-01: #5af7dc;
+  --uf-tertiary-02: #a0fbeb;
+  --uf-tertiary-03: #74f7e0;
+  --uf-tertiary-04: #22e3c2;
+  --uf-accent-01: #ff16ff;
+  --uf-accent-02: #fc84fc;
+  --uf-accent-03: #cc05cc;
+  --uf-accent-alt-01: #ffffff;
+  --uf-accent-alt-02: #ffffff;
+  --uf-accent-alt-03: #ffffff;
+  --uf-interaction: #5af7dc;
+  --uf-interaction-hover: #bbfcf1;
+  --uf-interaction-pressed: #29f5d2;
+  --uf-interaction-compl: #00004b;
+  --uf-interaction-high-contrast: #ffffff;
+  /*The nreutral colours are used to built the interface. $basic colours should be used for text.*/
+  --uf-text-01: #ffffff;
+  --uf-text-01-hover: rgba(255, 255, 255, 0.9);
+  --uf-text-01-pressed: rgba(255, 255, 255, 0.7);
+  --uf-text-02: rgba(255, 255, 255, 0.7);
+  --uf-text-03: rgba(255, 255, 255, 0.5);
+  --uf-text-04: #ffffff;
+  --uf-text-05: rgba(0, 0, 75, 0.8);
+  --uf-ui-00: rgba(255, 255, 255, 0.05);
+  --uf-ui-01: rgba(255, 255, 255, 0.1);
+  --uf-ui-02: rgba(255, 255, 255, 0.25);
+  --uf-ui-03: rgba(255, 255, 255, 0.35);
+  --uf-ui-04: rgba(255, 255, 255, 0.55);
+  --uf-ui-05: rgba(255, 255, 255, 0.8);
+  --uf-ui-06: #ffffff;
+  /*The colours are used to build stats graphs and ensure the visual contrasted comparision between data when working with statistics.*/
+  --uf-data-01: #5af7dc;
+  --uf-data-02: #4063ff;
+  --uf-data-03: #ffffff;
+  --uf-data-04: #ff16ff;
+  /*Elevation is the relative distance between two surfaces along the z-axis. Use $elevation01 for cards and elements on top of the background (surface); use $elevation02 for cards on top of cards (i.e groupedCard)*/
+  --uf-background: #000040;
+  --uf-elevation-01: #0a0a61;
+  --uf-elevation-02: #151573;
+  --uf-elevation-03: #17177a;
+  /*These colours should be used to support a notification or information. The character semantic of the colours should help our users to better understand the typology of message.*/
+  --uf-support-01: #32a72c;
+  --uf-support-02: #0085e6;
+  --uf-support-03: #df6817;
+  --uf-support-03a: #d68d45;
+  --uf-support-04: #cb333b;
+  --uf-support-05: #ffcd44;
+  //all gradients used in the game
+  --uf-selected-state-gradient: linear-gradient(
+    147.78deg,
+    #039dfd -36.79%,
+    #045ef4 89.93%
+  );
+  --uf-border-gradient: linear-gradient(90deg, #1441fa 0%, #4dd5e3 100%);
+  --uf-swiper-bg: linear-gradient(283.02deg, #001456 1.47%, #062481 171.92%);
+  --uf-filter-bg: linear-gradient(to left bottom, #05248c, #031e73, #001556);
+  --uf-common-bg: linear-gradient(180deg, rgba(0, 29, 125, 0) 0%, #001d7d 3.7%);
+}

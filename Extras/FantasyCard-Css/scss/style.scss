@@ -1,0 +1,29 @@
+@import "_variables";
+@import "_mixins";
+@import '_fantasy-icons';
+@import '_proj-common';
+@import '_fonts';
+
+@import "modules/buttons";
+@import "modules/icons";
+@import "modules/player";
+@import '_react-slider';
+
+@import '_common-code';
+
+@import 'pages/live-players-card';
+@import 'pages/manage-card';
+@import 'pages/subs-card';
+@import 'pages/top-player-card';
+@import 'pages/most-picked-with-no-team';
+@import 'pages/trans-fixes';
+
+
+//not used files
+@import 'pages/fixtures-card'; 
+// @import 'pages/incomplete-team-card';
+// @import 'pages/pick-your-card';
+// @import 'pages/squads-card';
+// @import 'pages/incomplete-squad';
+// @import 'pages/outside-gamer-card';
+// @import 'pages/ie-only';

@@ -1,0 +1,530 @@
+// this file contains code for both transfer history and points summary
+
+// si-custom--scroll class not used
+.si-custom--scroll {
+  right: 8px;
+  @media screen and (min-width: $media-tablet-min) {
+    right: 12px;
+  }
+}
+.si-transfer {
+  &__history {
+    color: var(--uf-text-04);
+    @media screen and (min-width: $media-tablet-min) {
+      padding-top: 30px;
+    }
+    .si-heading {
+      &__section {
+        margin: 0 auto;
+      }
+      &__title {
+        font-family: var(--uf-font-comp-bold);
+        @media screen and (max-width: $media-xsmall-max) {
+          font-size: 24px;
+          padding: 0 16px;
+        }
+        @media screen and (min-width: $media-tablet-min) {
+          font-size: 32px;
+        }
+      }
+    }
+    .si-summary {
+      @media screen and (max-width: $media-xsmall-max) {
+        margin: 0 -16px;
+      }
+    }
+    .si-head__wrapper {
+      @media screen and (max-width: $media-xsmall-max) {
+        display: none;
+      }
+    }
+  }
+}
+
+.si-summary {
+  @media screen and (max-width: $media-xsmall-max) {
+    padding: 0 16px;
+  }
+  &__wrap {
+    justify-content: space-between;
+    margin: 0 -4px 16px;
+    @include flexbox;
+    @media screen and (max-width: $media-xsmall-max) {
+      flex-wrap: wrap;
+    }
+    @media screen and (min-width: $media-small-min) {
+      margin: 0 -10px 62px;
+    }
+  }
+  &__block {
+    background-color: var(--uf-elevation-01);
+    border-radius: 4px;
+    flex: 1;
+    padding: 12px;
+    text-align: center;
+    min-height: 74px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 4px;
+    @include flexbox;
+    @media screen and (max-width: $media-xsmall-max) {
+      margin-bottom: 8px;
+    }
+    @media screen and (min-width: $media-small-min) {
+      margin: 0 8px;
+      padding: 26px;
+      min-height: 120px;
+    }
+    &.si-available {
+      .si-summary__text {
+        color: var(--uf-text-01);
+      }
+    }
+    &.si-disabled {
+      opacity: 1;
+      .si-summary__num,
+      .si-summary__text {
+        color: var(--uf-text-01);
+        opacity: 0.5;
+      }
+    }
+  }
+
+  &__num {
+    font-size: 32px;
+    margin-bottom: 6px;
+    font-family: var(--uf-font-comp-bold);
+    @media screen and (min-width: $media-tablet-min) {
+      font-family: var(--uf-font-base-bold);
+      font-weight: var(--uf-font-weight-xl);
+      min-height: 32px;
+      margin-bottom: 8px;
+    }
+    i {
+      font-size: 16px;
+      @media screen and (min-width: $media-small-min) {
+        font-size: 23px;
+      }
+    }
+  }
+  &__text {
+    color: var(--uf-text-02);
+    font-family: var(--uf-font-base-regular);
+    font-weight: var(--uf-font-weight-m);
+    line-height: 15px;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 16px;
+      line-height: 19px;
+    }
+    // @media screen and (min-width: $media-ex-large-min) {
+    //   font-size: 20px;
+    //   line-height: 23px;
+    // }
+  }
+  &__history {
+    .si-summary__block {
+      @media screen and (max-width: $media-mobile-small-max) {
+        min-width: 165px;
+      }
+    }
+  }
+}
+.si-lb__pts {
+  color: var(--uf-text-04);
+}
+.si-minus {
+  color: var(--uf-support-04);
+}
+.si-white {
+  color: var(--uf-text-04);
+}
+.si-secondary-pts {
+  color: var(--uf-interaction);
+}
+
+.si-no-data {
+  font-size: 14px;
+  @media screen and (min-width: $media-small-min) {
+    font-size: 16px;
+  }
+}
+
+.si-transfer--info {
+  align-items: center;
+  @include flexbox;
+  .si-icon {
+    margin-right: 12px;
+    @media screen and (min-width: $media-ex-large-min) {
+      height: 32px;
+      width: 32px;
+    }
+    &::before {
+      @media screen and (min-width: $media-ex-large-min) {
+        font-size: 14px;
+      }
+    }
+  }
+}
+.si-history {
+  &__wrap {
+    @media screen and (max-width: $media-xsmall-max) {
+      background-color: var(--uf-elevation-01);
+      margin: 0 -16px;
+    }
+  }
+}
+.si-lb {
+  background-color: var(--uf-elevation-01);
+  border-radius: 4px;
+  color: var(--uf-text-02);
+  // padding: 0 20px;
+  margin-bottom: 32px;
+  position: relative;
+  width: 100%;
+
+  &.si-blur--down {
+    &::after {
+      content: "";
+      height: 50px;
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      pointer-events: none;
+      @include linearGradient(180deg, rgba(10, 10, 97, 0) 0%, #151573 75%);
+      @media screen and (min-width: $media-tablet-min) {
+        height: 70px;
+        @include linearGradient(180deg, rgba(10, 10, 97, 0) 0%, #0a0a61 75%);
+      }
+    }
+  }
+  &.si-blur--up {
+    &::after {
+      display: none;
+    }
+    .si-lb__head {
+      &::after {
+        content: "";
+        height: 50px;
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: -49px;
+        pointer-events: none;
+        z-index: zindex(default);
+        @include linearGradient(to top, rgba(10, 10, 97, 0) 0%, #151573 100%);
+
+        @media screen and (min-width: $media-tablet-min) {
+          bottom: -39px;
+          @include linearGradient(to top, rgba(10, 10, 97, 0) 0%, #0a0a61 80%);
+        }
+      }
+    }
+  }
+  &.si-no-blur {
+    &::after {
+      display: none;
+    }
+  }
+
+  @media screen and (min-width: $media-small-min) {
+    // padding: 0 32px;
+    margin-bottom: 20px;
+  }
+  &:not(.si-lb__points) {
+    @media screen and (max-width: $media-xsmall-max) {
+      background-color: var(--uf-elevation-02);
+    }
+  }
+  &__head {
+    font-size: 16px;
+    position: relative;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 20px;
+    }
+    // @media screen and (min-width: $media-ex-large-min) {
+    //   font-size: 24px;
+    // }
+    .si-lb__row {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        height: 1px;
+        background-color: var(--uf-ui-02);
+        @media screen and (min-width: $media-small-min) {
+          left: 32px;
+          right: 32px;
+        }
+      }
+    }
+    .si-lb__subs {
+      color: var(--uf-text-04);
+      @media screen and (min-width: $media-tablet-min) {
+        color: #d9dbe7;
+      }
+      flex: 0 0 65%;
+      div {
+        &:not(:last-child) {
+          margin: 0 12px 2px 0;
+          @media screen and (min-width: $media-tablet-min) {
+            margin: 0 20px 0 0;
+          }
+        }
+      }
+    }
+    .si-lb__num {
+      flex: 0 0 35%;
+    }
+    // .si-lb__pts {
+    //   @include color(color, uf-text-04);
+    // }
+  }
+  &__row {
+    cursor: default;
+    // font-size: 16px;
+    padding: 20px;
+    position: relative;
+    align-items: center;
+    justify-content: space-between;
+    @include flexbox;
+    &:not(:last-child) {
+      &::after {
+        content: "";
+        position: absolute;
+        left: 20px;
+        right: 20px;
+        bottom: 0;
+        height: 1px;
+        background-color: var(--uf-ui-02);
+        @media screen and (min-width: $media-small-min) {
+          left: 32px;
+          right: 32px;
+        }
+      }
+    }
+    @media screen and (min-width: $media-small-min) {
+      // font-size: 20px;
+      padding: 20px 32px;
+    }
+  }
+  &__cell {
+    // text-align: center;
+    width: 100%;
+  }
+  &__body {
+    font-size: 14px;
+    max-height: 300px;
+    overflow: auto;
+    position: relative;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 20px;
+      max-height: 368px;
+    }
+
+    .si-lb__row {
+      &.si-cursor--pointer {
+        &:hover {
+          background: rgba($dark-blue, 0.7);
+        }
+      }
+    }
+  }
+  &__subs {
+    flex-wrap: wrap;
+    text-align: left;
+    align-items: center;
+    width: 80%;
+    @include flexbox;
+  }
+
+  &__num {
+    font-size: 14px;
+    font-family: var(--uf-font-comp-bold);
+    justify-content: flex-end;
+    text-align: right;
+    width: 20%;
+    @include flexbox;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 16px;
+      font-family: var(--uf-font-base-bold);
+      font-weight: var(--uf-font-weight-xl);
+    }
+  }
+  &__total {
+    @media screen and (max-width: $media-mobile-max) {
+      font-family: var(--uf-font-comp-regular);
+    }
+  }
+  &__history {
+    .si-subs__wrap {
+      width: 100%;
+    }
+    .si-lb__head {
+      font-family: var(--uf-font-comp-bold);
+      @media screen and (min-width: $media-small-min) {
+        font-family: var(--uf-font-base-bold);
+        font-weight: var(--uf-font-weight-xl);
+      }
+    }
+    // .si-lb__body {
+    //   .si-lb__subs {
+    //     @include font(font-family, uf-font-base-regular);
+    //     @include fw(font-weight, uf-font-weight-m);
+    //   }
+    // }
+  }
+  &__points {
+    .si-secondary-pts {
+      font-family: var(--uf-font-base-bold);
+      font-weight: var(--uf-font-weight-xl);
+    }
+    .si-lb__cell {
+      text-align: center;
+    }
+    .si-lb__head {
+      @media screen and (max-width: $media-xsmall-max) {
+        font-size: 14px;
+      }
+      .si-lb__row {
+        font-family: var(--uf-font-base-regular);
+        font-weight: var(--uf-font-weight-m);
+        @media screen and (max-width: $media-xsmall-max) {
+          padding-top: 0;
+        }
+      }
+    }
+    .si-lb__body {
+      @media screen and (max-width: $media-xsmall-max) {
+        font-size: 16px;
+      }
+    }
+  }
+  .si-subs__txt {
+    margin: 0;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 16px;
+    }
+    // @media screen and (min-width: $media-ex-large-min) {
+    //   font-size: 20px;
+    // }
+    i {
+      font-size: 8px;
+      padding: 0 4px;
+      margin-right: 4px;
+      @media screen and (min-width: $media-small-min) {
+        font-size: 12px;
+        padding: 0 6px;
+        margin-right: 8px;
+      }
+    }
+  }
+  .si-subs {
+    &--in {
+      margin-right: 5px;
+      overflow: hidden;
+      i {
+        color: var(--uf-support-01);
+      }
+    }
+    &--out {
+      overflow: hidden;
+      i {
+        color: var(--uf-support-04);
+      }
+    }
+  }
+  .si-transfer {
+    &__boosters {
+      margin: 0 0 0 12px;
+      @media screen and (min-width: $media-small-min) {
+        margin: 0 0 0 20px;
+      }
+      .si-booster {
+        background-color: var(--uf-interaction);
+        border-color: var(--uf-interaction);
+        color: var(--uf-interaction-compl);
+        font-family: var(--uf-font-base-regular);
+        font-weight: var(--uf-font-weight-m);
+        padding: 6px 12px;
+        @media screen and (max-width: $media-mobile-max) {
+          flex-direction: row;
+          padding: 5px 10px;
+        }
+        &.si-selected {
+          background-color: var(--uf-interaction);
+          border-color: var(--uf-interaction);
+          color: var(--uf-interaction-compl);
+        }
+        i {
+          font-size: 17px;
+          @media screen and (max-width: $media-mobile-max) {
+            font-size: 10px;
+            margin: 0 7px 0 0;
+          }
+        }
+        .si-autocomplete-title {
+          font-size: 12px;
+          @media screen and (min-width: $media-tablet-min) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+  }
+}
+.si-load-more {
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px 0;
+}
+.si-data {
+  &--error {
+    font-family: var(--uf-font-base-bold);
+    font-weight: var(--uf-font-weight-xl);
+    min-height: 448px;
+    margin-bottom: 0;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @include flexbox;
+    @media screen and (max-width: $media-xsmall-max) {
+      height: 100%;
+    }
+
+    &::after {
+      display: none;
+    }
+  }
+  &__info {
+    color: $gray-mono-2;
+    font-size: 20px;
+    line-height: 26px;
+    text-align: center;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 24px;
+      line-height: 30px;
+    }
+    &:not(:last-child) {
+      margin-bottom: 24px;
+    }
+  }
+  &__cta {
+    cursor: pointer;
+    color: var(--uf-interaction);
+    font-size: 16px;
+    justify-content: center;
+    align-items: center;
+    @include flexbox;
+    i {
+      margin-right: 12px;
+    }
+  }
+}

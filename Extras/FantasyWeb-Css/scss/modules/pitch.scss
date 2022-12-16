@@ -1,0 +1,872 @@
+.si-main-container {
+  &.si-no-ad {
+    .si-billboard {
+      display: none !important;
+    } 
+    .si-bg--pitch {
+      &::before {
+        @media screen and (min-width: $media-small-min) {
+          background-position: center -60px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          background-position: center -36px;
+        }
+        @media screen and (min-width: $media-large-min) {
+          background-position: center -16px;
+        }
+      }
+    }
+  }
+  &:not(.si-no-ad) {
+    .si-main-component {
+      &:not(.si-landing):not(.si-top--gradient):not(.si-transfer__history):not(.si-eot) {
+        @media screen and (min-width: $media-small-min) {
+          padding-top: 120px;
+        }
+      }
+    }
+    .si-section--banner {
+      padding-top: 130px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        padding-top: 165px;
+      }
+    }
+    .si-ad--billboard {
+      position: absolute;
+      top: 120px;
+      left: 0;
+      right: 0;
+      z-index: zindex(medium);
+      @media screen and (min-width: $media-small-tablet-min) {
+        top: 100px;
+      }
+    }
+  }
+  .si-ad--billboard {
+    @media screen and (min-width: $media-small-tablet-min) {
+      min-height: 90px;
+    }
+    .si-ad,
+    .si-sponser-ad {
+      margin: 0 auto;
+    }
+    margin: 20px auto 10px;
+  }
+  &.si-top-ad {
+    .si-top__header {
+      @media screen and (min-width: $media-small-min) {
+        z-index: zindex(default);
+      }
+    }
+    .si-bg--pitch {
+      &::before {
+        @media screen and (min-width: $media-tablet-min) {
+          background-position: center 80px;
+        }
+        @media screen and (min-width: $media-large-min) {
+          background-position: center 110px;
+        }
+      }
+    }
+    .si-bg--center {
+      &::before {
+        @media screen and (min-width: $media-tablet-min) {
+          background-position: center 50px;
+        }
+        @media screen and (min-width: $media-large-min) {
+          background-position: center 90px;
+        }
+      }
+    }
+
+    .si-captain-wrap,
+    .si-manage {
+      .si-wrap {
+        @media screen and (min-width: $media-tablet-min) {
+          padding: 0 0 50px;
+        }
+      }
+    }
+    .si-manage {
+      .si-wrap {
+        @media screen and (min-width: $media-tablet-min) {
+          padding: 0 0 60px;
+        }
+        @media screen and (min-width: $media-ex-large-min) {
+          padding: 0 0 100px;
+        }
+      }
+    }
+    .si-filter {
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-top: 7px;
+      }
+    }
+    .si-top--gradient {
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-top: -105px;
+        padding-top: 40px;
+      }
+      @media screen and (min-width: $media-large-min) {
+        padding-top: 40px;
+        margin-top: -40px;
+      }
+      @media screen and (min-width: $media-xxlarge) {
+        padding-top: 0;
+        padding-top: 10px;
+        margin-top: -80px;
+      }
+    }
+  }
+}
+.si-no-landscape {
+  display: none;
+  color: $white;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 11111; //higher than loader
+  pointer-events: none;
+  @include linearGradient(
+    244.8deg,
+    #001456 -0.76%,
+    #062481 84.68%,
+    #ff16ff 160.07%
+  );
+
+  img {
+    margin-bottom: 30px;
+  }
+  span {
+    font-family: var(--uf-font-comp-bold);
+    font-size: 22px;
+    line-height: 24px;
+    text-align: center;
+    max-width: 400px;
+    margin: 0 16px;
+  }
+}
+.si-formation {
+  &-btn {
+    background: rgba($black, 0.7);
+    border: 1px solid $white;
+    border-radius: 20px;
+    cursor: pointer;
+    color: $white;
+    font-size: 14px;
+    font-weight: $fws--medium;
+    line-height: 17px;
+    padding: 6px 15px;
+    position: absolute;
+    bottom: 20px;
+    left: 5%;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 94px;
+    @include box-shadow(0px, 2px, 4px, rgba(0, 0, 0, 0.5));
+
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 16px;
+      left: 4%;
+      padding: 7px 14px 7px 17px;
+    }
+
+    @media screen and (min-width: $media-desktop-min) {
+      // bottom: 30px;
+      bottom: 42px;
+    }
+
+    @media screen and (min-width: $media-large-min) {
+      left: 18%;
+    }
+
+    i {
+      font-size: 11px;
+    }
+  }
+
+  &-type {
+    margin-right: 10px;
+  }
+}
+.si-share-team {
+  background: rgba($black, 0.7);
+  border: 1px solid rgba($white, 0.7);
+  color: $white;
+  cursor: pointer;
+  font-size: 14px;
+  position: absolute;
+  right: 16px;
+  top: 0;
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  z-index: zindex(default);
+  @extend .si-flexBox;
+  @include box-shadow(0, 0, 0, 2px, rgba(0, 0, 0, 0.16));
+  @media screen and (min-width: $media-tablet-min) {
+    font-size: 16px;
+    right: 16%;
+    top: 32px;
+    height: 40px;
+    width: 40px;
+  }
+  @media screen and (min-width: $media-ex-large-min) {
+    top: 80px;
+    right: 20%;
+  }
+  i {
+    &::before {
+      @media screen and (max-width: $media-tablet-min) {
+        content: "\e946";
+      }
+    }
+  }
+}
+
+.si-main-component {
+  .si-side--shape {
+    @media screen and (min-width: $media-medium-min) {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 40px;
+      bottom: 0;
+      pointer-events: none;
+      z-index: zindex(default);
+    }
+    &::before,
+    &::after {
+      @media screen and (min-width: $media-medium-min) {
+        content: "";
+        background-image: url("../images/pitch-images/star-shape.png");
+        background-repeat: no-repeat;
+        position: absolute;
+        top: -20px;
+        bottom: 0;
+        width: 350px;
+      }
+      @media screen and (min-width: $media-ex-large-min) {
+        background-size: contain;
+      }
+    }
+    &::before {
+      @media screen and (min-width: $media-medium-min) {
+        left: 0;
+      }
+    }
+    &::after {
+      @media screen and (min-width: $media-medium-min) {
+        right: -30px;
+        @include transform(scaleX(-1));
+      }
+    }
+  }
+}
+
+.si-main-component {
+  // & > .si-container {
+  //   position: relative;
+  // }
+  &.si-on-load {
+    .si-toast--kits {
+      z-index: zindex(medium);
+    }
+    .si-pitch {
+      .si-modal {
+        @extend .si-flexBox;
+      }
+      &__wrap {
+        @media screen and (max-width: $media-small-max) {
+          z-index: auto;
+        }
+      }
+    }
+    .si-plyr__wrap {
+      &::after {
+        display: block;
+        bottom: 38px;
+        height: 12px;
+        width: 12px;
+        @media screen and (min-width: $media-mobile-ex-small) {
+          bottom: 51px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          bottom: 58px;
+        }
+      }
+    }
+    .si-tutorial {
+      z-index: 111;
+      .si-tooltip {
+        display: flex;
+        min-width: 150px;
+        bottom: 43px;
+        @media screen and (min-width: $media-mobile-ex-small) {
+          bottom: 56px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          min-width: 160px;
+          bottom: 63px;
+        }
+      }
+    }
+  }
+
+  &.si-fixtures {
+    & > .si-container {
+      position: relative;
+      z-index: zindex(default);
+    }
+  }
+  &.si-captain-wrap {
+    @media screen and (min-width: $media-small-tablet-min) {
+      min-height: 1000px;
+    }
+  }
+  // &.si-transfer-wrap,
+  &.si-manage {
+    @media screen and (min-width: $media-tablet-min) {
+      min-height: 1200px;
+    }
+    @media screen and (min-width: $media-xxlarge) {
+      // min-height: 1300px;
+      min-height: 1410px;
+    }
+    & + .si-top--gradient {
+      @media screen and (min-width: $media-xxlarge) {
+        padding-top: 0px;
+        margin-top: -50px;
+      }
+    }
+    &--autosubs {
+      & + .si-top--gradient {
+        &::before,
+        &::after {
+          top: 0;
+        }
+        @media screen and (min-width: $media-tablet-min) {
+          // margin-top: -125px;
+          margin-top: -95px;
+          padding-top: 20px;
+        }
+      }
+    }
+  }
+  &.si-transfer-wrap,
+  &.si-manage--subs {
+    @media screen and (min-width: $media-tablet-min) and (max-width: $media-ex-large-max) {
+      min-height: 1200px;
+    }
+    @media screen and (min-width: $media-xxlarge) {
+      // min-height: 1300px;
+      min-height: 1300px;
+    }
+    & + .si-top--gradient {
+      &::before,
+      &::after {
+        top: 0;
+        // @media screen and (min-width: $media-xxlarge) {
+        //   top: -60px;
+        // }
+      }
+      @media screen and (min-width: $media-tablet-min) {
+        // margin-top: -125px;
+        margin-top: -95px;
+        padding-top: 20px;
+      }
+    }
+  }
+}
+.si-bg--pattern {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 363px;
+  pointer-events: none;
+  overflow: hidden;
+  &::after {
+    content: "";
+    background-image: url("../images/filter/starball-blue.svg?v=#{$cache-img}");
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 374px;
+    position: absolute;
+    left: 0;
+  }
+}
+.si-wrap {
+  min-height: 400px;
+  position: relative;
+  @extend .si-flexBox;
+  @media screen and (max-width: $media-small-max) {
+    flex-direction: column;
+  }
+  @media screen and (min-width: $media-small-tablet-min) {
+    min-height: 800px;
+    padding: 30px 0 110px;
+  }
+}
+
+.si-pitch {
+  position: relative;
+  width: 100%;
+  @media screen and (min-width: $media-small-min) {
+    margin-bottom: 20px;
+  }
+  // @media screen and (min-width: $media-tablet-min) {
+  //   min-height: 590px;
+  // }
+
+  &::before {
+    @media screen and (max-width: $media-xsmall-max) {
+      content: "";
+      display: block;
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+      padding-top: calc(1347 / 1125 * 100%);
+      width: 100%;
+    }
+  }
+  &::after {
+    @media screen and (max-width: $media-small-max) {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 6px;
+      background: rgba($black, 0.05);
+    }
+  }
+
+  &__header {
+    @media screen and (min-width: $media-small-min) {
+      min-height: 200px;
+    }
+  }
+
+  &__section {
+    @media screen and (min-width: $media-small-tablet-min) {
+      // padding-top: 50px;
+      // height: calc(100% - 174px);
+      height: auto;
+      // padding-top: 16px;
+
+      flex-direction: column;
+      justify-content: space-between;
+      width: 100%;
+      @include flexbox;
+    }
+
+    // @media screen and (min-width: $media-large-min) {
+    //   height: calc(100% - 184px);
+    // }
+    // @media screen and (min-width: $media-xxlarge-min) {
+    //   padding-top: 36px;
+    // }
+  }
+
+  &__wrap {
+    min-height: 400px;
+    width: 100%;
+    position: relative;
+    @media screen and (max-width: $media-small-max) {
+      z-index: zindex(default);
+    }
+
+    @media screen and (min-width: $media-small-tablet-min) {
+      margin: 20px auto 0;
+      width: calc(100% - 332px);
+    }
+    @media screen and (min-width: $media-large-min) {
+      width: calc(100% - 360px);
+    }
+  }
+
+  &--top {
+    height: 100%;
+    width: 100%;
+    justify-content: space-between;
+    flex-direction: column;
+    @extend .si-flexBox !optional;
+    @media screen and (max-width: $media-xsmall-max) {
+      position: absolute;
+      top: 4px;
+      bottom: 24%;
+      height: auto;
+    }
+    @media screen and (min-width: $media-small-min) {
+      height: auto;
+      position: relative;
+      padding-top: 62px;
+      padding-bottom: 12px;
+      min-height: 423px;
+      margin-bottom: 10px;
+    }
+    @media screen and (min-width: $media-small-tablet-min) {
+      padding-top: 32px;
+      min-height: 413px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      padding-top: 61px;
+      min-height: 512px;
+      margin-bottom: 30px;
+    }
+    @media screen and (min-width: $media-xxlarge) {
+      min-height: 572px;
+      padding-top: 80px;
+    }
+  }
+
+  &--bottom {
+    @media screen and (max-width: $media-xsmall-max) {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+    }
+    @media screen and (min-width: $media-small-min) {
+      position: relative;
+    }
+    @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+      padding-top: 20px;
+    }
+
+    @media screen and (min-width: $media-ex-large-min) {
+      padding: 0 15px;
+    }
+
+    .si-plyr {
+      @media screen and (max-width: $media-small-max) {
+        min-height: 80px;
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        min-height: 113px;
+      }
+    }
+    .si-icon--top {
+      @include border-radius(50%);
+      .si-icon {
+        @media screen and (max-width: $media-small-max) {
+          // width: 100%;
+          // height: 100%;
+        }
+      }
+    }
+    .si-tooltip {
+      @media screen and (min-width: $media-small-tablet-min) {
+        bottom: 30px;
+      }
+    }
+    .si-tt-active {
+      &::after {
+        @media screen and (min-width: $media-small-tablet-min) {
+          height: 11px;
+          width: 11px;
+        }
+      }
+    }
+  }
+}
+
+.si-team-row {
+  justify-content: center;
+  text-align: center;
+  position: relative;
+  @extend .si-flexBox !optional;
+}
+.si-row-five {
+  .si-plyr {
+    @media screen and (max-width: $media-mobile-small-max) {
+      margin: 0;
+    }
+  }
+}
+
+//fixtures bg
+.si-top--gradient {
+  @media screen and (max-width: $media-small-max) {
+    display: none;
+  }
+}
+// pitch bg
+.si-bg--pitch {
+  @media screen and (min-width: $media-small-tablet-min) {
+    min-height: 1300px;
+  }
+  @media screen and (min-width: $media-xxlarge) {
+    min-height: 1410px;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    @media screen and (max-width: $media-xsmall-max) {
+      background-image: url("../images/pitch-images/pitch-top-mob.jpg?v=#{$cache-img}");
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: bottom;
+      // height: 280px;
+      height: 230px;
+    }
+    @media screen and (min-width: $media-small-min) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1366-center.jpg?v=#{$cache-img}");
+      background-repeat: no-repeat;
+      background-color: $black;
+      // background-position: center -120px;
+      background-position: center 60px;
+      height: 100%;
+      width: 100%;
+    }
+    @media screen and (min-width: $media-small-tablet-min) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1366.jpg?v=#{$cache-img}");
+      // background-position: center -36px;
+      background-position: center 110px;
+      width: calc(100% + 120px);
+    }
+    @media screen and (min-width: $media-medium-min) {
+      // width: calc(100% + 180px);
+      width: calc(100% + 30px);
+    }
+    @media screen and (min-width: $media-large-min) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1400.jpg?v=#{$cache-img}");
+      // background-position: center top;
+    }
+    @media screen and (min-width: $media-xxlarge) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1920.png?v=#{$cache-img}");
+      // background-color: $dark-blue;
+      width: calc(100% + 70px);
+    }
+
+    @media screen and (min-width: $media-xxlarge-min) {
+      width: 100%;
+    }
+  }
+  .si-pitch {
+    &::before {
+      @media screen and (max-width: $media-xsmall-max) {
+        background-image: url("../images/pitch-images/pitch-mob.jpg?v=#{$cache-img}");
+      }
+    }
+
+    &__section {
+      @media screen and (max-width: $media-small-max) {
+        position: relative;
+      }
+    }
+
+    &__ad {
+      position: relative;
+      &::before {
+        content: "";
+        display: block;
+        padding-top: calc(64 / 750 * 100%);
+        background-image: url("../images/sponser/Playstation.jpg?v=#{$cache-img}");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+      }
+      @media screen and (min-width: $media-small-min) {
+        display: none;
+      }
+      &-img {
+        display: none;
+      }
+    }
+
+    &__wrap {
+      @media screen and (max-width: $media-xsmall-max) {
+        padding-top: 67px;
+      }
+    }
+    &__footer {
+      // @media screen and (max-width:  $media-xsmall-max) {
+      //   background-color: var(--uf-elevation-01);
+      //   padding: 20px 32px;
+      // }
+      @media screen and (max-width: $media-small-max) {
+        background-color: var(--uf-elevation-01);
+        padding: 20px 32px;
+      }
+      @media screen and (max-width: 359px) {
+        padding: 20px 16px;
+      }
+      @media screen and (min-width: $media-tablet-min) {
+        min-height: 32px;
+      }
+      @media screen and (min-width: $media-ex-large-min) {
+        min-height: 52px;
+      }
+      .si-btn__wrap {
+        max-width: 536px;
+        margin: 0 auto;
+        @media screen and (min-width: $media-small-tablet-min) {
+          display: none;
+        }
+      }
+      .si-suggest-btn {
+        margin-left: 10px;
+      }
+      &.si-footer__secondary {
+        .si-btn__wrap .si-btn {
+          flex: 1 0 0;
+          &:not(:last-child) {
+            margin: 0 10px 0 0;
+          }
+        }
+        @media screen and (max-width: $media-small-max) {
+          background-color: #419967;
+          margin-top: -1px;
+          @include linearGradient(
+            360deg,
+            #419967 0%,
+            rgba(68, 162, 106, 0) 95.7%
+          );
+        }
+      }
+    }
+  }
+
+  .si-subs-wrap {
+    .si-team-row {
+      @media screen and (max-width: $media-small-max) {
+        margin: 0 -20px;
+      }
+    }
+
+    .si-sponser-ad {
+      @media screen and (min-width: $media-small-tablet-min) {
+        display: none;
+      }
+    }
+  }
+  .si-sponser-ad {
+    @media screen and (max-width: $media-xsmall-max) {
+      background: #44a26a;
+    }
+    @media screen and (max-width: $media-xsmall-max) {
+      height: 70px;
+      padding: 0 0 10px 0;
+      margin: 0;
+    }
+  }
+  .si-autosubs-ad {
+    padding: 10px 0;
+  }
+}
+
+//centered pitch
+.si-bg--center {
+  &::before {
+    @media screen and (min-width: $media-small-tablet-min) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1366-center.jpg?v=#{$cache-img}");
+      width: calc(100% + 12px);
+    }
+    @media screen and (min-width: $media-large-min) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1400-center.jpg?v=#{$cache-img}");
+    }
+    @media screen and (min-width: $media-xxlarge) {
+      background-image: url("../images/pitch-images/pitch-with-bar-1920-center.png?v=#{$cache-img}");
+    }
+  }
+  .si-filter {
+    display: none;
+  }
+
+  .si-pitch__wrap {
+    width: 100%;
+    flex-direction: column;
+    @extend .si-flexBox;
+    @media screen and (min-width: $media-small-tablet-min) {
+      min-height: 960px;
+    }
+  }
+}
+
+.si-main-component {
+  &.si-bg--pitch,
+  &.si-bg--center {
+    .si-container {
+      @media screen and (min-width: $media-small-min) {
+        position: relative;
+        z-index: zindex(medium);
+      }
+    }
+  }
+}
+//captain screen
+.si-captain-wrap {
+  .si-wrap {
+    @media screen and (min-width: $media-small-tablet-min) {
+      padding: 30px 0 40px;
+    }
+    .si-sponser-ad {
+      @media screen and (max-width: $media-xsmall-max) {
+        margin: -70px auto 0;
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-top: 90px;
+      }
+      @media screen and (min-width: $media-xxlarge) {
+        margin-top: 40px;
+      }
+    }
+  }
+  .si-pitch {
+    @media screen and (min-width: $media-ex-large-min) {
+      min-height: 510px;
+    }
+
+    @media screen and (min-width: $media-xxlarge) {
+      min-height: 600px;
+    }
+  }
+  .si-pitch__section {
+    @media screen and (min-width: $media-small-tablet-min) {
+      margin: 0 auto;
+      width: 80%;
+    }
+  }
+
+  .si-pitch__footer {
+    padding-top: 20px;
+    @media screen and (min-width: $media-tablet-min) {
+      padding-top: 0;
+    }
+    @media screen and (min-width: $media-ex-large-min) and (max-width: 1919px) {
+      margin-top: 0;
+    }
+  }
+
+  .si-btn__wrap-mob {
+    padding: 0;
+  }
+
+  .si-tabs--filter {
+    @media screen and (min-width: $media-small-tablet-min) {
+      margin: 0 auto 20px;
+    }
+  }
+}
+.si-main-component {
+  &.si-manage--subs {
+    @media screen and (min-width: $media-small-tablet-min) {
+      min-height: 1200px;
+    }
+    @media screen and (min-width: $media-large-min) and (max-width: 1919px) {
+      min-height: 1300px;
+    }
+  }
+}

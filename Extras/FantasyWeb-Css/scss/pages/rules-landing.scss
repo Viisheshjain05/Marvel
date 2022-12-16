@@ -1,0 +1,145 @@
+.si-landing {
+  &--rules {
+    .si-color--primary {
+      color: var(--uf-secondary-01);
+      cursor: pointer;
+    }
+    .si-section {
+      &--banner {
+        @media screen and (max-width: $media-small-max) {
+          padding-bottom: 50px;
+        }
+
+        .si-section__row {
+          @media screen and (max-width: $media-small-max) {
+            align-items: center;
+          }
+        }
+        .si-section__col {
+          &:not(:last-child) {
+            @media screen and (min-width: $media-small-tablet-min) {
+              width: 60%;
+            }
+          }
+        }
+      }
+    }
+    .si-section__img {
+      background-image: url("../images/rules-landing/Rules-graphic (m).svg?v=#{$cache-img}");
+      width: 218px;
+      height: 184px;
+      @media screen and (max-width: $media-xsmall-max) {
+
+        margin-bottom: 40px;
+      }
+      @media screen and (min-width: $media-mobile-med) {
+        width: 281px;
+        height: 237px;
+      }
+      @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+        width: 221px;
+        height: 187px;
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        background-image: url("../images/rules-landing/Rules-graphic.svg?v=#{$cache-img}");
+        width: 354px;
+        height: 302px;
+      }
+    }
+    .si-section--how-to {
+      margin-top: 30px;
+      padding-top: 0;
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-top: 70px;
+      }
+      & > .si-container {
+        .si-head {
+          margin-bottom: 16px;
+        }
+      }
+      .si-head {
+        &::before {
+          display: none;
+        }
+      }
+      .si-first {
+        margin-bottom: 80px;
+      }
+    }
+    .si-section--social {
+      background-image: url("../images/rules-landing/rules-bg.png?v=#{$cache-img}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      padding-bottom: 40px;
+      position: relative;
+      z-index: zindex(default);
+      //uncomment following code when prizes are not confirmed
+      display: none;
+
+      &::after {
+        @media screen and (min-width: $media-small-tablet-min) {
+          content: "";
+          background-image: url("../images/rules-landing/rules-btm-bg.png?v=#{$cache-img}");
+          background-position: bottom;
+          background-repeat: no-repeat;
+          position: absolute;
+          right: -10%;
+          top: -50%;
+          width: 778px;
+          height: 692px;
+          z-index: zindex(minus);
+        }
+        @media screen and (min-width: $media-large-min) {
+          background-position: top;
+          top: 0;
+          right: 0;
+        }
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        padding-bottom: 80px;
+      }
+      &::before {
+        display: none;
+      }
+      .si-head {
+        text-align: center;
+        width: 100%;
+        @media screen and (max-width: $media-small-max) {
+          font-size: 32px;
+          margin-bottom: 50px;
+        }
+      }
+      .si-first {
+        .si-section__col {
+          @media screen and (min-width: $media-medium-min) {
+            width: calc(100% / 3);
+            margin: 0 10px;
+          }
+        }
+      }
+      .si-second {
+        .si-section__col {
+          justify-content: center;
+          @extend .si-flexBox;
+        }
+        .si-btn__wrap {
+          align-items: center;
+          justify-content: center;
+          @media screen and (max-width: $media-small-max) {
+            width: 100%;
+          }
+        }
+        .si-btn {
+          @media screen and (min-width: $media-small-tablet-min) {
+            min-width: 245px;
+          }
+        }
+      }
+
+      .si-section__desc {
+        width: auto;
+      }
+    }
+  }
+}

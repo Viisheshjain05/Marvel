@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html dir="auto">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sportz Interactive" />
+  <meta name="viewport"
+    content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+    viewport-fit="cover" />
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/swiper.min.js"></script>
+  <script src="../js/haptics.js"></script>
+  <script src="../js/fastclick.js"></script>
+  <!-- <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script> -->
+  <script type="module" src="../js/static.js" defer></script>
+
+  <!--Custom CSS start here-->
+  <link rel="stylesheet" type="text/css" href="../css/rario-superover-22.css" />
+  <!--Custom CSS end here-->
+
+  <title>Rario | Super Over</title>
+</head>
+
+<body class="si-leaderboard">
+  <!-- si-gameplay -->
+  <div class="si-main">
+
+    <header class="si-main__container--fluid si-header__wrap">
+
+      <div class="si-main__container">
+
+        <div class="si-header__container">
+
+          <div class="si-header__container-lft">
+
+            <div class="si-header__logo">
+
+              <a href="javascript:void(0)">
+
+                <img src="../images/super-over-logo.png" alt="" title="Rario Super Over" />
+
+              </a>
+
+            </div>
+
+          </div>
+
+          <div class="si-header__container-rgt">
+
+            <nav class="si-nav__wrap">
+
+              <ul>
+
+                <li>
+
+                  <a class="si-active" href="hp.html">
+
+                    <!-- si-active -->
+
+                    <span>Home</span>
+
+                  </a>
+
+                </li>
+
+                <li>
+
+                  <a href="leaderboard.html"><span>Leaderboard</span></a>
+
+                </li>
+
+                <li>
+
+                  <a href="prizes.html"><span>Prizes</span></a>
+
+                </li>
+
+                <li>
+
+                  <a href="terms.html"><span>Terms</span></a>
+
+                </li>
+
+              </ul>
+
+            </nav>
+
+    
+
+            <div class="si-weekly__wrap">
+
+              <div class="si-weekly__box">
+
+                <div class="si-weekly__title"><span>Week1 Point</span></div>
+
+                <div class="si-weekly__score"><span>500 <em>Pts</em></span></div>
+
+              </div>
+
+              <div class="si-weekly__box">
+
+                <div class="si-weekly__title"><span>Week1 Rank</span></div>
+
+                <div class="si-weekly__score"><span>272</span></div>
+
+              </div>
+
+            </div>
+
+            <!--
+
+            <div class="si-btn si-btn__link--white">
+
+              <span>Exit Game</span>
+
+            </div> -->
+
+          </div>
+
+    
+
+        </div>
+
+      </div>
+
+    </header>
+
+<div class="si-main__container--fluid si-lb__wrap">
+  <!-- <div class="si-main__container">
+    <div class="si-lb__prizes">
+      <ul>
+        <li>
+          <div class="si-prize__podium si-gold">
+            <div class="si-prize__podium-thumb"><span>1</span></div>
+            <div class="si-prize__podium-name"><span>Hunt Winner</span></div>
+            <div class="si-prize__podium-caption"><span>Yet to be announced</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="si-prize__podium si-silver">
+            <div class="si-prize__podium-thumb"><span>2</span></div>
+            <div class="si-prize__podium-name"><span>Hunt Winner</span></div>
+            <div class="si-prize__podium-caption"><span>Yet to be announced</span></div>
+          </div>
+        </li>
+        <li>
+          <div class="si-prize__podium si-bronze">
+            <div class="si-prize__podium-thumb"><span>3</span></div>
+            <div class="si-prize__podium-name"><span>Hunt Winner</span></div>
+            <div class="si-prize__podium-caption"><span>Yet to be announced</span></div>
+          </div>
+        </li>
+      </ul>
+
+    </div>
+  </div> -->
+  <div class="si-main__container">
+    <div class="si-lb__header">
+      <div class="si-lb__header-lft">
+        <div class="si-lb__title">
+          <span>LEADERBOARD</span>
+        </div>
+        <div class="si-lb__title-sub">
+          <span>Leaderboard will be generated <b>every 5 mins</b> </span>
+        </div>
+      </div>
+      <div class="si-lb__header-rgt">
+        <div class="si-lb__dropdown">
+          <!-- si-active -->
+          <div class="si-lb__dropdown-value">
+            <div class="si-lb__dropdown-value-text">
+              <span><b>Week 1</b> (1st Jan - 7th Jan)</span>
+            </div>
+          </div>
+
+          <div class="si-lb__dropdown-box">
+            <div class="si-lb__dropdown-swiperCalendar">
+              <div class="swiper swiper--year">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="si-year">
+                      <span>2020</span>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="si-year">
+                      <span>2021</span>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="si-year">
+                      <span>2022</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="swiper swiper--month">
+                <div class="swiper-wrapper">
+                  <div class="swiper-slide">
+                    <div class="si-month">
+                      <span>January 2022</span>
+                    </div>
+                    <div class="si-week__list">
+                      <ul>
+                        <li class="si-active">
+                          <!-- si-active -->
+                          <div class="si-week">
+                            <span><b>Week 1</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 2</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 3</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 4</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="si-month">
+                      <span>February 2022</span>
+                    </div>
+                    <div class="si-week__list">
+                      <ul>
+                        <li class="si-active">
+                          <!-- si-active -->
+                          <div class="si-week">
+                            <span><b>Week 1</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 2</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 3</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 4</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="si-month">
+                      <span>March 2022</span>
+                    </div>
+                    <div class="si-week__list">
+                      <ul>
+                        <li class="si-active">
+                          <!-- si-active -->
+                          <div class="si-week">
+                            <span><b>Week 1</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 2</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 3</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                        <li>
+                          <div class="si-week">
+                            <span><b>Week 4</b> (1st Jan - 7th Jan)</span>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="si-main__container">
+    <div class="si-lb__list">
+      <ul>
+        <li>
+          <div class="si-lb__box si-rank1">
+            <div class="si-lb__profile-thumb">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box si-rank2">
+            <div class="si-lb__profile-thumb ">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box si-rank3">
+            <div class="si-lb__profile-thumb ">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box">
+            <div class="si-lb__profile-thumb ">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box">
+            <div class="si-lb__profile-thumb ">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box">
+            <div class="si-lb__profile-thumb">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>CPL Trail Blazers 2K21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack1.png" alt="CPL Trail Blazers 2K21" />
+              </div>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="si-lb__box si-you">
+            <div class="si-lb__profile-thumb">
+              <img src="../images/user-thumb.png" alt="User Name" />
+            </div>
+            <div class="si-lb__profile-userDetails">
+              <div class="si-lb__profile-name">
+                <span>John Jacobs (You)</span>
+              </div>
+              <div class="si-lb__profile-pts">
+                <span>1500 <em>pts</em></span>
+              </div>
+            </div>
+            <div class="si-lb__gift">
+              <div class="si-lb__gift-lable">
+                <span>Remember The Titans 2k21</span>
+              </div>
+              <div class="si-lb__gift-thumb">
+                <img src="../images/packs/pack2.png" alt="Remember The Titans 2k21" />
+              </div>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+    <!-- popup you WON start -->
+    <!-- //=include _popup-won.html -->
+    <!-- popup you WON end -->
+
+    <!-- popup you LOSE/MATCH DRAW  start -->
+    <!-- //=include _popup-lose.html -->
+    <!-- popup you LOSE/MATCH DRAW  end -->
+
+    <!-- popup you generic  start -->
+    <div class="si-popup__wrap si-popup__wrap--generic si-jcfe si-fade in out">
+      <!-- in | out -->
+      <div class="si-popup__container">
+        <div class="si-popup__head">
+          <div class="si-popup__heading-sub">
+            <span>If you quit game. Your current progress will be lost, are you sure?</span>
+          </div>
+        </div>
+        <div class="si-popup__foot">
+          <div class="si-btn si-btn__cyan">
+            <span>CONFIRM</span>
+          </div>
+          <div class="si-btn si-btn__cyan si-btn__cyan--stroke ">
+            <span>CANCEL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- popup you generic  end -->
+
+    <!-- Full screen start -->
+    <div class="si-fullScreen__box">
+      <!-- si-active -->
+      <div class="si-fullScreen__icon"></div>
+    </div>
+    <!-- Full screen end -->
+
+    </div><!-- si-main closing div  -->
+
+
+    <script>
+      const swiper = new Swiper(".swiper--htp", {
+        // simulateTouch: false,
+        // spaceBetween: 100,
+        pagination: {
+          el: ".swiper-pagination",
+          type: 'bullets',
+        },
+        a11y: {
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+        },
+        breakpoints: {
+          "@0.00": {
+            slidesPerView: 1,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+          },
+        }
+      });
+      const swiperYear = new Swiper(".swiper--year", {
+        slidesPerView: 3,
+      });
+      const swiperMonth = new Swiper(".swiper--month", {
+        slidesPerView: 1,
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            origin: "left center",
+            translate: ["-5%", 0, -200],
+            rotate: [0, 100, 0],
+          },
+          next: {
+            origin: "right center",
+            translate: ["5%", 0, -200],
+            rotate: [0, -100, 0],
+          },
+        },
+        a11y: {
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    </body>
+
+    </html>

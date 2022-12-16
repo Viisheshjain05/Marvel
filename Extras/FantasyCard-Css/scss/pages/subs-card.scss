@@ -1,0 +1,141 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-subs-card {
+    .si-common-bg {
+      padding: 0 10px;
+    }
+    .si-inner-bg {
+      background-image: url("../../images/cards/subs-pitch.png?v=#{$cache-img}");
+      top: 0px;
+      left: 39%;
+      @media screen and (max-width: $media-mobile-small-max) {
+        background-size: contain;
+        width: 449px;
+        height: 290px;
+        left: 29%;
+      }
+    }
+
+    .si-plyr {
+      &__wrap {
+        height: 56px;
+        width: 51px;
+        @media screen and (min-width: $media-mobile-med) {
+          height: 77px;
+          width: 67px;
+        }
+        @media screen and (min-width: $media-mobile-small-min) {
+          height: 112px;
+          width: 98px;
+        }
+        .si-icon--top {
+          @media screen and (min-width: $media-mobile-med) {
+            top: -5px;
+            right: 0;
+          }
+          @media screen and (min-width: $media-mobile-small-min) {
+            height: 34px;
+            width: 34px;
+            top: -14px;
+            right: -3px;
+          }
+          &::before {
+            @media screen and (min-width: $media-mobile-small-min) {
+              font-size: 15px;
+            }
+          }
+        }
+      }
+      &__img {
+        &::after {
+          content: "";
+          background-image: url("../../images/cards/shadow.png?v=#{$cache-img}");
+          background-size: cover;
+          background-repeat: no-repeat;
+          position: absolute;
+          width: 92%;
+          height: 22px;
+          bottom: -15px;
+          left: 11px;
+          @media screen and (min-width: $media-mobile-small-min) {
+            height: 43px;
+            bottom: -27px;
+            left: 23px;
+          }
+        }
+      }
+    }
+    .si-plyr--out, .si-plyr--in {
+      .si-icon--top {
+        @media screen and (max-width: $media-mobile-med - 1px) {
+
+          right: -1px;
+        }
+      }
+    }
+    .si-plyr--out {
+      .si-plyr__img {
+        background-image: url("../../images/cards/Desktop/injured-kit.png?v=#{$cache-img}");
+      }
+    }
+    .si-plyr--in {
+      .si-plyr__img {
+        background-image: url("../../images/cards/Desktop/subs-kit.png?v=#{$cache-img}");
+      }
+    }
+  }
+  .si-transfer {
+    &__row {
+      align-items: center;
+      justify-content: center;
+      @extend .si-flexBox;
+      &:not(:last-child) {
+        margin-bottom: 30px;
+      }
+      .si-plyr {
+        width: auto;
+        @media screen and (min-width: $media-tablet-min) {
+          // min-height: 70px;
+          min-height: auto;
+        }
+        &__details,
+        &__pos,
+        &--name {
+          display: none;
+        }
+      }
+    }
+    &__col {
+      flex: 1 0 40%;
+      width: 40%;
+      align-items: center;
+      @extend .si-flexBox;
+      &.si-transfer--right {
+        flex-direction: row-reverse;
+      }
+    }
+    &--icon {
+      flex: 1 0 60px;
+      width: 30px;
+      margin: 0 auto;
+      text-align: center;
+      @media screen and (min-width: $media-mobile-med) {
+        flex: 1 0 90px;
+      }
+
+      &::before {
+        content: "\e93a";
+        font-size: 24px;
+        filter: drop-shadow(0px 4px 0px rgba(0, 0, 0, 0.2));
+        @media screen and (min-width: $media-mobile-med) {
+          font-size: 28px;
+        }
+        @media screen and (min-width: $media-mobile-small-min) {
+          font-size: 39px;
+        }
+      }
+    }
+  }
+}

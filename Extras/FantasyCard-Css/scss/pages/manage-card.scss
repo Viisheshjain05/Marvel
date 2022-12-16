@@ -1,0 +1,37 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-manage-wrap {
+    .si-status-block {
+      @media screen and (min-width: $media-mobile-small-min) {
+        padding: 30px 2px;
+        max-height: 140px;
+      }
+    }
+    .si-status-list {
+      min-height: auto;
+      @media screen and (max-width: $media-mobile-med - 1px) {
+        // margin: 0 -8px;
+      }
+      max-width: 370px;
+
+    }
+    .si-status-block {
+      @media screen and (min-width: $media-mobile-small-min) {
+        // justify-content: center;
+      }
+    }
+    .si-count-wrp {
+      align-self: center;
+      // font-size: 26px;
+      margin-right: 10px;
+      @media screen and (min-width: $media-mobile-small-max) {
+        font-size: 40px;
+        width: 55px;
+        flex: 0 0 55px;
+        height: 53px;
+      }
+    }
+  }
+}

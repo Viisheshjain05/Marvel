@@ -1,0 +1,15 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-main-container {
+  &.si-lang-other {
+    .si-no-team {
+      .si-sub-heading {
+        width: 100%;
+      }
+    }
+    .si-sub-heading {
+      width: 90%;
+    }
+  }
+}

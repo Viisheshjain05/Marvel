@@ -1,0 +1,1 @@
+body:before{white-space:pre;font-family:monospace;content:"Error: Undefined variable: \"$media-tablets-min\".\A         on line 2 of scss/pages/create-team.scss\A \A 1: .si-mob {\A 2:   @media screen and (min-width: $media-tablets-min) {\A 3:     display: none;\A 4:   }\A 5: }\A 6: \A 7: .si-web {"}

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-supersmash-2022.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Supersmash</title>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-time">
+                  <span>Points System</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__lhs-body" style="margin-top: 54px;">
+            <div class="df-hp__row">
+              <div class="df-accordion df-ptSyt">
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Attack </span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Scored by a striker</span>
+                        <span>+40</span>
+                      </li>
+                      <li>
+                        <span>Scored by a mid-fielder</span>
+                        <span>+50</span>
+                      </li>
+                      <li>
+                        <span>Scored by a defender or goalkeeper</span>
+                        <span>+60</span>
+                      </li>
+                      <li>
+                        <span>Assist</span>
+                        <span>+20</span>
+                      </li>
+                      <li>
+                        <span>Chance Created <em>The final pass leading to a shot (on target including goals, blocked or
+                            off target)</em> </span>
+                        <span>+3</span>
+                      </li>
+                      <li>
+                        <span>Shot on Target <em>Includes Goals</em> </span>
+                        <span>+6</span>
+                      </li>
+                      <li>
+                        <span>5 Passes Completed </span>
+                        <span>+1</span>
+                      </li>
+                    </ul>
+                    <div class="df-ptSyt__notes">
+                      <div class="df-ptSyt__notes-title">
+                        <span>POINTS TO REMEMBER</span>
+                      </div>
+                      <ul>
+                        <li>A <b>Direct Assist</b> is the final touch (pass, cross or any other touch) leading to the
+                          recipient of the ball scoring a goal.</li>
+                        <li>
+                          In addition to normal assists, the following types of <b>Fantasy Assists</b> will be awarded
+                          to a player:
+                          <ul>
+                            <li>When a shot is saved by goalkeeper, blocked by the defender or hits the goal post, and
+                              is scored on the rebound</li>
+                            <li>When a player wins a penalty or a direct free-kick that is scored</li>
+                            <li>When an opposition player scores an own goal off a cross, pass or shot</li>
+                          </ul>
+                        </li>
+                        <li>A <b>Chance Created</b>, also known as a 'key pass', is the final touch (pass, cross or any
+                          other touch) leading to a shot, regardless of whether it is on target (including goals),
+                          blocked or off target.</li>
+                        <li><b>Note:</b> If a player gets points for a Fantasy Assist, they will <b>not be awarded</b>
+                          points for a Chance Created. For example, if a player's shot is saved by a goalkeeper and is
+                          scored on the rebound, the player will get points for a Shot on Target and Fantasy Assist, but
+                          won't earn points for Chance Created.</li>
+                        <li>A <b>Shot on Target</b> is any goal attempt that:
+                          <ul>
+                            <li>Is a goal</li>
+                            <li>Would have been a goal but was saved by the goalkeeper or was stopped by an opposition
+                              player who is the last-man (with the goalkeeper having no chance of preventing the goal)
+                            </li>
+                          </ul>
+                        </li>
+                        <li>
+                          A shot on target in NOT awarded when:
+                          <ul>
+                            <li>The shot hits the goal post (unless the ball goes in and is a goal)</li>
+                            <li>The shot is blocked by another player, who is not the last-man</li>
+                          </ul>
+                        </li>
+                        <li>If player A passes the ball to player B, who then scores, then player B is awarded a Goal
+                          and a Shot on Target, while player A is awarded an Assist and Chance Created</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Defense</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Tackle Won</span>
+                        <span>+4</span>
+                      </li>
+                      <li>
+                        <span>Interception Won</span>
+                        <span>+4</span>
+                      </li>
+                      <li>
+                        <span>Saves <em>GK</em></span>
+                        <span>+6</span>
+                      </li>
+                      <li>
+                        <span>Penalty Saved <em>GK</em></span>
+                        <span>+6</span>
+                      </li>
+                      <li>
+                        <span>Clean Sheet <em>GK/DEF (Played +54 or more minutes)</em> </span>
+                        <span>+20</span>
+                      </li>
+                    </ul>
+                    <div class="df-ptSyt__notes">
+                      <div class="df-ptSyt__notes-title">
+                        <span>POINTS TO REMEMBER</span>
+                      </div>
+                      <ul>
+                        <li>A <b>Tackle Won</b> is a tackle where the player successfully takes the ball away from the
+                          player in possession, by either winning possession or putting the ball out of play</li>
+                        <li>An <b>Interception Won</b> is where a player intentionally intercepts a pass, by moving into
+                          the line of the intended ball, and retains possession of the ball</li>
+                        <li>A <b>Save</b> is where a goalkeeper prevents the ball from entering the goal with any part
+                          of his body</li>
+                        <li>A <b>Clean Sheet</b> is awarded for not conceding a goal whilst on the field for 54 or more
+                          minutes</li>
+                        <li>If a player gets substituted before a goal is conceded but has played more than 54 minutes,
+                          they will still get the Clean Sheet bonus.</li>
+                        <li>If a player misses a penalty kick but the goalkeeper hasn't touched the ball, the goalkeeper
+                          will NOT get any points for saving the penalty, while the penalty taker will get -20 points
+                          for the miss</li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Other Points</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Captain</span>
+                        <span>2x</span>
+                      </li>
+                      <li>
+                        <span>Vice-Captain</span>
+                        <span>1.5x</span>
+                      </li>
+                      <li>
+                        <span>In Starting 11</span>
+                        <span>+4</span>
+                      </li>
+                      <li>
+                        <span>Coming on as a Substitute</span>
+                        <span>+2</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Card And Other Penalties</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Yellow card</span>
+                        <span class="df-redBG">-4</span>
+                      </li>
+                      <li>
+                        <span>Red card</span>
+                        <span class="df-redBG">-10</span>
+                      </li>
+                      <li>
+                        <span>Own goal</span>
+                        <span class="df-redBG">-8</span>
+                      </li>
+                      <li>
+                        <span>Goals conceded <em>GK/DEF (on the field when the goal is scored)</em></span>
+                        <span class="df-redBG">-2</span>
+                      </li>
+                      <li>
+                        <span>Penalty missed</span>
+                        <span class="df-redBG">-20</span>
+                      </li>
+                    </ul>
+                    <div class="df-ptSyt__notes">
+                      <div class="df-ptSyt__notes-title">
+                        <span>POINTS TO REMEMBER</span>
+                      </div>
+                      <ul>
+                        <li>Goals conceded will be counted for the players playing on the field at the time of the goal
+                          irrespective of player's total playing time</li>
+                        <li>If a player receives a red card, he will continue to be penalised for goals conceded by
+                          his/her team. i.e for the goals conceded after he leaves the field</li>
+                        <li>If a player gets a yellow card and then a second yellow (or even straight red), he only gets
+                          negative points for the red card</li>
+                        <li>If a player receives a yellow or red card for an off-field activity, the Fantasy Points will
+                          come into effect if:
+                          <ul>
+                            <li>He already played the match and was substituted.</li>
+                            <li>He comes onto the field as a substitute after receiving a yellow card.</li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Other Important Points</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <div class="df-ptSyt__notes">
+                      <div class="df-ptSyt__notes-title">
+                        <span>POINTS TO REMEMBER</span>
+                      </div>
+                      <ul>
+                        <li>We get all our stats from Opta, the world's leading football data provider. However, in case
+                          there is a clear error from our provider's end, we may modify the stats.</li>
+                        <li>The player you choose to be your team’s Captain will receive <b>2 times</b> the points for
+                          his/her
+                          performance</li>
+                        <li>The player you choose to be your team’s Vice-captain will receive <b>1.5 times</b> the
+                          points for
+                          his/her performance</li>
+                        <li>54 minutes and 1 second onwards (54’1”) will be considered as 55 minutes for the purpose of
+                          point calculation.</li>
+                        <li>Once a match has been marked as <b>completed</b> and winners have been <b>declared</b>, no
+                          further
+                          adjustments will be made to the points awarded. Points awarded for a LIVE game will be subject
+                          to change only when the match status is “<b>In Progress</b>” or “<b>In Review</b>”.</li>
+                        <li>Any event during extra time will be considered for awarding points</li>
+                        <li>Any event during penalty shootouts will not be considered for awarding points</li>
+                        <li>Starting points are assigned to any player on the basis of announcement of his/her inclusion
+                          in the team. However, in case the player is unable to start the match after being included in
+                          the team sheet, he/she will not score any points. Points shall however, be applicable
+                          (including starting points) to any player who plays as a replacement of such player to whom
+                          starting points were initially assigned.</li>
+                        <li><b>Fantasy Points for the ISL will be awarded based on the information and stats provided by
+                            the official ISL score providers. The information on the official scorecard will override
+                            all
+                            conditions mentioned for assists, passes, etc. THE OFFICIAL ISL SCORECARD IS THE FINAL POINT
+                            OF REFERENCE FOR AWARDING POINTS IN FANTASY ISL.</b></li>
+                        <li>In case a player is transferred/reassigned to a different team between two scheduled
+                          updates, for any reason whatsoever, such transfer/reassignment (by whatever name called) shall
+                          not be reflected in the roster of players until the next scheduled update. It is clarified
+                          that during the intervening period of two scheduled updates, while such player will be
+                          available for selection in the team to which the player originally belong, no points will be
+                          attributable to such player during the course of such contest.</li>
+                        <li>A player who has not participated in the game as part of the starting 11 or as a substitute,
+                          will not be awarded negative points for receiving a yellow or red card for off field activity
+                        </li>
+                        <li>If a goal is scored from a penalty or direct free-kick, the player earning the foul is
+                          awarded an assist only if someone else from their team scores the goal. If the player earning
+                          the penalty or free-kick scores the goal themselves, they will only earn points for the goal
+                          and NOT the assist.</li>
+                        <li>In case the player does not play the match at all, no points will be given.</li>
+                        <li>If a player received a yellow or red card for an off-field activity, the Fantasy Points will
+                          come into effect if
+                          <ul>
+                            <li>He already played the match and was subbed off</li>
+                            <li>He comes on the field as substitute after receiving a yellow card and plays the match
+                            </li>
+                          </ul>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-ptSyt-list">
+                <div class="df-hp__htp-unordList">
+                  <ul>
+                    <li>The cricketer you choose to be your Fantasy Cricket Team’s Captain will receive 2 times the
+                      points
+                    </li>
+                    <li>The Vice-Captain will receive 1.5 times the points for his/her performance</li>
+                    <li>Starting points are assigned to any player on the basis of announcement of his/her inclusion in
+                      the team. However, in case the player is unable to start the match after being included in the
+                      team
+                      sheet, he/she will not score any points. Points shall however, be applicable (including starting
+                      points) to any player who plays as a replacement of such player to whom starting points were
+                      initially assigned.</li>
+                    <li>11 players from each side play the game</li>
+                    <li>Strike rate scoring is applicable only for strike rate below 70 runs per 100 balls</li>
+                    <li>None of the events occurring during a Super Over, if any, will be considered for Points to be
+                      assigned/applied to a player.</li>
+                    <li>In case of run-outs involving 3 or more players from the fielding side, points will be awarded
+                      only to the last 2 players involved in the run-out.</li>
+                    <li>Any player scoring a century will only get points for the century and no points will be awarded
+                      for half-century. Any score over and above century will be eligible for bonus points only for the
+                      century.</li>
+                    <li>Substitutes on the field will not be awarded points for any contribution they make. However,
+                      'Concussion Substitutes' will be awarded points awarded four (4) points for making an appearance
+                      in
+                      a match and will be awarded points any contribution they make as per the Fantasy Points System
+                      (w.e.f Nov 25 2019).</li>
+                    <li>In case a player is transferred/reassigned to a different team between two scheduled updates,
+                      for
+                      any reason whatsoever, such transfer/reassignment (by whatever name called) shall not be reflected
+                      in the roster of players until next scheduled update. It is clarified that during the intervening
+                      period of two scheduled updates, while such player will be available for selection in the team to
+                      which the player originally belong, no points will be attributable to such player during the
+                      course
+                      of such contest.</li>
+                    <li>Data is provided by reliable sources and once the points have been marked as completed i.e.
+                      winners have been declared, no further adjustments will be made. Points awarded live in-game are
+                      subject to change as long as the status is 'In progress' or 'Waiting for review'.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

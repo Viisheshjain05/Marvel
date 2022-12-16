@@ -1,0 +1,320 @@
+.si-ad {
+  max-width: 980px;
+  width: 100%;
+  z-index: zindex(default);
+  margin: 10px auto;
+}
+.adBanner {
+  background-color: transparent;
+  height: 1px;
+  width: 1px;
+}
+
+.si-head {
+  &__wrapper {
+    position: relative;
+    // overflow: hidden;
+    width: 100%;
+    transition: transform 375ms ease-in;
+    .si-heading__section {
+      @media screen and (min-width: $media-small-min) {
+        display: none;
+      }
+    }
+  }
+}
+
+.si-ucl {
+  &--head {
+    color: var(--uf-text-01);
+    &-wrap {
+      background: $sponser-color;
+      position: relative;
+      width: 100%;
+      // z-index: 111 !important;
+      // align-items: flex-end;
+      @extend .si-flexBox;
+      // no-ad not used
+      &.no-ad {
+        .si-ad {
+          display: none;
+        }
+      }
+      .si-container {
+        flex: 1 0 auto;
+        max-width: 1440px;
+        // height: 100%;
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-between;
+        @extend .si-flexBox;
+      }
+    }
+    // si-uci--head-logo not used
+    &-logo {
+      display: none;
+    }
+    &-band {
+      position: relative;
+      min-height: 79px;
+      padding: 12px 0;
+      justify-content: center;
+      // align-items: stretch;
+      flex-direction: column;
+      width: 100%;
+      @extend .si-flexBox !optional;
+
+      @media screen and (min-width: 768px) {
+        min-height: 60px;
+        padding: 10px 0;
+      }
+      &Content {
+        align-items: center;
+        position: relative;
+        width: 100%;
+        padding: 0 15px;
+        margin: 0 auto;
+        max-width: 1440px;
+        @extend .si-flexBox;
+        @media screen and (max-width: $media-small-max) {
+          justify-content: space-between;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          padding: 0 21px;
+        }
+      }
+      &Title {
+        align-self: center;
+        white-space: nowrap;
+        margin-right: 10px;
+        position: relative;
+        overflow: hidden;
+        justify-content: flex-start;
+        width: 50%;
+        @extend .si-flexBox !optional;
+        @media screen and (max-width: $media-small-max) {
+          flex-basis: 185px;
+          margin-right: 0;
+          white-space: normal;
+          text-align: center;
+        }
+        @media screen and (max-width: $media-mobile-ex-small) {
+          flex-basis: 90px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-small-tablet-max) {
+          width: 60%;
+        }
+
+        h1 {
+          color: var(--uf-text-01);
+          font-family: var(--uf-font-comp-bold);
+          font-size: 24px;
+          height: inherit;
+          align-items: center;
+          position: relative;
+          z-index: zindex(default);
+          @include flexbox;
+          @media screen and (min-width: $media-small-tablet-min) {
+            padding-bottom: 5px;
+          }
+        }
+      }
+      &Mid {
+        width: 50%;
+        align-items: center;
+        justify-content: flex-end;
+        @extend .si-flexBox !optional;
+        @media screen and (max-width: 767px) {
+          align-items: center;
+          width: calc(100% - 185px);
+        }
+        @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-small-tablet-max) {
+          padding-right: 10px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-small-tablet-max) {
+          width: 40%;
+        }
+      }
+      &ViePts {
+        // align-self: center;
+        align-items: flex-end;
+        justify-content: flex-end;
+        margin-right: 24px;
+        @extend .si-flexBox !optional;
+        @media screen and (max-width: $media-small-tablet-min) {
+          margin-right: 16px;
+        }
+        @media screen and (max-width: $media-small-max) {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          flex-basis: 50px;
+          // align-self: flex-start;
+        }
+
+        &-title {
+          color: var(--uf-text-02);
+          font-size: 10px;
+          font-family: var(--uf-font-base-regular);
+          font-weight: var(--uf-font-weight-m);
+          line-height: 16px;
+          text-align: center;
+
+          @media screen and (max-width: $media-small-max) and (orientation: landscape) {
+            display: block;
+            padding-right: 5px;
+          }
+          @media screen and (min-width: $media-small-tablet-min) {
+            // font-size: 10px;
+
+            padding-right: 5px;
+            // flex: 0 0 50px;
+            flex: 0 0 100px;
+            text-align: right;
+            margin-bottom: 3px;
+          }
+        }
+        &-nums {
+          font-size: 32px;
+          font-family: var(--uf-font-comp-bold);
+          &Wrp{
+
+            align-self: center;
+            @media screen and (min-width: $media-small-tablet-min) {
+              align-self: flex-end;
+            }
+            a{
+              color: var(--uf-text-01);
+              white-space: nowrap;
+            }
+          }
+
+          
+
+
+        }
+        &-numsTxt {
+          font-size: 14px;
+          font-family: var(--uf-font-comp-bold);
+          align-self: flex-end;
+          padding: 5px 5px 5px 3px;
+          margin-bottom: -1px;
+          @media screen and (max-width: $media-small-max) {
+            display: none;
+          }
+        }
+      }
+      &SprLogo {
+        position: relative;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        @extend .si-flexBox;
+        @media screen and (min-width: $media-small-tablet-min) {
+          flex-direction: row;
+          align-items: flex-end;
+        }
+        span {
+          color: var(--uf-text-02);
+          font-size: 10px;
+          font-family: var(--uf-font-base-regular);
+          font-weight: var(--uf-font-weight-m);
+          margin-bottom: 2px;
+          @media screen and (min-width: $media-small-tablet-min) {
+            margin-bottom: 8px;
+            margin-right: 12px;
+          }
+        }
+        .si-top-sprLogo {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 64px;
+          height: 36px;
+          img {
+            image-rendering: -webkit-optimize-contrast;
+            width: 100%;
+          }
+        }
+      }
+    }
+    &-thirdPartyMenu {
+      display: none;
+    }
+  }
+}
+
+.si-score {
+  display: none;
+}
+
+.si-top-bar {
+  align-items: center;
+  justify-content: space-around;
+  padding-bottom: 5px;
+
+  @media screen and (min-width: $media-small-min) {
+    display: none;
+  }
+}
+
+.si-prgs {
+  &__wrap {
+    position: relative;
+    // margin: 0 10px;
+    width: 100%;
+  }
+
+  &__outer {
+    background-color: var(--uf-ui-00);
+    border-radius: 20px;
+    // overflow: hidden;
+    padding: 1px;
+    height: 6px;
+    width: 100%;
+  }
+
+  &__inner {
+    border-radius: 20px 0 0 20px;
+    height: 100%;
+    position: relative;
+    width: 0;
+    transition: all 0.7s ease-in 0.3s;
+    background-size: 100% 100%;
+    @include linearGradient(270deg, #55e1e1 0%, #103ac2 100%);
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      opacity: 0;
+      height: 100%;
+      width: 100%;
+      border-radius: 20px 0 0 20px;
+      @include linearGradient(270deg, #103ac2 0%, #55e1e1 100%);
+    }
+    &.si-animate__bar {
+      &::after {
+        @include animation(move linear infinite 1s);
+      }
+    }
+  }
+
+  &__per {
+    font-size: 12px;
+    position: absolute;
+    top: -16px;
+    opacity: 0;
+  }
+}
+@keyframes move {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}

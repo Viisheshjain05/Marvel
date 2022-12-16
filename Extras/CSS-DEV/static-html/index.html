@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="IE=Edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="" />
+        <meta name="author" content="Dream11">
+        <meta name="viewport"
+            content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+            viewport-fit=cover />
+        <title>Dream11</title>
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+            }
+
+            body {
+                font-size: 14px;
+                font-family: Arial, Helvetica, sans-serif;
+            }
+
+            #pageLinkContainer {
+                background: white;
+            }
+
+            .pageLink {
+                text-align: left;
+                padding-left: 10px;
+                padding-top: 10px;
+            }
+
+            .pageLink a {
+                color: #000;
+                text-decoration: none;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="si-main">
+            <div id="pageLinkContainer">
+            </div>
+        </div>
+
+        <script>
+            var staticPages = [
+                "tnc.html",
+                "ct-transfer--overlay.html",
+                "home-points.html",
+                "home-transfers.html",
+                "home-boosters.html",
+                "contests-textbox-new.html",
+                'ct-transfer-success-opt1.html',
+                "hp-icc.html",
+                "ct-icc.html",
+                "ct-captain-icc.html",
+                "prize-icc.html",
+                "register.html",
+                "404.html",
+                "badge-all.html",
+                "badge-overlay.html",
+                "badge-overlay-collector.html",
+                "badge-overlay-native-share.html",
+                "badge-overlay-share.html",
+                "badge-overlay-share-sm.html",
+                "badge-overlay-small-height.html",
+                "badge-tuts.html",
+                "badge.html",
+                "contests.html",
+                "contests-compare.html",
+                "contests-leaderboard.html",
+                "contests-myTeam.html",
+                "contests-myteam-rhs.html",
+                "contests-overlay.html",
+                "contests-playerstats.html",
+                "contests-remove-player.html",
+                "contests-share.html",
+                "contests-textbox.html",
+                "contests-unlimited-overlay.html",
+                "ct.html",
+                "ct-captain.html",
+                "ct-nodatafound-pitchview.html",
+                "ct-transfer.html",
+                "ct-transfer-success.html",
+                "eot.html",
+                "fanpage.html",
+                "getting-started.html",
+                "hp.html",
+                "hp-post-login.html",
+                "maintenance.html",
+                "more.html",
+                "more-help.html",
+                "more-profile.html",
+                "player-overlay.html",
+                "player-overlay-complete-tab.html",
+                "points-system.html",
+                "prizes.html",
+                "rules.html",
+                "spotlight.html",
+                "top-stats.html"
+            ]
+
+            var target = document.getElementById('pageLinkContainer');
+            let template = '<div class="pageLink"><a href="./{{page}}" target="_blank">{{page}}</a></div>';
+            let links = '';
+            for (var i = 0; i < staticPages.length; i++) {
+                links += template.replace(/{{page}}/g, staticPages[i]);
+            }
+
+            target.innerHTML = links;
+        </script>
+    </body>
+
+</html>

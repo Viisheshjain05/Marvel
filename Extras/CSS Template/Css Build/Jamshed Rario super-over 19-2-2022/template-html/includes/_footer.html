@@ -1,0 +1,81 @@
+    <!-- popup you WON start -->
+    <!-- //=include _popup-won.html -->
+    <!-- popup you WON end -->
+
+    <!-- popup you LOSE/MATCH DRAW  start -->
+    <!-- //=include _popup-lose.html -->
+    <!-- popup you LOSE/MATCH DRAW  end -->
+
+    <!-- popup you generic  start -->
+    //=include _popup-generic.html
+    <!-- popup you generic  end -->
+
+    <!-- Full screen start -->
+    <div class="si-fullScreen__box">
+      <!-- si-active -->
+      <div class="si-fullScreen__icon"></div>
+    </div>
+    <!-- Full screen end -->
+
+    </div><!-- si-main closing div  -->
+
+
+    <script>
+      const swiper = new Swiper(".swiper--htp", {
+        // simulateTouch: false,
+        // spaceBetween: 100,
+        pagination: {
+          el: ".swiper-pagination",
+          type: 'bullets',
+        },
+        a11y: {
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+        },
+        breakpoints: {
+          "@0.00": {
+            slidesPerView: 1,
+          },
+          "@0.75": {
+            slidesPerView: 2,
+          },
+          "@1.00": {
+            slidesPerView: 3,
+          },
+          "@1.50": {
+            slidesPerView: 4,
+          },
+        }
+      });
+      const swiperYear = new Swiper(".swiper--year", {
+        slidesPerView: 3,
+      });
+      const swiperMonth = new Swiper(".swiper--month", {
+        slidesPerView: 1,
+        effect: "creative",
+        creativeEffect: {
+          prev: {
+            shadow: true,
+            origin: "left center",
+            translate: ["-5%", 0, -200],
+            rotate: [0, 100, 0],
+          },
+          next: {
+            origin: "right center",
+            translate: ["5%", 0, -200],
+            rotate: [0, -100, 0],
+          },
+        },
+        a11y: {
+          prevSlideMessage: 'Previous slide',
+          nextSlideMessage: 'Next slide',
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    </body>
+
+    </html>

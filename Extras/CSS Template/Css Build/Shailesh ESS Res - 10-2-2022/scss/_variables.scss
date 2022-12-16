@@ -1,0 +1,193 @@
+// versioning
+$cache-img: 1.5;
+$cache-fonts: 2;
+$cache-icons: 3.1;
+
+$icomoon-font-family: "ess" !default;
+$icomoon-font-path: "../fonts" !default;
+$es-wk: "\e916";
+$es-ar: "\e917";
+$es-ball: "\e914";
+$es-bat: "\e915";
+$es-slim-arrow: "\e913";
+$es-back: "\e912";
+$es-info: "\e911";
+$es-arrow: "\e90f";
+$es-download: "\e90e";
+$es-dualArrow: "\e90d";
+$es-share: "\e910";
+// icon colors
+$es-key-player: "\e908";
+$es-yorker-specialist: "\e90c";
+$es-big-hitter: "\e901";
+$es-finisher: "\e904";
+$es-pace: "\e909";
+$es-Ice-cool: "\e907";
+$es-explosive: "\e903";
+$es-sterdy_1: "\e90b";
+$es-accuracy: "\e900";
+$es-spin: "\e90a";
+$es-economical: "\e902";
+$es-hot-batting-form: "\e905";
+$es-hot-bowling-form: "\e906";
+
+//Colors
+$transparent: transparent;
+$googlePlus: #dd4b39;
+$facebook: #1877f2;
+$twitter: #2daae1;
+$whatsApp: #26ce46;
+$instagram: #125688;
+
+$default: #313132;
+$black: #000;
+$white: #fff;
+$gray: #2d2d2d;
+$red: red;
+$green: green;
+$disable: #e0e0e0;
+
+$client-primary-color: #ffde2e;
+$client-primary-color-dark: #ffa800;
+
+$client-secondary-color: #00c2ff;
+$client-secondary-color-dark: #0e4ade;
+
+// Gradient Color Variable
+$gr-start: #0e42c6;
+$gr-end: #001f50;
+
+// Other Color Variables
+$oc-blue: #0e42c6;
+$oc-navyblue: #001f50;
+$oc-navyblue-one: #021334;
+$oc-yellow: #ffde2e;
+$oc-brown: #956600;
+$oc-brown-dark: #5c3e03;
+$oc-green: #12e300;
+$oc-red: #ff4a50;
+$oc-gray: #474747;
+$oc-toast: #000c2d;
+$oc-orange: #ff7510;
+$oc-textBlue: #1a3668;
+
+//tag colors
+$oc-hit: #5b0d0d;
+$oc-cool: #008a94;
+$oc-accuracy: #782511;
+$oc-economical: #c87500;
+$oc-explosive: #ae111b;
+$oc-finisher: #515b55;
+$oc-hotBat: #ad2e0e;
+$oc-hotBat2: #960202;
+$oc-yorker: #8f287b;
+$oc-key-Player: #775009;
+$oc-pace: #004259;
+$oc-spin: #38389e;
+$oc-spin2: #287d27;
+
+// Team Color Variables
+$team-mi: #004ba0;
+$team-csk: #f9cd05;
+$team-dc: #246cc8;
+$team-srh: #ff8f0c;
+$team-rr: #e73895;
+$team-rcb: #2b2a29;
+$team-kxip: #ed1d24;
+$team-kkr: #2e0854;
+
+// Team Color Gradient
+// MI
+$mi-start: #0046cf;
+$mi-end: #001a4b;
+
+// CSK
+$csk-start: #f9cd05;
+$csk-end: #cb8600;
+
+// DC
+$dc-start: #246cc8;
+$dc-end: #004297;
+
+// SRH
+$srh-start: #ff8f0c;
+$srh-end: #eb3800;
+
+// RR
+$rr-start: #e73895;
+$rr-end: #b2005f;
+
+// RCB
+$rcb-start: #2b2a29;
+$rcb-end: #000000;
+
+// PBKS
+$pbks-start: #ed1d24;
+$pbks-end: #9a0005;
+
+// KXIP(PBKS are same)
+$kxip-start: #ed1d24;
+$kxip-end: #9a0005;
+
+// KKR
+$kkr-start: #5b1eb7;
+$kkr-end: #210845;
+
+// KKR
+$adi-start: #9bc100;
+$adi-end: #5e7500;
+
+// KKR
+$lko-start: #38aaba;
+$lko-end: #005b68;
+
+// PlayerCard related Variables
+// $w: 30.6rem;
+$h: 54rem;
+$headerH: 6rem;
+$cardW: 24rem;
+$cardH: 20rem;
+$cardTopH: 20.5rem;
+$cardBtmH: $cardH - $cardTopH;
+$imgSize: 10rem;
+
+//Media Breakpoints
+// $media-mobile-min: 360px;
+// $media-mobile-sm-max: 480px;
+// $media-mobile-max: 576px; //Mobiles (Landscape)
+// $media-tablet-min: 768px;
+// $media-tablet-small-max: 812px; //for iphone10, vivov11 pro and one plus 6/6T @media screen and (min-width: 375px) and (max-width: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape)
+// $media-tablet-max: 992px; //Tablets, Ipads
+// $media-desktop-min: 1025px;
+// $media-desktop-max: 1280px; //Laptops, Desktops
+// $media-lg-desktop-min: 1281px;
+// $media-laptop-max: 1366px;
+// $media-ex-large-max: 1441px;
+// $media-ex-large-hd-max: 1601px;
+// $media-xxlarge: 1900px;
+// $media-xxxlarge: 1901px;
+// $media-xxlarge-min: 2000px;
+
+// mobile small
+$media-mobile-ex-sm-min: 320px;
+$media-mobile-ex-sm-max: 321.98px;
+
+// mobile small
+$media-mobile-sm-min: 375px;
+$media-mobile-sm-max: 374.98px;
+
+// mobile
+$media-mobile-min: 576px;
+$media-mobile-max: 575.98px;
+
+// tablets
+$media-tablets-min: 768px;
+$media-tablets-max: 767.98px;
+
+// desktop
+$media-desktop-min: 992px;
+$media-desktop-max: 991.98px;
+
+// lg-desktop
+$media-lg-desktop-min: 1200px;
+$media-lg-desktop-max: 1199.98px;

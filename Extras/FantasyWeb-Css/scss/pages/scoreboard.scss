@@ -1,0 +1,637 @@
+.si-autofill {
+  border-radius: 2px;
+  cursor: pointer;
+  font-size: 20px;
+  padding: 10px 14px;
+  margin-right: 8px;
+  @media screen and (min-width: $media-small-min) {
+    border: 1px solid var(--uf-interaction);
+  }
+}
+.si-board {
+  margin: 0 16px;
+  position: relative;
+  min-height: 61px;
+  @media screen and (max-width: $media-xsmall-max) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0 0 30px;
+  }
+
+  @media screen and (min-width: $media-small-min) {
+    padding: 2px 0 0;
+    margin: 0 auto;
+    width: 100%;
+    @include linearGradient(90deg, #1441fa 0%, #4dd5e3 100%);
+  }
+  @media screen and (min-width: $media-small-min) and (max-width:$media-small-max) {
+    margin: 0 32px;
+    width: auto;
+  }
+
+  &__wrap {
+    border-radius: 2px;
+    color: var(--uf-text-01);
+    padding: 7px 0;
+    position: relative;
+    @include flexbox;
+    @media screen and (min-width: $media-small-min) {
+      // overflow: hidden;
+      padding: 17px 12px;
+      @include linearGradient(283.02deg, #001456 1.47%, #062481 171.92%);
+    }
+    @media screen and (min-width: $media-desktop-min) {
+      padding: 12px 24px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      padding: 17px 32px;
+    }
+    .si-bg--pattern {
+      left: 50%;
+      transform: translateX(-50%);
+      @media screen and (max-width: $media-xsmall-max) {
+        display: none;
+      }
+      &::after {
+        background-position: center;
+        top: -76px;
+      }
+    }
+    .swiper-container {
+      // width: 100%;
+      position: relative;
+      @media screen and (min-width: $media-small-tablet-min) {
+        height: 73px;
+      }
+      &::before,
+      &::after {
+        display: none;
+        content: "";
+        width: 40px;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        pointer-events: none;
+      }
+      &::before {
+        left: 0;
+        @include linearGradient(to left, rgba($white, 0), rgba($white, 0.5));
+      }
+      &::after {
+        right: 0;
+        @include linearGradient(to right, rgba($white, 0), rgba($white, 0.5));
+      }
+    }
+    .swiper-wrapper {
+      // overflow: hidden;
+      justify-content: start;
+      @extend .si-flexBox;
+      // @media screen and (min-width: $media-small-tablet-min) {
+      //   margin: 0 30px;
+      //   padding-left: 30px;
+      // }
+    }
+    // .swiper-button-next {
+    //   right: -10px;
+    // }
+    // .swiper-button-prev {
+    //   left: -10px;
+    // }
+  }
+  &__left,
+  &__right {
+    flex: 1;
+    @extend .si-flexBox;
+  }
+  &__left {
+    .si-board__section {
+      justify-content: center;
+    }
+  }
+  &__right {
+    align-items: center;
+    justify-content: flex-end;
+    .si-board__section {
+      border-radius: 2px;
+      color: var(--uf-interaction);
+      text-align: center;
+      @media screen and (min-width: $media-small-tablet-min) and (max-width: 991px) {
+        // min-width: 60px;
+        min-width: 100px;
+      }
+    }
+    i {
+      cursor: pointer;
+      font-size: 16px;
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 24px;
+      }
+    }
+    .si-more {
+      @media screen and (max-width: $media-xsmall-max) {
+        display: none;
+      }
+    }
+  }
+  .si-wildcard {
+    border: 1px solid var(--uf-interaction);
+    position: relative;
+    // padding: 0 12px;
+    &:not(:last-child) {
+      margin-right: 10px;
+    }
+  }
+  .si-autocomplete {
+    border: 1px solid var(--uf-interaction);
+    justify-content: center;
+    @media screen and (max-width: $media-mobile-max) {
+      min-width: 104px;
+      min-height: 40px;
+    }
+    @media screen and (min-width: $media-small-min) {
+      min-height: 54px;
+      margin-right: 10px;
+    }
+
+    @media screen and (min-width: $media-desktop-min) {
+      min-width: 120px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      margin-right: 20px;
+    }
+  }
+  .si-autocomplete-title {
+    color: var(--uf-interaction);
+    cursor: pointer;
+    font-size: 10px;
+    font-family: var(--uf-font-base-semibold);
+    font-weight: var(--uf-font-weight-l);
+    text-align: center;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 12px;
+    }
+  }
+  &__section {
+    min-width: 70px;
+    min-height: 33px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    @media screen and (min-width: $media-desktop-min) {
+      min-height: 48px;
+      min-width: 80px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      min-width: 110px;
+    }
+    &.si-selected {
+      //not using theme variables as they conflict here with the background
+      background: $fantasy-primary-color;
+      border-color: $fantasy-primary-color;
+      color: $white;
+      i {
+        display: none;
+      }
+      .si-autocomplete-title {
+        color: $white;
+      }
+    }
+
+    &.si-tt-active {
+      &::after {
+        bottom: -22px;
+        z-index: zindex(medium);
+      }
+      .si-tooltip {
+        min-width: 220px;
+        bottom: auto;
+        top: 50px;
+        z-index: zindex(medium);
+        @media screen and (min-width: $media-small-tablet-min) {
+          top: 57px;
+        }
+      }
+    }
+    &.si-plyr-count {
+      &::after {
+        @media screen and (max-width: $media-mobile-max) {
+          content: "";
+          background-color: var(--uf-ui-02);
+          width: 1px;
+          position: absolute;
+          top: 4px;
+          bottom: 2px;
+          right: 13px;
+        }
+      }
+    }
+    .euro-infinity {
+      align-self: center;
+      font-size: 10px;
+      padding-top: 2px;
+      margin-right: 5px;
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  .si-plyr-budget {
+    &.si-error {
+      .si-currency {
+        color: var(--uf-support-04);
+        @include animation(shake .8s ease-in-out alternate);
+      }
+    }
+  }
+  .si-more {
+    // z-index: zindex(medium);
+    justify-content: center;
+    // @media screen and (min-width: $media-small-tablet-min) {
+    // min-width: 90px;
+    // }
+    .si-dropdown {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 190px;
+      &.si-show {
+        z-index: zindex(medium);
+        .si-dropdown__menu {
+          display: block;
+        }
+      }
+      &__menu {
+        border: 1px solid $gray-mono-2;
+        @include box-shadow(4px, 4px, 0, rgba($black, 0.25));
+      }
+    }
+  }
+  .si-more__info {
+    color: var(--uf-interaction);
+    cursor: pointer;
+    text-align: right;
+    i {
+      font-size: 20px;
+    }
+    .si-btn--disabled {
+      .si-dropdown__item {
+        color: $white;
+        &::after {
+          background: #6c6c6c;
+        }
+      }
+    }
+    .si-dropdown {
+      cursor: default;
+    }
+  }
+  .si-currency {
+    // color: $dark-gray;
+    font-size: 24px;
+    font-family: var(--uf-font-comp-bold);
+    @media screen and (min-width: $media-large-min) {
+      font-size: 32px;
+    }
+  }
+
+  &--transfers {
+    .si-board__section {
+      justify-content: center;
+      min-height: 40px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        min-height: 48px;
+        min-width: 60px;
+      }
+      @media screen and (min-width: $media-desktop-min) {
+        min-width: 80px;
+      }
+      &.si-plyr-count {
+        @media screen and (max-width: $media-mobile-max) {
+          justify-content: space-between;
+        }
+      }
+      .si-plyr-num,
+      .si-currency {
+        // align-items: center;
+        align-items: flex-end;
+        min-height: 21px;
+        @include flexbox;
+      }
+    }
+    .si-board__left {
+      .si-board__section {
+        @media screen and (min-width: $media-large-min) {
+          min-width: 90px;
+        }
+      }
+    }
+    .si-board__right {
+      i {
+        font-size: 12px;
+        margin-bottom: 5px;
+        @media screen and (min-width: $media-desktop-min) {
+          font-size: 16px;
+        }
+      }
+    }
+    .si-more {
+      @media screen and (min-width: $media-small-tablet-min) {
+        min-width: 40px;
+      }
+      @media screen and (min-width: $media-desktop-min) {
+        min-width: 50px;
+      }
+    }
+    .si-plyr-count {
+      @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-large-min) {
+        margin-right: 5px;
+      }
+      // @media screen and (min-width: $media-small-tablet-min) {
+      // min-width: 80px;
+      // }
+    }
+    .si-autocomplete {
+      margin-left: 0;
+      @media screen and (max-width: $media-mobile-max) {
+        display: none;
+      }
+      // &-title {
+      // font-size: 11px;
+      // }
+    }
+    .si-wildcard {
+      padding: 0 4px;
+      // @media screen and (max-width: $media-mobile-max) {
+      // display: none;
+      // }
+    }
+    .si-currency {
+      @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-laptop-max) {
+        font-size: 20px;
+      }
+    }
+    .si-used {
+      background: transparent;
+      border: 1px solid rgba($white, 0.4);
+      color: rgba($white, 0.4);
+      .si-autocomplete-title {
+        color: rgba($white, 0.4);
+        text-decoration: line-through;
+      }
+    }
+  }
+}
+.si-plyr {
+  &-title {
+    align-items: center;
+    color: var(--uf-text-02);
+    font-size: 12px;
+    font-family: var(--uf-font-base-regular);
+    margin-bottom: 2px;
+    min-height: 21px;
+    letter-spacing: 0.5px;
+    @include flexbox;
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 14px;
+      margin-bottom: 0;
+      min-height: 17px;
+    }
+  }
+  &-count {
+    // color: $dark-gray;
+    font-size: 18px;
+    font-family: var(--uf-font-comp-bold);
+    position: relative;
+    @media screen and (max-width: $media-mobile-max) {
+      min-width: 80px;
+    }
+    @media screen and (min-width: $media-small-tablet-min) {
+      margin-right: 5px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      font-size: 22px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      margin-right: 10px;
+    }
+
+    span {
+      font-size: 24px;
+      @media screen and (min-width: $media-large-min) {
+        font-size: 32px;
+      }
+    }
+    // .euro-infinity {
+    //   font-size: 10px;
+    //   padding-top: 2px;
+    //   margin-right: 5px;
+    //   @media screen and (min-width: $media-desktop-min) {
+    //     font-size: 14px;
+    //   }
+    // }
+  }
+  &-num {
+    align-items: center;
+    @include flexbox;
+    @media screen and (min-width: $media-desktop-min) {
+      font-size: 20px;
+      margin-right: 10px;
+    }
+    @media screen and (min-width: $media-large-min) {
+      font-size: 24px;
+    }
+    .si-num-md {
+      font-size: 24px;
+      @media screen and (max-width: $media-mobile-max) {
+        line-height: 21px;
+      }
+      @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-laptop-max) {
+        font-size: 20px;
+      }
+      @media screen and (min-width: $media-large-min) {
+        font-size: 32px;
+      }
+    }
+  }
+}
+.si-budget-info {
+  background-color: var(--uf-interaction-compl);
+  border-radius: 50%;
+  color: var(--uf-interaction);
+  cursor: pointer;
+  font-size: 13px;
+  position: relative;
+  margin-left: 5px;
+  @extend %tt-tip;
+
+  // &:hover {
+  //   &::after {
+  //     display: block;
+  //     bottom: -21px;
+  //   }
+  //   .si-tooltip {
+  //     display: flex;
+  //     bottom: auto;
+  //     top: 26px;
+  //     @media screen and (max-width: $media-mobile-max) {
+  //       left: 40%;
+  //       @include transform(translateX(-40%));
+  //     }
+  //     @media screen and (min-width: $media-small-tablet-min) {
+  //       top: 28px;
+  //     }
+  //   }
+  // }
+  &.si-tt-active {
+    &::after {
+      display: block;
+      bottom: -22px;
+    }
+    .si-tooltip {
+      display: flex;
+      bottom: auto;
+      top: 26px;
+      @media screen and (min-width: $media-mobile-med) and (max-width: $media-mobile-max) {
+        left: 40%;
+        @include transform(translateX(-40%));
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        top: 28px;
+      }
+    }
+  }
+  @media screen and (min-width: $media-small-tablet-min) {
+    font-size: 14px;
+    margin-left: 6px;
+  }
+  .si-tooltip {
+    font-size: 14px;
+    line-height: 20px;
+    // min-width: 250px;
+    min-width: 263px;
+    padding: 16px;
+    text-align: left;
+    justify-content: center;
+    z-index: zindex(medium);
+    @media screen and (min-width: $media-mobile-med) {
+      // min-width: 275px;
+      // min-width: 335px;
+      min-width: 300px;
+    }
+    @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-laptop-max) {
+      font-size: 14px;
+      line-height: 18px;
+      min-width: 285px;
+    }
+    @media screen and (min-width: $media-ex-large-min) {
+      // min-width: 335px;
+    }
+  }
+}
+
+.euro-auto-complete {
+  &::before {
+    content: "\e903";
+    color: transparent;
+  }
+  &::after {
+    content: "\e904";
+    margin-left: -1em;
+    color: var(--uf-interaction);
+  }
+}
+
+.si-captain--txt {
+  font-size: 14px;
+  line-height: 18px;
+  padding: 10px 30px;
+  text-align: center;
+  @media screen and (min-width: $media-mobile-med) {
+    padding: 10px 60px;
+    
+  }
+  @media screen and (min-width: $media-small-tablet-min) {
+    font-size: 20px;
+    line-height: 22px;
+    padding: 20px 21px 20px 0;
+    align-items: center;
+    position: relative;
+    @include flexbox;
+  }
+  span {
+    background-color: var(--uf-interaction);
+    color: var(--uf-interaction-compl);
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 8px;
+    width: 12px;
+    height: 12px;
+    margin-left: 5px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 12px;
+      margin-left: 10px;
+      width: 20px;
+      height: 20px;
+    }
+    i {
+      margin-left: -1px;
+    }
+  }
+}
+
+.si-manage {
+  .si-board {
+    &__wrap {
+      @media screen and (min-width: $media-small-min) {
+        padding: 0 30px;
+        height: 78px;
+      }
+      @media screen and (min-width: $media-large-min) {
+        height: 88px;
+      }
+      .swiper-slide {
+        @media screen and (min-width: $media-small-tablet-min) {
+          // margin: 0 15px;
+          margin: 0 12px;
+        }
+      }
+      .swiper-container {
+        @media screen and (min-width: $media-small-tablet-min) {
+          height: 78px;
+        }
+        @media screen and (min-width: $media-large-min) {
+          height: 88px;
+        }
+      }
+      &::before,
+      &::after {
+        @media screen and (min-width: $media-small-tablet-min) {
+          display: none;
+          content: "";
+          position: absolute;
+          height: 100%;
+          width: 50px;
+          pointer-events: none;
+          // z-index: 1;
+        }
+      }
+      &::after {
+        z-index: 1;
+        right: 0px;
+        @include linearGradient(to left, #001456 70%, rgba(#001456, 0.6) 100%);
+      }
+      &::before {
+        display: none;
+        left: 0;
+        @include linearGradient(271deg, #001456 0%, #062481 100%);
+      }
+    }
+  }
+}

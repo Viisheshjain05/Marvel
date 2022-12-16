@@ -1,0 +1,310 @@
+@import "variables";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rh4l8v');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?rh4l8v#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?rh4l8v') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?rh4l8v') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?rh4l8v##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="dfi-"], [class*=" dfi-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.dfi-reset-transfer {
+  &:before {
+    content: $dfi-reset-transfer; 
+  }
+}
+.dfi-contest-pts {
+  &:before {
+    content: $dfi-contest-pts; 
+  }
+}
+.dfi-subs-1 {
+  &:before {
+    content: $dfi-subs-1; 
+  }
+}
+.dfi-lightning {
+  &:before {
+    content: $dfi-lightning; 
+  }
+}
+.dfi-booster-clock {
+  &:before {
+    content: $dfi-booster-clock; 
+  }
+}
+.dfi-booster-lock {
+  &:before {
+    content: $dfi-booster-lock; 
+  }
+}
+.dfi-booster-tick {
+  &:before {
+    content: $dfi-booster-tick; 
+  }
+}
+.dfi-history {
+  &:before {
+    content: $dfi-history; 
+  }
+}
+.dfi-reset {
+  &:before {
+    content: $dfi-reset; 
+  }
+}
+.dfi-admin-outline {
+  &:before {
+    content: $dfi-admin-outline; 
+  }
+}
+.dfi-intro-badge-outline {
+  &:before {
+    content: $dfi-intro-badge-outline; 
+  }
+}
+.dfi-booster-outline {
+  &:before {
+    content: $dfi-booster-outline; 
+  }
+}
+.dfi-subs-outline {
+  &:before {
+    content: $dfi-subs-outline; 
+  }
+}
+.dfi-jersy-outline {
+  &:before {
+    content: $dfi-jersy-outline; 
+  }
+}
+.dfi-stats-outline {
+  &:before {
+    content: $dfi-stats-outline; 
+  }
+}
+.dfi-leagues-outline {
+  &:before {
+    content: $dfi-leagues-outline; 
+  }
+}
+.dfi-lock {
+  &:before {
+    content: $dfi-lock; 
+  }
+}
+.dfi-badge {
+  &:before {
+    content: $dfi-badge; 
+  }
+}
+.dfi-badge-fill {
+  &:before {
+    content: $dfi-badge-fill; 
+  }
+}
+.dfi-admin-user {
+  &:before {
+    content: $dfi-admin-user; 
+  }
+}
+.dfi-remove {
+  &:before {
+    content: $dfi-remove; 
+  }
+}
+.dfi-logout {
+  &:before {
+    content: $dfi-logout; 
+  }
+}
+.dfi-share-stroke {
+  &:before {
+    content: $dfi-share-stroke; 
+  }
+}
+.dfi-tab-more {
+  &:before {
+    content: $dfi-tab-more; 
+  }
+}
+.dfi-uncap {
+  &:before {
+    content: $dfi-uncap; 
+  }
+}
+.dfi-tripleX {
+  &:before {
+    content: $dfi-tripleX; 
+  }
+}
+.dfi-stats {
+  &:before {
+    content: $dfi-stats; 
+  }
+}
+.dfi-stats-fill {
+  &:before {
+    content: $dfi-stats-fill; 
+  }
+}
+.dfi-rules {
+  &:before {
+    content: $dfi-rules; 
+  }
+}
+.dfi-rules-fill {
+  &:before {
+    content: $dfi-rules-fill; 
+  }
+}
+.dfi-home {
+  &:before {
+    content: $dfi-home; 
+  }
+}
+.dfi-home-fill {
+  &:before {
+    content: $dfi-home-fill; 
+  }
+}
+.dfi-contests {
+  &:before {
+    content: $dfi-contests; 
+  }
+}
+.dfi-contests-fill {
+  &:before {
+    content: $dfi-contests-fill; 
+  }
+}
+.dfi-more {
+  &:before {
+    content: $dfi-more; 
+  }
+}
+.dfi-info {
+  &:before {
+    content: $dfi-info; 
+  }
+}
+.dfi-announcement {
+  &:before {
+    content: $dfi-announcement; 
+  }
+}
+.dfi-copy {
+  &:before {
+    content: $dfi-copy; 
+  }
+}
+.dfi-share {
+  &:before {
+    content: $dfi-share; 
+  }
+}
+.dfi-view-more {
+  &:before {
+    content: $dfi-view-more; 
+  }
+}
+.dfi-subs {
+  &:before {
+    content: $dfi-subs; 
+  }
+}
+.dfi-sub-in {
+  &:before {
+    content: $dfi-sub-in; 
+  }
+}
+.dfi-sub-out {
+  &:before {
+    content: $dfi-sub-out; 
+  }
+}
+.dfi-injured {
+  &:before {
+    content: $dfi-injured; 
+  }
+}
+.dfi-list {
+  &:before {
+    content: $dfi-list; 
+  }
+}
+.dfi-tick {
+  &:before {
+    content: $dfi-tick; 
+  }
+}
+.dfi-help {
+  &:before {
+    content: $dfi-help; 
+  }
+}
+.dfi-search {
+  &:before {
+    content: $dfi-search; 
+  }
+}
+.dfi-flight {
+  &:before {
+    content: $dfi-flight; 
+  }
+}
+.dfi-filter {
+  &:before {
+    content: $dfi-filter; 
+  }
+}
+.dfi-close {
+  &:before {
+    content: $dfi-close; 
+  }
+}
+.dfi-aUp {
+  &:before {
+    content: $dfi-aUp; 
+  }
+}
+.dfi-aRgt {
+  &:before {
+    content: $dfi-aRgt; 
+  }
+}
+.dfi-aDw {
+  &:before {
+    content: $dfi-aDw; 
+  }
+}
+.dfi-aLft {
+  &:before {
+    content: $dfi-aLft; 
+  }
+}
+.dfi-aDown {
+  &:before {
+    content: $dfi-aDown; 
+  }
+}
+

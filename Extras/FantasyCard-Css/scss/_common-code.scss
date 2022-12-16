@@ -1,0 +1,513 @@
+@import "_variables";
+@import "_mixins";
+
+#si-gamercard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  min-height: 257px;
+  
+  @media screen and (min-width: $media-mobile-small-min) {
+  min-height: 360px;
+
+}
+  .si-main-container {
+    height: 100%;
+    min-height: 257px;
+    @media screen and (min-width: $media-mobile-small-min) {
+      min-height: 360px;
+    
+    }
+  }
+}
+.si-gamer-crd {
+  margin: 0;
+  padding: 0;
+}
+.si-mainBackground {
+  border-radius: 4px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow: hidden;
+  @include linearGradient(180deg, #045ff5 -7.1%, #0a0a61 102.19%);
+}
+.si-fantasy-card-wrap {
+  .si-inner-bg {
+    background-image: url("../../images/cards/Desktop/CREATE_TEAM.png?v=#{$cache-img}");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    image-rendering: -webkit-optimize-contrast;
+    position: absolute;
+    bottom: 64px;
+    right: -64px;
+    width: 219px;
+    height: 125px;
+    @media screen and (min-width: $media-mobile-ex-small) {
+      right: -50px;
+      width: 219px;
+      height: 140px;
+    }
+    @media screen and (min-width: $media-mobile-med) {
+      bottom: 65px;
+      width: 242px;
+      height: 155px;
+    }
+    @media screen and (min-width: $media-mobile-med-max) and (max-width: $media-mobile-small-max) {
+      right: 20px;
+    }
+    @media screen and (min-width: $media-mobile-small-min) {
+      bottom: -10px;
+      width: 475px;
+      height: 295px;
+      right: -100px;
+    }
+    @media only screen and (min-width: 1191px) {
+      right: 20px;
+    }
+  }
+  &.si-eot {
+    .si-inner-bg {
+      right: -50px;
+      top: 50%;
+      bottom: auto;
+      @include transform(translateY(-50%));
+      @media screen and (min-width: $media-tablet-min) {
+        right: -70px;
+      }
+      @media screen and (min-width: $media-desktop-min) {
+        right: -10px;
+      }
+    }
+  }
+  .si-card {
+    &-wrap {
+      flex-direction: column;
+      justify-content: space-between;
+      height: 100%;
+      padding: 16px;
+      position: relative;
+      @extend .si-flexBox !optional;
+
+      @media screen and (min-width: $media-mobile-small-min) {
+        padding: 24px;
+      }
+    }
+    &-head,
+    &-body,
+    &-footer {
+      position: relative;
+      z-index: 11;
+    }
+    &-head {
+      align-items: flex-start;
+      justify-content: space-between;
+      .si-title {
+        font-family: $primary-ff--exbold;
+        font-size: 24px;
+        line-height: 26px;
+        margin-bottom: 8px;
+        text-shadow: 0px 36px 65px rgba($black, 0.02),
+          0px 10.8529px 19.5956px rgba($black, 0.04),
+          0px 4.50776px 8.13901px rgba($black, 0.06),
+          0px 1.63037px 2.94372px rgba($black, 0.08);
+        @media screen and (min-width: $media-mobile-small-min) {
+          font-size: 40px;
+          line-height: 36px;
+        }
+      }
+    }
+    &-footer {
+      align-items: center;
+      justify-content: flex-start;
+      flex-direction: column;
+      @extend .si-flexBox;
+      @media screen and (min-width: $media-mobile-small-max) {
+        align-items: flex-start;
+      }
+    }
+  }
+  .si-heading-wrap {
+    // flex: 1 0 auto;
+    margin-right: 10px;
+    &.si-custom-width {
+      .si-title {
+        @media screen and (max-width: 374px) {
+          width: 45%;
+        }
+        @media screen and (min-width: $media-mobile-small-min) {
+          width: 38%;
+        }
+      }
+      .si-sub-heading {
+        width: 128px;
+
+        @media screen and (min-width: $media-mobile-med) {
+          width: 180px;
+        }
+        @media screen and (min-width: $media-mobile-small-min) {
+          width: 244px;
+        }
+      }
+    }
+  }
+  .si-time-wrap {
+    border-radius: 2px;
+    // flex: 0 0 55px;
+    flex: 0 0 72px;
+    justify-content: flex-end;
+    margin-top: 2px;
+    @extend .si-flexBox;
+    @media screen and (min-width: $media-mobile-med) {
+      flex: 0 0 120px;
+    }
+    @media screen and (min-width: $media-mobile-small-min) {
+      margin-top: -7px;
+    }
+    &.si-live {
+      @media screen and (max-width: 374px) {
+        flex: 0 0 82px;
+      }
+      .si-inner-wrap {
+        background: $live;
+        color: $dark-blue;
+        // min-width: auto;
+      }
+    }
+    &.si-pts--ptcal {
+      background: transparent;
+      .si-inner-wrap {
+        background: #ff9933;
+        color: $gray-mono-4;
+      }
+    }
+    .si-inner-wrap {
+      background: $dark-blue;
+      border-radius: 2px;
+      font-size: 12px;
+      font-family: $secondary-ff--bold;
+      font-weight: $fws--bold;
+      line-height: 16px;
+      padding: 4px 6px;
+      text-align: center;
+    }
+  }
+  .si-sub-heading {
+    width: 100%;
+    @media screen and (min-width: $media-mobile-small-min) {
+      width: 384px;
+    }
+    span {
+      display: block;
+      font-size: 14px;
+      line-height: 20px;
+      // width: 128px;
+      text-shadow: 0px 36px 65px rgba(0, 0, 0, 0.02),
+        0px 10.8529px 19.5956px rgba(0, 0, 0, 0.04),
+        0px 4.50776px 8.13901px rgba(0, 0, 0, 0.06),
+        0px 1.63037px 2.94372px rgba(0, 0, 0, 0.08);
+      @media screen and (min-width: $media-mobile-med) {
+        font-size: 16px;
+        line-height: 22px;
+      }
+      @media screen and (min-width: $media-mobile-small-min) {
+        font-size: 20px;
+        line-height: 26px;
+        font-family: $secondary-ff--medium;
+        font-weight: $fws--medium;
+      }
+    }
+  }
+  .si-team-row {
+    justify-content: center;
+    // width: 100%;
+    margin: 0 -4px;
+    @extend .si-flexBox;
+    @media screen and (min-width: $media-mobile-small-min) {
+      margin: 0 -7px;
+      width: auto;
+    }
+  }
+  .si-count-wrp {
+    background: $live;
+    border-radius: 2px;
+    color: $gray-mono-4;
+    font-family: $primary-ff--bold;
+    align-self: flex-end;
+    font-size: 32px;
+    line-height: 20px;
+    // flex: 0 0 37px;
+    flex: 0 0 49px;
+    margin: 0 4px;
+    width: 49px;
+    height: 49px;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    @extend .si-flexBox;
+    @media screen and (min-width: $media-mobile-small-max) {
+      font-size: 40px;
+      margin-left: 12px;
+      line-height: 47px;
+      flex: 0 0 68px;
+      width: 68px;
+      height: 62px;
+    }
+    @media screen and (min-width: 768px) {
+      margin-left: 10px;
+    }
+    .si-count-icon {
+      align-self: flex-end;
+      font-size: 37px;
+      @media screen and (min-width: $media-mobile-small-max) {
+        font-size: 46px;
+      }
+    }
+    .si-num-wrp {
+      align-items: center;
+      justify-content: center;
+      font-weight: $fws--bold;
+      @include flexbox;
+    }
+  }
+  .si-share-btn {
+    i {
+      position: absolute;
+      left: 10px;
+    }
+  }
+
+  .si-status-list {
+    border-radius: 4px;
+    color: rgba($dark-blue, 0.8);
+    justify-content: center;
+    position: relative;
+    margin: 0 auto;
+    min-height: 112px;
+    @extend .si-flexBox;
+    // padding: 20px 10px;
+    background-image: linear-gradient(
+        0deg,
+        rgba(255, 255, 255, 0.84),
+        rgba(255, 255, 255, 0.84)
+      ),
+      linear-gradient(242.71deg, #c3c3c3 0%, #898988 100%);
+    @include box-shadow(0, 4px, 8px, rgba(0, 0, 0, 0.16));
+
+    &::before {
+      content: "";
+      background-image: url("../../images/cards/Desktop/pattern-bg.png?v=#{$cache-img}");
+      background-repeat: no-repeat;
+      background-size: contain;
+      background-position: top right;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+    }
+
+    @media screen and (min-width: $media-mobile-med) {
+      max-width: 310px;
+    }
+    @media screen and (min-width: $media-mobile-small-min) {
+      min-height: 137px;
+    }
+  }
+  .si-status-block {
+    align-items: center;
+    flex-direction: column;
+    // flex: 1 0 25%;
+    padding: 11px 2px;
+    position: relative;
+    width: 90px;
+    @include flexbox;
+    @media screen and (min-width: $media-mobile-small-min) {
+      padding: 20px 2px;
+    }
+  }
+  .si-icon-wrap {
+    align-items: center;
+    margin-bottom: 8px;
+    @include flexbox;
+    .si-icon {
+      margin-right: 4px;
+      @media screen and (min-width: $media-mobile-ex-small) {
+        margin-right: 8px;
+      }
+    }
+    .si-icon {
+      display: none;
+    }
+  }
+  .si-status-txt {
+    // color: $default;
+    font-size: 12px;
+    text-align: center;
+    word-break: break-all;
+  }
+  .si-status-num {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: $white;
+    font-size: 18px;
+    font-family: $primary-ff--bold;
+    line-height: 29px;
+    width: 38px;
+    height: 43px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    @include flexbox;
+    @media screen and (min-width: $media-mobile-small-min) {
+      font-size: 23px;
+      width: 50px;
+      height: 57px;
+    }
+    &::after {
+      content: "";
+      background-image: url("../../images/cards/Desktop/shadow.png?v=#{$cache-img}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      width: 38px;
+      height: 16px;
+      bottom: -11px;
+      left: 6px;
+      @media screen and (min-width: $media-mobile-small-min) {
+        width: 49px;
+        height: 22px;
+        bottom: -14px;
+        left: 10px;
+      }
+    }
+    &.si-bg--error {
+      background-image: url("../../images/cards/Desktop/injured-kit.png?v=#{$cache-img}");
+      background-color: transparent;
+    }
+    &.si-bg--warning {
+      background-image: url("../../images/cards/Desktop/doubtful-kit.png?v=#{$cache-img}");
+      background-color: transparent;
+    }
+  }
+  .si-common-bg {
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    padding: 20px 10px;
+    position: relative;
+    max-width: 290px;
+    @include flexbox;
+
+    @media screen and (min-width: $media-mobile-ex-small) {
+      max-width: 350px;
+    }
+  }
+  .si-md {
+    &-pts {
+      color: $dark-blue;
+      align-items: center;
+      @extend .si-flexBox;
+    }
+    &-num {
+      font-family: $primary-ff--bold;
+      font-size: 48px;
+      line-height: 56px;
+
+      @media screen and (min-width: $media-mobile-small-min) {
+        font-size: 80px;
+        line-height: 93px;
+      }
+    }
+    &-txt {
+      font-size: 16px;
+      font-family: $secondary-ff--bold;
+      font-weight: $fw--bold;
+      line-height: 18px;
+
+      margin-left: 20px;
+      // @media screen and (min-width: $media-mobile-med) {
+      //   font-size: 18px;
+      //   line-height: 22px;
+      // }
+    }
+  }
+  .si-live-anim {
+    span {
+      background: #ffcc01;
+      border-radius: 50%;
+      display: inline-block;
+      margin-left: 8px;
+      width: 8px;
+      height: 8px;
+    }
+  }
+
+  .si-pnts {
+    &-cal {
+      color: #ebebeb;
+      margin-top: 12px;
+    }
+  }
+  .si-pts {
+    &-wrp {
+      span {
+        &:last-child {
+          font-family: $secondary-ff--medium;
+          font-weight: $fws--medium;
+        }
+      }
+    }
+  }
+  .si-tooltip-wrp {
+    position: relative;
+    span {
+      font-size: 14px;
+    }
+    i {
+      &::after {
+        content: "";
+        display: none;
+        width: 0;
+        height: 0;
+        border-style: solid;
+        border-width: 9px 9px 0 9px;
+        border-color: $white transparent transparent transparent;
+        position: absolute;
+        top: 0;
+        left: 50%;
+        @include transform(translateX(-50%));
+      }
+    }
+    .si-tooltip {
+      display: none;
+      background-color: #fff;
+      color: #2d2828;
+      align-items: center;
+      font-size: 12px;
+      font-family: $secondary-ff--regular;
+      font-weight: $fws--regular;
+      padding: 10px 6px;
+      position: absolute;
+      bottom: 30px;
+      right: -10px;
+      left: auto;
+      min-width: 160px;
+      z-index: 1;
+    }
+    &.si-active {
+      .si-tooltip {
+        display: block;
+      }
+      i {
+        &::after {
+          display: block;
+        }
+      }
+    }
+  }
+}

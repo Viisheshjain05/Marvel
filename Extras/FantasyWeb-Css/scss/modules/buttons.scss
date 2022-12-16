@@ -1,0 +1,281 @@
+.si-btn {
+  background-color: var(--uf-interaction);
+  border-radius: 2px;
+  color: var(--uf-interaction-compl);
+  font-size: 14px;
+  font-family: var(--uf-font-base-semibold);
+  font-weight: var(--uf-font-weight-l);
+  padding: 15px 10px;
+  justify-content: center;
+  align-items: center;
+  @extend .si-center;
+  @include transition(all, 0.3s, ease-in-out);
+  @media screen and (max-width: $media-xsmall-max) {
+    flex: 1 0 auto;
+    min-width: 311px;
+  }
+  // @media screen and (max-width: $media-mobile-ex-small) {
+  //   min-width: auto;
+  // }
+  @media screen and (min-width: $media-small-min) {
+    font-size: 16px;
+    min-height: 40px;
+    padding: 10px 24px;
+  }
+  @media screen and (min-width: $media-large-min) {
+    min-height: 48px;
+  }
+  &:not(:disabled):not(.si-btn--disabled):not(.si-disabled) {
+    cursor: pointer;
+  }
+  &:hover {
+    @media screen and (min-width: $media-tablet-min) {
+      background-color: var(--uf-interaction-hover);
+      color: var(--uf-interaction-compl);
+    }
+  }
+  &:active {
+    background-color: var(--uf-interaction-pressed);
+    color: var(--uf-interaction-compl);
+  }
+  &:focus {
+    outline: none;
+  }
+  i {
+    font-size: 12px;
+    margin: 0 8px 0 0;
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 16px;
+    }
+  }
+  // not used since these states are managed by variables
+  // &--primary {
+  //   background: $fantasy-primary-color;
+  //   @include color(color, uf-interaction-compl);
+  //   @include color(background-color, uf-interaction);
+  // }
+  // &--secondary {
+  //   color: $dark-blue;
+  //   background: $fantasy-secondary-color;
+  //   @include color(color, uf-interaction-compl);
+  //   @include color(background-color, uf-interaction);
+  // }
+  &--transparent {
+    @include box-shadow(0, 2px, 6px, rgba($black, 0.25));
+  }
+  &--transparent,
+  &--outline {
+    background-color: transparent;
+    border: 1px solid var(--uf-interaction);
+    color: var(--uf-interaction);
+    &:hover {
+      @media screen and (min-width: $media-tablet-min) {
+        background-color: var(--uf-interaction);
+      }
+    }
+  }
+  &--sm {
+    padding: 8px 24px;
+  }
+  &--disabled {
+    background: $medium-gray;
+    opacity: 0.2;
+  }
+  &--link {
+    background: transparent;
+    color: var(--uf-interaction);
+    border: 0;
+    min-width: auto;
+    min-height: auto;
+    padding: 0;
+    @media screen and (max-width: $media-small-max) {
+      justify-content: flex-start;
+    }
+    &:hover {
+      @media screen and (min-width: $media-tablet-min) {
+        background: transparent;
+        color: var(--uf-interaction-hover);
+      }
+    }
+    &:active {
+      background: transparent;
+      color: var(--uf-interaction-pressed);
+    }
+
+    &:first-child {
+      padding: 0 24px 0 0;
+    }
+    i {
+      font-size: 12px;
+    }
+  }
+  &__wrap {
+    // min-width: 170px;
+    @extend .si-flexBox !optional;
+    @media screen and (max-width: $media-small-max) {
+      // align-items: center;
+      justify-content: center;
+    }
+    // @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-desktop-min) {
+    //   min-width: 140px;
+    // }
+    .si-btn {
+      flex: 1 0 auto;
+      @media screen and (max-width: $media-small-max) {
+        min-width: auto;
+      }
+
+      &:not(:last-child) {
+        @media screen and (min-width: $media-small-min) {
+          margin: 0 10px 0 0;
+        }
+      }
+    }
+    &.si-dual-btn {
+      flex-direction: column;
+      .si-btn {
+        margin: 0 auto;
+        min-width: 100%;
+        &:not(:last-child) {
+          margin-bottom: 10px;
+        }
+      }
+    }
+    &-mob {
+      @extend .si-btn__wrap;
+      padding: 15px 15px;
+      position: relative;
+      margin: 0 auto;
+      max-width: 536px;
+
+      @media screen and (min-width: $media-small-min) {
+        display: none;
+      }
+    }
+  }
+}
+
+//code from euros file
+// .si-bg--shadow {
+//   z-index: zindex(default);
+//   &::after {
+//     @media screen and (max-width: $media-small-max) {
+//       content: "";
+//       position: absolute;
+//       bottom: -10px;
+//       top: -30px;
+//       left: 0;
+//       right: 0;
+//       z-index: zindex(minus);
+//       @include linearGradient(0deg, #008fa6 80.8%, rgba(0, 143, 166, 0) 100%);
+//     }
+//   }
+// }
+//selected states for all elements
+%primary-gradient,
+%secondary-gradient {
+  background-color: var(--uf-interaction);
+}
+%tertiary-gradient {
+  @include linearGradient(
+    90deg,
+    rgba(0, 0, 205, 0.98) 0%,
+    rgba(16, 61, 255, 0.98) 102%
+  );
+}
+%gradient-border {
+  border-radius: 2px;
+  position: absolute;
+  top: -1px;
+  bottom: -1px;
+  left: -1px;
+  right: -1px;
+  @include linearGradient(to right, #1441fa 0%, #4dd5e3 100%);
+}
+.si-selected {
+  &--primary {
+    color: var(--uf-text-01);
+    @extend %primary-gradient;
+  }
+
+  &--secondary {
+    color: var(--uf-text-01);
+    @extend %secondary-gradient;
+  }
+  &--tertiary {
+    color: var(--uf-text-01);
+    @include linearGradient(147.78deg, #039dfd -36.79%, #045ef4 89.93%);
+  }
+}
+
+//suggest btn
+.si-suggest-btn {
+  border-radius: 2px;
+  font-size: 22px;
+  height: 48px;
+  width: 48px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  color: var(--uf-interaction-compl);
+  background-color: var(--uf-interaction);
+  @include flexbox;
+  .si-new {
+    font-size: 21px;
+    position: absolute;
+    right: -5px;
+    top: -5px;
+    height: 18px;
+    width: 18px;
+    @include box-shadow(0, 0, 5px, rgba($black, 0.16));
+  }
+}
+
+//sticky btns
+.si-sticky-btn {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0 20px 20px;
+  z-index: 11;
+  @include linearGradient(
+    270deg,
+    rgba(1, 7, 79, 0.92) 0%,
+    rgba(1, 9, 86, 0.92) 100%
+  );
+  @media screen and (min-width: $media-small-min) {
+    display: none;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    height: 1px;
+    top: -1px;
+    left: 0;
+    right: 0;
+    @include linearGradient(90deg, #55e1e1 0%, #103ac2 100%);
+  }
+  .si-league-items {
+    text-align: center;
+    width: 100%;
+  }
+}
+.si-border-top {
+  &:not(.si-sticky-btn) {
+    border-top: 1px solid rgba($white, 0.15);
+  }
+}
+.si-dummy-btn {
+  padding: 0px 20px 22px;
+  opacity: 0;
+  visibility: hidden;
+  @media screen and (min-width: $media-small-min) {
+    display: none;
+  }
+  // .si-btn {
+  //   &:not(:last-child) {
+  //     margin-bottom: 12px;
+  //   }
+  // }
+}

@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-icc-mwc-22.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Cricket</title>
+    <script>
+      $(document).ready(function () {
+        // skill tab
+        $(".df-cmo__tabs ul li").click(function () {
+          $(".df-cmo__tabs ul li").removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".df-contest__dateLine").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Matchday 1</span>
+                </div>
+                <div class="df-cmo__mat-time">
+                  <span>29m 30s left</span>
+                </div>
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+            <div class="df-cmo__tabs">
+              <ul>
+                <li>
+                  <!-- df-active -->
+                  <span>MY CONTESTS <em>(2)</em></span>
+                </li>
+                <li class="df-active">
+                  <span>MY TEAM</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="df-cmo__lhs-body" style="margin-top: 99px;">
+            <div class="df-contest__wrap">
+              <div class="df-transfer__head">
+                <span><em>60</em> Transfers Left</span>
+                <span><em>1034</em> Total Points</span>
+              </div>
+              <div class="df-contest__box df-teamPreview">
+                <div class="df-contest__box-head">
+                  <span>Matchday 8</span>
+                  <span class="icon-share"><i class="dfi-share-stroke"></i></span>
+                </div>
+                <div class="df-contest__box-body">
+                  <div class="df-cmo__fix">
+                    <div class="df-cmo__fix-lft">
+                      <ul>
+                        <li>
+                          <span>KXIP <em>vs</em> MI</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="df-cmo__fix-rgt">
+                      <span><em>4</em> Transfers Made</span>
+                    </div>
+                  </div>
+                  <div class="df-contest__pitch">
+                    <div class="df-contest__pitch-view">
+                      <div class="df-contest__pitch-view-lft">
+                        <div class="df-contest__pitch-txt">
+                          <span>Points</span>
+                        </div>
+                        <div class="df-contest__pitch-num">
+                          <span>100.5</span>
+                        </div>
+                      </div>
+                      <div class="df-contest__pitch-view-rgt">
+                        <div class="df-pitch__card">
+                          <div class="df-pitch__plyr df-cap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-pitch__plyr df-vcap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+
+                    <div class="df-contest__pitch-tabs">
+                      <ul>
+                        <li>
+                          <span>WK <em>0</em></span>
+                        </li>
+                        <li>
+                          <span>BAT <em>0</em></span>
+                        </li>
+                        <li>
+                          <span>AR <em>0</em></span>
+                        </li>
+                        <li>
+                          <span>BWL <em>0</em></span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="df-contest__dateLine">
+                    <span>Transfer Window <em class="df-redTxt">Closes in 23h 20m</em> </span>
+                    <span>Transfers Left <em>Unlimited</em> </span>
+                  </div>
+                  <div class="df-contest__cta">
+                    <ul>
+                      <li>
+                        <div class="df-btn df-btn__primary">
+                          <span>MAKE TRANSFERS</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="df-contest__box df-teamPreview">
+                <div class="df-contest__box-head">
+                  <span>Matchday 81 <span class="df-nextLable">NEXT</span> </span>
+                  <span class="icon-share"><i class="dfi-share-stroke"></i></span>
+                </div>
+                <div class="df-contest__box-body">
+                  <div class="df-cmo__fix">
+                    <div class="df-cmo__fix-lft">
+                      <ul>
+                        <li>
+                          <span>KXIP <em>vs</em> MI</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="df-cmo__fix-rgt">
+                      <span><em>4</em> Transfers Made</span>
+                    </div>
+                  </div>
+                  <div class="df-contest__pitch">
+                    <div class="df-contest__pitch-view">
+                      <div class="df-contest__pitch-view-lft">
+                        <div class="df-contest__pitch-txt">
+                          <span>Points</span>
+                        </div>
+                        <div class="df-contest__pitch-num">
+                          <span>100.5</span>
+                        </div>
+                      </div>
+                      <div class="df-contest__pitch-view-rgt">
+                        <div class="df-pitch__card">
+                          <div class="df-pitch__plyr df-cap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-pitch__plyr df-vcap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-contest__box df-teamPreview">
+                <div class="df-contest__box-head">
+                  <span>Matchday 8</span>
+                </div>
+                <div class="df-contest__box-body">
+                  <div class="df-cmo__fix">
+                    <div class="df-cmo__fix-lft">
+                      <ul>
+                        <li>
+                          <span>KXIP <em>vs</em> MI</span>
+                        </li>
+                      </ul>
+                    </div>
+                  </div>
+                  <div class="df-contest__dateLine">
+                    <span>Transfer Window <em>Opens in 14m 49s</em> </span>
+                    <span>Transfers Left <em>90</em> </span>
+                  </div>
+                  <div class="df-contest__cta">
+                    <ul>
+                      <li>
+                        <div class="df-btn df-btn__primary df-disabled">
+                          <!-- df-disabled -->
+                          <span>MAKE TRANSFERS</span>
+                        </div>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="df-contest__box df-teamPreview">
+                <div class="df-contest__box-head">
+                  <span>Matchday 8</span>
+                  <span class="icon-share"><i class="dfi-share-stroke"></i></span>
+                </div>
+                <div class="df-contest__box-body">
+                  <div class="df-cmo__fix">
+                    <div class="df-cmo__fix-lft">
+                      <ul>
+                        <li>
+                          <span>KXIP <em>vs</em> MI</span>
+                        </li>
+                      </ul>
+                    </div>
+                    <div class="df-cmo__fix-rgt">
+                      <span><em>4</em> Transfers Made</span>
+                    </div>
+                  </div>
+                  <div class="df-contest__pitch">
+                    <div class="df-contest__pitch-view">
+                      <div class="df-contest__pitch-view-lft">
+                        <div class="df-contest__pitch-txt">
+                          <span>Points</span>
+                        </div>
+                        <div class="df-contest__pitch-num">
+                          <span>100.5</span>
+                        </div>
+                      </div>
+                      <div class="df-contest__pitch-view-rgt">
+                        <div class="df-pitch__card">
+                          <div class="df-pitch__plyr df-cap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-pitch__plyr df-vcap df-flight df-in df-injured">
+                            <!-- df-injured | df-cap | df-vcap | df-flight | df-in | df-out | df-banned-->
+                            <div class="df-pitch__plyr-box">
+                              <div class="df-pitch__plyr-injured"></div>
+                              <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                                <div class="df-pitch__plyr-icon">
+                                  <div class="df-pitch__flight">
+                                    <i class="dfi-flight"></i>
+                                  </div>
+                                  <div class="df-pitch__team">
+                                    <span>KXIP</span>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-pitch__plyr-name">
+                                <span>MS Dhoni</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-transfer__wrap">
+                <div class="df-transfer__info">
+                  <div class="df-transfer__info-mid">
+                    <span>View Transfer History</span>
+                  </div>
+                  <div class="df-transfer__info-rgt">
+                    <span><i></i></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- overlays for transfer -->
+      <div class="df-overlay__wrap df-fade out">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--transfer">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <span>Transfers Rules</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-contest__box">
+              <div class="df-contest__box-head">
+                <div class="df-contest__title">
+                  <span>110 Transfers</span>
+                  <span>You will get 110 transfers after first matchday deadline.</span>
+                </div>
+              </div>
+              <div class="df-contest__box-body">
+                <div class="df-alMat__box">
+                  <div class="df-alMat__lft">
+                    <div class="df-transfer__status df-transfer__status--nmp ">
+                      <span>Matchday 1 - 56</span>
+                    </div>
+                  </div>
+                  <div class="df-alMat__rgt">
+                    <div class="df-alMat__type">
+                      <span>League Matches</span>
+                    </div>
+                    <div class="df-alMat__date">
+                      <span>June 2 - July 16</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="df-contest__box">
+              <div class="df-contest__box-head">
+                <div class="df-contest__title">
+                  <span>Unlimited Transfers</span>
+                  <span>You can reset your team (make unlimited transfers) for the Qualifier 1 match.</span>
+                </div>
+              </div>
+              <div class="df-contest__box-body">
+                <div class="df-alMat__box">
+                  <div class="df-alMat__lft">
+                    <div class="df-transfer__status df-transfer__status--nmp ">
+                      <span>Matchday 57</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-alMat__list">
+                  <ul>
+                    <li>
+                      <div class="df-alMat__box">
+                        <div class="df-alMat__lft">
+                          <div class="df-fix__team">
+                            <div class="df-fix__team-A">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                            <div class="df-fix__team-vs">
+                              <span>vs</span>
+                            </div>
+                            <div class="df-fix__team-B">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-alMat__rgt">
+                          <div class="df-alMat__type">
+                            <span>Qualifier 1</span>
+                          </div>
+                          <div class="df-alMat__date">
+                            <span>Sat, June 2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="df-contest__box">
+              <div class="df-contest__box-head">
+                <div class="df-contest__title">
+                  <span>10 New Transfers</span>
+                  <span>You will get 10 new transfers for the remaining matches.</span>
+                </div>
+              </div>
+              <div class="df-contest__box-body">
+                <div class="df-alMat__box">
+                  <div class="df-alMat__lft">
+                    <div class="df-transfer__status df-transfer__status--nmp ">
+                      <span>Matchday 58 - 60</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-alMat__list">
+                  <ul>
+                    <li>
+                      <div class="df-alMat__box">
+                        <div class="df-alMat__lft">
+                          <div class="df-fix__team">
+                            <div class="df-fix__team-A">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                            <div class="df-fix__team-vs">
+                              <span>vs</span>
+                            </div>
+                            <div class="df-fix__team-B">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-alMat__rgt">
+                          <div class="df-alMat__type">
+                            <span>Eliminator</span>
+                          </div>
+                          <div class="df-alMat__date">
+                            <span>Sat, June 2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="df-alMat__box">
+                        <div class="df-alMat__lft">
+                          <div class="df-fix__team">
+                            <div class="df-fix__team-A">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                            <div class="df-fix__team-vs">
+                              <span>vs</span>
+                            </div>
+                            <div class="df-fix__team-B">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-alMat__rgt">
+                          <div class="df-alMat__type">
+                            <span>Qualifier 2</span>
+                          </div>
+                          <div class="df-alMat__date">
+                            <span>Sat, June 2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <div class="df-alMat__box">
+                        <div class="df-alMat__lft">
+                          <div class="df-fix__team">
+                            <div class="df-fix__team-A">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                            <div class="df-fix__team-vs">
+                              <span>vs</span>
+                            </div>
+                            <div class="df-fix__team-B">
+                              <div class="df-fix__team-logo"
+                                style="background-image: url(../images/team-flag-placeholder.png);">
+                              </div>
+                              <div class="df-fix__team-name">
+                                <span>TBD</span>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-alMat__rgt">
+                          <div class="df-alMat__type">
+                            <span>Final</span>
+                          </div>
+                          <div class="df-alMat__date">
+                            <span>Sat, June 2</span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

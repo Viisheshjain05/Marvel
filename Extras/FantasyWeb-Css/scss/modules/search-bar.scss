@@ -1,0 +1,212 @@
+.si-search {
+  position: relative;
+  overflow: hidden;
+  @media screen and (min-width: $media-small-tablet-min) {
+    background-color: var(--uf-elevation-01);
+  }
+  &.si-active {
+    &::before {
+      content: "";
+      @extend %gradient-border;
+    }
+  }
+  input {
+    border: none;
+    padding: 7px 30px;
+    width: 100%;
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 12px;
+      padding: 9px 30px 9px 35px;
+    }
+    &:focus {
+      outline: none;
+    }
+    &::-webkit-input-placeholder {
+      color: #c1c2d5;
+      @media screen and (min-width: $media-small-tablet-min) {
+        color: var(--uf-text-01);
+      }
+    }
+    &::-moz-placeholder {
+      color: #c1c2d5;
+      @media screen and (min-width: $media-small-tablet-min) {
+        color: var(--uf-text-01);
+      }
+    }
+    &:-ms-input-placeholder {
+      color: #c1c2d5;
+      @media screen and (min-width: $media-small-tablet-min) {
+        color: var(--uf-text-01);
+      }
+    }
+    &:-moz-placeholder {
+      color: #c1c2d5;
+      @media screen and (min-width: $media-small-tablet-min) {
+        color: var(--uf-text-01);
+      }
+    }
+  }
+  .si-search-icon {
+    color: var(--uf-text-01);
+    font-size: 17px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    @extend .si-flexBox;
+    z-index: 1;
+    @media screen and (min-width: $media-small-tablet-min) {
+      left: 6px;
+      font-size: 11px;
+    }
+  }
+  .euro-cross-round {
+    // display: none;
+    cursor: pointer;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    @include transform(translateY(-50%));
+  }
+}
+.si-filter__head {
+  border-bottom: 1px solid transparent;
+  min-height: 33px;
+  .si-search {
+    padding: 0;
+    .euro-cross {
+      visibility: hidden;
+    }
+    input {
+      padding: 0;
+      opacity: 0;
+      width: 0;
+      // transition: width 0.3s ease-in, opacity 0.3s ease-in;
+      // transition: all 375ms ease-in;
+    }
+  }
+  &.si-open-search {
+    // border-color: $gray-mono-3;
+    .si-filter--left {
+      display: none;
+    }
+    .si-options {
+      flex: 1;
+      margin-right: 0;
+      &__col {
+        &:not(:last-child) {
+          &::after {
+            content: none;
+          }
+        }
+      }
+    }
+    .si-search {
+      // justify-content: flex-end;
+      justify-content: flex-start;
+      padding: 8px;
+      width: 100%;
+      input {
+        background: transparent;
+        color: $white;
+        font-size: 20px;
+        padding: 7px 15px 7px 24px;
+        opacity: 1;
+        width: 80%;
+        flex: 1 0 auto;
+        @media screen and (min-width: $media-mobile-ex-small) {
+          // padding: 7px 30px;
+        }
+      }
+      &-icon {
+        background: none;
+        color: inherit;
+        left: 0;
+        justify-content: flex-start;
+        pointer-events: none;
+        box-shadow: none;
+        @media screen and (min-width: $media-mobile-ex-small) {
+          font-size: 17px;
+        }
+      }
+      .euro-cross {
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%);
+        visibility: visible;
+        &::before {
+          color: $gray-mono-3;
+          font-size: 24px;
+        }
+      }
+      .si-btn {
+        min-width: auto;
+      }
+    }
+    .si-recommend,
+    .si-down {
+      display: none;
+    }
+  }
+}
+.si-filter {
+  &--search {
+    align-items: center;
+    @extend .si-flexBox;
+    .si-search {
+      // flex: 1 0 auto;
+      flex: 1;
+      align-items: center;
+      @extend .si-flexBox;
+    }
+    .si-input__wrap {
+      flex: 1;
+      position: relative;
+      margin: 1px;
+      input {
+        position: relative;
+        background-color: var(--uf-elevation-01);
+      }
+      &.si-active {
+        &::before {
+          content: "";
+          @extend %gradient-border;
+        }
+      }
+      .euro-cross-round {
+        &::before {
+          color: var(--uf-support-04);
+          font-size: 13px;
+        }
+      }
+    }
+    .si-reset {
+      border: 1px solid var(--uf-interaction);
+      border-radius: 2px;
+      color: var(--uf-interaction);
+      cursor: pointer;
+      font-size: 12px;
+      font-family: var(--uf-font-base-bold);
+      font-weight: var(--uf-font-weight-l);
+      padding: 9px 11px;
+      margin-left: 8px;
+      position: relative;
+      align-items: center;
+      justify-content: center;
+      @include flexbox;
+      &::before {
+        content: "";
+        background: $gray-mono-3;
+        width: 1px;
+        position: absolute;
+        left: 0;
+        top: -4px;
+        bottom: -4px;
+        display: none;
+      }
+    }
+  }
+}

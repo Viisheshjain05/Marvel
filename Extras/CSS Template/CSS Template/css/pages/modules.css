@@ -1,0 +1,2 @@
+.si-title{position:relative;overflow:hidden;height:300px;text-align:center;display:flex;justify-content:center;align-items:center;background-color:#00f;font-size:20px}.si-title::before{content:attr(data-watermark);position:absolute;top:-75%;left:0;right:0;display:block;opacity:.7;color:red;font-size:50px}.si-card__item ul{justify-content:flex-start;align-items:flex-start}.si-card__item ul li{width:120px;height:180px}
+/*# sourceMappingURL=modules.css.map */

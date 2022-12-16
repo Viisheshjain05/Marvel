@@ -1,0 +1,250 @@
+.si-icon {
+  // border: 1px solid transparent;
+  background-color: var(--uf-text-04);
+  border-radius: 50%;
+  position: relative;
+  height: 16px;
+  width: 16px;
+  overflow: hidden;
+  @include box-shadow(0px, 4px, 2px, rgba($black, 0.16));
+  @extend .si-center;
+  @media screen and (min-width: $media-mobile-med) {
+    height: 20px;
+    width: 20px;
+  }
+
+  &::before {
+    color: var(--uf-text-04);
+    font-size: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: "euro-icomoon" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @extend %flexbox;
+    @include transform(translate(-50%, -50%));
+
+    @media screen and (min-width: $media-mobile-med) {
+      font-size: 10px;
+    }
+  }
+
+  &__wrap {
+    position: absolute;
+    bottom: 3px;
+    left: -10px;
+    z-index: zindex(default);
+    @media screen and (min-width: $media-small-tablet-min) {
+      bottom: 3px;
+    }
+    &.si-pos-right {
+      left: auto;
+      right: -10px;
+      &::after {
+        @media screen and (max-width: $media-small-max) {
+          bottom: 23px;
+        }
+      }
+      .si-tooltip {
+        @media screen and (max-width: $media-small-max) {
+          bottom: 27px;
+        }
+      }
+    }
+  }
+
+  &--top {
+    // @include color(background-color, uf-text-01);
+    // border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &::before {
+      color: var(--uf-support-04);
+    }
+    &.si-tt-active {
+      overflow: visible;
+    }
+  }
+
+  &--info {
+    border-color: var(--uf-interaction);
+
+    &::before {
+      content: "\e90d";
+      font-size: 12px;
+      @media screen and (min-width: $media-large-min) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &--captain {
+    color: var(--uf-text-04);
+    @include linearGradient(180deg, #ff16ff 0%, #d516d9 100%);
+    &::before {
+      content: "\e91e";
+      font-family: "euro-icomoon" !important;
+      font-size: 10px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 12px;
+      }
+    }
+  }
+  &.si-momw {
+    background-color: var(--uf-support-05);
+    &::before {
+      content: "\e947";
+      color: var(--uf-text-05);
+      font-size: 12px;
+    }
+  }
+}
+
+.si-bg {
+  &--error {
+    @include linearGradient(180deg, #ff3b3b 0%, #cc0000 100%);
+  }
+  &--success {
+    background-color: var(--uf-support-01);
+  }
+
+  &--white {
+    background-color: var(--uf-text-04);
+    &::before {
+      color: $black;
+    }
+  }
+
+  &--warning {
+    background-color: $warning;
+    // @include linearGradient(180deg, #ff9933 0%, #e87223 100%);
+  }
+  &--bench {
+    // background-color: #205bc8;
+    @include linearGradient(180deg, #009fe3 0%, #205bc8 100%);
+
+    &::before {
+      // color: $white;
+      font-size: 8px;
+    }
+  }
+  &--playing {
+    @include linearGradient(180deg, #19c201 -52.08%, #0a9504 100%);
+  }
+}
+
+.euro-eliminated {
+  &::before {
+    font-size: 16px;
+  }
+}
+.euro-yellow-card {
+  @include transform(rotate(15deg));
+  &::before {
+    font-size: 11px;
+    color: var(--uf-support-05);
+  }
+}
+.euro-red-card {
+  @include transform(rotate(15deg));
+  &::before {
+    content: "\e932";
+    color: var(--uf-support-04);
+  }
+}
+.si-playing {
+  background-color: var(--uf-support-01);
+}
+// .euro-warning {
+//   &::before {
+//     color: $black;
+//   }
+// }
+
+// .si-filter {
+//   &__row {
+//   }
+// }
+
+.si-plyr {
+  &--in {
+    .euro-in {
+      &::before {
+        color: var(--uf-support-01);
+      }
+    }
+  }
+
+  &--out {
+    .euro-out {
+      &::before {
+        color: var(--uf-support-04);
+      }
+    }
+  }
+
+  &--in-out {
+    .euro-in-out {
+      &::before {
+        content: "\e922";
+        color: var(--uf-support-04);
+      }
+
+      &::after {
+        content: "\e923";
+        color: var(--uf-support-01);
+        font-family: "euro-icomoon" !important;
+      }
+    }
+  }
+}
+.euro-in-out {
+  &::before,
+  &::after {
+    font-size: 15px;
+    @media screen and (min-width: $media-small-tablet-min) {
+      font-size: 20px;
+    }
+  }
+  &::before {
+    content: "\e922";
+    color: var(--uf-support-04);
+  }
+  &::after {
+    content: "\e923";
+    color: var(--uf-support-01);
+    font-family: "euro-icomoon" !important;
+  }
+}
+
+.euro-sent-off {
+  &::before {
+    content: "\e926";
+    color: $live;
+  }
+  &::after {
+    content: "\e927";
+    font-size: 10px;
+    margin-left: -4px;
+    color: $red;
+    z-index: 1;
+  }
+}
+// .euro-cross {
+//   &::before {
+//     content: '\e908';
+//   }
+// }

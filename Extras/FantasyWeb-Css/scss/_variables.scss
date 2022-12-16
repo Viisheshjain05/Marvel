@@ -1,0 +1,119 @@
+$cache-img: 0.69;
+//Colors
+$transparent: transparent;
+$googlePlus: #dd4b39;
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$whatsApp: #7ad06d;
+$instagram: #125688;
+
+$default: #30316e;
+$black: #000;
+$white: #fff;
+$red: #ff3b3b;
+
+$fantasy-primary2-color: #045ef4;
+$sponser-color: #00439c;
+
+// these variables are not used
+$fantasy-primary-color: #0d3aff;
+$fantasy-secondary-color: #5af7dc;
+$fantasy-tertiary-color: #69134b; //not used
+$fantasy-tertiary-medium: #ff16ff;
+
+$dark-blue: #00004b;
+$dark-gray: #3c3c3c;
+$medium-gray: #6c6c6c;
+$gray-mono-1: #f1f3f8;
+$gray-mono-2: #d9dbe7;
+$gray-mono-3: #c1c2d5;
+$gray-mono-4: #2c2c2c;
+$gray-mono-5: #d9dbe7; //text color
+
+$success: #19c201;
+$error: #ff3b3b;
+$warning: #ff9933;
+$live: #ffcd44;
+
+//these font variables are not used anymore
+//refer font variables from _custom-vars.scss file
+//Primary font family
+$primary-ff--light: "Champions Regular", "Roboto", Helvetica, Arial, sans-serif; //not used
+$primary-ff--regular: "Champions Regular", "Roboto", Helvetica, Arial,
+  sans-serif;
+$primary-ff--bold: "Champions Bold", "Roboto", Helvetica, Arial, sans-serif;
+$primary-ff--exbold: "Champions ExtraBold", "Roboto", sans-serif; //not used
+$primary-ff--semibold: "Champions Regular", "Roboto", Helvetica, Arial,
+  sans-serif; //not used
+
+//font-weight
+$fw--light: 300;
+$fw--regular: 400;
+$fw--bold: 700;
+$fw--exbold: 800;
+
+$fw--semibold: normal; //not used
+
+//secondary font family
+$secondary-ff--light: "Roboto", sans-serif;
+$secondary-ff--lighti: "Roboto", sans-serif;
+$secondary-ff--regular: "Roboto", sans-serif;
+$secondary-ff--medium: "Roboto", sans-serif;
+$secondary-ff--bold: "Roboto", sans-serif;
+$secondary-ff--black: "Roboto", sans-serif; //not used
+
+$secondary-ff--condensed: "Roboto Condensed", "Roboto", Helvetica, Arial,
+  sans-serif;
+
+$secondary-ff--exbold: "Roboto", sans-serif; //not used
+
+//font-weight
+$fws--light: 300;
+$fws--lighti: 300i;
+$fws--regular: 400;
+$fws--medium: 500;
+$fws--bold: 700;
+$fws--black: 900;
+
+$fws--exbold: normal; //not used
+
+//Media Breakpoints
+$media-mobile-small-320: 320px;
+$media-mobile-ex-small: 360px;
+$media-mobile-med: 375px;
+$media-mobile-small-max: 480px;
+
+$media-xsmall-min: 0px;
+$media-xsmall-max: 599px;
+
+// $media-mobile-max: 767px;
+// $media-tablet-min: 768px;
+
+$media-mobile-max: 904px;
+$media-tablet-min: 905px;
+
+$media-small-min: 600px;
+$media-small-max: 904px;
+
+$media-small-tablet-min: 905px;
+$media-small-tablet-max: 1239px;
+
+$media-medium-min: 1240px;
+$media-medium-max: 1439px;
+
+$media-large-min: 1440px;
+
+$media-tablet-max: 992px;
+$media-desktop-min: 1024px;
+$media-desktop-max: 1200px;
+$media-laptop-max: 1366px;
+$media-ex-large-min: 1367px;
+$media-ex-large-max: 1441px;
+$media-ex-large-hd-max: 1601px;
+
+$media-xxlarge: 1900px;
+$media-xxlarge-min: 2000px;
+
+//Hidden Class
+$web-hidden: none;
+$mobile-hidden: none;

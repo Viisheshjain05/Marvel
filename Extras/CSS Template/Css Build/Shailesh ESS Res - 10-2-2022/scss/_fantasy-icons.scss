@@ -1,0 +1,150 @@
+@import "variables";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?v=#{$cache-icons}");
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?v=#{$cache-icons}")
+      format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?v=#{$cache-icons}")
+      format("truetype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?v=#{$cache-icons}")
+      format("woff"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?v=#{$cache-icons}#{$icomoon-font-family}")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="es-"],
+[class*=" es-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.es-wk {
+  &:before {
+    content: $es-wk;
+  }
+}
+.es-ar {
+  &:before {
+    content: $es-ar;
+  }
+}
+.es-ball {
+  &:before {
+    content: $es-ball;
+  }
+}
+.es-bat {
+  &:before {
+    content: $es-bat;
+  }
+}
+.es-slim-arrow {
+  &:before {
+    content: $es-slim-arrow;
+  }
+}
+.es-back:before {
+  content: "\e912";
+}
+.es-info:before {
+  content: "\e911";
+}
+.es-share {
+  &:before {
+    content: $es-share;
+  }
+}
+.es-arrow {
+  &:before {
+    content: $es-arrow;
+  }
+}
+.es-download {
+  &:before {
+    content: $es-download;
+  }
+}
+.es-dualArrow {
+  &:before {
+    content: $es-dualArrow;
+  }
+}
+.es-accuracy {
+  &:before {
+    content: $es-accuracy;
+  }
+}
+.es-big-hitter {
+  &:before {
+    content: $es-big-hitter;
+  }
+}
+.es-economical {
+  &:before {
+    content: $es-economical;
+  }
+}
+.es-explosive {
+  &:before {
+    content: $es-explosive;
+  }
+}
+.es-finisher {
+  &:before {
+    content: $es-finisher;
+  }
+}
+.es-hot-batting-form {
+  &:before {
+    content: $es-hot-batting-form;
+  }
+}
+.es-hot-bowling-form {
+  &:before {
+    content: $es-hot-bowling-form;
+  }
+}
+.es-Ice-cool {
+  &:before {
+    content: $es-Ice-cool;
+  }
+}
+.es-key-player {
+  &:before {
+    content: $es-key-player;
+  }
+}
+.es-pace {
+  &:before {
+    content: $es-pace;
+  }
+}
+.es-spin {
+  &:before {
+    content: $es-spin;
+  }
+}
+.es-sterdy_1 {
+  &:before {
+    content: $es-sterdy_1;
+  }
+}
+.es-yorker-specialist {
+  &:before {
+    content: $es-yorker-specialist;
+  }
+}

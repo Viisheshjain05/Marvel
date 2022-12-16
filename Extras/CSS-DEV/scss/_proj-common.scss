@@ -1,0 +1,2105 @@
+* {
+  margin: 0;
+  padding: 0;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: -o-crisp-edges;
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  -ms-interpolation-mode: nearest-neighbor;
+  -webkit-backface-visibility: hidden;
+  @include box-sizing(border-box);
+
+  @media screen and (min-width: $media-mobile-max) {
+    // For firefox browser
+    scrollbar-width: thin;
+    scrollbar-color: rgba($white, 0.7) rgba($black, 1);
+
+    &::-webkit-scrollbar {
+      width: 6px;
+      height: 4px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background: rgba($black, 1);
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: rgba($white, 0.7);
+    }
+
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba($white, 0.7);
+    }
+  }
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: 100%;
+  &:focus-within {
+    scroll-behavior: smooth;
+  }
+}
+
+body {
+  position: relative;
+  touch-action: manipulation;
+
+  &.si-ar {
+    direction: rtl;
+  }
+}
+
+html,
+body {
+  height: 100%;
+  /* Needed for container's min-height  */
+}
+
+.df-main {
+  line-height: normal;
+  position: relative;
+  font-size: 16px;
+  min-height: 100vh;
+  font-family: $regular_font-family, -apple-system, BlinkMacSystemFont,
+    "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans",
+    sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol",
+    "Noto Color Emoji";
+  color: $black;
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  overflow: hidden;
+  backface-visibility: hidden;
+  background: $client-secondary-color;
+
+  @media (min-device-width: 414px) and (max-device-width: 1023px) and (orientation: landscape) {
+    position: relative;
+    height: 100vh;
+
+    div {
+      display: none;
+    }
+
+    &::after,
+    &::before {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      @include transform(translateY(-50%));
+    }
+
+    &::after {
+      content: "";
+      width: 48px;
+      height: 48px;
+      margin: 0 auto;
+      background: url(../images/rotate-your-device.svg?v=#{$image-version})
+        no-repeat center center;
+      @include background-size(contain);
+    }
+
+    &::before {
+      content: "Rotate your Device";
+      color: $white;
+      text-align: center;
+      font-size: 16px;
+      margin-top: 44px;
+      font-family: $regular_font-family;
+      font-weight: $regular_font-weight;
+    }
+  }
+
+  &__bg {
+    display: none;
+
+    @media screen and (min-width: $media-mobile-max) {
+      position: fixed;
+      left: 375px;
+      width: calc(100% - 375px);
+      top: 0;
+      left: 550px;
+      width: calc(100% - 550px);
+      height: 100vh;
+      padding-top: 80px;
+      background-color: $client-primary-color;
+      justify-content: center;
+      align-items: flex-start;
+      @include flexbox;
+      // background: url(../images/Desktop-BG@2x.jpg?v=#{$image-version}) no-repeat right top fixed;
+      // @include background-size(cover);
+
+      // &:after {
+      //   content: "";
+      //   position: absolute;
+      //   left: 0;
+      //   right: 0;
+      //   margin: 0 auto;
+      //   top: 50%;
+      //   width: 4px * 44;
+      //   height: 4px * 44;
+      //   background: url(../images/IPL-LOGO@2x.png?v=#{$image-version}) no-repeat center center;
+      //   @include background-size(contain);
+      //   @include transform(translateY(-50%));
+      // }
+      // &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        width: 40%;
+        height: 40%;
+      }
+      // &::after {
+      //   left: 0;
+      //   top: 0;
+      //   background: url(../images/icc-wct20-lhs-bg.svg?v=#{$image-version})
+      //     no-repeat top left;
+      //   @include background-size(contain);
+      // }
+
+      &::before {
+        left: auto;
+        right: 0;
+        top: auto;
+        bottom: 0;
+        background: url(../images/icc-wct20-rhs-bg.svg?v=#{$image-version})
+          no-repeat bottom right;
+        @include background-size(contain);
+      }
+    }
+
+    &-box {
+      position: relative;
+      z-index: 1;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-thumb {
+      width: 200px;
+      margin-bottom: 16px;
+      @media screen and (min-width: $media-desktop-max) {
+        width: 260px;
+      }
+      @media screen and (min-width: $media-ex-large-max) {
+        width: 300px;
+      }
+      img {
+        width: 100%;
+      }
+    }
+
+    &-title {
+      color: $white;
+
+      span {
+        text-align: center;
+        display: block;
+        font-size: 30px;
+        line-height: 1;
+        @extend .df-mediumFF--it !optional;
+        @media screen and (min-width: $media-desktop-max) {
+          font-size: 36px;
+        }
+        @media screen and (min-width: $media-ex-large-max) {
+          font-size: 48px;
+        }
+        &:not(:last-child) {
+          font-size: 16px;
+          letter-spacing: 1px;
+          margin-bottom: 16px;
+          @extend .df-regularFF !optional;
+          @media screen and (min-width: $media-desktop-max) {
+            font-size: 18px;
+          }
+          @media screen and (min-width: $media-ex-large-max) {
+            font-size: 20px;
+            letter-spacing: 2px;
+          }
+        }
+      }
+    }
+  }
+
+  &__container {
+    max-width: 1180px;
+    width: 100%;
+    position: relative;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    z-index: 1;
+
+    @media screen and (max-width: $media-mobile-max) {
+      padding: 0;
+    }
+  }
+
+  &__containerFluid {
+    width: 100%;
+  }
+
+  &__row {
+    margin-right: -15px;
+    margin-left: -15px;
+  }
+
+  &__wrap {
+    padding-right: 15px;
+    padding-left: 15px;
+  }
+
+  ul,
+  ol {
+    margin: 0;
+    padding: 0;
+    font-size: 0;
+    list-style: none;
+  }
+
+  em {
+    font-style: normal;
+  }
+
+  a {
+    text-decoration: none;
+  }
+
+  b,
+  strong {
+    font-family: $bold_font-family;
+    font-weight: $bold_font-weight;
+  }
+
+  @media screen and (-webkit-min-device-pixel-ratio: 0) {
+    select:focus,
+    textarea:focus,
+    input:focus {
+      font-size: 16px;
+    }
+
+    input:focus,
+    textarea:focus {
+      @include placeholder {
+        font-size: 16px;
+      }
+    }
+  }
+
+  input:focus,
+  textarea:focus {
+    @include placeholder {
+      color: $transparent;
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
+  input,
+  textarea {
+    @include placeholder {
+      color: $steel;
+      outline: none;
+      box-shadow: none;
+      font-family: $regular_font-family;
+      font-weight: $regular_font-weight;
+    }
+  }
+
+  :focus {
+    outline: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    @include box-sizing(border-box);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    outline: 0;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+//pop-ups
+.df-popup {
+  &__wrap {
+    z-index: -9999;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 0 15px;
+    overflow: auto;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    overflow: hidden;
+    @extend %flexbox !optional;
+
+    @media screen and (max-width: $media-laptop-max) {
+      font-size: 14px;
+      padding: 0 10px;
+    }
+
+    @media screen and (max-width: $media-mobile-max) {
+      padding: 10px;
+    }
+  }
+
+  &__container {
+    max-height: calc(100vh - 40px);
+    align-items: center;
+    max-width: 650px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 50px;
+    position: relative;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    @extend %flexbox !optional;
+    @include transform(translate(0, -25%) scale(0));
+    @include transition(transform 0.3s ease-in);
+    @include box-shadow(0px, 0px, 20px, 10px, rgba($black, 0.2));
+
+    @media screen and (max-width: $media-laptop-max) {
+      max-width: 550px;
+    }
+
+    @media screen and (max-width: $media-mobile-max) {
+      max-height: calc(100vh - 140px);
+    }
+  }
+
+  &__close {
+    position: absolute;
+    top: 0;
+    left: auto;
+    right: 0;
+    width: 100%;
+    height: 50px;
+    cursor: pointer;
+    z-index: 2;
+
+    &::after {
+      content: "\e901";
+      font-family: "ultaFulta" !important;
+      font-size: 24px;
+      color: $white;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      justify-content: flex-end;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+  }
+
+  &__head,
+  &__foot,
+  &__body {
+    padding: 20px 20px 10px;
+    width: 100%;
+
+    @media screen and (max-width: $media-mobile-max) {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  &__head,
+  &__foot {
+    position: relative;
+  }
+
+  &__head {
+    padding-bottom: 0;
+  }
+
+  &__body {
+    padding-top: 10px;
+    padding-bottom: 20px;
+    -webkit-overflow-scrolling: touch;
+    flex-grow: 1;
+    flex-shrink: 1;
+    overflow: auto;
+  }
+
+  &__foot {
+    padding-top: 0;
+
+    @media screen and (max-width: $media-mobile-max) {
+      padding-top: 10px;
+    }
+  }
+
+  &__title {
+    text-align: center;
+    color: $black;
+    font-size: 20px;
+    font-family: $bold_font-family;
+    font-weight: $bold_font-weight;
+    padding: 0 20px 15px;
+    border-bottom: 1px solid rgba($client-complementary-color, 0.5);
+
+    @media screen and (max-width: $media-mobile-max) {
+      font-size: 16px;
+      padding-bottom: 10px;
+    }
+
+    &-sub {
+      padding-bottom: 20px;
+      text-align: center;
+      font-size: 16px;
+      color: $client-complementary-color;
+      font-family: $regular_font-family;
+      font-weight: $regular_font-weight;
+    }
+  }
+}
+
+.bodyNoScroll {
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  overflow: hidden;
+
+  @media screen and (max-width: $media-desktop-min) {
+    position: fixed;
+  }
+  &.df-posFixed {
+    position: fixed;
+  }
+}
+
+.df-frm-errMsg {
+  color: $red;
+  font-size: 12px;
+  font-family: $medium_font-family;
+  font-weight: $medium_font-weight;
+  margin-top: 3px;
+}
+
+.df-fb-reverse {
+  flex-direction: row-reverse;
+}
+
+//Flexbox Grid
+.df-fb {
+  @extend %flexbox !optional;
+
+  // &__fItem {
+  //   padding: 0 10px;
+
+  //   &--1by3 {
+  //     flex-basis: 33.33%;
+  //     width: 33.33%;
+  //   }
+
+  //   &--10 {
+  //     flex-basis: 10%;
+  //     width: 10%;
+  //   }
+
+  //   &--20 {
+  //     flex-basis: 20%;
+  //     width: 20%;
+  //   }
+
+  //   &--30 {
+  //     flex-basis: 30%;
+  //     width: 30%;
+  //   }
+
+  //   &--40 {
+  //     flex-basis: 40%;
+  //     width: 40%;
+  //   }
+
+  //   &--50 {
+  //     flex-basis: 50%;
+  //     width: 50%;
+  //   }
+
+  //   &--60 {
+  //     flex-basis: 60%;
+  //     width: 60%;
+  //   }
+
+  //   &--70 {
+  //     flex-basis: 70%;
+  //     width: 70%;
+  //   }
+
+  //   &--80 {
+  //     flex-basis: 80%;
+  //     width: 80%;
+  //   }
+
+  //   &--90 {
+  //     flex-basis: 90%;
+  //     width: 90%;
+  //   }
+
+  //   &--100 {
+  //     flex-basis: 100%;
+  //     width: 100%;
+  //   }
+
+  //   &--1by3,
+  //   &--10,
+  //   &--20,
+  //   &--30,
+  //   &--40,
+  //   &--50,
+  //   &--60,
+  //   &--70,
+  //   &--80,
+  //   &--90,
+  //   &--100 {
+  //     @media screen and (max-width: $media-tablet-max) {
+  //       flex-basis: 100%;
+  //       width: 100%;
+  //     }
+  //   }
+  // }
+}
+
+//table style start here
+.df-tbl {
+  display: table;
+  width: 100%;
+
+  &__head,
+  &__body,
+  &__foot {
+    display: table-header-group;
+  }
+
+  &__row {
+    display: table-row;
+  }
+
+  &__cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+}
+
+//shortname/fullname
+.df-name {
+  &__short {
+    display: none;
+
+    @media screen and (max-width: $media-mobile-max) {
+      display: block;
+    }
+  }
+
+  &__full {
+    @media screen and (max-width: $media-mobile-max) {
+      display: none;
+    }
+  }
+}
+
+//
+.df-noDataFound {
+  color: $steel;
+  font-size: 14px;
+  text-align: center;
+  font-family: $regular_font-family;
+  font-weight: $regular_font-weight;
+  padding-bottom: 16px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100px;
+  @extend %flexbox !optional;
+
+  @media screen and (min-width: $media-mobile-max) {
+    font-size: 16px;
+  }
+
+  &__text {
+    padding-bottom: 20px;
+  }
+
+  &__thumb {
+  }
+
+  &__cta {
+    cursor: pointer;
+    text-align: center;
+    font-size: 14px;
+    font-family: $bold_font-family;
+    font-weight: $bold_font-weight;
+    padding: 20px 16px 0;
+    color: $client-primary-color;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+  }
+}
+
+//Buttons
+.df-btn {
+  position: relative;
+  overflow: hidden;
+  color: $white;
+  min-width: 150px;
+  height: 40px;
+  text-align: center;
+  margin: 0 auto;
+  cursor: pointer;
+  font-size: 14px;
+  // letter-spacing: 0.15px;
+  @extend .df-boldFF !optional;
+  justify-content: center;
+  align-items: center;
+  padding: 0 16px;
+  // @extend .df-borRad100 !optional;
+  @extend %flexbox !optional;
+  &__link {
+    cursor: default;
+    text-transform: none;
+    @extend .df-mediumFF !optional;
+    height: auto;
+    color: rgba($client-primary-color, 0.6);
+
+    em {
+      cursor: pointer;
+      color: $client-primary-color;
+    }
+  }
+
+  &__facebook,
+  &__google {
+    height: 70px;
+    font-size: 20px;
+    @extend .df-regularFF !optional;
+    color: $white;
+    padding: 0;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+    @include border-radius(0);
+
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      @include transition(height 0.3s ease-in-out);
+    }
+
+    &:hover {
+      &::after {
+        height: 100%;
+      }
+    }
+
+    i,
+    span {
+      padding: 5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    i {
+      font-size: 30px;
+    }
+
+    span {
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  }
+
+  &__facebook {
+    background: $facebook;
+
+    &::after {
+      background: #071c53;
+    }
+  }
+
+  &__google {
+    background: $googlePlus;
+
+    &::after {
+      background: #780808;
+    }
+  }
+
+  &.df-disabled {
+    cursor: default;
+    background: $client-deactive-color;
+    color: rgba($black, 0.2);
+  }
+
+  &__primary {
+    background: $cta-primary-color;
+    color: $white;
+
+    &.df-disabled {
+      background: #dddfe1;
+      color: $disabled;
+      cursor: default;
+    }
+  }
+
+  &__secondary {
+    background: $white;
+    color: $cta-primary-color;
+    border: solid 2px $cta-primary-color;
+
+    &.df-disabled {
+      cursor: default;
+      background: $very-light-purple;
+      border-color: $light-blue-grey-two;
+      color: $light-grey-blue;
+    }
+  }
+
+  &__white {
+    min-width: auto;
+    font-size: 14px;
+    padding: 4px 12px;
+    max-height: 28px;
+    background-color: $white;
+    color: $client-primary-color;
+    justify-content: center;
+    align-items: center;
+    @extend %inline-flex;
+
+    &--outline {
+      border: 1px solid $white;
+      color: $white;
+    }
+
+    &--fill {
+      background-color: $white;
+      color: $client-primary-color;
+    }
+  }
+
+  &__social {
+    &--fb {
+      color: $facebook;
+    }
+
+    &--g {
+      color: #7b7a7a;
+    }
+  }
+
+  &__primary,
+  &__secondary,
+  &__white,
+  &.df-disabled {
+    &--outline {
+      background: transparent;
+    }
+  }
+
+  &--sm {
+    height: 30px;
+    font-size: 12px;
+  }
+}
+
+//Form lable
+.df-lbl {
+  margin-bottom: 4px;
+  font-size: 12px;
+  color: rgba($client-primary-color, 0.6);
+  font-family: $regular_font-family;
+  font-weight: $regular_font-weight;
+}
+
+//Form Dropdown
+.df-drpDwn {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+
+  &.active {
+    .df-drpDwn__value {
+      &::after {
+        @include transform(translateY(-50%) rotateX(180deg));
+
+        @media screen and (max-width: $media-mobile-max) {
+          @include transform(translateY(-50%) rotateX(0deg));
+        }
+      }
+    }
+
+    .df-drpDwn__value {
+      @include border-radius(8px 8px 0 0);
+    }
+
+    .df-drpDwn__list {
+      pointer-events: auto;
+      @include opacity(1);
+    }
+  }
+
+  &__value {
+    cursor: pointer;
+    position: relative;
+    padding: 10px 15px;
+    padding-right: 25px;
+    border: none;
+    background: #f2f2f2;
+    font-size: 15px;
+    color: #333333;
+    height: 39px;
+    @extend .df-regularFF !optional;
+    @include text-truncate;
+    @include border-radius(8px);
+
+    @media screen and (max-width: $media-laptop-max) {
+      height: 35px;
+      font-size: 13px;
+      @include border-radius(6px);
+    }
+
+    @media screen and (max-width: $media-tablet-max) {
+      font-size: 12px;
+      @include border-radius(4px);
+    }
+
+    &::after {
+      content: "\e900";
+      font-family: "ultaFulta" !important;
+      color: #474747;
+      position: absolute;
+      left: auto;
+      font-size: 10px;
+      right: 10px;
+      top: 50%;
+      @include transform(translateY(-50%));
+      @include transition(transform 0.4s ease-in-out);
+    }
+
+    select {
+      opacity: 0;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: none;
+
+      @media screen and (max-width: $media-mobile-max) {
+        display: block;
+      }
+    }
+  }
+
+  &__list {
+    position: absolute;
+    background-color: #f1ebe3;
+    width: 100%;
+    z-index: 3;
+    left: 0;
+    top: 100%;
+    height: 200px;
+    padding-bottom: 10px;
+    overflow: auto;
+    pointer-events: none;
+    @include opacity(0);
+    @include transition(all 0.2s ease-in);
+
+    @media screen and (max-width: $media-mobile-max) {
+      display: none;
+    }
+
+    &Up {
+      bottom: 40px;
+      top: auto;
+    }
+
+    ul {
+      li {
+        font-size: 14px;
+        padding: 10px 25px;
+        cursor: pointer;
+
+        @media screen and (max-width: $media-laptop-max) {
+          font-size: 12px;
+        }
+
+        @media screen and (max-width: $media-tablet-max) {
+          padding: 8px 15px;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($black, 0.2);
+        }
+      }
+    }
+  }
+}
+
+//Form Input
+.df-input {
+  z-index: 1;
+  position: relative;
+
+  &-limit {
+    font-size: 10px;
+    color: $text-body-grey;
+    @extend .df-regularFF !optional;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+
+    span {
+      display: block;
+    }
+  }
+
+  input {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    color: $client-primary-color;
+    font-family: $bold_font-family;
+    font-weight: $bold_font-weight;
+    padding: 10px;
+    padding-right: 35px;
+    height: 36px;
+    width: 100%;
+    display: block;
+    background: #f5f6fd;
+    border: none;
+    @include border-radius(18px);
+
+    @media screen and (max-width: $media-mobile-max) {
+      height: 36px;
+      padding: 5px;
+    }
+  }
+
+  textarea {
+    box-shadow: none;
+    outline: none;
+    border: none;
+    font-size: 16px;
+    width: 100%;
+    background: #e5c37c;
+    border: 1px solid #bea267;
+    color: #584b30;
+    padding: 10px;
+    resize: none;
+  }
+
+  &--pwd,
+  &--clear,
+  &--search {
+    position: relative;
+
+    .df-input--icon {
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      &::after {
+        font-family: "dfi" !important;
+        color: $white;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+    }
+  }
+
+  &--pwd {
+    .df-input--icon {
+      &::after {
+        content: "\e906";
+      }
+
+      &-active {
+        &::after {
+          content: "\e917";
+        }
+      }
+    }
+  }
+
+  &--clear {
+    .df-input--icon {
+      &::after {
+        content: "\e903";
+        // width: 14px;
+        // height: 14px;
+        // font-size: 10px;
+        color: $client-primary-color;
+        // background: $light-grey-blue;
+        // @extend .df-borRad100 !optional;
+      }
+    }
+  }
+
+  &--search {
+    input {
+      padding-left: 40px !important;
+      padding-right: 40px !important;
+    }
+
+    &::after {
+      content: "\e900";
+      font-family: "dfi" !important;
+      width: 16px;
+      height: 16px;
+      position: absolute;
+      left: 12px;
+      top: 50%;
+      color: $client-primary-color;
+      @include transform(translateY(-50%));
+    }
+  }
+
+  &--icon {
+    cursor: pointer;
+    position: absolute;
+    left: auto;
+    right: 0;
+    height: 100%;
+    width: 35px;
+    top: 0;
+  }
+
+  &--success {
+    input {
+      border-color: $green !important;
+    }
+  }
+
+  &--danger {
+    input {
+      color: $red;
+      border-color: $red !important;
+    }
+  }
+}
+
+//Checkbox button
+.df-checkBox {
+  position: relative;
+
+  [type="checkbox"] {
+    &:checked,
+    &:not(:checked) {
+      position: absolute;
+      left: -9999px;
+
+      & + label {
+        position: relative;
+        padding-right: 30px;
+        cursor: pointer;
+        line-height: normal;
+        display: block;
+        font-size: 14px;
+        color: $text-body-grey;
+        font-family: $regular_font-family;
+        font-weight: $regular_font-weight;
+        em {
+          display: block;
+        }
+        &::after,
+        &::before {
+          position: absolute;
+          left: auto;
+          right: 0;
+          top: 50%;
+          width: 20px;
+          height: 20px;
+          @extend .df-borRad100 !optional;
+        }
+
+        &::before {
+          background: $white;
+          content: "";
+          border: 1px solid #d5d5d5;
+          transform-origin: center center;
+          @include transform(translateY(-50%));
+        }
+
+        &::after {
+          font-family: "dfi" !important;
+          content: "\e90b";
+          color: $white;
+          font-size: 14px;
+          transform-origin: center center;
+          justify-content: center;
+          align-items: center;
+          @include transition(all 0.2s ease);
+          @extend %flexbox !optional;
+        }
+
+        a {
+          font-size: 12px;
+          color: $white;
+          font-family: $bold_font-family;
+          font-weight: $bold_font-weight;
+        }
+      }
+    }
+
+    &:checked {
+      & + label {
+        color: $client-primary-color;
+        em {
+          font-family: $bold_font-family;
+          font-weight: $bold_font-weight;
+        }
+      }
+    }
+
+    &:not(:checked) + label::after {
+      opacity: 0;
+      @include transform(scale(0) translateY(-50%));
+    }
+
+    &:checked + label::after {
+      background: $green;
+      opacity: 1;
+      @include transform(scale(1) translateY(-50%));
+    }
+
+    &:checked + label::before {
+      @include transition(all 0.2s ease);
+    }
+
+    &:disabled {
+      :checked + label::before,
+      :not(:checked) + label::before {
+        border-color: #ccc;
+        background-color: #eee;
+      }
+    }
+  }
+
+  &:disabled:checked + label::after {
+    background: #aaa;
+  }
+}
+
+// radio button
+.df-radioBtn {
+  position: relative;
+  background: #f5f5f5;
+  margin: 0 -16px;
+  padding: 12px 16px;
+  justify-content: space-between;
+  align-items: center;
+  @extend %flexbox !optional;
+
+  &__wrap {
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    @extend %inline-flex;
+  }
+
+  input {
+    cursor: pointer;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    @include transition(all 0.3s ease-in-out);
+
+    &[type="checkbox"]:checked ~ .df-radioBtn__action {
+      background-color: rgba($client-primary-color, 0.54);
+    }
+
+    &[type="checkbox"]:checked ~ .df-radioBtn__action .df-radioBtn__toggle {
+      left: 14px;
+      background-color: $client-primary-color;
+    }
+
+    &[type="checkbox"]:checked ~ .df-radioBtn__lbl {
+    }
+  }
+
+  &__lbl,
+  &__action {
+    padding-right: 10px;
+  }
+
+  &__action {
+    padding: 0;
+    position: relative;
+    width: 34px;
+    height: 14px;
+    background-color: $primary-ink-hover;
+    @include border-radius(20px);
+  }
+
+  &__lbl {
+    font-size: 12px;
+    color: $text-meta;
+  }
+
+  &__toggle {
+    background: $white;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    box-shadow: 0 1px 3px 0 rgba($black, 0.2), 0 2px 1px -1px rgba($black, 0.12),
+      0 1px 1px 0 rgba($black, 0.14);
+    @include transform(translateY(-50%));
+    @extend .df-borRad100 !optional;
+    @include transition(all 0.1s linear);
+  }
+}
+
+.df-form {
+  margin-bottom: 20px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+
+  &__floating {
+    margin-bottom: 2px;
+    position: relative;
+    height: 60px;
+    width: 100%;
+    justify-content: flex-start;
+    align-items: flex-end;
+    @extend %flexbox !optional;
+
+    .df-lbl {
+      font-size: 14px;
+      position: absolute;
+      z-index: 1;
+      left: 0;
+      top: 32px;
+      @include transition(top 0.1s ease-in-out, font-size 0.1s ease-in-out);
+    }
+
+    .df-input {
+      width: 100%;
+    }
+
+    &.df-active {
+      // background-color: $duck-egg-blue;
+      .df-lbl {
+        // padding-left: 16px;
+        color: $disabled;
+        font-size: 12px;
+        top: 10px;
+      }
+
+      .df-input {
+        input {
+          // padding-left: 16px;
+          // padding-right: 16px;
+          border-bottom-color: $client-primary-color;
+        }
+      }
+    }
+
+    &.df-form__range {
+      height: auto;
+      .df-input {
+        height: 56px;
+        input[type="range"] {
+          position: relative;
+          z-index: 2;
+
+          opacity: 0;
+          // padding: 0;
+          margin: 0;
+          // overflow: hidden;
+          height: auto;
+        }
+      }
+    }
+  }
+
+  &__control {
+    margin-bottom: 10px;
+
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// .df-box1 {
+//   @include maintain-ratio(4 3);
+
+//   img {
+//     display: block;
+//     width: 100%;
+//   }
+// }
+
+// .df-ad-wrap {
+//   max-width: 720px;
+//   width: 100%;
+//   margin: 30px auto;
+//   text-align: center;
+
+//   @media screen and (max-width: $media-mobile-max) {
+//     margin: 15px auto;
+//   }
+
+//   img {
+//     width: 100%;
+//     display: block;
+//     margin: 0 auto;
+//   }
+// }
+
+//animations transition
+.df-fade {
+  &.in {
+    z-index: 9999;
+    background: rgba($text-dark, 0.95);
+    -webkit-backdrop-filter: blur(4px);
+    backdrop-filter: blur(4px);
+    @include opacity(1);
+    @include transition(opacity 0.1s linear, padding-top 0.1s linear);
+
+    &.df-overlay__dark {
+      background: rgba($client-primary-color, 0.95);
+
+      .df-overlay__body,
+      .df-overlay__container {
+        background-color: transparent;
+      }
+
+      .df-overlay__close {
+        font-size: 10px;
+        color: $white;
+        left: auto;
+        right: 16px;
+        top: 16px;
+        border: 2px solid $white;
+        width: 26px;
+        height: 26px;
+        @extend .df-borRad100 !optional;
+      }
+    }
+
+    .df-overlay__container {
+      @include animation("df-popInUp .15s both");
+    }
+
+    .df-overlay__body {
+      height: calc(100vh - 60px);
+    }
+  }
+
+  &.out {
+    @include opacity(0);
+    @include transition(opacity 0.1s linear, padding-top 0.1s linear);
+
+    .df-overlay__container {
+      @include animation("df-popOutUp .15s both");
+    }
+  }
+}
+
+// Accordion
+.df-accordion {
+  margin: 12px 0;
+  position: relative;
+
+  &__box {
+    background: $white;
+    padding: 12px 16px;
+    &:not(:last-child) {
+      margin-bottom: 12px;
+      border-bottom: 1px solid rgba($divider-stroke, 0.6);
+    }
+
+    &.df-active {
+      box-shadow: 0 2px 4px 0 rgba(1, 1, 6, 0.05);
+
+      .df-accordion__head {
+        &::after {
+          content: "\e904";
+          color: $client-primary-color;
+          // @include transform(rotateX(180deg));
+        }
+      }
+
+      .df-accordion__body {
+        display: block;
+      }
+    }
+
+    &.df-noClick {
+      box-shadow: 0 2px 4px 0 rgba(1, 1, 6, 0.05);
+
+      .df-accordion__head {
+        &::after {
+          display: none;
+        }
+      }
+
+      .df-accordion__body {
+        display: block;
+      }
+    }
+  }
+
+  &__head {
+    cursor: pointer;
+    position: relative;
+    padding-bottom: 12px;
+
+    &::after {
+      content: "\e906";
+      font-family: "dfi" !important;
+      color: rgb(220, 228, 245);
+      position: absolute;
+      left: auto;
+      top: auto;
+      bottom: 12px;
+      right: 0;
+      width: 24px;
+      height: 24px;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      @include transition(transform 0.1s ease-in-out);
+    }
+
+    &--booster {
+      padding-bottom: 28px;
+
+      &.df-accordion__head::after {
+        bottom: 0;
+      }
+    }
+  }
+
+  &__body {
+    display: none;
+    border-top: 1px solid rgba($divider-stroke, 0.6);
+    padding-top: 12px;
+
+    .df-noDataFound {
+      padding-bottom: 0;
+
+      &__text {
+        padding-bottom: 0;
+      }
+    }
+  }
+
+  &__loader {
+    position: relative;
+    min-height: 150px;
+    padding: 0 !important;
+
+    .df-loader {
+      background: transparent;
+    }
+  }
+}
+
+.df-negativeNum {
+  color: $red !important;
+}
+
+.track-vertical {
+  height: 100%;
+  right: 0;
+  background: transparent;
+}
+
+.thumb-vertical {
+  background: $client-secondary-color;
+}
+
+.df-ad {
+  &__banner {
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+
+    a {
+      display: block;
+    }
+
+    img {
+      max-width: 100%;
+    }
+  }
+}
+
+.df-greenTxt {
+  color: $green !important;
+
+  &-dark {
+    color: $dark-aquamarine !important;
+  }
+}
+
+.df-redTxt {
+  color: $status !important;
+}
+
+.no-pad--t {
+  padding-top: 0 !important;
+}
+
+.no-mar--t {
+  margin-bottom: 0 !important;
+}
+
+.df-mb60 {
+  padding-bottom: 60px !important;
+}
+
+.df-text {
+  &--center {
+    text-align: center !important;
+  }
+}
+
+.df-loader {
+  position: absolute;
+  top: 0;
+  background: $duck-egg-blue;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  @extend %flexbox !optional;
+
+  &__hide {
+    display: none;
+  }
+
+  &__spin {
+    width: 40px;
+    height: 40px;
+    animation: df-spin 1.4s linear infinite;
+  }
+
+  &__path {
+    animation: df-loader-stroke 1.4s ease-in-out infinite;
+    stroke-dasharray: 1, 162;
+    stroke-dashoffset: 0;
+    stroke-linecap: round;
+    stroke-width: 3.6;
+    stroke: $client-secondary-color;
+  }
+
+  &__fullScreen {
+    max-width: 550px;
+    width: 100%;
+    position: fixed;
+    z-index: 99999;
+    background: rgba($client-primary-color, 0.8);
+
+    .df-loader__path {
+      stroke: $white;
+    }
+  }
+}
+
+.swiper-wrapper,
+.swiper-slide {
+  height: auto;
+}
+.swiper-pagination {
+  position: relative;
+  margin-top: 48px;
+
+  &-bullet {
+    opacity: 1;
+    width: 4px;
+    height: 4px;
+    margin: 0 4px;
+    background: rgba($client-primary-color, 0.1);
+    @include border-radius(2px);
+    @include transition(background-color 0.1s linear, width 0.1s linear);
+
+    &-active {
+      width: 16px;
+      background: $client-primary-color;
+    }
+  }
+}
+.df-pitch__wrap {
+  .df-transfer__head,
+  .df-cmo__tabs,
+  .df-overlay__header {
+    z-index: 999999;
+  }
+}
+
+.df-noClick {
+  pointer-events: none;
+  cursor: default !important;
+}
+
+//ie support
+_:-ms-fullscreen,
+:root {
+  .df-cmo__info-lft {
+    width: 50%;
+  }
+
+  .df-favTeam__cta {
+    position: relative;
+
+    &::before {
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      @include transform(translateY(-50%));
+    }
+  }
+
+  .df-transfer__plyr-dtls {
+    overflow: hidden;
+  }
+
+  .df-transfer__plyr-name,
+  .df-plyrSel__name {
+    display: inline-flex;
+
+    span {
+      display: block;
+    }
+  }
+
+  .df-in.df-player__profile-row .df-player__profile-icon::after,
+  .df-transfer__info-lft span i::after {
+    display: block;
+  }
+}
+
+.df-borRad100 {
+  @include border-radius(100px);
+}
+
+.df-borRad12 {
+  @include border-radius(12px);
+}
+.df-borRad10 {
+  @include border-radius(10px);
+}
+
+.df-borRad8 {
+  @include border-radius(8px);
+}
+
+.df-borRad4 {
+  @include border-radius(4px);
+}
+
+.df-borRad2 {
+  @include border-radius(2px);
+}
+
+.df-borRad0 {
+  @include border-radius(0px);
+}
+
+// Box Shadow
+.df-boxShadow--sm {
+  @include box-shadow(0, 2px, 4px, 0, rgba(1, 1, 6, 0.05));
+}
+
+.df-lightFF {
+  font-family: $light_font-family;
+  font-weight: $light_font-weight;
+}
+
+.df-lightFF--it {
+  font-family: $light_font-family-it;
+  font-weight: $light_font-weight;
+}
+
+.df-regularFF {
+  font-family: $regular_font-family;
+  font-weight: $regular_font-weight;
+}
+
+.df-regularFF--it {
+  font-family: $regular_font-family-it;
+  font-weight: $regular_font-weight;
+}
+
+.df-mediumFF {
+  font-family: $medium_font-family;
+  font-weight: $medium_font-weight;
+}
+
+.df-mediumFF--it {
+  font-family: $medium_font-family-it;
+  font-weight: $medium_font-weight;
+}
+
+.df-boldFF {
+  font-family: $bold_font-family;
+  font-weight: $bold_font-weight;
+}
+
+.df-blackBoldFF {
+  font-family: $black_font-family;
+  font-weight: $black_font-weight;
+}
+
+.df-boldFF--it {
+  font-family: $bold_font-family-it;
+  font-weight: $bold_font-weight;
+}
+
+//background size
+.si-bgSize--cover {
+  @include background-size(cover);
+}
+
+.si-bgSize--contain {
+  @include background-size(contain);
+}
+
+.df-pitch__booster--overwrite {
+  position: relative;
+  top: 0;
+  left: 0;
+  @include transform(translateY(0%));
+}
+
+.df-pb0 {
+  padding-bottom: 0 !important;
+}
+
+.df-pb70 {
+  padding-bottom: 70px !important;
+}
+
+.df-hide {
+  &--tag {
+    // margin-top: 0 !important;
+
+    .df-cmo__pickPlayer-booster-tag {
+      display: none;
+    }
+  }
+
+  &--vMore {
+    .df-contest__viewMore {
+      visibility: hidden;
+    }
+  }
+}
+
+.df-noClick {
+  pointer-events: none;
+  cursor: default;
+}
+
+.df-bg {
+  &--white {
+    background-color: $white;
+  }
+}
+
+.df-abandoned {
+  &.df-match__fix {
+    .df-match__fix-mid {
+      color: $abandoned;
+      @extend .df-boldFF !optional;
+    }
+  }
+}
+
+.df-review {
+  &.df-match__fix {
+    .df-match__fix-mid {
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+    }
+  }
+}
+
+.df-input {
+  input[type="range"] {
+    overflow: hidden;
+    height: 18px;
+    -webkit-appearance: none;
+    margin: 10px 0;
+    width: 100%;
+    border: none !important;
+  }
+  input[type="range"]:focus {
+    outline: none;
+  }
+  input[type="range"]:focus-visible,
+  input[type="range"]:active,
+  input[type="range"]:hover {
+    // &::-webkit-slider-thumb {
+    //   outline: 6px solid rgba($client-primary-color, 0.1);
+    // }
+    ~ .df-range__progress .df-range__progress-track .df-range__progress-thumb {
+      outline: 6px solid rgba($client-primary-color, 0.1);
+      &::before,
+      &::after {
+        visibility: visible;
+      }
+    }
+    // &::-webkit-slider-thumb,
+    // &::-moz-range-thumb,
+    // &::-ms-thumb {
+    //   cursor: pointer;
+    // }
+  }
+  // input[type="range"]::-webkit-slider-runnable-track {
+  //   width: 100%;
+  //   height: 4px;
+  //   cursor: pointer;
+  //   animate: 0.2s;
+  //   box-shadow: 0px 0px 0px $black;
+  //   background: rgba($client-primary-color, 0.38);
+  //   border-radius: 1px;
+  //   border: 0px solid $black;
+  // }
+  // input[type="range"]::-webkit-slider-thumb {
+  //   box-shadow: 0px 0px 0px $black;
+  //   border: 0px solid #2497e3;
+  //   height: 12px;
+  //   width: 12px;
+  //   border-radius: 50px;
+  //   background: $client-primary-color;
+  //   cursor: pointer;
+  //   -webkit-appearance: none;
+  //   // box-shadow: -400px 0 0 400px red;
+  //   margin-top: -5px;
+  // }
+  // input[type="range"]:focus::-webkit-slider-runnable-track {
+  //   background: rgba($client-primary-color, 0.38);
+  // }
+  // input[type="range"]::-moz-range-track {
+  //   width: 100%;
+  //   height: 4px;
+  //   cursor: pointer;
+  //   animate: 0.2s;
+  //   box-shadow: 0px 0px 0px $black;
+  //   background: rgba($client-primary-color, 0.38);
+  //   border-radius: 1px;
+  //   border: 0px solid $black;
+  // }
+  // input[type="range"]::-moz-range-thumb {
+  //   box-shadow: 0px 0px 0px $black;
+  //   border: 0px solid #2497e3;
+  //   height: 12px;
+  //   width: 12px;
+  //   border-radius: 50px;
+  //   background: $client-primary-color;
+  //   cursor: pointer;
+  // }
+  // input[type="range"]::-ms-track {
+  //   width: 100%;
+  //   height: 4px;
+  //   cursor: pointer;
+  //   animate: 0.2s;
+  //   background: transparent;
+  //   border-color: transparent;
+  //   color: transparent;
+  // }
+  // input[type="range"]::-ms-fill-lower {
+  //   background: rgba($client-primary-color, 0.38);
+  //   border: 0px solid $black;
+  //   border-radius: 2px;
+  //   box-shadow: 0px 0px 0px $black;
+  // }
+  // input[type="range"]::-ms-fill-upper {
+  //   background: rgba($client-primary-color, 0.38);
+  //   border: 0px solid $black;
+  //   border-radius: 2px;
+  //   box-shadow: 0px 0px 0px $black;
+  // }
+  // input[type="range"]::-ms-thumb {
+  //   margin-top: 1px;
+  //   box-shadow: 0px 0px 0px $black;
+  //   border: 0px solid #2497e3;
+  //   height: 12px;
+  //   width: 12px;
+  //   border-radius: 50px;
+  //   background: $client-primary-color;
+  //   cursor: pointer;
+  // }
+  // input[type="range"]:focus::-ms-fill-lower {
+  //   background: rgba($client-primary-color, 0.38);
+  // }
+  // input[type="range"]:focus::-ms-fill-upper {
+  //   background: rgba($client-primary-color, 0.38);
+  // }
+  // input[type="range"]:active::-webkit-slider-thumb,
+  // input[type="range"]:active::-moz-range-thumb {
+  //   height: 16px;
+  //   width: 16px;
+  //   &::after {
+  //     outline: 6px solid rgba($client-primary-color, 0.1);
+  //   }
+  // }
+}
+
+.df-range {
+  // &__output {
+  //   background-color: $client-primary-color;
+  //   padding: 6px 10px;
+  //   font-size: 12px;
+  //   color: #d9d9d9;
+  //   text-align: center;
+  //   @extend .df-borRad4 !optional;
+  //   @extend .df-regularFF !optional;
+  //   position: absolute;
+  //   top: auto;
+  //   bottom: 0;
+  //   @media screen and (min-width: $media-mobile-max) {
+  //     visibility: hidden;
+  //   }
+  //   &::after {
+  //     content: "";
+  //     background-color: $client-primary-color;
+  //     width: 8px;
+  //     height: 8px;
+  //     position: absolute;
+  //     top: -4px;
+  //     left: 0;
+  //     right: 0;
+  //     margin: 0 auto;
+  //     @include transform(rotate(45deg));
+  //   }
+  // }
+  &__progress {
+    position: absolute;
+    height: 4px;
+    width: 100%;
+    top: 5px;
+    background-color: $client-primary-color;
+    @extend .df-borRad100 !optional;
+    &.df-range__progress--tilt-left {
+      .df-range__progress-thumb {
+        @include transform(translateY(-50%) rotate(-45deg));
+      }
+    }
+    &.df-range__progress--tilt-right {
+      .df-range__progress-thumb {
+        @include transform(translateY(-50%) rotate(45deg));
+      }
+    }
+    @media screen and (min-width: $media-mobile-max) {
+      left: 0;
+      top: 10px;
+    }
+    &-track {
+      position: absolute;
+      height: 100%;
+      left: 0;
+      background-color: #e6e6e6;
+      @extend .df-borRad100 !optional;
+    }
+    &-thumb {
+      position: absolute;
+      left: auto;
+      right: -6px;
+      top: 50%;
+      height: 12px;
+      width: 12px;
+      background: $client-primary-color;
+      cursor: pointer;
+      @include transform(translateY(-50%));
+      @extend .df-borRad100 !optional;
+      @include transition(transform 0.1s linear);
+      &::before,
+      &::after {
+        visibility: hidden;
+        pointer-events: none;
+      }
+      &::before {
+        content: "";
+        background-color: $client-primary-color;
+        width: 8px;
+        height: 8px;
+        position: absolute;
+        bottom: -14px;
+        top: auto;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        @include transform(rotate(45deg));
+      }
+      &::after {
+        content: attr(data-value);
+        background-color: $client-primary-color;
+        padding: 6px 10px;
+        font-size: 12px;
+        color: #d9d9d9;
+        text-align: center;
+        @extend .df-borRad4 !optional;
+        @extend .df-regularFF !optional;
+        position: absolute;
+        top: auto;
+        bottom: -37px;
+        left: 50%;
+        @include transform(translateX(-50%));
+      }
+      &:hover {
+        // box-shadow: 0 0 0 4px rgba($client-primary-color, 0.3);
+        &::after,
+        &::before {
+          visibility: visible;
+        }
+      }
+    }
+  }
+}
+
+.df-click {
+  cursor: pointer !important;
+}

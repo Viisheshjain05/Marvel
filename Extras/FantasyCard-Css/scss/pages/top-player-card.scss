@@ -1,0 +1,63 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-top-score {
+    .si-heading-wrap {
+      &.si-custom-width {
+        .si-title {
+          @media screen and (min-width: $media-mobile-small-min) {
+            width: 100%;
+          }
+        }
+        .si-sub-heading {
+          span {
+            @media screen and (min-width: $media-mobile-small-min) {
+              width: 100%;
+            }
+          }
+        }
+      }
+    }
+  }
+  &.si-no-team {
+    .si-plyr {
+      @media screen and (max-width: $media-mobile-med - 1px) {
+        width: 33%;
+      }
+
+    }
+    .si-team-row {
+      @media screen and (max-width: $media-mobile-small-max) {
+
+        margin: 0 -4px;
+        width: auto;
+      }
+    }
+  }
+  &.si-top-score,
+  &.si-final-md-pts {
+    .si-status-list {
+      align-items: center;
+    }
+    .si-md-pts {
+      color: $white;
+      align-items: baseline;
+    }
+    .si-md-txt {
+      font-family: $primary-ff--bold;
+      font-size: 28px;
+      line-height: 33px;
+      margin-left: 5px;
+      @media screen and (min-width: $media-mobile-small-min) {
+        font-size: 40px;
+        line-height: 47px;
+      }
+    }
+  }
+  &.si-final-md-pts {
+    .si-md-pts {
+      color: $dark-blue;
+    }
+  }
+}

@@ -1,0 +1,112 @@
+.si-main-container {
+  &:not(.si-lang-common) {
+    .si-board__section {
+      .si-plyr-title,
+      .si-autocomplete-title {
+        @media screen and (max-width: $media-mobile-med) {
+          font-size: 10px;
+        }
+      }
+    }
+    .si-popup--formation {
+      .si-popup__header {
+        @media screen and (min-width: $media-tablet-min) {
+          padding-bottom: 80px;
+        }
+        .si-btn {
+          max-width: 120px;
+        }
+      }
+    }
+    .si-formation__wrapper {
+      @media screen and (max-width: $media-mobile-max) {
+        padding-top: 66px;
+      }
+      .si-tooltip {
+        min-width: 180px;
+        @media screen and (min-width: $media-tablet-min) {
+          min-width: 150px;
+        }
+      }
+      .si-formation__type {
+        &:first-child {
+          .si-tooltip {
+            left: 0;
+            @include transform(translateX(0));
+          }
+        }
+      }
+    }
+    .si-league-btns {
+      .si-btn {
+        @media screen and (min-width: $media-mobile-ex-small - 1px) {
+          font-size: 14px;
+        }
+      }
+    }
+    .si-toast--kits {
+      .si-media__desc {
+        @media screen and (min-width: $media-tablet-min) and (max-width: $media-ex-large-min) {
+          font-size: 14px;
+        }
+      }
+    }
+    .si-plyr__card {
+      .si-stats__title {
+        padding: 0 10px;
+      }
+    }
+    .si-board {
+      .si-currency {
+        @media screen and (max-width: $media-mobile-ex-small - 1px) {
+          font-size: 16px;
+        }
+      }
+    }
+    .si-plyr-count {
+      @media screen and (max-width: $media-mobile-ex-small - 1px) {
+        font-size: 11px;
+      }
+    }
+
+    .si-sort__name {
+      word-break: break-all;
+    }
+    .si-plyr__action-txt {
+      width: 81px;
+    }
+    .si-plyr__action-item {
+      word-break: break-all;
+    }
+    .si-btn--link {
+      @media screen and (max-width: $media-mobile-ex-small - 1px) {
+        font-size: 12px;
+      }
+      @media screen and (min-width: $media-tablet-min)   and (max-width: $media-laptop-max) {
+        font-size: 14px;
+      }
+      &:first-child {
+        @media screen and (max-width: $media-mobile-ex-small - 1px) {
+          padding: 0;
+        }
+        @media screen and (min-width: $media-tablet-min) {
+          margin: 0;
+          padding: 0;
+        }
+      }
+    }
+    .si-plist {
+      .si-list-val {
+        flex: 0 0 24%;
+      } 
+      &__row {
+        &.si-nopoint-list {
+          .si-list-val {
+            flex: 0 0 30%;  
+          }
+        }
+      }
+    }
+
+  }
+}

@@ -1,0 +1,75 @@
+// Alinea Incise W01Bold
+@font-face {
+  font-family: "AlineaInciseW01Bold";
+  src: url("../fonts/AlineaInciseW01Bold.eot?v=#{$cache-fonts}");
+  src: url("../fonts/AlineaInciseW01Bold.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/AlineaInciseW01Bold.woff2?v=#{$cache-fonts}") format("woff2"),
+    url("../fonts/AlineaInciseW01Bold.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/AlineaInciseW01Bold.ttf?v=#{$cache-fonts}") format("truetype"),
+    url("../fonts/AlineaInciseW01Bold.svg#AlineaInciseW01Bold?v=#{$cache-fonts}")
+      format("svg");
+}
+// sans
+@font-face {
+  font-family: "SourceSansProSemibold";
+  src: url("../fonts/SourceSansProSemibold.eot?v=#{$cache-fonts}");
+  src: url("../fonts/SourceSansProSemibold.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/SourceSansProSemibold.woff2?v=#{$cache-fonts}")
+      format("woff2"),
+    url("../fonts/SourceSansProSemibold.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/SourceSansProSemibold.ttf?v=#{$cache-fonts}")
+      format("truetype"),
+    url("../fonts/SourceSansProSemibold.svg#SourceSansProSemibold?v=#{$cache-fonts}")
+      format("svg");
+}
+
+@font-face {
+  font-family: "SourceSansProRegular";
+  src: url("../fonts/SourceSansProRegular.eot?v=#{$cache-fonts}");
+  src: url("../fonts/SourceSansProRegular.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/SourceSansProRegular.woff2?v=#{$cache-fonts}") format("woff2"),
+    url("../fonts/SourceSansProRegular.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/SourceSansProRegular.ttf?v=#{$cache-fonts}")
+      format("truetype"),
+    url("../fonts/SourceSansProRegular.svg#SourceSansProRegular?v=#{$cache-fonts}")
+      format("svg");
+}
+
+@font-face {
+  font-family: "SourceSansProLight";
+  src: url("../fonts/SourceSansProLight.eot?v=#{$cache-fonts}");
+  src: url("../fonts/SourceSansProLight.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/SourceSansProLight.woff2?v=#{$cache-fonts}") format("woff2"),
+    url("../fonts/SourceSansProLight.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/SourceSansProLight.ttf?v=#{$cache-fonts}") format("truetype"),
+    url("../fonts/SourceSansProLight.svg#SourceSansProLight?v=#{$cache-fonts}")
+      format("svg");
+}
+
+@font-face {
+  font-family: "SourceSansProBold";
+  src: url("../fonts/SourceSansProBold.eot?v=#{$cache-fonts}");
+  src: url("../fonts/SourceSansProBold.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/SourceSansProBold.woff2?v=#{$cache-fonts}") format("woff2"),
+    url("../fonts/SourceSansProBold.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/SourceSansProBold.ttf?v=#{$cache-fonts}") format("truetype"),
+    url("../fonts/SourceSansProBold.svg#SourceSansProBold?v=#{$cache-fonts}")
+      format("svg");
+}
+
+@font-face {
+  font-family: "SourceSansProBlack";
+  src: url("../fonts/SourceSansProBlack.eot?v=#{$cache-fonts}");
+  src: url("../fonts/SourceSansProBlack.eot?v=#{$cache-fonts}")
+      format("embedded-opentype"),
+    url("../fonts/SourceSansProBlack.woff2?v=#{$cache-fonts}") format("woff2"),
+    url("../fonts/SourceSansProBlack.woff?v=#{$cache-fonts}") format("woff"),
+    url("../fonts/SourceSansProBlack.ttf?v=#{$cache-fonts}") format("truetype"),
+    url("../fonts/SourceSansProBlack.svg#SourceSansProBlack?v=#{$cache-fonts}")
+      format("svg");
+}

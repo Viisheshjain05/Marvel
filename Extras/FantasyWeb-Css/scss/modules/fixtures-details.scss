@@ -1,0 +1,249 @@
+//fixtures details
+.si-details {
+  border-top: 1px solid var(--uf-ui-02);
+  padding: 26px 0;
+  max-width: calc(100% - 40px);
+  margin: 0 auto;
+  @media screen and (min-width: $media-small-tablet-min) {
+    max-width: calc(100% - 180px);
+  }
+  &__icon {
+    z-index: zindex(default);
+    &::after {
+      content: "";
+      font-size: 20px;
+    }
+  }
+  &__menu {
+    padding-bottom: 4px;
+    align-items: center;
+    justify-content: center;
+    @extend .si-flexBox;
+  }
+  &__opt {
+    color: var(--uf-interaction);
+    cursor: pointer;
+    @media screen and (max-width: $media-small-max) {
+      font-size: 14px;
+      line-height: 16px;
+    }
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+    i {
+      font-size: 10px;
+      margin-left: 8px;
+    }
+  }
+  .si-strike-out {
+    background-color: var(--uf-support-04);
+    border-radius: 11px;
+    height: 2px;
+    position: absolute;
+    top: 1px;
+    width: 104%;
+    z-index: 1;
+    @include transform(rotate(-45deg));
+  }
+  // &.si-momw {
+  //   .si-details__icon {
+  //     &::after {
+  //       content: "\e947";
+  //       color: #ffdd04;
+  //     }
+  //   }
+  // }
+  &.si-goal {
+    .si-details__icon {
+      &::after {
+        content: "\e930";
+      }
+    }
+  }
+  &.si-assist {
+    .si-details__icon {
+      &::after {
+        content: "\e933";
+      }
+    }
+  }
+  &.si-ownGoalIcn {
+    .si-details__icon {
+      &::after {
+        content: "\e930";
+        color: var(--uf-support-04);
+      }
+    }
+  }
+
+  &.si-penaltyMissIcn {
+    .si-details__icon {
+      &::after {
+        content: "\e930";
+      }
+      &::before {
+        background-color: var(--uf-support-04);
+      }
+    }
+  }
+  &.si-penaltyMissIcn,
+  &.si-penaltySaveIcn {
+    .si-details__icon {
+      &::before {
+        content: "P";
+        font-size: 5px;
+        text-align: center;
+        color: var(--uf-text-01);
+        width: 8px;
+        height: 8px;
+        font-family: var(--uf-font-base-bold);
+        font-weight: var(--uf-font-weight-xl);
+        position: absolute;
+        bottom: 8px;
+        right: -1px;
+        left: auto;
+        vertical-align: middle;
+        justify-content: center;
+        align-items: center;
+        border-radius: 50%;
+        display: flex;
+        z-index: zindex(default);
+      }
+    }
+  }
+  &.si-penaltySaveIcn {
+    .si-details__icon {
+      &::after {
+        content: "\e931";
+      }
+      &::before {
+        content: "P";
+        background: #0a9504;
+      }
+    }
+  }
+  &.si-yellow-card {
+    border-color: var(--uf-ui-02);
+    .si-details__icon {
+      &::after {
+        content: "";
+        background: $live;
+        border-radius: 1px;
+        height: 20px;
+        width: 14px;
+      }
+    }
+  }
+  &.si-savesIcn {
+    .si-details__icon {
+      &::after {
+        content: "\e931";
+      }
+    }
+  }
+  &.si-redCrdIcn {
+    .si-details__icon {
+      &::after {
+        content: "";
+        background: $error;
+        border-radius: 1px;
+        height: 20px;
+        width: 14px;
+      }
+    }
+  }
+
+  &__head {
+    font-size: 14px;
+    font-weight: var(--uf-font-weight-l);
+    margin-bottom: 12px;
+    text-align: center;
+  }
+  &__body {
+    justify-content: center;
+    position: relative;
+    @extend .si-flexBox;
+  }
+  &__icon {
+    position: absolute;
+    top: 8px;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    width: 20px;
+    height: 20px;
+    &::after {
+      content: "";
+      color: var(--uf-interaction);
+      font-family: "euro-icomoon" !important;
+      position: absolute;
+      top: -8px;
+      left: 50%;
+      @include transform(translateX(-50%));
+    }
+  }
+  &__left,
+  &__right {
+    flex: 1;
+  }
+  &__left {
+    padding-right: 70px;
+    text-align: right;
+  }
+  &__right {
+    text-align: left;
+  }
+  &--list {
+    li {
+      font-size: 14px;
+      line-height: 17px;
+      &:not(:last-child) {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+.si-score--info {
+  font-size: 12px;
+  font-family: var(--uf-font-base-semibold);
+  font-weight: var(--uf-font-weight-l);
+  
+  @media screen and (min-width: $media-small-tablet-min) {
+    font-family: var(--uf-font-base-regular);
+    font-weight: var(--uf-font-weight-m);
+  }
+  i {
+    margin-right: 8px;
+  }
+
+  .si-score-link {
+    color: var(--uf-text-01);
+  }
+}
+
+.si-potm {
+  .si-plyr__thumbnail {
+    cursor: pointer;
+    height: 60px;
+    width: 60px;
+    margin: 0 auto;
+    transition: none;
+  }
+  .si-icon--top {
+    right: -7px;
+  }
+  &__name {
+    cursor: pointer;
+    font-family: var(--uf-font-comp-bold);
+    font-size: 20px;
+    line-height: 26px;
+    padding-top: 7px;
+  }
+  &__title {
+    color: var(--uf-text-02);
+    font-family: var(--uf-font-base-regular);
+    font-weight: var(--uf-font-weight-m);
+    font-size: 12px;
+    line-height: 15px;
+  }
+}

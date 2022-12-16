@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-supersmash-2022.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Supersmash</title>
+    <script>
+      $(document).ready(function () {
+        $("body").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Matchday 1</span>
+                </div>
+                <div class="df-cmo__mat-time">
+                  <span>29m 30s left</span>
+                </div>
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+            <div class="df-cmo__fix">
+              <div class="df-cmo__fix-lft">
+                <ul>
+                  <li>
+                    <span>DC <em>VS</em> SRH</span>
+                  </li>
+                  <li>
+                    <span>KXIP <em>VS</em> MI</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="df-cmo__fix-rgt">
+                <span><i class="dfi-list"></i> View All</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for transfer -->
+      <div class="df-overlay__wrap df-fade out">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--transfer df-overlay--transfer-toast">
+          <div class="df-overlay__body">
+            <div class="df-transfer__icon"></div>
+            <div class="df-overlay__title">
+              <span>Team creation successful!</span>
+            </div>
+            <div class="df-transfer__content">
+              <span>Your team for <b>MCI</b> vs <b>MUN</b> has been created. </span>
+            </div>
+
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary">
+                  <span>Register to save your team</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

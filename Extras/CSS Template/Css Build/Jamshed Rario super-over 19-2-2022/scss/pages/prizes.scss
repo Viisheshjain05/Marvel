@@ -1,0 +1,228 @@
+.si-prizes {
+  &__wrap {
+    @media screen and (min-width: $media-desktop-min) {
+      padding: 0 calc(var(--full-space) *2);
+    }
+  }
+
+  &__list {
+    padding-bottom: calc(var(--full-space)*2);
+
+    ul {
+      align-items: flex-start;
+      justify-content: flex-start;
+      flex-direction: column;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        flex-direction: row;
+      }
+
+      li {
+        flex-grow: 1;
+
+        &:not(:last-child) {
+          margin-bottom: var(--full-space);
+
+          @media screen and (min-width: $media-desktop-min) {
+            margin-right: var(--full-space);
+          }
+        }
+      }
+    }
+  }
+
+  &__card {
+    padding: var(--full-space);
+    position: relative;
+    min-height: 200px;
+    width: 100%;
+    background-color: var(--body-bgColor);
+    backdrop-filter: blur(4rem);
+    border: 1px solid var(--silver-text);
+    // border-image-slice: 1;
+    // border-width: 1px;
+    // border-image-source: linear-gradient(45deg, var(--silver), var(--silver-shade));
+    align-items: center;
+    justify-content: space-between;
+    @extend %flexbox !optional;
+    @include border-radius(4px 25px 4px 4px);
+    // @include animation("si-puffIn .3s linear both");
+
+    &-lft {
+      flex-basis: 100px;
+      height: 150px;
+      flex-shrink: 0;
+    }
+
+    &-rgt {
+      padding-left: var(--full-space);
+      flex-basis: 100%;
+    }
+
+    &.si-gold {
+      border-color: var(--gold);
+      // border-image-source: linear-gradient(-45deg, var(--gold), var(--gold-shade));
+
+      &::after {
+        background-image: url(../images/goldcard-blur.png?v=#{$image-version});
+      }
+
+      &::before {
+        color: var(--gold);
+      }
+
+      .si-prizes__card-title {
+        color: var(--gold);
+      }
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background-image: url(../images/blackcard-blur.png?v=#{$image-version});
+      background-repeat: no-repeat;
+      background-position: bottom center;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &::before {
+      content: attr(data-watermark);
+      position: absolute;
+      top: var(--half-space);
+      left: 0;
+      right: 0;
+      margin: 0 aut0;
+      line-height: 1;
+      display: block;
+      opacity: .1;
+      z-index: -1;
+      text-align: center;
+      color: var(--silver-text);
+      font-size: 4rem;
+      @extend .si-extraBoldFF !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 4.3rem;
+      }
+    }
+
+    &-title {
+      font-size: 1.6rem;
+      margin-bottom: var(--half-space);
+      color: var(--silver-text);
+      @extend .si-extraBoldFF !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-rank {
+      display: inline-block;
+      padding: .4rem var(--half-space);
+      background-color: var(--cyan);
+      font-size: 1rem;
+      color: var(--default);
+      @extend .si-boldFF !optional;
+      @extend .si-borRad4 !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 1.2rem;
+      }
+    }
+
+    &-caption {
+      margin-top: calc(var(--full-space)*2.2);
+      color: var(--white);
+      font-size: 1.4rem;
+      @extend .si-mediumFF !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 1.4rem;
+      }
+    }
+
+    &-discription {
+      margin-top: var(--half-space);
+      color: rgba(var(--white-rgb), .6);
+      font-size: 1rem;
+      @extend .si-regularFF !optional;
+
+    }
+
+    &-thumb {
+      position: relative;
+      height: 100%;
+
+      &Front,
+      &Back {
+        width: 80px;
+        position: absolute;
+        top: 0;
+        left: 0;
+      }
+
+      &Front {}
+
+      &Back {
+        top: auto;
+        left: auto;
+        right: 0;
+        bottom: 0;
+      }
+    }
+
+
+  }
+
+  &__bullets {
+    padding-bottom: calc(var(--full-space)*4);
+
+    &-title {
+      padding-bottom: calc(var(--full-space)*1.4);
+      @extend .si-boldFF !optional;
+      font-size: 1.6rem;
+      color: var(--white);
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-list {
+      ul {
+        list-style: decimal;
+        margin-left: var(--full-space);
+
+        li {
+          font-size: 1.2rem;
+          color: var(--white);
+
+          @media screen and (min-width: $media-desktop-min) {
+            font-size: 1.4rem;
+          }
+
+          &:not(:last-child) {
+            margin-bottom: var(--full-space);
+          }
+        }
+      }
+    }
+  }
+
+  &__note {
+    color: var(--red);
+    font-size: 1.4rem;
+    @extend .si-boldFF !optional;
+
+    @media screen and (min-width: $media-desktop-min) {
+      font-size: 1.6rem;
+    }
+  }
+}

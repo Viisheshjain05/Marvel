@@ -1,0 +1,351 @@
+//--BORDER RADIUS--
+@mixin border-radius($radius) {
+  border-radius: $radius;
+}
+
+//@include border-radius(10px);
+//----------------------------------END HERE
+//
+//--TRANSFORM--
+@mixin transform($transform) {
+  -webkit-transform: $transform;
+  -moz-transform: $transform;
+  -ms-transform: $transform;
+  -o-transform: $transform;
+  transform: $transform;
+}
+
+//@include transform(translateX(50%) translateY(50%) skewX(10deg));
+//----------------------------------END HERE
+//
+//--BACKGROUND SIZE--
+@mixin background-size($background-size) {
+  -webkit-background-size: $background-size;
+  -moz-background-size: $background-size;
+  -ms-background-size: $background-size;
+  -o-background-size: $background-size;
+  background-size: $background-size;
+}
+
+//@include background-size(cover);
+//----------------------------------END HERE
+//
+//--BOX SHAODOW--
+@mixin box-shadow($top, $left, $blur, $color, $inset:"") {
+  -webkit-box-shadow:$top $left $blur $color #{$inset};
+  -moz-box-shadow:$top $left $blur $color #{$inset};
+  -ms-box-shadow:$top $left $blur $color #{$inset};
+  -o-box-shadow:$top $left $blur $color #{$inset};
+  box-shadow:$top $left $blur $color #{$inset};
+}
+
+//@include box-shadow(inset, 0, 1px, 1px, rgba(0, 0, 0, 0.5));
+//----------------------------------END HERE
+//
+//--BACKGROUND LINEAR GRADIENT--
+@mixin linearGradient($gradientValues...) {
+  background-image: -webkit-linear-gradient($gradientValues);
+  background-image: -moz-linear-gradient($gradientValues);
+  background-image: -ms-linear-gradient($gradientValues);
+  background-image: -o-linear-gradient($gradientValues);
+  background-image: linear-gradient($gradientValues);
+}
+
+//@include linearGradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, .5));
+//@include linearGradient(left, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 1) 50%, rgba(255, 255, 255, 0) 100%);
+//----------------------------------END HERE
+//
+//--TRANSITION--
+@mixin transition($transition-properties...) {
+  -webkit-transition: $transition-properties;
+  -moz-transition: $transition-properties;
+  -ms-transition: $transition-properties;
+  -o-transition: $transition-properties;
+  transition: $transition-properties;
+}
+
+
+//@include transition($transition-property, $transition-time, $method);
+//@include transition(padding, 1s, ease-in-out);
+//----------------------------------END HERE
+//
+//--FLEX BOX--
+@mixin flexbox {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -moz-flex;
+  display: -ms-flexbox;
+  display: flex;
+}
+@mixin flexbox-important {
+  display: -webkit-box !important;
+  display: -webkit-flex !important;
+  display: -moz-flex !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+%flexbox {
+  @include flexbox;
+}
+
+//----------------------------------END HERE
+//
+//--BOX SIXING--
+@mixin box-sizing($box-sizing) {
+  -webkit-box-sizing: $box-sizing;
+  -moz-box-sizing: $box-sizing;
+  -ms-box-sizing: $box-sizing;
+  -o-box-sizing: $box-sizing;
+  box-sizing: $box-sizing;
+}
+
+//----------------------------------END HERE
+//
+//--INPUT PLACEHOLDER--
+@mixin placeholder {
+  $placeholders: ":-webkit-input"":-moz""-moz""-ms-input";
+
+  @each $placeholder in $placeholders {
+    &:#{$placeholder}-placeholder {
+      @content;
+    }
+  }
+}
+
+//@include placeholder {color: $transparent;}
+//
+//----------------------------------END HERE
+// --user select--
+@mixin user-select ($value) {
+  -webkit-user-select: $value;
+  -moz-user-select: $value;
+  -ms-user-select: $value;
+  user-select: $value;
+}
+
+// @include user-select(none);
+//---------------------------------END HERE
+//
+//--ANIMATION TRANSITION--
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+@mixin animation($str) {
+  -webkit-animation: #{$str};
+  -moz-animation: #{$str};
+  -ms-animation: #{$str};
+  -o-animation: #{$str};
+  animation: #{$str};
+}
+
+// @include keyframes(slide-down) {
+//     0% {
+//         opacity: 1;
+//         background: red;
+//     }
+//     100% {
+//         opacity: 0;
+//         background: blue;
+//     }
+// }
+// .element {
+//   width: 100px;
+//   height: 100px;
+//   background: black;
+//   @include animation('slide-down 5s 3');
+// }
+// 
+
+
+%icomoon-font {
+  font-family: 'icomoon-ucl' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  margin: 0;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+//https://gist.github.com/jonathantneal/d0460e5c2d5d7f9bc5e6
+// =============================================================================
+// String Replace
+// =============================================================================
+@function str-replace($string, $search, $replace: "") {
+  $index: str-index($string, $search);
+
+  @if $index {
+    @return str-slice($string, 1, $index - 1)+$replace+str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
+  }
+
+  @return $string;
+}
+
+// =============================================================================
+// Font Face
+// =============================================================================
+@mixin font-face($name, $path, $weight: null, $style: null, $exts: svg eot woff2 woff ttf) {
+  $src: null;
+
+  $extmods: (eot: "?",
+      svg: "#"+ str-replace($name, " ", "_"));
+
+  $formats: (otf: "opentype",
+      ttf: "truetype");
+
+  @each $ext in $exts {
+    $extmod: if(map-has-key($extmods, $ext), $ext + map-get($extmods, $ext), $ext);
+    $format: if(map-has-key($formats, $ext), map-get($formats, $ext), $ext);
+    $src: append($src, url(quote($path + "." + $extmod)) format(quote($format)), comma);
+  }
+
+  @font-face {
+    font-family: quote($name);
+    font-style: $style;
+    font-weight: $weight;
+    src: $src;
+  }
+}
+
+
+
+// font family from google fonts 
+@mixin gwf($fonts...) {
+  $url: "https://fonts.googleapis.com/css?family=";
+  $nb: 0;
+
+  @each $font-name in $fonts {
+    $nb: $nb + 1;
+    $nb-word: 0;
+
+    @each $word in $font-name {
+      $nb-word: $nb-word + 1;
+      $url: $url + $word;
+
+      @if $nb-word < length($font-name) {
+        $url: $url + "+";
+      }
+    }
+
+    @if $nb < length($fonts) {
+      $url: $url + "|";
+    }
+  }
+
+  @import url(#{$url});
+}
+
+
+// Maintain Aspect Ratio Mixin
+@mixin aspect-ratio($width,
+  $height) {
+  position: relative;
+
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  >.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+// @include aspect-ratio(16, 9);
+//---------------------------------END HERE
+//--TEXT OVERFLOW (ellipsis)--
+@mixin text-truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+//@include text-truncate;
+
+@mixin button-varient ($bg-color, $color, $border-color) {
+  background: $bg-color;
+  color: $color;
+  border-color: $border-color;
+}
+
+//@include button-varient($client-primary-color, $white, $client-primary-color);
+
+@mixin bg-props ($size, $repeat, $pos) {
+  background-size: $size;
+  background-repeat: $repeat;
+  background-position: $pos;
+}
+
+// @include bg-props(cover, no-repeat, center);
+
+$zindex: ("minus": -1,
+  "zero": 0,
+  "default": 1,
+  "medium": 11,
+  "high": 111,
+  "loader": 1111,
+);
+
+@function zindex($key) {
+  @if not map-has-key($zindex, $key) {
+    @warn "key `#{$key}` not found";
+  }
+
+  @return map-get($zindex, $key);
+}
+
+//z-index: zindex(default);
+
+//--Multiple TRANSITION--
+@mixin transition($x...) {
+  -webkit-transition: $x;
+  -moz-transition: $x;
+  -ms-transition: $x;
+  -o-transition: $x;
+  transition: $x;
+}
+
+//@include transition(color 1s, background-color 1s, border-color 1s);
+//
+//
+//----------------------------------END HERE
+////--OPACITY--
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  $opacity-ie: $opacity * 100;
+  filter: alpha(opacity=$opacity-ie); //IE8
+}
+
+//@include opacity(0.8);
+//----------------------------------END HERE
+//

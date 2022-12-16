@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html dir="auto">
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="x-ua-compatible" content="IE=Edge" />
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+  <meta name="author" content="Sportz Interactive" />
+  <meta name="viewport"
+    content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+    viewport-fit="cover" />
+
+  <script src="../js/jquery.min.js"></script>
+  <script src="../js/swiper.min.js"></script>
+  <script src="../js/haptics.js"></script>
+  <script src="../js/fastclick.js"></script>
+  <!-- <script type="text/javascript" src="//raw.githubusercontent.com/shantanubala/haptics.js/master/haptics.js"></script> -->
+  <script type="module" src="../js/static.js" defer></script>
+
+  <!--Custom CSS start here-->
+  <link rel="stylesheet" type="text/css" href="../css/rario-superover-22.css" />
+  <!--Custom CSS end here-->
+
+  <title>Rario | Super Over</title>
+</head>
+
+<body class="si-gameplay">
+  <!-- si-gameplay -->
+  <div class="si-main">
+
+    <header class="si-main__container--fluid si-header__wrap">
+
+      <div class="si-main__container">
+
+        <div class="si-header__container">
+
+          <div class="si-header__container-lft">
+
+            <div class="si-header__logo">
+
+              <a href="javascript:void(0)">
+
+                <img src="../images/super-over-logo.png" alt="" title="Rario Super Over" />
+
+              </a>
+
+            </div>
+
+          </div>
+
+          <div class="si-header__container-rgt">
+
+            <nav class="si-nav__wrap">
+
+              <ul>
+
+                <li>
+
+                  <a class="si-active" href="hp.html">
+
+                    <!-- si-active -->
+
+                    <span>Home</span>
+
+                  </a>
+
+                </li>
+
+                <li>
+
+                  <a href="leaderboard.html"><span>Leaderboard</span></a>
+
+                </li>
+
+                <li>
+
+                  <a href="prizes.html"><span>Prizes</span></a>
+
+                </li>
+
+                <li>
+
+                  <a href="terms.html"><span>Terms</span></a>
+
+                </li>
+
+              </ul>
+
+            </nav>
+
+    
+
+            <div class="si-weekly__wrap">
+
+              <div class="si-weekly__box">
+
+                <div class="si-weekly__title"><span>Week1 Point</span></div>
+
+                <div class="si-weekly__score"><span>500 <em>Pts</em></span></div>
+
+              </div>
+
+              <div class="si-weekly__box">
+
+                <div class="si-weekly__title"><span>Week1 Rank</span></div>
+
+                <div class="si-weekly__score"><span>272</span></div>
+
+              </div>
+
+            </div>
+
+            <!--
+
+            <div class="si-btn si-btn__link--white">
+
+              <span>Exit Game</span>
+
+            </div> -->
+
+          </div>
+
+    
+
+        </div>
+
+      </div>
+
+    </header>
+
+<div class="si-main__container--fluid">
+  <div class="si-main__container">
+    <div class="si-card__wrap">
+      <div class="si-card__row si-card__row--bot">
+        <div class="si-card__profile-wrap">
+          <div class="si-card__profile">
+            <div class="si-card__profile-lft">
+              <div class="si-card__profile-thumb">
+                <img src="../images/bot-thumb.png" alt="" title="" />
+              </div>
+              <div class="si-card__profile-glow"></div>
+            </div>
+            <div class="si-card__profile-rgt">
+              <div class="si-card__profile-info">
+                <div class="si-card__profile-name">
+                  <span>Computer</span>
+                </div>
+                <div class="si-card__profile-score">
+                  <span>11/0</span>
+                  <div class="si-card__profile-turn si-visible">
+                    <!-- si-visible -->
+                    <span><img src="../images/arrow-next.svg" alt="Your turn" /></span>
+                    <span><img src="../images/arrow-next.svg" alt="Your turn" /></span>
+                    <span><img src="../images/arrow-next.svg" alt="Your turn" /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="si-card__item">
+          <ul>
+            <li id="card-2"></li>
+            <li id="card-4"></li>
+            <li id="card-6"></li>
+            <li id="card-8"></li>
+            <li id="card-10"></li>
+            <li id="card-12"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="si-card__row si-card__row--user">
+        <div class="si-card__profile-wrap">
+          <div class="si-card__profile">
+            <div class="si-card__profile-lft">
+              <div class="si-card__profile-thumb">
+                <img src="../images/user-thumb.png" alt="" title="John Jocabs" />
+              </div>
+              <div class="si-card__profile-glow"></div>
+            </div>
+            <div class="si-card__profile-rgt">
+              <div class="si-card__profile-info">
+                <div class="si-card__profile-name">
+                  <span>John Jacobs</span>
+                </div>
+                <div class="si-card__profile-score">
+                  <span>11/0</span>
+                  <div class="si-card__profile-turn si-visible">
+                    <!-- si-visible -->
+                    <span><img src="../images/arrow-prev.svg" alt="Your turn" /></span>
+                    <span><img src="../images/arrow-prev.svg" alt="Your turn" /></span>
+                    <span><img src="../images/arrow-prev.svg" alt="Your turn" /></span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="si-card__profile-cta">
+            <div class="si-btn si-btn__cyan">
+              <!-- si-disabled -->
+              <img src="../images/hit-card.svg" alt="HIT" /> <span>HIT</span>
+            </div>
+          </div>
+        </div>
+        <div class="si-card__item">
+          <ul>
+            <li id="card-1"></li>
+            <li id="card-3"></li>
+            <li id="card-5"></li>
+            <li id="card-7"></li>
+            <li id="card-9"></li>
+            <li id="card-11"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="si-card__row  si-card__row--deck">
+        <div class="si-card__deck si-onLoad">
+          <ul>
+            <li class="" id="card-deck-1">
+              <!-- si-card-spin | si-active -->
+              <div class="si-card__box ">
+                <!-- si-active -->
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-2">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-3">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-4">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-5">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-6">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-7">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-8">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-9">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-10">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-11">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+            <li id="card-deck-12">
+              <div class="si-card__box">
+                <div class="si-card__box-face si-front">
+                  <img src="../images/cards/superover-back.png" alt="" />
+                </div>
+                <div class="si-card__box-face si-back">
+                  <img src="../images/cards/six.png" alt="" srcset="" title="Massive Six" />
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    <!-- popup you WON start -->
+
+    <!-- //=include _popup-won.html -->
+
+    <!-- popup you WON end -->
+
+
+
+    <!-- popup you LOSE/MATCH DRAW  start -->
+
+    <!-- //=include _popup-lose.html -->
+
+    <!-- popup you LOSE/MATCH DRAW  end -->
+
+
+
+    <!-- popup you generic  start -->
+
+    <div class="si-popup__wrap si-popup__wrap--generic si-jcfe si-fade in out">
+
+      <!-- in | out -->
+
+      <div class="si-popup__container">
+
+        <div class="si-popup__head">
+
+          <div class="si-popup__heading-sub">
+
+            <span>If you quit game. Your current progress will be lost, are you sure?</span>
+
+          </div>
+
+        </div>
+
+        <div class="si-popup__foot">
+
+          <div class="si-btn si-btn__cyan">
+
+            <span>CONFIRM</span>
+
+          </div>
+
+          <div class="si-btn si-btn__cyan si-btn__cyan--stroke ">
+
+            <span>CANCEL</span>
+
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- popup you generic  end -->
+
+
+
+    <!-- Full screen start -->
+
+    <div class="si-fullScreen__box">
+
+      <!-- si-active -->
+
+      <div class="si-fullScreen__icon"></div>
+
+    </div>
+
+    <!-- Full screen end -->
+
+
+
+    </div><!-- si-main closing div  -->
+
+
+
+
+
+    <script>
+
+      const swiper = new Swiper(".swiper--htp", {
+
+        // simulateTouch: false,
+
+        // spaceBetween: 100,
+
+        pagination: {
+
+          el: ".swiper-pagination",
+
+          type: 'bullets',
+
+        },
+
+        a11y: {
+
+          prevSlideMessage: 'Previous slide',
+
+          nextSlideMessage: 'Next slide',
+
+        },
+
+        breakpoints: {
+
+          "@0.00": {
+
+            slidesPerView: 1,
+
+          },
+
+          "@0.75": {
+
+            slidesPerView: 2,
+
+          },
+
+          "@1.00": {
+
+            slidesPerView: 3,
+
+          },
+
+          "@1.50": {
+
+            slidesPerView: 4,
+
+          },
+
+        }
+
+      });
+
+      const swiperYear = new Swiper(".swiper--year", {
+
+        slidesPerView: 3,
+
+      });
+
+      const swiperMonth = new Swiper(".swiper--month", {
+
+        slidesPerView: 1,
+
+        effect: "creative",
+
+        creativeEffect: {
+
+          prev: {
+
+            shadow: true,
+
+            origin: "left center",
+
+            translate: ["-5%", 0, -200],
+
+            rotate: [0, 100, 0],
+
+          },
+
+          next: {
+
+            origin: "right center",
+
+            translate: ["5%", 0, -200],
+
+            rotate: [0, -100, 0],
+
+          },
+
+        },
+
+        a11y: {
+
+          prevSlideMessage: 'Previous slide',
+
+          nextSlideMessage: 'Next slide',
+
+        },
+
+        navigation: {
+
+          nextEl: ".swiper-button-next",
+
+          prevEl: ".swiper-button-prev",
+
+        },
+
+      });
+
+    </script>
+
+    </body>
+
+
+
+    </html>

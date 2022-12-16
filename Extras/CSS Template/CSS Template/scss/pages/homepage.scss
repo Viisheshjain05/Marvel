@@ -1,0 +1,456 @@
+.si-hp {
+  &__wrap {
+    @media screen and (max-width: $media-mobile-min) {
+      margin-top: 4.4rem;
+    }
+  }
+
+  &__banner {
+    position: relative;
+    z-index: 1;
+    min-height: 80vh;
+    background-image: url(../images/superover-text.png?v=#{$image-version});
+    background-repeat: no-repeat;
+    background-position: center top;
+    @extend .si-bgSize--contain !optional;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (max-width: $media-mobile-min) {
+      align-items: flex-start;
+      flex-direction: column;
+      min-height: 60vh;
+      margin-bottom: var(--full-space);
+    }
+
+    @media screen and (min-width: $media-lg-desktop-min) {
+      @include background-size(calc(100% /1.5));
+    }
+
+    &-lft,
+    &-rgt {
+      padding: 0 var(--full-space);
+
+      @media screen and (max-width: $media-mobile-min) {
+        padding: 0;
+        width: 100%;
+      }
+
+      @media screen and (min-width:$media-tablets-min) {
+        flex-basis: 50%;
+
+      }
+    }
+
+    &-lft {
+      padding-top: var(--full-space);
+      padding-bottom: var(--full-space);
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width:$media-tablets-min) {
+        padding-right: calc(var(--full-space) *3);
+      }
+    }
+
+    &-rgt {
+      @media screen and (min-width:$media-tablets-min) {
+        padding-left: calc(var(--full-space) *3);
+      }
+    }
+
+    &-logo {
+      margin-bottom: var(--full-space);
+
+      @media screen and (max-width: $media-mobile-min) {
+        width: 200px;
+
+        img {
+          width: 100%;
+          display: block;
+        }
+      }
+    }
+
+    &-caption {
+      p {
+        color: var(--white);
+        font-size: 1.6rem;
+
+        @media screen and (max-width: $media-mobile-min) {
+          font-size: 1.2rem;
+        }
+      }
+    }
+
+    &-cta {
+      // margin-top: calc(var(--full-space) * 3);
+      margin-top: calc(var(--full-space) * 1);
+
+      @media screen and (max-width: $media-mobile-min) {}
+    }
+
+    &-card {
+      &Group {
+        position: relative;
+        height: calc(var(--card-h) * 1.6);
+        max-width: 420px;
+        width: 100%;
+        @extend .si-bgSize--contain !optional;
+
+        @media screen and (max-width: $media-mobile-min) {
+          height: auto;
+          padding-top: 60vh;
+          background-image: url(../images/card-group-hp.png?v=#{$image-version});
+          background-repeat: no-repeat;
+          background-position: center;
+        }
+      }
+
+      &1,
+      &2,
+      &3 {
+        width: calc(var(--card-w) * 1.6);
+        height: calc(var(--card-h) * 1.6);
+        position: absolute;
+
+        @media screen and (max-width: $media-mobile-min) {
+          display: none;
+        }
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      &1 {
+        left: 0;
+        // top: 50%;
+        // @include transform(translateY(-50%));
+      }
+
+      &2 {
+        left: 2rem;
+        right: 0;
+        margin: 0 auto;
+        z-index: 1;
+        bottom: -40%;
+      }
+
+      &3 {
+        top: -20%;
+        left: auto;
+        right: 0;
+      }
+    }
+
+    &-progress {
+      color: var(--white);
+      font-size: 1.6rem;
+      margin-top: calc(var(--full-space) * 4);
+
+      @media screen and (max-width: $media-mobile-min) {
+        font-size: 1.2rem;
+        margin-top: calc(var(--full-space) * 3);
+      }
+    }
+  }
+}
+
+// how to play
+.si-htp {
+  &__wrap {
+    padding-top: calc(var(--full-space) *4);
+    padding-bottom: calc(var(--full-space) *4);
+    background: var(--body-bgColor);
+
+    @media screen and (max-width: $media-mobile-min) {
+      padding-bottom: calc(var(--full-space) *2);
+    }
+  }
+
+  &__title {
+    position: relative;
+    z-index: 1;
+    min-height: 6rem;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    line-height: normal;
+    font-size: 4rem;
+    color: var(--body-bgColor);
+    margin-bottom: calc(var(--full-space) * 2);
+    padding-bottom: calc(var(--full-space) * 2);
+    text-shadow: 0 -1px var(--white), 1px 0 var(--white), 0 1px var(--white), -1px 0 var(--white);
+    @extend .si-extraBoldFF !optional;
+
+    @media screen and (max-width: $media-mobile-min) {
+      margin-left: var(--full-space-negative);
+      margin-right: var(--full-space-negative);
+    }
+
+    @media screen and (min-width: $media-tablets-min) {
+      font-size: 5rem;
+      margin-bottom: calc(var(--full-space) * 3);
+      padding-bottom: calc(var(--full-space) * 3);
+    }
+
+    @media screen and (min-width: $media-desktop-min) {
+      min-height: 14rem;
+      font-size: 6rem;
+    }
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      min-height: 15rem;
+      font-size: 6rem;
+    }
+
+    &::before {
+      content: attr(data-watermark);
+      position: absolute;
+      top: -20%;
+      left: 0;
+      right: 0;
+      line-height: 1;
+      display: block;
+      z-index: -1;
+      color: rgba(var(--white-rgb), .04);
+      font-size: 4.2rem;
+      text-shadow: none;
+      background-repeat: no-repeat;
+      background-position: center top;
+      @extend .si-bgSize--contain !optional;
+
+      @media screen and (max-width: $media-mobile-min) {
+        content: '';
+        height: 100%;
+        background-image: url(../images/htp-watermark.png?v=#{$image-version});
+      }
+
+      @media screen and (min-width: $media-tablets-min) {
+        font-size: 11rem;
+      }
+
+      @media screen and (min-width: $media-xlg-desktop-min) {
+        font-size: 12rem;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 18rem;
+      position: absolute;
+      bottom: 0;
+      top: auto;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      height: var(--half-space);
+      background-image: url(../images/subtract.png?v=#{$image-version});
+      background-repeat: no-repeat;
+      background-position: center center;
+      // @extend .si-bgSize--contain !optional;
+      @include animation("si-bgPos 10s linear alternate both infinite");
+      background-size: 110%;
+
+      @media screen and (min-width: $media-desktop-min) {
+        width: 32rem;
+        height: var(--full-space);
+      }
+
+      @media screen and (min-width: $media-xlg-desktop-min) {
+        height: calc(var(--full-space) + var(--half-space));
+      }
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+    width: 100%;
+    position: relative;
+
+    .swiper-wrapper {
+      @media screen and (max-width: $media-mobile-min) {
+        padding-bottom: 4rem;
+      }
+    }
+
+    .swiper-pagination {
+      bottom: 0;
+
+      span {
+        height: 0.3rem;
+        width: 2rem;
+        border-radius: 0;
+        background-color: rgba(var(--white-rgb, .3));
+
+        &.swiper-pagination-bullet-active {
+          background-color: var(--white);
+        }
+      }
+    }
+
+    .swiper-slide {
+      overflow: hidden;
+
+      &:not(:last-child) {
+        .si-htp__thumb {
+          &::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 0.1rem;
+            @include transform(translateY(-50%));
+            left: auto;
+            right: -100%;
+            background-image: url(../images/dash.png?v=#{$image-version});
+            background-repeat: repeat-x;
+            background-position: left;
+            @extend .si-bgSize--contain !optional;
+          }
+        }
+      }
+
+      &:not(:first-child) {
+        .si-htp__thumb {
+          &::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            width: 100%;
+            height: 0.1rem;
+            @include transform(translateY(-50%));
+            left: -100%;
+            background-image: url(../images/dash.png?v=#{$image-version});
+            background-repeat: repeat-x;
+            background-position: left;
+            @extend .si-bgSize--contain !optional;
+          }
+        }
+      }
+
+      &:nth-child(1) {
+        .si-htp__box {
+          &::after {
+            background-color: var(--htp1);
+          }
+        }
+      }
+
+      &:nth-child(2) {
+        .si-htp__box {
+          &::after {
+            background-color: var(--htp2);
+          }
+        }
+      }
+
+      &:nth-child(3) {
+        .si-htp__box {
+          &::after {
+            background-color: var(--htp3);
+          }
+        }
+      }
+
+      &:nth-child(4) {
+        .si-htp__box {
+          &::after {
+            background-color: var(--htp4);
+          }
+        }
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    z-index: 1;
+    justify-content: flex-start;
+    align-items: center;
+    flex-direction: column;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-desktop-min) {
+      &:hover {
+        &::after {
+          top: 7rem;
+        }
+      }
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: calc(18rem/2 + 40px);
+      margin: 0 auto;
+      width: calc(18rem/3);
+      height: calc(18rem/3);
+      z-index: -1;
+      filter: blur(30px);
+      @extend .si-borRad100 !optional;
+      @include transition(top 0.2s linear);
+    }
+  }
+
+  &__thumb {
+    position: relative;
+    z-index: 1;
+    margin-bottom: var(--full-space);
+    width: 18rem;
+    height: 18rem;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(var(--white-rgb), .05);
+    border: 1px solid rgba(var(--white-rgb), 0.05);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    @include border-radius(calc(var(--border-radius) * 3));
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      width: 20rem;
+      height: 20rem;
+    }
+
+    img {
+      display: block;
+      height: 8rem;
+    }
+  }
+
+  &__tick {
+    width: 2.8rem;
+    height: 2.8rem;
+    margin: 0 auto var(--full-space);
+    background-image: url(../images/tick-bg.png?v=#{$image-version});
+    background-repeat: no-repeat;
+    background-position: center center;
+    @extend .si-bgSize--contain !optional;
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      width: 3rem;
+      height: 3rem;
+    }
+  }
+
+  &__caption {
+    text-align: center;
+    color: var(--white);
+    font-size: 1.8rem;
+    line-height: normal;
+    padding: 0 var(--full-space);
+    @extend .si-mediumFF !optional;
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      font-size: 2.4rem;
+    }
+  }
+}

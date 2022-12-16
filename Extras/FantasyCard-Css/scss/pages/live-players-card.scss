@@ -1,0 +1,69 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-live-plyrs {
+
+    .si-status-icon {
+      position: absolute;
+      bottom: 38px;
+      width: 18px;
+      height: 18px;
+      left: 2px;
+      margin-right: 0;
+      @media screen and (min-width: $media-mobile-ex-small) {
+        left: 12px;
+      }
+      @media screen and (min-width: $media-mobile-small-max) {
+        bottom: 45px;
+        width: 24px;
+        height: 24px;
+      }
+    }
+    .si-icon-blk {
+      &::after {
+        display: block;
+        font-size: 10px;
+        margin: -1px 1px 0 0;
+        @media screen and (min-width: $media-mobile-small-max) {
+          font-size: 12px;
+        }
+      }
+    }
+    .si-plyr {
+      @media screen and (min-width: $media-ex-large-min) {
+        min-height: 80px;
+      }
+    }
+  }
+  //live points card
+  &.si-live-pts {
+    .si-pts-wrp {
+      color: #ffcc01;
+    }
+    .si-md-txt {
+      @media screen and (min-width: $media-mobile-ex-small) {
+        font-size: 20px;
+      }
+    }
+  }
+  //top performer players but logged out
+  &.si-live-plyrs {
+    &.si-no-team {
+    }
+  }
+  //live -  players no scoring
+  &.si-live-no-scoring {
+    .si-inner-bg {
+      background-image: url("../../images/cards/Desktop/no-players.png?v=#{$cache-img}");
+    }
+  }
+  &.si-final-md-pts,
+  &.si-live-pts {
+    .si-sub-heading {
+      @media screen and (max-width: $media-mobile-small-min) {
+        display: none;
+      }
+    }
+  }
+}

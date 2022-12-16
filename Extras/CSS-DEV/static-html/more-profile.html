@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-icc-mwc-22.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Cricket</title>
+    <script>
+      $(document).ready(function () {
+        // Form Input (floating lable)
+        $(".df-form__floating").click(function () {
+          $(".df-form__floating").toggleClass("df-active");
+        });
+        // pitch view for mob
+        $(".df-cmo__footer ul li").click(function () {
+          $(".df-cmo__rhs").toggleClass("df-active");
+        });
+        // close pitch view for mob
+        $(".df-overlay__close").click(function () {
+          $(".df-cmo__rhs").removeClass("df-active");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>My Profile</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__lhs-body" style="margin-top: 54px;">
+            <div class="df-hp__row">
+              <div class="df-contest__wrap df-contest__wrap--input">
+                <div class="df-contest__box">
+                  <div class="df-form__control">
+                    <div class="df-form__floating df-active">
+                      <!-- df-active -->
+                      <div class="df-lbl">
+                        <span>Contest Name</span>
+                      </div>
+                      <div class="df-input">
+                        <input type="text" class="" placeholder="" value="">
+                      </div>
+                    </div>
+                    <div class="df-input-limit">
+                      <span>Max 25 characters</span>
+                      <span>9 characters left</span>
+                    </div>
+                  </div>
+                  <div class="df-form__control">
+                    <div class="df-form__floating">
+                      <div class=" df-lbl">
+                        <span>Number of Teams</span>
+                      </div>
+                      <div class="df-input df-input--danger">
+                        <!-- df-input--danger -->
+                        <input type="number" min="1" max="500" class="" value="501" placeholder="">
+                      </div>
+                    </div>
+                    <div class="df-input-limit df-redTxt">
+                      <span>Max 500 teams allowed</span>
+                      <span></span>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="df__nav">
+        <ul>
+          <li>
+            <!-- df-active -->
+            <a href="#">
+              <div class="df__nav-icon">
+                <i class="dfi-home"></i>
+              </div>
+              <div class="df__nav-text">
+                <span>Home</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="df__nav-icon">
+                <i class="dfi-contests"></i>
+              </div>
+              <div class="df__nav-text">
+                <span>Contests</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="df__nav-icon">
+                <i class="dfi-stats"></i>
+              </div>
+              <div class="df__nav-text">
+                <span>Stats</span>
+              </div>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <div class="df__nav-icon">
+                <i class="dfi-rules"></i>
+              </div>
+              <div class="df__nav-text">
+                <span>Rules</span>
+              </div>
+            </a>
+          </li>
+          <li class="df-active">
+            <a href="#">
+              <div class="df__nav-icon">
+                <i class="dfi-more"></i>
+              </div>
+              <div class="df__nav-text">
+                <span>More</span>
+              </div>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+  </body>
+
+</html>

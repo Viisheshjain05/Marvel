@@ -1,0 +1,3929 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-icc-mwc-22.css">
+    <!--Custom CSS end here-->
+
+    <!-- Favicon start here -->
+    <link rel="apple-touch-icon" sizes="57x57" href="../images/favicon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="../images/favicon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/favicon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="../images/favicon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/favicon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="../images/favicon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="../images/favicon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="../images/favicon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../images/favicon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="../images/favicon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="../images/favicon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="../images/favicon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="../images/favicon/favicon-16x16.png">
+    <link rel="manifest" href="../images/favicon/manifest.json">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="../images/favicon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Favicon end here -->
+
+    <title>Dream11 | Cricket</title>
+    <script>
+      $(document).ready(function () {
+
+        // filter tab
+        $(".df-filter__title").click(function () {
+          $(".df-filter__title").removeClass("df-selected");
+          $(this).toggleClass("df-selected");
+        });
+        // PlayerList (Add | Remove)
+        $(".df-plyrSel__list ul li").click(function () {
+          $(this).toggleClass("df-remove");
+        });
+        // Toast msg
+        $(".df-filter__title").click(function () {
+          $(".df-overlay__wrap").toggleClass("df-active");
+        });
+        // transfer Overlay
+        $(".df-accordion__head").click(function () {
+          $(".df-accordion__box").toggleClass("df-active");
+        });
+        // pitch view for mob
+        $(".df-cmo__footer ul li").click(function () {
+          $(".df-cmo__rhs").toggleClass("df-active");
+        });
+        // close pitch view for mob
+        $(".df-overlay__close").click(function () {
+          $(".df-cmo__rhs").removeClass("df-active");
+        });
+        // skill tab
+        $(".df-cmo__tabs ul li").click(function () {
+          $(".df-cmo__tabs ul li").removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+        // skill tab
+        $('.df-cmo__tabs .df-cmo__tabs-underline').css({
+          width: $('.df-cmo__tabs .df-active span').width(),
+          left: $('.df-cmo__tabs .df-active span').position().left
+        });
+        // skill tab underline
+        $('.df-cmo__tabs span').click(function () {
+          $('.df-cmo__tabs .df-cmo__tabs-underline').animate({
+            'width': $(this).width(),
+            'left': $(this).position().left
+          });
+        });
+
+        $(".df-cmo__fix-rgt").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+
+        $(".df-cmo__info-icon").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df__searchBar-cta").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 1500)
+          }, 100)
+        });
+
+        $(".df-cmo__info-icon").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__cta").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+
+        $(".df-transfer__info-rgt").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+
+        // Booster List
+        $(".df-booster__box").click(function () {
+          $(this).removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg">
+        <div class="df-main__bg-box">
+          <div class="df-main__bg-thumb">
+            <img src="../images/icc-wct20-rhs-logo.png" alt="" />
+          </div>
+          <div class="df-main__bg-title">
+            <span>WELCOME TO THE OFFICIAL </span>
+            <span>World Cup Season Long 2021</span>
+          </div>
+        </div>
+      </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head df-slim--card1">
+            <!-- df-hide | df-show | df-slim--card-->
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Match 1</span>
+                </div>
+                <div class="df-cmo__mat-time">
+                  <span>29m 30s left</span>
+                </div>
+              </div>
+              <div class="df-cmo__pts">
+                <span>PTS</span>
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+            <div class="df-scoreBoard">
+              <div class="df-scoreBoard__box df-completed">
+                <!-- df-upcoming | df-live | df-completed -->
+                <div class="df-scoreBoard__teamName">
+                  <span>Delhi Challengers</span>
+                  <span>Sunrisers Hyderabad</span>
+                </div>
+                <div class="df-scoreBoard__fix">
+                  <div class="df-fix__team">
+                    <div class="df-fix__team-A df-loss">
+                      <!-- df-loss -->
+                      <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                      </div>
+                      <div class="df-fix__team-name">
+                        <span>100-2 <em>(12.5)</em></span>
+                      </div>
+                    </div>
+                    <div class="df-fix__team-vs">
+                      <span class="df-fix__matchday">Matchday 9</span>
+                      <span>Qualifier 1</span>
+                    </div>
+                    <div class="df-scoreBoard__status">
+                      <span class="df-scoreBoard__lbl">COMPLETED</span>
+                    </div>
+                    <div class="df-fix__team-B">
+                      <!-- df-loss -->
+                      <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                      </div>
+                      <div class="df-fix__team-name">
+                        <span>180-4 <em>(20)</em></span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-scoreBoard__status">
+                  <span>DC need 20 runs to win</span>
+                  <span class="df-scoreBoard__lbl">COMPLETED</span>
+                </div>
+              </div>
+            </div>
+            <div class="df-cmo__fix">
+              <div class="df-cmo__fix-lft">
+                <ul>
+                  <li>
+                    <span>IND <em>vs</em> NZ</span>
+                  </li>
+                  <li>
+                    <span>IND <em>vs</em> PAK</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="df-cmo__fix-rgt">
+                <span>All Matches</span>
+              </div>
+            </div>
+
+            <div class="df-cmo__pickPlayer">
+              <div class="df-cmo__pickPlayer-top">
+                <div class="df-cmo__pickPlayer-lft">
+                  <ul>
+                    <li class="df-active">
+                      <!-- df-active -->
+                      <div class="df-cmo__pickPlayer-txt">
+                        <span>Players</span>
+                      </div>
+                      <div class="df-cmo__pickPlayer-num">
+                        <span>11 <em>/ 11</em></span>
+                      </div>
+                    </li>
+                    <!-- <li>
+                      <div class="df-cmo__pickPlayer-txt">
+                        <span>Foreign</span>
+                      </div>
+                      <div class="df-cmo__pickPlayer-num">
+                        <span>4 <i class="dfi-flight"></i></span>
+                      </div>
+                    </li> -->
+                  </ul>
+                </div>
+                <div class="df-cmo__pickPlayer-mid">
+                  <div class="df-cmo__pickPlayer-booster ">
+                    <!-- si-active | df-hide--tag -->
+                    <div class="df-cmo__pickPlayer-booster-icon">
+                      <img src="../images/booster-icons/booster_white-border.svg" alt="Booster" title="Booster" />
+                    </div>
+                    <!-- <div class="df-cmo__pickPlayer-booster-icon">
+                    <img src="../images/booster-icons/3x_white-border.svg" alt="Booster" title="Booster" />
+                  </div> -->
+
+                    <div class="df-cmo__pickPlayer-booster-tag">
+                      <span>Boosters <i class="dfi-aRgt"></i> </span>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-cmo__pickPlayer-rgt">
+                  <div class="df-cmo__pickPlayer-txt">
+                    <span>Credits Left</span>
+                  </div>
+                  <div class="df-cmo__pickPlayer-num">
+                    <span>100</span>
+                  </div>
+                </div>
+
+
+              </div>
+              <div class="df-cmo__pickPlayer-pgr df-v2">
+                <ul>
+                  <li class="df-active">
+                    <img src="../images/1105.png" alt="" />
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1106.png" alt="" />
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1105.png" alt="" />
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1108.png" alt="" />
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1105.png" alt="" />
+                  </li>
+                  <li> </li>
+                  <li> </li>
+                  <li> </li>
+                  <li> </li>
+                  <li> </li>
+                  <li> </li>
+                </ul>
+                <div class="df-cmo__pickPlayer-pgrBtn"><i class="dfi-remove"></i></div>
+              </div>
+            </div>
+
+            <div class="df-transfer__wrap">
+              <div class="df-transfer__info df-danger df-active">
+                <!-- df-success | df-danger | df-active -->
+                <div class="df-transfer__info-lft">
+                  <span><em>4</em>/94 transfers in use <i></i></span>
+                </div>
+                <div class="df-transfer__info-mid">
+                  <span><em>90</em> Transfers Left</span>
+                </div>
+                <div class="df-transfer__info-rgt">
+                  <span><i class="dfi-history"></i> History</span>
+                  <!-- <span><i class="dfi-reset"></i></span> -->
+                </div>
+              </div>
+            </div>
+            <div class="df-announcement__wrap">
+              <div class="df-announcement__text"><em>1</em> Free Uncapped Transfer available</div>
+            </div>
+            <div class="df-cmo__tabs">
+              <ul>
+                <li class="df-active">
+                  <!-- df-active -->
+                  <span>WK <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>BAT <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>AR <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>BWL <em>(0)</em></span>
+                </li>
+              </ul>
+              <div class="df-cmo__tabs-underline"></div>
+            </div>
+            <div class="df-cmo__lhs-body">
+              <div class="df-cmo__info">
+                <div class="df-cmo__info-lft">
+                  <div class="df-cmo__info-title">
+                    <span>Select 3 - 6 Batsmen</span>
+                  </div>
+                </div>
+                <div class="df-cmo__info-rgt">
+                  <div class="df-cmo__info-icon df-active">
+                    <!-- df-active -->
+                    <i class="dfi-filter"></i>
+                  </div>
+                  <div class="df-cmo__info-icon">
+                    <i class="dfi-search"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="df-plyrSel__wrap">
+                <div class="df-plyrSel__top">
+                  <div class="df-tbl">
+                    <div class="df-tbl__head">
+                      <div class="df-tbl__row">
+                        <div class="df-tbl__cell df-tbl__cell--thumb"></div>
+                        <div class="df-tbl__cell df-tbl__cell--name df-active--up">
+                          <!--df-active--up | df-active--dw -->
+                          <span>SELECTED BY</span>
+                        </div>
+                        <div class="df-tbl__cell df-tbl__cell--pts df-active--dw">
+                          <!--df-active--up | df-active--dw -->
+                          <span>POINTS</span>
+                        </div>
+                        <div class="df-tbl__cell df-tbl__cell--amt df-active--up">
+                          <!--df-active--up | df-active--dw -->
+                          <span>CREDITS</span>
+                        </div>
+                        <div class="df-tbl__cell df-tbl__cell--cta"></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+          <div class="df-cmo__lhs-body" style="margin-top: 514px;">
+
+
+            <div class="df-plyrSel__wrap">
+
+              <div class="df-plyrSel__list">
+                <div class="df-noDataFound">
+                  <div class="df-noDataFound__text">
+                    <span>Sorry, no players meet the filter criteria.</span>
+                  </div>
+                  <div class="df-noDataFound__thumb">
+                    <img src="../images/my-contests-empty.svg" alt="No Data Found">
+                  </div>
+                  <div class="df-noDataFound__cta">
+                    <span>CHANGE FILTERS</span>
+                  </div>
+                </div>
+                <ul>
+                  <li class="df-remove df-in df-injured">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-uncap"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson K Williamson K Williamson K Williamson </span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Injured</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-disabled">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-injured df-out">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Injured</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-in">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-banned">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Not available for selection</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-unavailable">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Unavailable</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                            <div class="df-plyrSel__choice">
+                              <span>Announced</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__footer">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__secondary">
+                  <span>PREVIEW</span>
+                </div>
+              </li>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>CONTINUE</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="df-cmo__rhs df-active">
+          <!-- used  for web & mob "df-active"  -->
+          <div class="df-pitch__wrap">
+            <div class="df-overlay__header">
+              <div class="df-overlay__title">
+                <span>111Spartans</span>
+              </div>
+              <div class="df-overlay__close">
+                <i class="dfi-close"></i>
+              </div>
+            </div>
+            <div class="df-pitch__fix">
+              <div class="df-pitch__fix-lft">
+                <div class="df-cmo__fix">
+                  <div class="df-cmo__fix-lft">
+                    <div class="df-fix__team">
+                      <div class="df-fix__team-A">
+                        <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                        </div>
+                        <div class="df-fix__team-name">
+                          <span>AUS</span>
+                        </div>
+                      </div>
+                      <div class="df-fix__team-vs">
+                        <span>VS</span>
+                      </div>
+                      <div class="df-fix__team-B">
+                        <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                        </div>
+                        <div class="df-fix__team-name">
+                          <span>SRH</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+              <div class="df-pitch__fix-rgt">
+                <span><b>100.5 pts</b> </span>
+              </div>
+              <div class="df-pitch__booster">
+                <div class="df-cmo__pickPlayer-booster-icon">
+                  <img src="../images/booster-icons/booster_white-border.svg" alt="Booster" title="Booster">
+                </div>
+                <div class="df-cmo__pickPlayer-booster-icon">
+                  <img src="../images/booster-icons/3x_white-border.svg" alt="Booster" title="Booster">
+                </div>
+              </div>
+            </div>
+            <div class="df-pitch__area">
+              <div class="df-pitch__box">
+                <div class="df-pitch__row">
+                  <!-- df-view--1 | df-view--2 | df-view--3 | df-view--4 | df-view--5 | df-view--6 -->
+                  <div class="df-pitch__title">
+                    <span>WICKET KEEPERS</span>
+                  </div>
+                  <div class="df-pitch__card">
+                    <div class="df-pitch__plyr df-cap df-flight df-in df-injured">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>KXIP</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>MS Dhoni</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>124.5 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-pitch__row df-view--6">
+                  <div class="df-pitch__title">
+                    <span>Batsmen</span>
+                  </div>
+                  <div class="df-pitch__card">
+                    <div class="df-pitch__plyr df-uncap df-banned">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr df-uncap df-triBoos">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr df-unavailable">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr df-vcap">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>RCB</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="df-pitch__row">
+                  <div class="df-pitch__title">
+                    <span>ALL ROUNDERS</span>
+                  </div>
+                  <div class="df-pitch__card">
+                    <div class="df-pitch__plyr df-out">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+                <div class="df-pitch__row">
+                  <div class="df-pitch__title">
+                    <span>BOWLERS</span>
+                  </div>
+                  <div class="df-pitch__card">
+                    <div class="df-pitch__plyr">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr df-in">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>CSK</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-pitch__plyr df-flight">
+                      <!-- df-injured | df-triBoos | df-uncap | df-cap | df-vcap | df-flight | df-in | df-out | df-banned | df-unavailable -->
+                      <div class="df-pitch__plyr-box">
+                        <div class="df-pitch__plyr-injured"></div>
+                        <div class="df-pitch__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-pitch__plyr-icon">
+                            <div class="df-pitch__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                            <div class="df-pitch__team">
+                              <span>RCB</span>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-pitch__plyr-name">
+                          <span>H Pandya</span>
+                        </div>
+                        <div class="df-pitch__plyr-num">
+                          <span>0 <em>pts</em></span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- common page loader -->
+      <div class="df-loader df-loader__fullScreen df-loader__hide">
+        <svg class="df-loader__spin" viewBox="0 0 60 60">
+          <circle class="df-loader__path" cx="30" cy="30" r="26" fill="none"></circle>
+        </svg>
+      </div>
+
+      <!-- overlays for All-Match -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- in | out -->
+        <div class="df-overlay__container df-overlay--alMat">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              All Match
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-alMat__wrap">
+              <div class="df-alMat__list">
+                <ul>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-alMat__box  df-danger">
+                      <div class="df-alMat__lft">
+
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__status">
+                          <span>Abandoned</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-alMat__box df-success">
+                      <div class="df-alMat__lft">
+                        <div class="df-alMat__result">
+                          <span>DC won by 20 runs</span>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__status">
+                          <span>Completed</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-nextMatch">
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-alMat__box df-success">
+                      <div class="df-alMat__lft">
+
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__status">
+                          <span class="df-nextLabel">NEXT</span> <span>Matchday 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-nextMatch">
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-alMat__box">
+                      <div class="df-alMat__lft">
+                        <div class="df-fix__team">
+                          <div class="df-fix__team-A">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>AUS</span>
+                            </div>
+                          </div>
+                          <div class="df-fix__team-vs">
+                            <span>vs</span>
+                          </div>
+                          <div class="df-fix__team-B">
+                            <div class="df-fix__team-logo" style="background-image: url(../images/1105.png);">
+                            </div>
+                            <div class="df-fix__team-name">
+                              <span>SRH</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-alMat__rgt">
+                        <div class="df-alMat__type">
+                          <span>Match 1, Mumbai</span>
+                        </div>
+                        <div class="df-alMat__date">
+                          <span>Sat, June 2</span>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for Search -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- in | out -->
+        <div class="df-overlay__container df-overlay--search">
+          <div class="df-overlay__header">
+            <div class="df__searchBar">
+              <div class="df__searchBar-lft">
+                <div class="df-form__control">
+                  <div class="df-input df-input--search df-input--clear">
+                    <input type="text" class="" placeholder="Search">
+                    <div class="df-input--icon"></div>
+                  </div>
+                </div>
+              </div>
+              <div class="df__searchBar-rgt">
+                <div class="df__searchBar-cta">
+                  <span>CANCEL</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-noDataFound">
+              <div class="df-noDataFound__text">
+                <span>Couldn’t find any player with this name</span>
+              </div>
+              <div class="df-noDataFound__thumb">
+                <img src="../images/my-contests-empty.svg" alt="No Data Found">
+              </div>
+
+            </div>
+            <div class="df-plyrSel__wrap">
+              <div class="df-plyrSel__list">
+                <ul>
+                  <li class="df-remove">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-uncap"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-disabled">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-injured">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled | df-in | df-out | df-banned | df-unavailable-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for Filter -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- toast msg -->
+        <div class="df-toast__wrap df-success">
+          <!-- df-success | df-danger -->
+          <div class="df-toast__title">
+            <span>Team Created Successfully</span>
+          </div>
+          <div class="df-toast__text">
+            <span>Second line comes here</span>
+          </div>
+        </div>
+
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--filter">
+          <div class="df-overlay__header">
+            <div class="df-overlay__cta">
+              <span>RESET</span>
+            </div>
+            <div class="df-overlay__title">
+              <span>Filter Players</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-filter__wrap">
+              <div class="df-filter__lft">
+                <div class="df-filter__title df-active df-selected">
+                  <!--  df-active | df-selected -->
+                  <span>Teams</span>
+                </div>
+                <div class="df-filter__title df-active">
+                  <!--  df-active | df-selected -->
+                  <span>Matches</span>
+                </div>
+                <div class="df-filter__title">
+                  <!--  df-active | df-selected -->
+                  <span>Nationality</span>
+                </div>
+                <div class="df-filter__title">
+                  <!--  df-active | df-selected -->
+                  <span>Credit Range</span>
+                </div>
+              </div>
+              <div class="df-filter__rgt">
+                <ul>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> <em>KKR vs DC</em> Match 5 Sat, June 2 </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick1">
+                        <label for="tick1"> Sunrisers Hyderabad </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick2">
+                        <label for="tick2"> SRH vs HYD
+                          <div class="df-filter__subTxt"> <span>Match 5</span> <span>Sat, June 2</span></div>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick3">
+                        <label for="tick3"> Indian </label>
+                      </div>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-form__control">
+                      <div class="df-checkBox">
+                        <input type="checkbox" id="tick4">
+                        <label for="tick4"> Less than 7 </label>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>apply</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for transfer -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--transfer">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <span>Transfer History</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-transfer__head">
+              <span><em>90</em> Transfers Left</span>
+              <span><em>10</em> Transfers Used</span>
+            </div>
+            <div class="df-noDataFound">
+              <div class="df-noDataFound__text">
+                <span>You haven’t made any transfers</span>
+              </div>
+              <div class="df-noDataFound__thumb">
+                <img src="../images/transfer-history.svg" alt="No Data Found">
+              </div>
+            </div>
+            <div class="df-accordion">
+              <div class="df-accordion__box df-active">
+                <!-- df-active -->
+                <div class="df-accordion__head">
+                  <div class="df-transfer__status">
+                    <span>Matchday 3</span>
+                    <span class="df-greenTxt"><em>4</em> Transfers</span>
+                    <!-- df-greenTxt | df-redTxt -->
+                  </div>
+                  <div class="df-transfer__fix">
+                    <ul>
+                      <li>
+                        <span>DC <em>vs</em> SRH</span>
+                      </li>
+                      <li>
+                        <span>KXIP <em>vs</em> MI</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__body">
+                  <div class="df-transfer__tbl">
+                    <div class="df-tbl">
+                      <div class="df-tbl__head">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <span>PLAYERS IN </span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <span>PLAYERS OUT</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-accordion__box ">
+                <!-- df-active -->
+                <div class="df-accordion__head">
+                  <div class="df-transfer__status">
+                    <span>Matchday 3</span>
+                    <span><em>4</em> Transfers</span>
+                  </div>
+                  <div class="df-transfer__fix">
+                    <ul>
+                      <li>
+                        <span>DC <em>vs</em> SRH</span>
+                      </li>
+                      <li>
+                        <span>KXIP <em>vs</em> MI</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__body">
+                  <div class="df-transfer__tbl">
+                    <div class="df-tbl">
+                      <div class="df-tbl__head">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <span>PLAYERS IN </span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <span>PLAYERS OUT</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-accordion__box ">
+                <!-- df-active -->
+                <div class="df-accordion__head">
+                  <div class="df-transfer__status">
+                    <span>Matchday 3</span>
+                    <span><em>4</em> Transfers</span>
+                  </div>
+                  <div class="df-transfer__fix">
+                    <ul>
+                      <li>
+                        <span>DC <em>vs</em> SRH</span>
+                      </li>
+                      <li>
+                        <span>KXIP <em>vs</em> MI</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__body">
+                  <div class="df-transfer__tbl">
+                    <div class="df-tbl">
+                      <div class="df-tbl__head">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <span>PLAYERS IN </span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <span>PLAYERS OUT</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--lft">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>K Williamson</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--rgt">
+                            <div class="df-transfer__plyr">
+                              <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                              </div>
+                              <div class="df-transfer__plyr-dtls">
+                                <div class="df-transfer__plyr-name">
+                                  <span>R Karunaratne</span>
+                                </div>
+                                <div class="df-transfer__plyr-skill">
+                                  <span>KKR - BAT</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>apply</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for boosters -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--booster">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <img src="../images/booster-icon.svg" alt="Select a Booster" title="Select a Booster">
+              <span> Select a Booster</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-plyrSel__content">
+              <div class="df-plyrSel__content-txtOne">
+                <span>Boost your chances to ace the leaderboard!</span>
+              </div>
+              <div class="df-plyrSel__content-txtTwo">
+                <span>You can use each Booster just once IPL 2021. <br /> So choose wisely!</span>
+              </div>
+            </div>
+
+            <div class="df-booster__list">
+              <ul>
+                <li>
+                  <div class="df-booster__box df-selected df-tmp">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Triple-impact Player</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Select a player to earn 3x of their fantasy points. Tip: Choose your best here!</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-disabled df-dbs">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Double Bash Score</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Big game? Use this to double your total points for the match.</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-active df-st">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Super Transfer</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Use Super Transfer to get unlimited player transfers for a match!</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>APPLY BOOSTER</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for performance booster -->
+      <div class="df-overlay__wrap df-fade out">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--booster df-overlay--booster-performance">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <img src="../images/booster-icon.svg" alt="Select a Booster" title="Select a Booster">
+              <span> Boosters</span>
+              <div class="df-performance__counter">
+                <span><em>1</em>/3 left</span>
+              </div>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-plyrSel__content">
+              <div class="df-plyrSel__content-txtOne">
+                <span>Apply to boost your leaderboard rank</span>
+              </div>
+              <div class="df-plyrSel__content-txtTwo">
+                <span>You can use each Booster just once. <br />
+                  So choose wisely!</span>
+              </div>
+            </div>
+
+            <div class="df-booster__list" style="height: 300px;overflow-y: scroll;">
+              <ul>
+                <li>
+                  <div class="df-booster__box df-tmp">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Triple-impact Player</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Select a player to earn 3x of their fantasy points. Tip: Choose your best here!</span>
+                      </div>
+                      <div class="df-booster__note df-redTxt">
+                        <span>Note: Not available for the first match of the group stage and playoffs</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-dbs">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Double Bash Score</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Big game? Use this to double your team’s total fantasy points for the match</span>
+                      </div>
+                      <div class="df-booster__status">
+                        <span>Match 4</span>
+                        <span><em>MI</em> VS <em>CSK</em></span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-st">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Super Transfer</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Use Super Transfer to get unlimited player transfers for a match!</span>
+                      </div>
+                      <div class="df-booster__status">
+                        <i class="dfi-booster-tick"></i>
+                        <span>Available</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-bat">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power Batter</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Batting pitch? Get 2x points for all batters in your team</span>
+                      </div>
+                      <div class="df-booster__status">
+                        <i class="dfi-booster-clock"></i>
+                        <span>Expires in <em class="df-redTxt">04:07:24 hrs</em></span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-bowl">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power Bowler</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Better bowling conditions? Get 2x points for all bowlers in your team</span>
+                      </div>
+                      <div class="df-booster__status">
+                        <i class="dfi-booster-lock"></i>
+                        <span>Coming Soon</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-ar">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power All-rounder</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>It’s double the trouble! Get 2x points for every all-rounder in your team</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-keeper df-disabled">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power Keeper</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Howzat! Get 2x points for all wicketkeepers in your team</span>
+                      </div>
+                      <div class="df-booster__status">
+                        <i class="dfi-booster-clock"></i>
+                        <span>Expired</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-uncapped">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power Uncapped</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Go big on the starters! Get 2x points for all uncapped players in your team</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-booster__box df-p-guest">
+                    <!-- df-selected | df-disabled | df-active | df-tmp | df-dbs | df-st | df-p-bat | df-p-bowl | df-p-ar | df-p-keeper | df-p-uncapped | df-p-guest -->
+                    <div class="df-booster__icon"></div>
+                    <div class="df-booster__content">
+                      <div class="df-booster__title">
+                        <span>Power Overseas Player</span>
+                      </div>
+                      <div class="df-booster__para">
+                        <span>Away from home! Get 2x points for all overseas players in your team</span>
+                      </div>
+                    </div>
+                    <div class="df-booster__radioBtn"></div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>APPLY BOOSTER</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- overlays for Confirm Booster -->
+      <div class="df-overlay__wrap df-fade out" style="display: none;">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--booster df-overlay--booster-confirm">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <span> Confirm Booster</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-cmo__pickPlayer-booster df-booster__icon-holder">
+              <!-- si-active -->
+              <div class="df-cmo__pickPlayer-booster-icon">
+                <img src="../images/booster-icons/booster_white-border.svg" alt="Booster" title="Booster">
+              </div>
+              <div class="df-cmo__pickPlayer-booster-icon">
+                <img src="../images/booster-icons/3x_white-border.svg" alt="Booster" title="Booster">
+              </div>
+            </div>
+            <div class="df-plyrSel__content">
+              <div class="df-plyrSel__content-txtOne">
+                <span>Triple-impact Player</span>
+              </div>
+              <div class="df-plyrSel__content-txtTwo">
+                <span>Sure about your choice? Once applied, you won't be able to change, cancel or reuse the Booster.
+                </span>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary  ">
+                  <span>BACK TO TEAM</span>
+                </div>
+              </li>
+              <li>
+                <div class="df-btn df-btn__secondary ">
+                  <span>CONTINUE</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- common toast msg -->
+      <div class="df-toast__wrap df-success">
+        <!-- df-show | df-success | df-danger -->
+        <div class="df-toast__title">
+          <span>Team Created Successfully</span>
+        </div>
+        <div class="df-toast__text">
+          <span>Second line comes here</span>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

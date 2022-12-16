@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-icc-mwc-22.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Cricket</title>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Points System</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__lhs-body" style="margin-top: 54px;">
+            <div class="df-hp__row">
+              <div class="df-accordion df-ptSyt">
+                <div class="df-accordion__box df-active">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Batting</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Per Run</span>
+                        <span>+1</span>
+                      </li>
+                      <li>
+                        <span>Boundary Bonus</span>
+                        <span>+1</span>
+                      </li>
+                      <li>
+                        <span>Six Bonus</span>
+                        <span>+2</span>
+                      </li>
+                      <li>
+                        <span>Half-century Bonus</span>
+                        <span>+8</span>
+                      </li>
+                      <li>
+                        <span>Century Bonus</span>
+                        <span>+16</span>
+                      </li>
+                      <li>
+                        <span>Dismissal for a duck <em>(Batsman, Wicket-Keeper & All-Rounder)</em> </span>
+                        <span class="df-redTxt">-2</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Bowling</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li>
+                        <span>Wicket <em>(Excluding Run Out)</em> </span>
+                        <span>+25</span>
+                      </li>
+                      <li>
+                        <span>4 wicket haul Bonus</span>
+                        <span>+8</span>
+                      </li>
+                      <li>
+                        <span>5 wicket haul Bonus</span>
+                        <span>+16</span>
+                      </li>
+                      <li>
+                        <span>Maiden over</span>
+                        <span>+8</span>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Fielding</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li><span>Catch</span> <span>+8</span></li>
+                      <li><span>Stumping/Run-out<em>Direct</em> </span> <span>+12</span></li>
+                      <li><span>Run Out (Thrower)</span> <span>+8</span></li>
+                      <li><span>Run Out (Catcher)</span> <span>+4</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Others</span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li><span>Captain</span> <span>2x</span></li>
+                      <li><span>Vice-Captain</span> <span>1.5x</span></li>
+                      <li><span>In starting 11</span> <span>+4</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Economy Rate <em>Min 2 Overs To Be Bowled</em></span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li> <span>Below 4 runs per over</span> <span>+6</span></li>
+                      <li> <span>Between 4-4.99 runs per over</span> <span>+4</span></li>
+                      <li> <span>Between 5-6 runs per over</span> <span>+2</span></li>
+                      <li> <span>Between 9-10 runs per over</span> <span class="df-redTxt">-2</span></li>
+                      <li> <span>Between 10.1-11 runs per over</span> <span class="df-redTxt">-4</span></li>
+                      <li> <span>Above 11 runs per over</span> <span class="df-redTxt">-6</span></li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="df-accordion__box">
+                  <!-- df-active -->
+                  <div class="df-accordion__head">
+                    <span>Strike Rate <em>Min 10 Balls To Be Bowled</em></span>
+                  </div>
+                  <div class="df-accordion__body">
+                    <ul>
+                      <li> <span>Between 60-70 runs per 100 balls</span> <span class="df-redTxt">-2</span></li>
+                      <li> <span>Between 50-59.9 runs per 100 balls</span> <span class="df-redTxt">-4</span></li>
+                      <li> <span>Below 50 runs per 100 balls</span> <span class="df-redTxt">-6</span></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+              <div class="df-ptSyt-list">
+                <div class="df-hp__htp-unordList">
+                  <ul>
+                    <li>The cricketer you choose to be your Fantasy Cricket Team’s Captain will receive 2 times the
+                      points
+                    </li>
+                    <li>The Vice-Captain will receive 1.5 times the points for his/her performance</li>
+                    <li>Starting points are assigned to any player on the basis of announcement of his/her inclusion in
+                      the team. However, in case the player is unable to start the match after being included in the
+                      team
+                      sheet, he/she will not score any points. Points shall however, be applicable (including starting
+                      points) to any player who plays as a replacement of such player to whom starting points were
+                      initially assigned.</li>
+                    <li>11 players from each side play the game</li>
+                    <li>Strike rate scoring is applicable only for strike rate below 70 runs per 100 balls</li>
+                    <li>None of the events occurring during a Super Over, if any, will be considered for Points to be
+                      assigned/applied to a player.</li>
+                    <li>In case of run-outs involving 3 or more players from the fielding side, points will be awarded
+                      only to the last 2 players involved in the run-out.</li>
+                    <li>Any player scoring a century will only get points for the century and no points will be awarded
+                      for half-century. Any score over and above century will be eligible for bonus points only for the
+                      century.</li>
+                    <li>Substitutes on the field will not be awarded points for any contribution they make. However,
+                      'Concussion Substitutes' will be awarded points awarded four (4) points for making an appearance
+                      in
+                      a match and will be awarded points any contribution they make as per the Fantasy Points System
+                      (w.e.f Nov 25 2019).</li>
+                    <li>In case a player is transferred/reassigned to a different team between two scheduled updates,
+                      for
+                      any reason whatsoever, such transfer/reassignment (by whatever name called) shall not be reflected
+                      in the roster of players until next scheduled update. It is clarified that during the intervening
+                      period of two scheduled updates, while such player will be available for selection in the team to
+                      which the player originally belong, no points will be attributable to such player during the
+                      course
+                      of such contest.</li>
+                    <li>Data is provided by reliable sources and once the points have been marked as completed i.e.
+                      winners have been declared, no further adjustments will be made. Points awarded live in-game are
+                      subject to change as long as the status is 'In progress' or 'Waiting for review'.</li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

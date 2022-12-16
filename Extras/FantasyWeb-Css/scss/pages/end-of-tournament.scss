@@ -1,0 +1,849 @@
+.si-main-component {
+  .si-no-stats {
+    &__wrap {
+      background-color: var(--uf-elevation-01);
+      border-radius: 2px;
+      padding: 36px 20px;
+      text-align: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      @extend .si-flexBox;
+      @media screen and (max-width: $media-small-max) {
+        margin-right: 16px;
+      }
+    }
+    &--title {
+      font-family: var(--uf-font-comp-bold);
+      font-size: 20px;
+      line-height: 24px;
+      margin-bottom: 12px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 24px;
+        line-height: 26px;
+      }
+    }
+    &--desc {
+      font-size: 14px;
+      line-height: 20px;
+
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 16px;
+        line-height: 24px;
+        margin: 0 auto;
+        width: 60%;
+      }
+      &:not(:last-child) {
+        margin-bottom: 4px;
+      }
+    }
+    &--btn {
+      color: var(--uf-interaction);
+      cursor: pointer;
+      font-size: 14px;
+      font-family: var(--uf-font-base-semibold);
+      font-weight: var(--uf-font-weight-l);
+      line-height: 19px;
+      margin-top: 18px;
+      align-items: center;
+      justify-content: center;
+      @extend .si-flexBox;
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 16px;
+      }
+      i {
+        font-size: 13px;
+        margin-right: 8px;
+      }
+    }
+  }
+  &.si-eot {
+    // background-image: url("../images/EOT/first-banner-eot.jpg?v=#{$cache-img}");
+    // background-position: top;
+    // background-color: #060f46;
+    // background-repeat: no-repeat;
+    color: var(--uf-text-04);
+    padding: 0;
+    &::before,
+    &::after {
+      display: none;
+    }
+    .si-dblock__btm {
+      a {
+        color: var(--uf-interaction);
+      }
+    }
+    .si-carousal-wrapper {
+      margin-bottom: 0;
+      .si-dblock {
+        margin-bottom: 0;
+      }
+    }
+
+    // &.si-homepage {
+    //   .si-bg--gradient {
+    //     top: 420px;
+    //     bottom: 30px;
+    //     left: 0;
+    //     right: 0;
+    //     @media screen and (min-width: $media-medium-max) {
+    //       bottom: 50px;
+    //       top: 490px;
+    //     }
+    //   }
+    // }
+
+    // .si-container {
+    //   width: 100%;
+    //   @media screen and (min-width: $media-small-tablet-min) {
+    //     max-width: 690px;
+    //   }
+    // }
+    .si-section {
+      position: relative;
+      &--banner {
+        image-rendering: -webkit-optimize-contrast;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        background-color: #07063a;
+        padding-bottom: 40px;
+        @media screen and (max-width: $media-small-max) {
+          padding-top: 90px;
+        }
+        @media screen and (min-width: $media-small-min) {
+          background-image: url("../images/EOT/banner-bg.png?v=#{$cache-img}");
+          background-repeat: no-repeat;
+          background-size: cover;
+          background-position: center;
+          min-height: 382px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          min-height: 582px;
+        }
+        @media screen and (min-width: $media-xxlarge) {
+          min-height: 622px;
+        }
+        .si-btn {
+          max-width: 245px;
+          min-width: 245px;
+          min-height: 48px;
+        }
+        .si-container {
+          width: 100%;
+          @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+            width: 592px;
+          }
+          @media screen and (min-width: $media-medium-min) {
+            width: auto;
+          }
+        }
+      }
+      &--data {
+        padding-top: 30px;
+        padding-bottom: 40px;
+      }
+      &__desc {
+        font-size: 16px;
+        line-height: 22px;
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 18px;
+          line-height: 26px;
+        }
+        &:not(:last-child) {
+          margin-bottom: 32px;
+        }
+      }
+      .si-section__img {
+        background-image: url("../images/EOT/trophy.png");
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        width: 98px;
+        height: 166px;
+        margin: 20px auto 0;
+        position: relative;
+        z-index: zindex(default);
+        display: none;
+        @media screen and (max-width: $media-small-max) {
+          margin-top: 30px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          width: 135px;
+          height: 229px;
+        }
+        @media screen and (min-width: $media-desktop-max) {
+          width: 155px;
+          height: 269px;
+        }
+        @media screen and (min-width: $media-medium-max) {
+          width: 175px;
+          height: 299px;
+        }
+        @media screen and (min-width: $media-xxlarge) {
+          margin-right: 60px;
+        }
+      }
+      .si-section {
+        &__row {
+          @media screen and (max-width: $media-small-max) {
+            flex-direction: column-reverse;
+          }
+          @extend .si-flexBox;
+        }
+        &__col {
+          flex: 1 0 auto;
+        }
+      }
+      .si-banner-desc {
+        position: relative;
+        @media screen and (max-width: $media-xsmall-max) {
+          text-align: center;
+          padding: 0 40px;
+        }
+        @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+          max-width: 320px;
+        }
+        @media screen and (min-width: $media-small-min) {
+          // max-width: 560px;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          max-width: 480px;
+        }
+        &::before {
+          @media screen and (max-width: $media-xsmall-max) {
+            content: "";
+            background-image: linear-gradient(
+              to top,
+              #060539 0%,
+              rgba(5, 17, 58, 0) 100%
+            );
+            position: absolute;
+            top: -83px;
+            left: 0;
+            right: 0;
+            height: 83px;
+            z-index: 1;
+          }
+        }
+        .si-btn__wrap {
+          @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+            justify-content: flex-start;
+          }
+        }
+      }
+      .si-banner-img {
+        position: relative;
+        @media screen and (min-width: $media-desktop-max) {
+          padding: 0 0 0 20px;
+        }
+        @media screen and (min-width: $media-medium-max) {
+          padding: 0 0 0 60px;
+        }
+        @media screen and (max-width: $media-xsmall-max) {
+          height: 464px;
+          align-items: center;
+          @include flexbox;
+        }
+        @media screen and (max-width: 479px) {
+          height: 304px;
+        }
+        &::after {
+          @media screen and (max-width: $media-xsmall-max) {
+            content: "";
+            background-image: url("../images/EOT/banner-bg-mob.png?v=#{$cache-img}");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: top;
+
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            image-rendering: -webkit-optimize-contrast;
+            @media screen and (max-width: $media-xsmall-max) {
+              height: 464px;
+            }
+            @media screen and (max-width: 479px) {
+              height: 304px;
+            }
+          }
+        }
+      }
+      &--social {
+        @media screen and (min-width: $media-desktop-min) {
+          padding-top: 100px;
+        }
+        &::after {
+          content: "";
+          height: 2px;
+          width: 100%;
+          position: absolute;
+          top: 0;
+          background-image: linear-gradient(90deg, #1441fa 0%, #4dd5e3 100%);
+        }
+        .si-gaming__img {
+          img {
+            @media screen and (min-width: $media-desktop-min) {
+              margin: 0 auto 60px;
+            }
+          }
+        }
+        .si-section__desc {
+          @media screen and (max-width: $media-small-max) {
+            margin: 0 20px 32px;
+          }
+        }
+      }
+    }
+    .si-head {
+      &--primary {
+        font-size: 24px;
+        font-family: var(--uf-font-comp-bold);
+        line-height: 28px;
+        margin-bottom: 12px;
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 32px;
+          line-height: 32px;
+        }
+        @media screen and (min-width: $media-medium-max) {
+          font-size: 40px;
+          line-height: 40px;
+        }
+      }
+    }
+    .si-bg--gradient {
+      // height: 60px;
+      position: absolute;
+      top: 0;
+      bottom: -5%;
+      width: 100%;
+      background-color: var(--uf-background);
+      // background-image: linear-gradient(
+      //   244.8deg,
+      //   #001456 -0.76%,
+      //   #062481 84.68%,
+      //   #ff16ff 160.07%
+      // );
+      @media screen and (min-width: $media-small-tablet-min) {
+        top: -30px;
+        transform: skewY(2.6deg);
+      }
+      &::before {
+        @media screen and (min-width: $media-small-tablet-min) {
+          content: "";
+          position: absolute;
+          top: -50px;
+          left: 0;
+          right: 0;
+          height: 50px;
+
+          @include linearGradient(
+            to top,
+            rgba($black, 0.48) 33.11%,
+            rgba($black, 0) 76.81%
+          );
+        }
+      }
+      &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        height: 3px;
+        width: 100%;
+        outline: 1px solid transparent;
+        background-image: linear-gradient(90deg, #1441fa 0%, #4dd5e3 100%);
+      }
+    }
+    .si-block {
+      // background-image: linear-gradient(
+      //   180deg,
+      //   rgba(9, 41, 201, 0.7) 0%,
+      //   rgba(9, 41, 201, 0.49) 100%
+      // );
+      background-color: var(--uf-elevation-01);
+      border-radius: 2px;
+      padding: 24px;
+      min-height: 314px;
+      height: 100%;
+      &__data {
+        text-align: center;
+      }
+      &__img {
+        height: 112px;
+        text-align: center;
+        margin: 0 -24px;
+        @media screen and (min-width: $media-mobile-ex-small) {
+          height: 152px;
+        }
+        img {
+          height: 100%;
+          margin: 0 auto;
+        }
+      }
+      &__title {
+        font-size: 16px;
+        font-family: var(--uf-font-base-bold);
+        font-weight: var(--uf-font-weight-xl);
+        line-height: 17px;
+        margin-bottom: 8px;
+      }
+      &__desc {
+        color: var(--uf-text-02);
+        line-height: 20px;
+        @media screen and (max-width: $media-small-max) {
+          font-size: 14px;
+        }
+      }
+    }
+    .si-card {
+      padding: 12px 18px 22px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        padding: 16px 28px 28px;
+      }
+    }
+    .si-slider-card {
+      background: transparent;
+      box-shadow: none;
+      padding: 0;
+      @media screen and (max-width: $media-mobile-max) {
+        margin-right: -16px;
+      }
+      .si-btn {
+        @media screen and (max-width: $media-mobile-max) {
+          margin-right: 16px;
+        }
+      }
+      &:not(.si-card--stats) {
+        .swiper-slide {
+          min-height: 314px;
+        }
+        .si-carousal-wrapper {
+          margin-bottom: 30px;
+        }
+      }
+      .swiper-wrapper,
+      .swiper-slide {
+        height: auto;
+      }
+      .si-text-title {
+        font-family: var(--uf-font-base-bold);
+        font-weight: var(--uf-font-weight-xl);
+
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 24px;
+        }
+      }
+    }
+    .si-team-card {
+      padding: 0;
+      margin-bottom: 30px;
+      @media screen and (max-width: $media-mobile-small-max) {
+        margin: 0 -16px 30px;
+      }
+    }
+    .si-pitch-view-wrap {
+      padding-top: calc(1080 / 1080 * 100%);
+    }
+    .si-prizes-card,
+    .si-banner-card {
+      padding: 20px;
+    }
+    // .si-prizes-card {
+    //   .si-text-descp {
+    //     color: rgba($white, 0.7);
+    //   }
+    // }
+    .swiper-button-prev,
+    .swiper-button-next {
+      @media screen and (max-width: $media-small-max) {
+        display: none;
+      }
+    }
+    .si-league {
+      &-left {
+        i {
+          @media screen and (min-width: $media-small-tablet-min) {
+            font-size: 28px;
+          }
+        }
+      }
+      &-item {
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 20px;
+        }
+      }
+      &-rank {
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 14px;
+        }
+      }
+    }
+    .si-rank-section {
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 16px;
+      }
+    }
+  }
+  .si-eot {
+    &-banner {
+      margin: 0 auto;
+      width: 266px;
+      @media screen and (min-width: $media-small-tablet-min) {
+        width: 366px;
+      }
+      img {
+        display: block;
+        height: auto;
+        width: 100%;
+      }
+    }
+
+    &__signup {
+      background-color: $white;
+      background-image: url("../images/EOT/eot-bg-btm.jpg?v=#{$cache-img}");
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: #00004b;
+      font-size: 16px;
+      padding: 70px 0 80px 0;
+      position: relative;
+      // margin-top: 130px;
+      z-index: 1;
+      @media screen and (min-width: $media-small-tablet-min) {
+        // margin-top: 240px;
+      }
+      &::before {
+        content: "";
+        background: $white;
+        width: 100%;
+        height: 90px;
+        position: absolute;
+        top: -40px;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        @include transform(skewY(3deg));
+      }
+    }
+    &__quiz {
+      margin-top: -160px;
+      text-align: center;
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-top: -220px;
+      }
+      .si-quiz__img {
+        margin: 0 auto 30px auto;
+        width: 326px;
+        @media screen and (min-width: $media-small-tablet-min) {
+          width: 566px;
+        }
+        img {
+          height: auto;
+          width: 100%;
+          position: relative;
+        }
+      }
+      .si-quiz__title,
+      .si-quiz__heading {
+        margin-bottom: 15px;
+      }
+      .si-quiz__title {
+      }
+
+      .si-quiz__heading {
+        font-size: 26px;
+        line-height: 26px;
+      }
+      .si-quiz__desc {
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 25px;
+      }
+      .si-share {
+        &--img {
+          justify-content: center;
+        }
+        &__link {
+          background-image: url("../images/landing-page/social-share-mob.png?v=#{$cache-img}");
+          min-height: 39px;
+          min-width: 127px;
+          @include bg-props(cover, no-repeat, center);
+          @media screen and (min-width: $media-small-tablet-min) {
+            background-image: url("../images/landing-page/social-share.png?v=#{$cache-img}");
+            min-height: 50px;
+            min-width: 167px;
+          }
+          &.si-ps {
+            background-position: 0 0;
+            margin-right: 10px;
+          }
+          &.si-as {
+            background-position: -134px 0;
+            @media screen and (max-width: $media-small-max) {
+              min-width: 116px;
+            }
+            @media screen and (min-width: $media-small-tablet-min) {
+              background-position: -170px 0;
+            }
+          }
+        }
+      }
+    }
+    &__wrap {
+      margin: 0 auto;
+      width: 300px;
+    }
+  }
+  &.si-home-eot {
+    & > .si-container {
+      @media screen and (max-width: $media-small-max) {
+        position: relative;
+      }
+    }
+    .si-bg--gradient {
+      top: -30px;
+      left: 0;
+      right: 0;
+      @media screen and (max-width: $media-small-max) {
+        bottom: 0;
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        bottom: 60px;
+        top: 552px; //assign si-section--banner's height here
+      }
+      @media screen and (min-width: $media-medium-max) {
+        bottom: 50px;
+      }
+    }
+    .my-col-1 {
+      @media screen and (min-width: $media-small-tablet-min) {
+        margin-bottom: 60px;
+      }
+    }
+    .si-slider-card {
+      // padding: 12px 18px 22px;
+      // padding: 12px 0 22px;
+    }
+  }
+  .si-dblock {
+    background-color: var(--uf-elevation-01);
+    border-radius: 2px;
+    overflow: hidden;
+    margin: 0 0 16px;
+    @include box-shadow(0, 1px, 2px, rgba($black, 0.15));
+    &__top {
+      background-color: var(--uf-secondary-02);
+      padding: 12px 0;
+    }
+    &-title {
+      font-size: 18px;
+      font-weight: var(--uf-font-weight-l);
+      line-height: 26px;
+      padding: 0 16px 11px;
+      @media screen and (min-width: $media-mobile-med) {
+        font-size: 20px;
+      }
+    }
+    &-sm {
+      font-size: 16px;
+    }
+    &__btm {
+      padding: 16px;
+      a {
+        color: var(--uf-interaction);
+        align-items: center;
+        font-size: 14px;
+        font-family: var(--uf-font-base-bold);
+        font-weight: var(--uf-font-weight-xl);
+        transform: translate3d(0px, 0px, 0px);
+        @extend .si-flexBox;
+      }
+      i {
+        font-size: 10px;
+        font-weight: bold;
+        margin-left: 5px;
+      }
+    }
+    &__row {
+      position: relative;
+      align-items: center;
+      @extend .si-flexBox;
+    }
+    &__col {
+      padding: 8px 6px;
+      position: relative;
+    }
+    &-info {
+      font-size: 14px;
+      flex: 0 0 32px;
+      padding: 8px 6px 8px 16px;
+    }
+    &-num {
+      color: var(--uf-text-04);
+    }
+    &-img {
+      flex: 0 0 40px;
+      position: relative;
+
+      .si-plyr__club {
+        bottom: 7px;
+        right: 2px;
+        height: 16px;
+        width: 16px;
+      }
+    }
+    &__plyr {
+      background-color: var(--uf-elevation-02);
+      border-radius: 50%;
+      overflow: hidden;
+      height: 40px;
+      width: 40px;
+      img {
+        width: 100%;
+      }
+    }
+    &-name {
+      flex: 1 0 39%;
+      overflow: hidden;
+      .si-plyr-name {
+        font-size: 16px;
+        font-family: var(--uf-font-base-semibold);
+        font-weight: var(--uf-font-weight-l);
+        line-height: 18px;
+        margin-bottom: 2px;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 100%;
+        text-transform: capitalize;
+      }
+      .si-plyr-match {
+        color: var(--uf-text-02);
+        font-size: 12px;
+        line-height: 14px;
+      }
+    }
+
+    &-stat {
+      font-family: var(--uf-font-base-semibold);
+      font-weight: var(--uf-font-weight-l);
+      font-size: 24px;
+      flex: 0 0 27%;
+      padding: 8px 16px 6px 8px;
+      text-align: right;
+    }
+    &__mid {
+      .si-dblock__num {
+        color: var(--uf-text-02);
+      }
+      .si-dblock-stat {
+        font-size: 20px;
+      }
+    }
+  }
+  &.si-eot-stats {
+    @media screen and (max-width: $media-small-max) {
+      padding-top: 70px;
+    }
+    .si-dropdown__mid {
+      flex: 1 0 auto;
+    }
+    .si-heading__title {
+      i {
+        cursor: pointer;
+        @media screen and (min-width: $media-small-tablet-min) {
+          font-size: 21px;
+          margin-right: 18px;
+        }
+      }
+    }
+    .si-leagues__lb {
+      @media screen and (max-width: $media-small-max) {
+        padding-top: 10px;
+      }
+      .si-dropdown__mid {
+        span {
+          display: inline-block;
+        }
+      }
+    }
+    .si-no-stats {
+      &__wrap {
+        background-color: var(--uf-elevation-01);
+        margin-bottom: 10px;
+      }
+      &--desc {
+        color: var(--uf-text-03);
+      }
+    }
+    .si-leaderboard {
+      border-radius: 8px;
+      overflow: hidden;
+      padding-bottom: 0;
+    }
+    .si-board-head {
+      background: none;
+      padding: 0;
+      .si-dblock__col {
+        color: var(--uf-text-03);
+        font-size: 16px;
+        font-family: $primary-ff--regular;
+        line-height: 24px;
+        flex: 0 0 50%;
+      }
+    }
+    .si-board-body {
+      .si-dblock-stat {
+        font-size: 20px;
+      }
+      .si-dblock__row {
+        &:last-child {
+          padding-bottom: 10px;
+        }
+      }
+    }
+    .si-dblock__num,
+    .si-plyr-match {
+      color: rgba($white, 0.7);
+    }
+    .si-plyr-match {
+      font-size: 12px;
+      line-height: 16px;
+    }
+    .si-dblock__row {
+      @media screen and (max-width: $media-small-max) {
+        margin: 0 -16px;
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        background: rgba($black, 0.3);
+        // backdrop-filter: blur(4px);
+      }
+      &:not(:last-child) {
+        &::after {
+          content: "";
+          border-bottom: 1px solid rgba($white, 0.15);
+          position: absolute;
+          bottom: 0;
+          left: 16px;
+          right: 16px;
+        }
+      }
+    }
+    .si-board-body {
+      .si-dblock-info {
+        flex: 0 0 55px;
+        text-align: center;
+      }
+    }
+    .si-dblock-img {
+      padding: 11px 6px;
+    }
+  }
+}

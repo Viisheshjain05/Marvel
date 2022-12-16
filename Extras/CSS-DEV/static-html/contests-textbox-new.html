@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-icc-mwc-22.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Cricket</title>
+    <script>
+      $(document).ready(function () {
+        // Form Input (floating lable)
+        // $(".df-form__floating").click(function () {
+        //   $(".df-form__floating").toggleClass("df-active");
+        // });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Create a Contest</span>
+                </div>
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+          </div>
+
+          <div class="df-cmo__lhs-body" style="margin-top: 54px;">
+            <div class="df-contest__wrap df-contest__wrap--input">
+              <div class="df-contest__box">
+                <div class="df-form__control">
+                  <div class="df-form__floating df-active">
+                    <!-- df-active -->
+                    <div class="df-lbl">
+                      <span>Contest Name</span>
+                    </div>
+                    <div class="df-input">
+                      <input type="text" class="" placeholder="" value="My great contest">
+                    </div>
+                  </div>
+                  <div class="df-input-limit">
+                    <span>Max 25 characters</span>
+                    <span>12 / 20</span>
+                  </div>
+                </div>
+                <div class="df-form__control">
+                  <div class="df-lbl">
+                    <span>Duration of the league</span>
+                  </div>
+                  <div class="df-rangeBox">
+                    <div class="df-rangeBox-lft">
+                      <div class="df-rangeBox-matchName">
+                        <span>(IND vs ENG)</span>
+                        <span>22nd Aug </span>
+                      </div>
+                      <div class="df-rangeBox-matchNums">
+                        <span>Match 21</span>
+                      </div>
+                    </div>
+                    <div class="df-rangeBox-mid">
+                      <span>to</span>
+                    </div>
+                    <div class="df-rangeBox-rgt">
+                      <div class="df-rangeBox-matchName">
+                        <span>(Finals)</span>
+                        <span>5th Aug </span>
+                      </div>
+                      <div class="df-rangeBox-matchNums">
+                        <span>Match 56</span>
+                      </div>
+                    </div>
+                  </div>
+                  <form class="df-form__floating df-active df-form__range"
+                    oninput="output.value = Math.round(range.valueAsNumber / 1000)">
+                    <!-- df-active -->
+                    <div class="df-input">
+                      <input type="range" id="range" name="range" min="0" max="100" />
+                      <div class="df-range__progress">
+                        <div class="df-range__progress-track" style="width: 50%;" name="output" for="range">
+                          <div class="df-range__progress-thumb" data-value="50"></div>
+                        </div>
+                      </div>
+                      <!-- <div class="df-range__output">
+                        <output class="df-range__value" name="output" for="range">
+                          50
+                        </output>
+                      </div> -->
+                    </div>
+                  </form>
+
+                </div>
+                <div class="df-announcement__wrap df-announcement__wrap--league">
+                  <div class="df-announcement__text">All users joining this league will begin with 0 points within the
+                    league.</div>
+                </div>
+              </div>
+              <div class="df-cmo__footer">
+                <ul>
+                  <li>
+                    <div class="df-btn df-btn__primary df-disabled">
+                      <!-- df-disabled -->
+                      <span>CREATE CONTEST</span>
+                    </div>
+                  </li>
+
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+  </body>
+
+</html>

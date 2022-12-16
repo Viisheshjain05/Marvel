@@ -1,0 +1,82 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-fixtures-wrap {
+    .si-inner-bg {
+      background-image: url("../../images/cards/Desktop/fixtures-bg-web.png?v=#{$cache-img}");
+      @media screen and (min-width: $media-mobile-small-min) {
+        right: 20px;
+        bottom: 20px;
+      }
+    }
+    .si-sub-heading {
+      @media screen and (min-width: $media-mobile-small-min) {
+        width: 244px;
+      }
+    }
+    // .si-card-body {
+    //   justify-content: center;
+    // }
+    //commented this markup as using image instead of this code
+    // .si-fixture {
+    //   align-items: center;
+    //   justify-content: center;
+    //   @include flexbox;
+    //   width: 100%;
+    //   display: none;
+    //   @media screen and (min-width: 1024px) {
+    //     justify-content: flex-start;
+    //     padding-left: 140px;
+    //   }
+    // }
+    // .si-teams {
+    //   position: relative;
+    //   i {
+    //     font-size: 80px;
+    //   }
+    // }
+    // .si-team-one {
+    //   text-align: right;
+    // }
+    // .si-chk-wrap {
+    //   background: $fantasy-secondary-color;
+    //   border-radius: 50%;
+    //   align-items: center;
+    //   justify-content: center;
+    //   height: 25px;
+    //   width: 25px;
+    //   position: absolute;
+    //   right: 0;
+    //   bottom: 0;
+    //   box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.38);
+    //   @extend .si-flexBox !optional;
+    //   @media screen and (min-width: 767px) {
+    //     height: 30px;
+    //     width: 30px;
+    //     right: -6px;
+    //     bottom: -4px;
+    //   }
+    //   i {
+    //     color: $dark-blue;
+    //     font-size: 13px;
+    //     @media screen and (min-width: 767px) {
+    //       font-size: 16px;
+    //     }
+    //   }
+    // }
+    // .si-center-block {
+    //   flex-basis: 30px;
+    //   flex-shrink: 0;
+    //   font-size: 25px;
+    //   font-weight: $fws--bold;
+    //   text-align: center;
+    //   @media screen and (min-width: 768px) {
+    //     flex-basis: 60px;
+    //   }
+    // }
+    // .si-team-two {
+    //   text-align: left;
+    // }
+  }
+}

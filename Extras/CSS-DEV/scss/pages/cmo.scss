@@ -1,0 +1,1021 @@
+.df-cmo {
+  &__wrap {
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+
+    &.df-badge__wrap {
+      .df-cmo__lhs {
+        background-color: $white;
+      }
+    }
+  }
+
+  &__lhs,
+  &__rhs {
+    position: relative;
+    min-width: 320px;
+    max-width: 550px;
+    width: 100%;
+
+    @media screen and (min-width: $media-mobile-max) {
+      @include box-shadow(1px, 0px, 0px, 0px, rgba($white, 1));
+    }
+  }
+
+  &__lhs {
+    min-height: 100vh;
+    background: $duck-egg-blue;
+
+    @media screen and (min-width: $media-mobile-max) {
+      z-index: 2;
+    }
+
+    &-head {
+      padding: 6px 16px 0;
+      left: 0;
+      top: 0;
+      position: fixed;
+      max-width: 550px;
+      width: 100%;
+      z-index: 12;
+      background: $client-primary-color;
+      @include transition(height 0.2s linear);
+      .df-announcement__wrap {
+        margin: 0 -16px;
+      }
+      &.df-removeScoreWidget .df-scoreBoard {
+        height: 0px;
+        margin: 0px;
+      }
+
+      &.df-slim--card {
+        .df-scoreBoard {
+          &__box {
+            padding-top: 0;
+            padding-bottom: 0;
+            min-height: auto;
+            @include transition(min-height 0.1s linear);
+          }
+
+          &__lbl {
+            margin-left: 4px;
+          }
+
+          .df-fix__team-vs,
+          &__teamName,
+          &__status {
+            position: absolute;
+            transform: translateY(-100%);
+            opacity: 0;
+            width: 100%;
+            left: 0;
+            padding: 0 16px;
+          }
+        }
+
+        .df-scoreBoard__fix {
+          .df-scoreBoard__status {
+            text-align: center;
+            position: relative;
+            display: block;
+            transform: none;
+            opacity: 1;
+            padding: 0 4px;
+
+            .df-scoreBoard__lbl {
+              margin: 0;
+            }
+          }
+        }
+      }
+
+      .df-cmo__tabs {
+        z-index: 1;
+      }
+
+      .df-cmo__lhs-body {
+        margin: 0 -16px;
+      }
+
+      .df-cmo__fix {
+        @include transition(transform 0.2s linear, opacity 0.2s linear);
+      }
+
+      &.df-hide {
+        .df-cmo__fix {
+          position: absolute;
+          transform: translateY(-100%);
+          opacity: 0;
+          width: 100%;
+          left: 0;
+          padding: 0 16px;
+        }
+      }
+
+      &.df-show {
+        .df-cmo__fix {
+          position: static;
+          transform: translateY(0%);
+          opacity: 1;
+          // @include transition(all .15s linear);
+        }
+      }
+    }
+
+    &-body {
+    }
+  }
+
+  &__rhs {
+    visibility: hidden;
+    z-index: 13;
+    height: 100%;
+    position: fixed;
+    left: 0;
+    top: 100%;
+    @include transition(all 0.3s ease-in-out);
+
+    &.df-active {
+      z-index: 13;
+      visibility: visible;
+      top: 0;
+      background: rgba($client-primary-color, 0.8);
+    }
+
+    @media screen and (min-width: $media-desktop-min) {
+      z-index: 1;
+      top: 0;
+      left: -100%;
+      @include transition(all 0.3s ease-in-out);
+
+      &.df-active {
+        z-index: 1;
+        top: 0;
+        left: 550px;
+      }
+    }
+
+    &--compare {
+      .df-pitch {
+        &__wrap {
+          background: $duck-egg-blue;
+        }
+
+        &__box {
+          justify-content: flex-start;
+          padding-top: 0;
+        }
+
+        &__fix {
+          background: $light-blue-grey-two;
+
+          span {
+            color: $client-primary-color;
+          }
+        }
+      }
+
+      .df-compare__box {
+        margin-top: 0;
+        margin-bottom: 12px;
+      }
+    }
+
+    .df-transfer__head {
+      background: $light-blue-grey-two;
+
+      span {
+        color: $client-primary-color;
+      }
+    }
+  }
+
+  &__top {
+    position: relative;
+    margin-top: -6px;
+    min-height: 56px;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+  }
+
+  &__notice {
+    padding: 10px;
+    text-align: center;
+    font-size: 12px;
+    color: $white;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__bck,
+  &__help,
+  &__pts {
+    height: 24px;
+    width: 24px;
+    align-items: center;
+    @extend %flexbox !optional;
+  }
+
+  &__bck {
+    text-align: center;
+    justify-content: flex-start;
+    color: $white;
+    flex-basis: 100%;
+
+    i {
+      cursor: pointer;
+    }
+  }
+
+  &__pts,
+  &__help {
+    margin-left: 8px;
+    cursor: pointer;
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    background: $white;
+    color: $client-primary-color;
+    justify-content: center;
+    align-items: center;
+    @extend .df-borRad100 !optional;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: 24px;
+      height: 24px;
+      margin-left: 18px;
+    }
+  }
+
+  &__pts {
+    @extend .df-boldFF !optional;
+    font-size: 8px;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+  }
+
+  &__status {
+    position: absolute;
+    text-align: center;
+    margin: 0 auto;
+    width: calc(100% - 16px * 6);
+    left: 0;
+    right: 0;
+    top: 50%;
+    @include transform(translateY(-50%));
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: calc(100% - 24px * 6);
+    }
+  }
+
+  &__mat {
+    &-num {
+      font-size: 18px;
+      color: $white;
+      @extend .df-boldFF--it !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 18px;
+      }
+    }
+
+    &-time {
+      font-size: 12px;
+      color: $white;
+      @extend .df-regularFF !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  // fixture bar
+  &__fix {
+    padding: 6px 0 16px;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &-lft {
+      ul {
+        @extend %flexbox !optional;
+
+        li {
+          font-size: 14px;
+          color: $white;
+          @extend .df-boldFF !optional;
+          letter-spacing: 0.18px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 16px;
+          }
+
+          em {
+            @extend .df-regularFF !optional;
+            font-size: 12px;
+
+            @media screen and (min-width: $media-mobile-max) {
+              font-size: 14px;
+            }
+          }
+
+          &:not(:last-child) {
+            padding-right: 32px;
+          }
+        }
+      }
+    }
+
+    &-rgt {
+      cursor: pointer;
+      @extend .df-regularFF !optional;
+      font-size: 12px;
+      color: $white;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+
+      span {
+        justify-content: flex-end;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+      i {
+        margin-right: 4px;
+      }
+    }
+  }
+
+  // PickedPlayer & ProgressBar
+  &__pickPlayer {
+    padding-bottom: 16px;
+
+    .df-cmo__pickPlayer-booster {
+      // margin-top: -10px;
+      // @media screen and (max-width: $media-mobile-max) {
+      //   position: relative;
+      //   left: 0%;
+      //   top: 0%;
+      //   @include transform(translateX(0%) translateY(0%));
+      // }
+    }
+
+    &-top {
+      position: relative;
+      padding: 0 0 6px 0;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-lft {
+      text-align: left;
+
+      ul {
+        @extend %flexbox !optional;
+
+        li {
+          width: 74px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 100px;
+          }
+
+          &:not(:first-child) {
+            @media screen and (max-width: $media-mobile-max) {
+              width: 40px;
+            }
+          }
+
+          &.df-active {
+            .df-cmo__pickPlayer-num {
+              color: $white;
+            }
+          }
+
+          &:not(:last-child) {
+            padding-right: 24px;
+
+            @media screen and (min-width: $media-mobile-max) {
+              padding-right: 32px;
+            }
+          }
+        }
+      }
+    }
+
+    &-rgt {
+      white-space: nowrap;
+      text-align: right;
+
+      .df-cmo__pickPlayer-num {
+        color: $white;
+      }
+    }
+
+    &-mid {
+      flex-basis: 100%;
+      margin-left: calc(4 * 10px);
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-booster {
+      cursor: pointer;
+      background: $white;
+      position: absolute;
+      left: 50%;
+      top: 0;
+      // top: -80%;
+      border: 1px solid $white;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      @extend .df-borRad100 !optional;
+      @include transform(translateX(-50%));
+      @include transition(top 0.2s linear, position 0.2s linear);
+
+      // @media screen and (min-width: $media-mobile-max) {
+      //   top: -60%;
+      // }
+
+      // &.si-active {
+      //   top: 0%;
+      //   position: static;
+      // }
+
+      &-icon {
+        cursor: pointer;
+        width: 28px;
+        height: 28px;
+        @extend .df-borRad100 !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          width: 32px;
+          height: 32px;
+        }
+
+        &.df-booster-withText {
+          width: auto;
+          max-width: 80px;
+          background: transparent !important;
+          padding-right: 10px;
+          font-size: 10px;
+          color: $client-secondary-color;
+          justify-content: flex-start;
+          align-items: center;
+          @extend %flexbox !optional;
+          @extend .df-boldFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 12px;
+            max-width: 100px;
+          }
+
+          img {
+            width: auto;
+            height: 100%;
+            margin-right: 2px;
+          }
+        }
+
+        &:not(:first-child) {
+          z-index: -1;
+          margin-left: -6px;
+        }
+
+        img {
+          width: 100%;
+        }
+      }
+
+      &-label {
+        margin: 0 8px;
+        font-size: 10px;
+        // position: absolute;
+        white-space: nowrap;
+        // left: 50%;
+        // transform: translateX(-50%);
+        // bottom: -2em;
+        color: $status;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+      }
+
+      &-tag {
+        font-size: 10px;
+        white-space: nowrap;
+        color: $client-primary-color;
+        padding: 2px 4px 2px 2px;
+        @extend .df-regularFF !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+
+        i {
+          position: relative;
+          top: 0.5px;
+          font-size: 8px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 10px;
+          }
+        }
+      }
+    }
+
+    &-fixtures {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      @include transform(translateX(-50%) translateY(-50%));
+
+      &-lft,
+      &-rgt {
+        color: $white;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+
+      &-lft {
+        margin-right: 15px;
+      }
+
+      &-rgt {
+        text-align: right;
+        margin-left: 15px;
+        flex-direction: row-reverse;
+      }
+
+      &-logo {
+        margin: 0 8px;
+        width: 44px;
+        height: 44px;
+        position: relative;
+        background-position: center center;
+        background-repeat: no-repeat;
+        @extend .si-bgSize--contain !optional;
+        @extend .df-borRad100 !optional;
+      }
+
+      &-team {
+        &Name {
+          color: $light-grey-blue;
+          font-size: 12px;
+          @extend .df-regularFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 14px;
+          }
+        }
+
+        &Picked {
+          font-size: 16px;
+          color: $white;
+          @extend .df-boldFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 18px;
+          }
+        }
+      }
+    }
+
+    &-txt {
+      color: $white;
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+    }
+
+    &-num {
+      font-size: 24px;
+      color: $white;
+      @extend .df-boldFF !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 36px;
+      }
+
+      em {
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+        color: $light-grey-blue;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 14px;
+        }
+      }
+
+      i {
+        color: $white;
+        font-size: 12px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 14px;
+        }
+      }
+    }
+
+    &-pgr {
+      // overflow: hidden;
+      width: 100%;
+      height: 16px;
+      background: $light-grey-blue;
+      box-shadow: inset 0 0 2px 0 rgba($black, 0.45);
+      // @include border-radius(8px);
+
+      @media screen and (min-width: $media-mobile-max) {
+        height: 20px;
+      }
+
+      &Btn {
+        cursor: pointer;
+        margin-left: 10px;
+        color: $status;
+        font-size: 14px;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 20px;
+        }
+      }
+
+      ul {
+        overflow: hidden;
+        width: 100%;
+        justify-content: flex-start;
+        align-items: flex-start;
+        @extend %flexbox !optional;
+        @extend .df-borRad10 !optional;
+
+        li {
+          flex-basis: calc(100% / 11);
+          flex-shrink: 0;
+          flex-grow: 1;
+          padding: 4px 8px;
+          min-height: 24px;
+          position: relative;
+          justify-content: center;
+          background-color: #c4cdee;
+          align-items: center;
+          // border: 1px solid #323232;
+          @extend %flexbox !optional;
+          // @include box-shadow(0, 0, 0, 0.5px, #323232);
+
+          // @media screen and (max-width: $media-mobile-min) {
+          //   flex-basis: 26px;
+          // }
+          @media screen and (min-width: $media-mobile-max) {
+            min-height: 30px;
+          }
+
+          // &:not(:last-child, :first-child) {
+          //   span {
+          //     visibility: hidden;
+          //   }
+          // }
+
+          // span {
+          //   display: block;
+          //   font-size: 12px;
+          //   color: $client-primary-color;
+          //   @extend .df-boldFF !optional;
+          // }
+
+          &:first-child {
+            padding-right: 16px;
+          }
+          &:last-child {
+            padding-left: 16px;
+          }
+          img {
+            display: block;
+            margin: 0 auto;
+            width: auto;
+            height: calc(100% - 4px);
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 50%;
+            @include transform(translateY(-50%));
+
+            @media screen and (max-width: $media-mobile-min) {
+              height: calc(100% - 8px);
+            }
+          }
+
+          &.df-active {
+            background: $white;
+
+            span {
+              visibility: visible;
+            }
+          }
+        }
+      }
+
+      &.df-v2 {
+        margin-top: 14px;
+        background-color: transparent;
+        justify-content: space-between;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+    }
+  }
+
+  // tabs
+  &__tabs {
+    margin: 0 -16px;
+    background-color: $white;
+    position: relative;
+    @extend .df-boxShadow--sm !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      padding: 0 16px;
+    }
+
+    ul {
+      list-style: none;
+      white-space: nowrap;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        // padding: 0 16px;
+        flex-basis: 100%;
+        text-align: center;
+        font-size: 14px;
+        color: #51626f;
+        @extend .df-boldFF !optional;
+        @include transition(background 0.15s linear);
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 16px;
+          padding: 0 16px;
+        }
+
+        em {
+          font-size: 12px;
+          @extend .df-regularFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 14px;
+          }
+        }
+
+        &.df-active {
+          color: $cta-primary-color;
+
+          span {
+            &::after {
+              width: 100%;
+            }
+
+            em {
+              color: $cta-primary-color;
+            }
+          }
+        }
+
+        span {
+          padding: 8px 4px 12px;
+          position: relative;
+          cursor: pointer;
+          justify-content: center;
+          align-items: center;
+          @extend %inline-flex;
+          @include transition(color 0.1s linear);
+
+          em {
+            margin-left: 4px;
+            color: #b3b5b5;
+          }
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            width: 0%;
+            height: 4px;
+            background: $cta-primary-color;
+            @include border-radius(2px);
+            @include transition(width 0.1s linear);
+          }
+        }
+      }
+    }
+
+    &-underline {
+      display: none;
+      position: absolute;
+      top: auto;
+      bottom: 0;
+      left: 0;
+      width: 100px;
+      height: 4px;
+      background: $client-secondary-color;
+      @include border-radius(2px);
+      @include transition(width 0.15s linear);
+    }
+
+    &--dark {
+      background: $client-primary-color;
+      margin: 0;
+      height: 36px;
+
+      @media screen and (min-width: $media-mobile-max) {
+        height: 44px;
+      }
+
+      ul {
+        justify-content: flex-start;
+        padding-bottom: 4px;
+
+        li {
+          flex-basis: auto;
+          min-width: auto;
+          padding: 0;
+          width: auto;
+
+          span {
+            padding-top: 0;
+          }
+
+          &.df-active {
+            color: $white;
+
+            span {
+              &::after {
+                background: $white;
+              }
+            }
+          }
+        }
+      }
+
+      .swiper-button {
+        &-disabled {
+          opacity: 0;
+        }
+
+        &-next {
+          &::after {
+            content: "\e905";
+          }
+        }
+
+        &-prev {
+          &::after {
+            content: "\e907";
+          }
+        }
+
+        &-next,
+        &-prev {
+          display: none;
+
+          @media screen and (min-width: $media-mobile-max) {
+            display: block;
+            width: 16px;
+            height: 100%;
+            background: none;
+            top: 0;
+            margin: 0;
+          }
+
+          &::after {
+            font-family: "dfi" !important;
+            color: $white;
+            height: 100%;
+            justify-content: center;
+            align-items: flex-start;
+            padding-top: 4px;
+            @extend %flexbox !optional;
+          }
+        }
+      }
+    }
+    &--contest {
+      ul {
+        justify-content: flex-start;
+        li {
+          flex-basis: auto;
+        }
+      }
+    }
+  }
+
+  // info bar
+  &__info {
+    border-bottom: 1px solid #e7e7e7;
+    padding: 10px 16px;
+    background: #f5f5f5;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &-title {
+      font-size: 14px;
+      @extend .df-boldFF !optional;
+      color: $client-primary-color;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 16px;
+      }
+    }
+
+    &-icon {
+      position: relative;
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      color: $client-primary-color;
+      cursor: pointer;
+
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+
+      &.df-active {
+        &::after {
+          content: "";
+          width: 8px;
+          height: 8px;
+          border: 1px solid $client-primary-color;
+          background: $status;
+          position: absolute;
+          left: auto;
+          top: 0;
+          right: 0;
+          @extend .df-borRad100 !optional;
+        }
+      }
+    }
+  }
+
+  // footer btn
+  &__footer {
+    position: fixed;
+    max-width: 550px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    padding: 0 16px 20px;
+
+    ul {
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        padding: 0 6px;
+        flex-basis: 100%;
+        flex-grow: 1;
+
+        .df-btn {
+          font-size: 12px;
+          height: 36px;
+          @include box-shadow(0, 3px, 4.65px, 0px, rgba($black, 0.27));
+          @media screen and (min-width: $media-mobile-max) {
+            height: 40px;
+          }
+          &.df-disabled {
+            @include box-shadow(0, 6px, 7.49px, 0px, rgba($black, 0.28));
+          }
+        }
+      }
+    }
+  }
+}

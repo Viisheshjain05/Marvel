@@ -1,0 +1,1291 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-supersmash-2022.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Supersmash</title>
+    <script>
+      $(document).ready(function () {
+        // skill tab
+        $(".df-cmo__tabs ul li").click(function () {
+          $(".df-cmo__tabs ul li").removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+
+        // transfer Overlay
+        $(".df-accordion__head").click(function () {
+          $(".df-accordion__box").toggleClass("df-active");
+        });
+      });
+    </script>
+    <script>
+      $(document).ready(function () {
+        $(".df-cmo__fix-rgt").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Matchday 1</span>
+                </div>
+                <div class="df-cmo__mat-time">
+                  <span>29m 30s left</span>
+                </div>
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+
+            <div class="df-cmo__fix">
+              <div class="df-cmo__fix-lft">
+                <ul>
+                  <li>
+                    <span>DC <em>VS</em> SRH</span>
+                  </li>
+                  <li>
+                    <span>KXIP <em>VS</em> MI</span>
+                  </li>
+                </ul>
+              </div>
+              <div class="df-cmo__fix-rgt">
+                <span><i class="dfi-list"></i> View All</span>
+              </div>
+            </div>
+
+            <div class="df-cmo__pickPlayer">
+              <div class="df-cmo__pickPlayer-top">
+                <div class="df-cmo__pickPlayer-lft">
+                  <ul>
+                    <li class="df-active">
+                      <!-- df-active -->
+                      <div class="df-cmo__pickPlayer-txt">
+                        <span>Players</span>
+                      </div>
+                      <div class="df-cmo__pickPlayer-num">
+                        <span>3 <em>/ 11</em></span>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-active -->
+                      <div class="df-cmo__pickPlayer-txt">
+                        <span>Foreign</span>
+                      </div>
+                      <div class="df-cmo__pickPlayer-num">
+                        <span>0 <i class="dfi-flight"></i></span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="df-cmo__pickPlayer-rgt">
+                  <div class="df-cmo__pickPlayer-txt">
+                    <span>Credits Left</span>
+                  </div>
+                  <div class="df-cmo__pickPlayer-num">
+                    <span>100</span>
+                  </div>
+                </div>
+              </div>
+              <div class="df-cmo__pickPlayer-pgr">
+                <ul>
+                  <li class="df-active">
+                    <img src="../images/1105.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1106.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1107.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1108.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1109.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1110.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1111.png" alt="">
+                  </li>
+                  <li class="df-active">
+                    <img src="../images/1379.png" alt="">
+                  </li>
+                  <li> </li>
+                  <li> </li>
+                  <li> </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="df-transfer__wrap">
+              <div class="df-transfer__info df-danger df-active">
+                <!-- df-success | df-danger | df-active -->
+                <div class="df-transfer__info-lft">
+                  <span><em>4</em> In Progress <i></i></span>
+                </div>
+                <div class="df-transfer__info-mid">
+                  <span><em>90</em> Transfers Left</span>
+                </div>
+                <div class="df-transfer__info-rgt">
+                  <span><i></i> Transfer History</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__lhs-body" style="margin-top: 261px;">
+
+            <div class="df-cmo__tabs">
+              <ul>
+                <li class="df-active">
+                  <!-- df-active -->
+                  <span>WK <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>BAT <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>AR <em>(0)</em></span>
+                </li>
+                <li>
+                  <span>BWL <em>(0)</em></span>
+                </li>
+              </ul>
+            </div>
+
+            <div class="df-cmo__info">
+              <div class="df-cmo__info-lft">
+                <div class="df-cmo__info-title">
+                  <span>Select 3 - 6 Batsmen</span>
+                </div>
+              </div>
+              <div class="df-cmo__info-rgt">
+                <div class="df-cmo__info-icon df-active">
+                  <!-- df-active -->
+                  <i class="dfi-filter"></i>
+                </div>
+                <div class="df-cmo__info-icon">
+                  <i class="dfi-search"></i>
+                </div>
+              </div>
+            </div>
+
+            <div class="df-plyrSel__wrap">
+              <div class="df-plyrSel__top">
+                <div class="df-tbl">
+                  <div class="df-tbl__head">
+                    <div class="df-tbl__row">
+                      <div class="df-tbl__cell df-tbl__cell--thumb"></div>
+                      <div class="df-tbl__cell df-tbl__cell--name df-active--up">
+                        <!--df-active--up | df-active--dw -->
+                        <span>SELECTED BY</span>
+                      </div>
+                      <div class="df-tbl__cell df-tbl__cell--pts df-active--dw">
+                        <!--df-active--up | df-active--dw -->
+                        <span>POINTS</span>
+                      </div>
+                      <div class="df-tbl__cell df-tbl__cell--amt">
+                        <!--df-active--up | df-active--dw -->
+                        <span>CREDITS</span>
+                      </div>
+                      <div class="df-tbl__cell df-tbl__cell--cta"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-plyrSel__list">
+                <div class="df-noDataFound">
+                  <div class="df-noDataFound__text">
+                    <span>Sorry, no players meet the filter criteria.</span>
+                  </div>
+                  <div class="df-noDataFound__thumb">
+                    <img src="../images/my-contests-empty.svg" alt="No Data Found">
+                  </div>
+                  <div class="df-noDataFound__cta">
+                    <span>CHANGE FILTERS</span>
+                  </div>
+                </div>
+                <ul>
+                  <li class="df-remove">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-disabled">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="df-injured">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1379.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1379.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1379.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1379.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                  <li class="">
+                    <!-- df-remove | df-injured | df-disabled-->
+                    <div class="df-tbl">
+                      <div class="df-tbl__body">
+                        <div class="df-tbl__row">
+                          <div class="df-tbl__cell df-tbl__cell--thumb">
+                            <div class="df-plyrSel__thumb" style="background-image: url(../images/988@3x.png);"></div>
+                            <div class="df-plyrSel__status">
+                              <div class="df-plyrSel__flight">
+                                <i class="dfi-flight"></i>
+                              </div>
+                              <div class="df-plyrSel__logo" style="background-image: url(../images/1105.png);"></div>
+                              <div class="df-plyrSel__batch">
+                                <div class="df-plyrSel__team">
+                                  <span>KXIP</span>
+                                </div>
+                                <div class="df-plyrSel__skill">
+                                  <span>bat</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--name">
+                            <div class="df-plyrSel__name">
+                              <span>K Williamson</span>
+                            </div>
+                            <div class="df-plyrSel__stats">
+                              <span>Sel by 54.75%</span>
+                            </div>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--pts">
+                            <span>9,999.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--amt">
+                            <span>11.5</span>
+                          </div>
+                          <div class="df-tbl__cell df-tbl__cell--cta">
+                            <div class="df-plyrSel__cta"></div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="df-cmo__footer">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__secondary">
+                  <span>PREVIEW</span>
+                </div>
+              </li>
+              <li>
+                <div class="df-btn df-btn__primary df-disabled">
+                  <span>CONTINUE</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- overlays for Player Info -->
+      <div class="df-overlay__wrap df-fade in">
+        <!-- toast msg -->
+        <div class="df-toast__wrap df-danger">
+          <!-- df-success | df-danger -->
+          <div class="df-toast__title">
+            <span>Maximum 5 Batsmen Allowed</span>
+          </div>
+        </div>
+        <!-- in | out -->
+        <div class="df-overlay__container df-overlay--player">
+          <div class="df-overlay__header">
+            <div class="df-overlay__cta">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+            </div>
+            <div class="df-overlay__title">
+              Player Info
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-player__head">
+            <div class="df-player__thumb" style="background-image: url(../images/988@3x.png);"></div>
+            <div class="df-player__stats">
+              <ul>
+                <li>
+                  <div class="df-player__stats-txt">
+                    <span>Points</span>
+                  </div>
+                  <div class="df-player__stats-num">
+                    <span>1,245</span>
+                  </div>
+                </li>
+                <li>
+                  <div class="df-player__stats-txt">
+                    <span>Credits</span>
+                  </div>
+                  <div class="df-player__stats-num">
+                    <span>10.5</span>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="df-player__profile">
+            <div class="df-player__profile-row">
+              <div class="df-player__profile-name">
+                <span>Virat Kohli</span>
+              </div>
+              <div class="df-player__profile-cta">
+                <span>Full Profile <i class="dfi-view-more"></i> </span>
+              </div>
+            </div>
+            <div class="df-player__profile-row">
+              <div class="df-player__profile-logo" style="background-image: url(../images/1105.png);"></div>
+              <div class="df-player__profile-skill">
+                <span>RCB,</span>
+                <span>Right Handed Bat, Right-arm Medium</span>
+              </div>
+            </div>
+            <div class="df-player__profile-row">
+              <div class="df-player__profile-icon">
+                <i class="dfi-flight"></i>
+              </div>
+              <div class="df-player__profile-txt">
+                <span>Foreign Player</span>
+              </div>
+            </div>
+          </div>
+          <div class="df-cmo__tabs">
+            <ul>
+              <li>
+                <!-- df-active -->
+                <span>FIXTURES <em>(5)</em></span>
+              </li>
+              <li class="df-active">
+                <span>TOUR STATS <em>(0)</em></span>
+              </li>
+            </ul>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-player__body">
+
+              <div class="df-player__scroll">
+                <div class="df-player__tbl df-player--complete">
+                  <!-- df-player--fixture | df-player--complete -->
+                  <div class="df-player__fBox df-player__fBox--head">
+                    <div class="df-player__fItem df-player__fItem--mat">
+                      <span>MATCH</span>
+                    </div>
+                    <div class="df-player__fItem df-player__fItem--cent">
+                      <span>% SEL BY</span>
+                    </div>
+                    <div class="df-player__fItem df-player__fItem--cent">
+                      <span>C BY</span>
+                    </div>
+                    <div class="df-player__fItem df-player__fItem--cent">
+                      <span>VC BY</span>
+                    </div>
+                    <div class="df-player__fItem df-player__fItem--pts">
+                      <span>POINTS</span>
+                    </div>
+                  </div>
+                  <div class="df-accordion">
+                    <div class="df-accordion__box df-active">
+                      <!-- df-active -->
+                      <div class="df-accordion__head">
+                        <div class="df-player__fBox df-player__fBox--body">
+                          <div class="df-player__fItem df-player__fItem--mat">
+                            <div class="df-alMat__box">
+                              <div class="df-alMat__lft">
+                                <div class="df-fix__team">
+                                  <div class="df-fix__team-A">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1109.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>DC</span>
+                                    </div>
+                                  </div>
+                                  <div class="df-fix__team-vs">
+                                    <span>vs</span>
+                                  </div>
+                                  <div class="df-fix__team-B">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1379.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>SRH</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-alMat__rgt">
+                                <div class="df-alMat__type">
+                                  <span>Match 1, Mumbai</span>
+                                </div>
+                                <div class="df-alMat__date">
+                                  <span>Sat, June 2</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--pts">
+                            <span>124.5</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-accordion__body">
+                        <div class="df-player__tbl">
+                          <div class="df-tbl">
+                            <div class="df-tbl__head">
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>EVENT</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>ACTUAL</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>POINTS</span>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="df-tbl__body">
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>Starting 11</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>Yes</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>2</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>Runs</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>4’s</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>6’s</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>S/R</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>Duck</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                              <div class="df-tbl__row">
+                                <div class="df-tbl__cell df-tbl__cell--evt">
+                                  <span>Wkts</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--act">
+                                  <span>50</span>
+                                </div>
+                                <div class="df-tbl__cell df-tbl__cell--pts">
+                                  <span>50</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+
+                      </div>
+                    </div>
+                    <div class="df-accordion__box df-active">
+                      <!-- df-active -->
+                      <div class="df-accordion__head">
+                        <div class="df-player__fBox df-player__fBox--body">
+                          <div class="df-player__fItem df-player__fItem--mat">
+                            <div class="df-alMat__box">
+                              <div class="df-alMat__lft">
+                                <div class="df-fix__team">
+                                  <div class="df-fix__team-A">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1109.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>DC</span>
+                                    </div>
+                                  </div>
+                                  <div class="df-fix__team-vs">
+                                    <span>vs</span>
+                                  </div>
+                                  <div class="df-fix__team-B">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1379.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>SRH</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-alMat__rgt">
+                                <div class="df-alMat__type">
+                                  <span>Match 1, Mumbai</span>
+                                </div>
+                                <div class="df-alMat__date">
+                                  <span>Sat, June 2</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--pts">
+                            <span>124.5</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-accordion__body df-accordion__loader">
+                        <div class="df-loader">
+                          <svg class="df-loader__spin" viewBox="0 0 60 60">
+                            <circle class="df-loader__path" cx="30" cy="30" r="26" fill="none"></circle>
+                          </svg>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-accordion__box df-active">
+                      <!-- df-active -->
+                      <div class="df-accordion__head">
+                        <div class="df-player__fBox df-player__fBox--body">
+                          <div class="df-player__fItem df-player__fItem--mat">
+                            <div class="df-alMat__box">
+                              <div class="df-alMat__lft">
+                                <div class="df-fix__team">
+                                  <div class="df-fix__team-A">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1109.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>DC</span>
+                                    </div>
+                                  </div>
+                                  <div class="df-fix__team-vs">
+                                    <span>vs</span>
+                                  </div>
+                                  <div class="df-fix__team-B">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1379.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>SRH</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-alMat__rgt">
+                                <div class="df-alMat__type">
+                                  <span>Match 1, Mumbai</span>
+                                </div>
+                                <div class="df-alMat__date">
+                                  <span>Sat, June 2</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--pts">
+                            <span>124.5</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-accordion__body">
+                        <div class="df-noDataFound">
+                          <div class="df-noDataFound__text">
+                            <span>Did not play</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="df-accordion__box">
+                      <!-- df-active -->
+                      <div class="df-accordion__head">
+                        <div class="df-player__fBox df-player__fBox--body">
+                          <div class="df-player__fItem df-player__fItem--mat">
+                            <div class="df-alMat__box">
+                              <div class="df-alMat__lft">
+                                <div class="df-fix__team">
+                                  <div class="df-fix__team-A">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1109.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>DC</span>
+                                    </div>
+                                  </div>
+                                  <div class="df-fix__team-vs">
+                                    <span>vs</span>
+                                  </div>
+                                  <div class="df-fix__team-B">
+                                    <div class="df-fix__team-logo" style="background-image: url(../images/1379.png);">
+                                    </div>
+                                    <div class="df-fix__team-name">
+                                      <span>SRH</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="df-alMat__rgt">
+                                <div class="df-alMat__type">
+                                  <span>Match 1, Mumbai</span>
+                                </div>
+                                <div class="df-alMat__date">
+                                  <span>Sat, June 2</span>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--cent">
+                            <span>86.55%</span>
+                          </div>
+                          <div class="df-player__fItem df-player__fItem--pts">
+                            <span>124.5</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="df-accordion__body">
+                        sdsds
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__secondary">
+                  <span>REMOVE FROM MY TEAM</span>
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </body>
+
+</html>

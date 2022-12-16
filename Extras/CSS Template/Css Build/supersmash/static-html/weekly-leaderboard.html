@@ -1,0 +1,1020 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-supersmash-2022.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Supersmash</title>
+    <script>
+      $(document).ready(function () {
+        $(".df-contest__viewMore").click(function () {
+          $(this).toggleClass("df-active");
+        });
+
+        // Overlay
+        $(".df-contest__viewMore-menu").click(function () {
+          $(".df-overlay__wrap").addClass("in");
+          $("body").addClass("bodyNoScroll");
+          setTimeout(function () {
+            $(".df-overlay__wrap").removeClass("out");
+          }, 100)
+        });
+
+        $(".df-overlay__close").click(function () {
+          setTimeout(function () {
+            $(".df-overlay__wrap").addClass("out");
+            setTimeout(function () {
+              $(".df-overlay__wrap").removeClass("in");
+              $("body").removeClass("bodyNoScroll");
+            }, 150)
+          }, 100)
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+              <div class="df-cmo__bck">
+                <i class="dfi-aLft"></i>
+              </div>
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Weekly Leaderboard</span>
+                </div>
+
+              </div>
+              <div class="df-cmo__help">
+                <i class="dfi-help"></i>
+              </div>
+            </div>
+
+            <div class="df-weeklyLeaderboard__tabs">
+              <div class="df-cmo__tabs swiper-container df-scrollX">
+                <ul class="swiper-wrapper">
+                  <li class="swiper-slide df-active">
+                    <!-- df-active -->
+                    <span>WEEKLY</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>MONTHLY </span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OVERALL </span>
+                  </li>
+
+                </ul>
+                <div class="df-cmo__tabs-underline" style=""></div>
+              </div>
+              <div class="df-cmo__tabs swiper-container df-cmo__tabs--fill df-scrollX">
+                <ul class="swiper-wrapper">
+                  <li class="swiper-slide df-active">
+                    <!-- df-active -->
+                    <span>OCT 12-14</span>
+
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                  <li class="swiper-slide">
+                    <span>OCT 12-14</span>
+                  </li>
+                </ul>
+                <div class="df-cmo__tabs-underline" style="width: 66px; left: 0px;"></div>
+              </div>
+            </div>
+            <div class="df-lBoard__tbl df-weeklyLeaderboard__tbl-head">
+              <div class="df-plyrSel__wrap ">
+                <div class="df-plyrSel__top">
+                  <div class="df-tbl">
+                    <div class="df-tbl__head">
+                      <div class="df-tbl__row">
+                        <div class="df-tbl__cell df-tbl__cell--amt">
+                          <span>RANK</span>
+                        </div>
+                        <div class="df-tbl__cell df-tbl__cell--name">
+                          <span>NAME</span>
+                        </div>
+                        <div class="df-tbl__cell df-tbl__cell--pts">
+                          <span>PTS</span>
+                        </div>
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="df-cmo__lhs-body" style="margin-top: 190px;">
+            <div class="df-lBoard__tbl df-weeklyLeaderboard__tbl-body">
+              <div class="df-plyrSel__wrap ">
+                <div class="df-plyrSel__list ">
+
+                  <ul>
+                    <li class="df-remove">
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>9,24,567</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>SomegreatTeam</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li>
+                      <!-- df-disabled | df-remove | df-rankFirst | df-rankSecond -->
+                      <div class="df-tbl">
+                        <div class="df-tbl__body">
+                          <div class="df-tbl__row">
+                            <div class="df-tbl__cell df-tbl__cell--amt ">
+                              <span><em>#</em>1</span>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--name">
+                              <div class="df-plyrSel__name">
+                                <span>MyBest11</span>
+                              </div>
+                            </div>
+                            <div class="df-tbl__cell df-tbl__cell--pts">
+                              <span>9,999.5</span>
+                            </div>
+
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="df-overlay__wrap df-fade out">
+        <!-- in | out -->
+        <div class=" df-overlay__container df-overlay--generic">
+          <div class="df-overlay__header">
+            <div class="df-overlay__title">
+              <span> Leaving already?</span>
+            </div>
+            <div class="df-overlay__close">
+              <i class="dfi-close"></i>
+            </div>
+          </div>
+          <div class="df-overlay__body">
+            <div class="df-plyrSel__content">
+              <div class="df-plyrSel__content-thumb" style="background-image: url(../images/988@3x.png);"> </div>
+              <div class="df-plyrSel__content-txtOne">
+                <span>SomegreatTeam001</span>
+              </div>
+              <div class="df-plyrSel__content-txtTwo">
+                <span>SomegreatTeam001 will be the next admin, <br />
+                  Are you sure you want to Leave Your Private League?</span>
+              </div>
+            </div>
+          </div>
+          <div class="df-overlay__foot">
+            <ul>
+              <li>
+                <div class="df-btn df-btn__primary ">
+                  <span>CONTINUE</span>
+                </div>
+              </li>
+              <li>
+                <div class="df-btn df-btn__secondary  ">
+                  <span>CANCEL</span>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto',
+      });
+    </script>
+  </body>
+
+</html>

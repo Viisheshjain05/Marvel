@@ -1,0 +1,17 @@
+.si-static {
+  &__wrap {
+    width: 100%;
+    margin: 0 auto;
+    min-height: 100vh;
+    background-color: var(--body-bgColor);
+    @include animation("si-opacity 1s both");
+
+    @media screen and (min-width: $media-desktop-min) {
+      width: calc(100% - 100px);
+    }
+
+    @media screen and (max-width: $media-mobile-min) {
+      margin-top: 4.4rem;
+    }
+  }
+}

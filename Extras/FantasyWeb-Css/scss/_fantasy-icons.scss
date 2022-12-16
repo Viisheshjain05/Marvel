@@ -1,0 +1,293 @@
+
+@font-face {
+  font-family: 'euro-icomoon';
+  src:  url('../fonts/euro-icomoon.eot?#{$cache-img}');
+  src:  url('../fonts/euro-icomoon.eot?#{$cache-img}') format('embedded-opentype'),
+    url('../fonts/euro-icomoon.ttf?#{$cache-img}') format('truetype'),
+    url('../fonts/euro-icomoon.woff?#{$cache-img}') format('woff'),
+    url('../fonts/euro-icomoon.svg?#{$cache-img}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="euro-"], [class*=" euro-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'euro-icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.euro-fb:before {
+  content: "\e951";
+}
+.euro-link:before {
+  content: "\e952";
+}
+.euro-save:before {
+  content: "\e953";
+}
+.euro-menu-bar:before {
+  content: "\e94f";
+}
+.euro-menu-right:before {
+  content: "\e950";
+}
+.euro-arrow-2:before {
+  content: "\e94e";
+}
+.euro-filter-bar:before {
+  content: "\e94d";
+}
+.euro-fix-shield .path1:before {
+  content: "\e92d";
+  color: rgb(240, 240, 250);
+}
+.euro-fix-shield .path2:before {
+  content: "\e92e";
+  margin-left: -0.814453125em;
+  color: rgb(217, 219, 231);
+}
+.euro-location:before {
+  content: "\e94c";
+}
+.euro-neutral:before {
+  content: "\e94b";
+}
+.euro-edit:before {
+  content: "\e94a";
+}
+.euro-league-user:before {
+  content: "\e949";
+}
+.euro-leave:before {
+  content: "\e948";
+}
+.euro-star:before {
+  content: "\e947";
+}
+.euro-share-team:before {
+  content: "\e946";
+}
+.euro-facebook:before {
+  content: "\e944";
+}
+.euro-twitter:before {
+  content: "\e945";
+}
+.euro-add-members:before {
+  content: "\e93c";
+}
+.euro-copy:before {
+  content: "\e93d";
+}
+.euro-delete:before {
+  content: "\e93e";
+}
+.euro-exit-league:before {
+  content: "\e93f";
+}
+.euro-friends:before {
+  content: "\e940";
+}
+.euro-settings:before {
+  content: "\e941";
+}
+.euro-share:before {
+  content: "\e942";
+}
+.euro-trophy:before {
+  content: "\e943";
+}
+.euro-warning-line:before {
+  content: "\e93b";
+}
+.euro-summary-arrow:before {
+  content: "\e93a";
+}
+.euro-logo:before {
+  content: "\e939";
+}
+.euro-training:before {
+  content: "\e938";
+}
+.euro-bench:before {
+  content: "\e937";
+}
+.euro-infinity:before {
+  content: "\e935";
+}
+.euro-limitless:before {
+  content: "\e936";
+}
+.euro-goals:before {
+  content: "\e930";
+}
+.euro-shots:before {
+  content: "\e931";
+}
+.euro-yellow-card:before {
+  content: "\e932";
+}
+.euro-assists:before {
+  content: "\e933";
+}
+.euro-plus:before {
+  content: "\e934";
+}
+.euro-wildcard:before {
+  content: "\e92f";
+}
+.euro-jersey:before {
+  content: "\e92c";
+}
+.euro-cross-round:before {
+  content: "\e92b";
+}
+.euro-captain:before {
+  content: "\e91e";
+}
+.euro-change-player:before {
+  content: "\e91f";
+}
+.euro-eliminated:before {
+  content: "\e920";
+}
+.euro-in:before {
+  content: "\e921";
+}
+.euro-in-out .path1:before {
+  content: "\e922";
+  color: rgb(10, 149, 4);
+}
+.euro-in-out .path2:before {
+  content: "\e923";
+  margin-left: -1em;
+  color: rgb(255, 59, 59);
+}
+.euro-not-in-squad:before {
+  content: "\e924";
+}
+.euro-out:before {
+  content: "\e925";
+}
+.euro-sent-off .path1:before {
+  content: "\e926";
+  color: rgb(221, 221, 221);
+}
+.euro-sent-off .path2:before {
+  content: "\e927";
+  margin-left: -0.8984375em;
+  color: rgb(255, 255, 255);
+}
+.euro-sub-out:before {
+  content: "\e928";
+}
+.euro-substitute:before {
+  content: "\e929";
+}
+.euro-warning:before {
+  content: "\e92a";
+}
+.euro-arrow-up:before {
+  content: "\e919";
+}
+.euro-arrow-right:before {
+  content: "\e91a";
+}
+.euro-arrow-left:before {
+  content: "\e91b";
+}
+.euro-more:before {
+  content: "\e91c";
+}
+.euro-more-active:before {
+  content: "\e91d";
+}
+.euro-add:before {
+  content: "\e900";
+}
+.euro-arrow-down:before {
+  content: "\e901";
+}
+.euro-attention:before {
+  content: "\e902";
+}
+.euro-auto-complete .path1:before {
+  content: "\e903";
+  color: rgb(0, 0, 0);
+  opacity: 0.3;
+}
+.euro-auto-complete .path2:before {
+  content: "\e904";
+  margin-left: -1em;
+  color: rgb(0, 0, 0);
+}
+.euro-back:before {
+  content: "\e905";
+}
+.euro-check:before {
+  content: "\e906";
+}
+.euro-cross:before {
+  content: "\e907";
+}
+.euro-cross-1:before {
+  content: "\e908";
+}
+.euro-drop-down:before {
+  content: "\e909";
+}
+.euro-filter:before {
+  content: "\e90a";
+}
+.euro-followed:before {
+  content: "\e90b";
+}
+.euro-globe:before {
+  content: "\e90c";
+}
+.euro-info:before {
+  content: "\e90d";
+}
+.euro-injured:before {
+  content: "\e90e";
+}
+.euro-lock:before {
+  content: "\e90f";
+}
+.euro-lock-active:before {
+  content: "\e910";
+}
+.euro-pin:before {
+  content: "\e911";
+}
+.euro-que:before {
+  content: "\e912";
+}
+.euro-que-filled:before {
+  content: "\e913";
+}
+.euro-recommended:before {
+  content: "\e914";
+}
+.euro-search:before {
+  content: "\e915";
+}
+.euro-substitution:before {
+  content: "\e916";
+}
+.euro-suspended:before {
+  content: "\e917";
+}
+.euro-transfer:before {
+  content: "\e918";
+}

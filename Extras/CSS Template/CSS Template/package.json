@@ -1,0 +1,33 @@
+{
+  "name": "si-css-init-file",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "scripts": {
+    "test": "",
+    "start": "gulp",
+    "start:watch": "gulp serve",
+    "start:compile": "gulp sass"
+  },
+  "author": "Viishesh Jain",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.4",
+    "connect-modrewrite": "^0.10.2",
+    "del": "^2.2.0",
+    "gulp": "^4.0.2",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-dart-sass": "^0.9.1",
+    "gulp-group-css-media-queries": "^1.2.2",
+    "gulp-include": "^2.1.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^2.6.4",
+    "node-sass": "^6.0.1"
+  },
+  "dependencies": {
+    "aos": "^3.0.0-beta.6",
+    "gulp-changed": "^4.0.3",
+    "sass": "^1.17.2",
+    "smooth-scrollbar": "^8.6.2"
+  }
+}

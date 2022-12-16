@@ -1,0 +1,224 @@
+body {
+  background-color: var(--uf-primary-01);
+  min-height: 600px;
+  @media screen and (min-width: $media-tablet-min) {
+    min-height: 800px;
+  }
+}
+#root-ucl-fantasy {
+  min-height: 600px;
+  @media screen and (min-width: $media-tablet-min) {
+    min-height: 800px;
+  }
+}
+
+#container {
+  min-height: 500px;
+}
+*,
+* {
+  &::before,
+  &::after {
+    -webkit-overflow-scrolling: touch;
+    @include box-sizing(border-box);
+  }
+
+  &:focus {
+    outline: none;
+  }
+}
+.si-main-wrap {
+  font-family: var(--uf-font-base-regular);
+  font-weight: var(--uf-font-weight-m);
+  font-size: 12px;
+  @media screen and (min-width: $media-tablet-min) {
+    font-size: 14px;
+  }
+}
+.si-main-container {
+  line-height: 1;
+  min-height: 600px;
+  position: relative;
+  @media screen and (min-width: $media-tablet-min) {
+    min-height: 800px;
+  }
+  &::after {
+    content: "";
+    position: absolute;
+    top: 40px;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: var(--uf-primary-01);
+    z-index: zindex(minus);
+  }
+
+  a {
+    // color: $dark-gray;
+    text-decoration: none;
+    transition: none;
+    &:hover,
+    &:active,
+    &:focus {
+      text-decoration: none;
+    }
+
+    &:focus {
+      background: transparent;
+    }
+
+    &:hover,
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+  .si-container {
+    margin: 0 auto;
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: inherit;
+    font-weight: inherit;
+  }
+}
+
+// .footer-wrap {
+//   margin-top: -60px;
+// }
+
+.si-main-component {
+  // color: $default;
+  color: var(--uf-text-01);
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: rgba($black, 0);
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  width: 100%;
+  min-height: 600px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  position: relative;
+  @include box-sizing(border-box);
+  @include linearGradient(244.8deg, #061da5 -0.76%, #041181 160.07%);
+
+  @media screen and (min-width: $media-small-tablet-min) {
+    min-height: 800px;
+    // min-height: 1414px;
+  }
+
+  input,
+  textarea {
+    -webkit-user-select: auto !important;
+    -webkit-appearance: textfield; //for safari
+
+    &:focus {
+      @include placeholder {
+        outline: none;
+        box-shadow: none;
+      }
+    }
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      text-align: inherit;
+      vertical-align: inherit;
+    }
+  }
+
+  em {
+    font-style: normal;
+  }
+
+  sup {
+    vertical-align: bottom;
+    position: relative;
+    top: -0.8em;
+  }
+
+  b,
+  strong {
+    font-family: var(--uf-font-base-bold);
+    font-weight: var(--uf-font-weight-xl);
+  }
+
+  label {
+    display: inline-block;
+    max-width: 100%;
+  }
+
+  input {
+    border-radius: 0;
+    -webkit-border-radius: 0;
+    -webkit-appearance: none;
+    &::-ms-clear {
+      display: none;
+    }
+  }
+
+  th,
+  td {
+    text-align: inherit;
+    vertical-align: inherit;
+  }
+
+  input[type="search"]::-webkit-search-decoration,
+  input[type="search"]::-webkit-search-cancel-button,
+  input[type="search"]::-webkit-search-results-button,
+  input[type="search"]::-webkit-search-results-decoration {
+    display: none;
+  }
+
+  .si-container {
+    // @media screen and (min-width: $media-tablet-min) {
+    //   max-width: 960px;
+    //   padding: 0 15px;
+    // }
+
+    // @media screen and (min-width: $media-desktop-min) {
+    //   padding: 0;
+    // }
+
+    // @media screen and (min-width: $media-ex-large-min) {
+    //   max-width: 1050px;
+    // }
+    @media screen and (min-width: $media-small-tablet-min) and (max-width: $media-small-tablet-max) {
+      max-width: 840px;
+      padding: 0;
+      margin: 0 auto;
+    }
+    @media screen and (min-width: $media-medium-min) {
+      margin: 0 200px;
+      max-width: 100%;
+    }
+    @media screen and (min-width: $media-large-min) {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+  }
+  &:not(.si-bg--pitch):not(.si-landing):not(.si-edit-team):not(.si-eot) {
+    .si-container {
+      @media screen and (max-width: $media-mobile-max) {
+        margin: 0 32px;
+      }
+      @media screen and (max-width: $media-xsmall-max) {
+        margin: 0 16px;
+      }
+    }
+  }
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}

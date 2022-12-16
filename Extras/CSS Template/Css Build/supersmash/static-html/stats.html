@@ -1,0 +1,1007 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="IE=Edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+    <meta name="author" content="Dream11">
+    <meta name="viewport"
+      content="minimum-scale=1.0, initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no"
+      viewport-fit=cover />
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/swiper.min.js"></script>
+    <!--Custom CSS start here-->
+    <link rel="stylesheet" type="text/css" href="../css/df-supersmash-2022.css">
+    <!--Custom CSS end here-->
+    <title>Dream11 | Supersmash</title>
+    <script>
+      $(document).ready(function () {
+        // skill tab
+        $(".df-cmo__tabs ul li").click(function () {
+          $(".df-cmo__tabs ul li").removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+        // skill tab
+        $('.df-cmo__tabs .df-cmo__tabs-underline').css({
+          width: $('.df-cmo__tabs .df-active span').width(),
+          left: $('.df-cmo__tabs .df-active span').position().left
+        });
+        $('.df-cmo__tabs span').click(function () {
+          $('.df-cmo__tabs .df-cmo__tabs-underline').animate({
+            'width': $(this).width(),
+            'left': $(this).position().left
+          });
+        });
+
+        // skill tab
+        $(".df-playerStats-tab .df-cmo__tabs ul li").click(function () {
+          $(".df-playerStats-tab .df-cmo__tabs ul li").removeClass("df-active");
+          $(this).toggleClass("df-active");
+        });
+        // skill tab
+        $('.df-playerStats-tab .df-cmo__tabs .df-cmo__tabs-underline').css({
+          width: $('.df-playerStats-tab .df-cmo__tabs .df-active').width(),
+          left: $('.df-playerStats-tab .df-cmo__tabs .df-active').position().left
+        });
+        $('.df-playerStats-tab .df-cmo__tabs ul li').click(function () {
+          $('.df-playerStats-tab .df-cmo__tabs .df-cmo__tabs-underline').animate({
+            'width': $(this).width(),
+            'left': $(this).position().left
+          });
+        });
+        // filter tab
+        $(".df-filter__title").click(function () {
+          $(".df-filter__title").removeClass("df-selected");
+          $(this).toggleClass("df-selected");
+        });
+        // PlayerList (Add | Remove)
+        $(".df-plyrSel__list ul li").click(function () {
+          $(this).toggleClass("df-remove");
+        });
+        // Toast msg
+        $(".df-filter__title").click(function () {
+          $(".df-overlay__wrap").toggleClass("df-active");
+        });
+        // transfer Overlay
+        $(".df-accordion__head").click(function () {
+          $(".df-accordion__box").toggleClass("df-active");
+        });
+        // pitch view for mob
+        $(".df-cmo__footer ul li").click(function () {
+          $(".df-cmo__rhs").toggleClass("df-active");
+        });
+        // close pitch view for mob
+        $(".df-overlay__close").click(function () {
+          $(".df-cmo__rhs").removeClass("df-active");
+        });
+      });
+    </script>
+  </head>
+
+  <body>
+    <div class="df-main">
+      <div class="df-main__bg"> </div>
+      <div class="df-cmo__wrap">
+        <div class="df-cmo__lhs">
+          <div class="df-cmo__lhs-head">
+            <div class="df-cmo__top">
+
+              <div class="df-cmo__status">
+                <div class="df-cmo__mat-num">
+                  <span>Stats</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="df-cmo__lhs-body" style="margin-top: 56px;">
+            <div class="df-playerStats__wrap df-playerStats__wrap-nav df-playerStats__wrap-noNav">
+              <div class="df-playerStats__box">
+                <div class="df-playerStats__box-lft">
+                  <ul>
+                    <li class="df-playerStats-rowHead">
+                      <span>PLAYERS</span>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr df-injured">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>R Karunaratne R Karunaratne R Karunaratne</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr df-unavailable">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr df-in">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr df-injured">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+
+                    <li class="df-playerStats-rowBody">
+                      <div class="df-transfer__plyr">
+                        <!-- df-injured | df-unavailable | df-in-->
+                        <div class="df-transfer__plyr-thumb" style="background-image: url(../images/988@3x.png);">
+                          <div class="df-plyrSel__status">
+                            <div class="df-plyrSel__flight">
+                              <i class="dfi-flight"></i>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="df-transfer__plyr-dtls">
+                          <div class="df-transfer__plyr-name">
+                            <span>K Williamson</span>
+                          </div>
+                          <div class="df-transfer__plyr-skill">
+                            <span>KKR - BAT <em>(1,600 pts)</em></span>
+                          </div>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="df-playerStats__box-rgt">
+                  <div class="df-playerStats__box-rgt-scroll">
+                    <div class="swiper-container">
+                      <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                          <ul>
+                            <li class="df-playerStats-rowHead df-active--up">
+                              <!--df-active--up | df-active--dw -->
+                              <span>Points</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span class="df-in">1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="swiper-slide">
+                          <ul>
+                            <li class="df-playerStats-rowHead  df-active--dw">
+                              <span class="df-in">%Sel By</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="swiper-slide">
+                          <ul>
+                            <li class="df-playerStats-rowHead  df-active--dw">
+                              <span class="df-in">%C</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                          </ul>
+                        </div>
+                        <div class="swiper-slide">
+                          <ul>
+                            <li class="df-playerStats-rowHead  df-active--dw">
+                              <span class="df-in">%VC</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                            <li class="df-playerStats-rowBody">
+                              <span>1,185.5</span>
+                            </li>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="df-playerStats__legends">
+                <ul>
+                  <li>
+                    <div class="df-playerStats__legends-icon">
+                      <i class="dfi-flight"></i>
+                    </div>
+                    <div class="df-playerStats__legends-text">
+                      <span>Overseas</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-playerStats__legends-icon">
+                      <img src="../images/injured.svg" alt="Injured">
+                    </div>
+                    <div class="df-playerStats__legends-text">
+                      <span>Injured</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-playerStats__legends-icon">
+                      <img src="../images/unavailable.svg" alt="Unavailable">
+                    </div>
+                    <div class="df-playerStats__legends-text">
+                      <span>Unavailable</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-playerStats__legends-icon">
+                      <div class="df-playerStats__legends-dot"></div>
+                    </div>
+                    <div class="df-playerStats__legends-text">
+                      <span>In your team</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="df-playerStats__legends-icon">
+                      <img src="../images/uncapped.svg" alt="Uncapped Player">
+                    </div>
+                    <div class="df-playerStats__legends-text">
+                      <span>Uncapped</span>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var swiper = new Swiper('.swiper-container', {
+        slidesPerView: 'auto',
+        freeMode: true,
+        spaceBetween: 5,
+      });
+    </script>
+  </body>
+
+</html>

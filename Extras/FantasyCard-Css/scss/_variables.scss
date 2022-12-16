@@ -1,0 +1,96 @@
+$cache-img: 1.4;
+//Colors
+$transparent: transparent;
+$googlePlus: #dd4b39;
+$facebook: #3b5998;
+$twitter: #1da1f2;
+$whatsApp: #7ad06d;
+$instagram: #125688;
+
+$default: #30316e;
+$black: #000;
+$white: #fff;
+$red: #ff3b3b;
+
+$fantasy-primary-color: #0d3aff;
+$fantasy-secondary-color: #5af7dc;
+$fantasy-tertiary-color: #69134b; //not used
+$fantasy-tertiary-medium: #ff16ff;
+
+$dark-blue: #00004b;
+$dark-gray: #3c3c3c;
+$medium-gray: #6c6c6c;
+$gray-mono-1: #f1f3f8;
+$gray-mono-2: #d9dbe7;
+$gray-mono-3: #C1C2D5;
+$gray-mono-4: #2C2C2C;
+$gray-mono-5: #D9DBE7;   //text color
+
+$success: #19c201;
+$error: #ff3b3b;
+$warning: #ff9933;
+$live: #ffcd44;
+
+//Primary font family
+$primary-ff--light: "Champions Regular", Helvetica, Arial, sans-serif;
+$primary-ff--regular: "Champions Regular", Helvetica, Arial, sans-serif;
+$primary-ff--bold: "Champions Bold", sans-serif;
+$primary-ff--exbold: "Champions ExtraBold", sans-serif;
+
+$primary-ff--semibold: "Champions Regular", Helvetica, Arial, sans-serif; //not used
+
+//font-weight
+$fw--light: 300;
+$fw--regular: 400;
+$fw--bold: 800;
+$fw--exbold: 700;
+
+$fw--semibold: normal; //not used
+
+//secondary font family
+$secondary-ff--light: "Roboto Regular",Helvetica,Arial,sans-serif;
+$secondary-ff--lighti: "Roboto Regular",Helvetica,Arial,sans-serif;
+$secondary-ff--regular: "Roboto Regular",Helvetica,Arial,sans-serif;
+$secondary-ff--medium: "Roboto Medium", sans-serif;
+$secondary-ff--bold: "Roboto Regular",Helvetica,Arial,sans-serif;
+$secondary-ff--black: "Roboto Regular",Helvetica,Arial,sans-serif;
+
+$secondary-ff--condensed: "Roboto Condensed", Helvetica, Arial, sans-serif;
+
+$secondary-ff--exbold: "Roboto", sans-serif; //not used
+
+//font-weight
+$fws--light: 300;
+$fws--lighti: 300i;
+$fws--regular: 400;
+$fws--medium: 500;
+$fws--bold: 700;
+$fws--black: 900;
+
+$fws--exbold: normal; //not used
+
+//Media Breakpoints
+$media-mobile-small-320: 320px;
+$media-mobile-ex-small: 360px;
+$media-mobile-med: 375px;
+$media-mobile-med-max: 480px;
+
+$media-mobile-small-min: 600px;
+$media-mobile-small-max: 599.98px;
+
+//not used
+$media-mobile-max: 767px;
+$media-tablet-min: 768px;
+$media-tablet-max: 992px;
+$media-desktop-min: 1024px;
+$media-desktop-max: 1200px;
+$media-laptop-max: 1366px;
+$media-ex-large-min: 1367px;
+$media-ex-large-max: 1441px;
+$media-ex-large-hd-max: 1601px;
+$media-xxlarge: 1900px;
+$media-xxlarge-min: 2000px;
+
+//Hidden Class
+$web-hidden: none;
+$mobile-hidden: none;

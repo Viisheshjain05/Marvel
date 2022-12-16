@@ -1,0 +1,229 @@
+.si-plyr {
+  margin: 0 4px;
+  text-align: center;
+  width: 23%;
+  max-width: 205px;
+  @media screen and (min-width: $media-mobile-med) {
+    width: 33%;
+  }
+  @media screen and (min-width: $media-tablet-min) {
+    margin: 0 7px;
+    min-height: 80px;
+  }
+  @media screen and (min-width: $media-ex-large-min) {
+    min-height: 97px;
+    margin: 0 10px;
+  }
+
+  &.si-selected {
+    .si-plyr__img {
+      background-image: url("../../images/cards/Desktop/test-jersey.png?v=#{$cache-img}");
+      background-size: contain;
+    }
+    .si-plyr__pos {
+      visibility: hidden;
+    }
+    .si-plyr__details {
+      color: $white;
+      visibility: visible;
+    }
+  }
+  &__data {
+    cursor: pointer;
+    display: inline-block;
+    font-size: 10px;
+    position: relative;
+    text-align: center;
+    width: 100%;
+    @media screen and (min-width: $media-mobile-small-min) {
+      font-size: 12px;
+    }
+  }
+  &__wrap {
+    margin: 0 auto;
+    height: 54px;
+    width: 54px;
+    position: relative;
+    .euro-cross-1 {
+      @media screen and (max-width: $media-mobile-small-max) {
+        display: none;
+      }
+    }
+    .si-icon--top {
+      border-radius: 50%;
+      right: -3px;
+      top: -1px;
+      @media screen and (min-width: $media-mobile-med) {
+        right: -10px;
+    
+      }
+    }
+    .si-pos-right {
+      @media screen and (max-width: $media-mobile-med - 1px) {
+        right: -3px;
+      }
+    }
+
+    .euro-substitute {
+      &::before {
+        color: $black;
+      }
+    }
+  }
+
+  &__img {
+    background-image: url("../images/cards/Desktop/Jersey-default.svg?v=#{$cache-img}");
+    background-repeat: no-repeat;
+    background-position: center top;
+    background-size: contain;
+    display: block;
+
+    position: relative;
+    height: 100%;
+    width: 100%;
+    image-rendering: -webkit-optimize-contrast;
+  }
+
+  &__pos {
+    background: rgba($black, 0.7);
+    border-radius: 2px;
+    color: $white;
+    font-family: $secondary-ff--medium;
+    font-weight: 500;
+    margin: -4px auto 0 auto;
+    min-height: 9px;
+    height: 17px;
+    position: relative;
+    @extend .si-center;
+
+    @media screen and (min-width: $media-tablet-min) {
+      line-height: 16px;
+      height: 22px;
+      width: 84px;
+      padding-top: 2px;
+    }
+  }
+
+  &__details {
+    margin: -19px auto 0 auto;
+    position: relative;
+    visibility: hidden;
+    filter: drop-shadow(0px 6px 10px rgba(0, 0, 0, 0.1));
+    @media screen and (min-width: $media-tablet-min) {
+      margin: -23px auto 0 auto;
+    }
+    &::before {
+      content: "";
+      height: 1px;
+      width: 100%;
+      position: absolute;
+      left: 0;
+      right: 0;
+      @include linearGradient(90deg, #1843fe 0%, #5af7dc 100%);
+    }
+  }
+
+  &__pos,
+  &__details {
+    &::after {
+      display: none;
+    }
+  }
+
+  &__name {
+    display: block;
+    font-family: $secondary-ff--medium;
+    font-weight: $fws--medium;
+    white-space: nowrap;
+    overflow: hidden;
+    padding: 4px;
+    text-overflow: ellipsis;
+    @include linearGradient(270deg, #0d3aff 0%, rgba(12, 12, 83, 0.95) 100%);
+
+    @media screen and (min-width: $media-ex-large-min) {
+      padding: 4px;
+    }
+  }
+
+  &__val {
+    background: $dark-blue;
+    border-radius: 0 0 2px 2px;
+    font-size: 12px;
+    font-family: $secondary-ff--bold;
+    font-weight: $fws--bold;
+    padding: 2px 0;
+    @media screen and (min-width: $media-tablet-min) {
+      // font-size: 12px;
+      // padding: 2px 0;
+      padding: 4px 0;
+    }
+  }
+
+  .si-currency {
+    // font-size: 10px;
+    font-family: $primary-ff--regular;
+    justify-content: center;
+  }
+
+  &--disabled {
+    opacity: 0.5;
+  }
+  &--redcard {
+    .euro-yellow-card {
+      &::before {
+        color: $red;
+        @include transform(translate(-50%, -50%) rotate(15deg));
+      }
+    }
+  }
+  &--recover {
+    .si-plyr__img {
+      opacity: 0.4;
+    }
+    .euro-change-player {
+      &::before {
+        color: $default;
+      }
+    }
+    .si-plyr__name {
+      // background: $dark-gray;
+    }
+    .si-plyr__val {
+      // background: $gray-mono-4;
+      // color: $dark-gray;
+    }
+  }
+}
+.si-pts--live {
+  background: $live;
+  color: $dark-gray;
+  &.si-pts--invalid {
+    background: $live;
+    color: $dark-gray;
+    text-decoration: line-through;
+  }
+}
+
+.si-pts--ptcal {
+  background: #ff9933;
+  color: $gray-mono-4;
+}
+
+.si-pts--minus {
+  background: $error;
+}
+
+.si-pts--final {
+  background: $fantasy-secondary-color;
+  color: $dark-blue;
+}
+
+.si-pts--invalid {
+  background: $gray-mono-3;
+  color: $default;
+  text-decoration: line-through;
+}
+.si-pts--out {
+  background: #f4f3f2;
+  color: $default;
+}

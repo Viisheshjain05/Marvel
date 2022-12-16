@@ -1,0 +1,2 @@
+body::before{font-family:"Source Code Pro","SF Mono",Monaco,Inconsolata,"Fira Mono","Droid Sans Mono",monospace,monospace;white-space:pre;display:block;padding:1em;margin-bottom:1em;border-bottom:2px solid #000;content:"Error: Undefined variable.\a    \2577 \a 39 \2502      background: url(../images/hp-head-bg.png) no-repeat top right $client-secondary-color;\d\a    \2502                                                                    ^^^^^^^^^^^^^^^^^^^^^^^\a    \2575 \a   scss\\pages\\homepage.scss 39:67  root stylesheet"}
+/*# sourceMappingURL=homepage.css.map */

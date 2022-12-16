@@ -1,0 +1,252 @@
+.si-icon {
+  position: relative;
+  height: 16px;
+  width: 16px;
+  overflow: hidden;
+  @include box-shadow(0px, 4px, 2px, rgba($black, 0.16));
+  @include border-radius(50%);
+  @extend .si-center;
+
+  @media screen and (min-width: $media-mobile-med) {
+    height: 20px;
+    width: 20px;
+  }
+
+  &::before {
+    color: $white;
+    font-size: 8px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    font-family: "euro-icomoon" !important;
+    speak: none;
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    @extend .si-flexBox;
+    @include transform(translate(-50%, -50%));
+
+    @media screen and (min-width: $media-mobile-med) {
+      font-size: 10px;
+    }
+  }
+
+  &__wrap {
+    position: absolute;
+    bottom: 4px;
+    left: -10px;
+    z-index: zindex(default);
+    @media screen and (min-width: $media-tablet-min) {
+      bottom: 3px;
+    }
+
+
+    .si-icon {
+      // overflow: visible;
+    }
+    &.si-pos-right {
+      left: auto;
+      right: -10px;
+      @media screen and (min-width: $media-tablet-min) {
+        right: -10px;
+      }
+      &::after {
+        @media screen and (max-width: $media-mobile-max) {
+          bottom: 23px;
+        }
+      }
+      .si-tooltip {
+        @media screen and (max-width: $media-mobile-max) {
+          bottom: 27px;
+        }
+      }
+    }
+  }
+
+  &--top {
+    background: $white;
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+    &::before {
+      color: $error;
+      // font-size: 10px;
+    }
+    &.si-tt-active {
+      overflow: visible;
+    }
+  }
+
+  &--info {
+    border-color: $fantasy-secondary-color;
+
+    &::before {
+      content: "\e90d";
+      font-size: 12px;
+      @media screen and (min-width: $media-ex-large-min) {
+        font-size: 13px;
+      }
+    }
+  }
+
+  &--captain {
+    color: $white;
+    @include linearGradient(180deg, #ff16ff 0%, #d516d9 100%);
+    &::before {
+      content: "\e91e";
+      font-family: "euro-icomoon" !important;
+      font-size: 10px;
+      @media screen and (min-width: $media-mobile-ex-small) and (max-width: $media-mobile-max) {
+        // margin-left: -1px;
+      }      
+    }
+  }
+  &.si-momw {
+    background-color: #ffdd04;
+    &::before {
+      content: "\e947";
+      color: $dark-blue;
+      font-size: 12px;
+    }
+  }
+}
+
+.si-bg {
+  &--error {
+    // background-color: $error;
+    @include linearGradient(180deg, #ff3b3b 0%, #cc0000 100%);
+  }
+  &--success {
+    background-color: $success;
+  }
+
+  &--white {
+    background-color: $white;
+
+    &::before {
+      color: $black;
+    }
+  }
+
+  &--warning {
+    background-color: $warning;
+    // @include linearGradient(180deg, #FF9933 0%, #E87223 100%);
+  }
+  &--bench {
+    background-color: #205bc8;
+    &::before {
+      color: $white;
+      font-size: 8px;
+    }
+  }
+}
+
+.euro-eliminated {
+  &::before {
+    font-size: 2px;
+  }
+}
+.si-playing {
+  background-color: $success;
+}
+.euro-warning {
+  &::before {
+    // color: $black;
+  }
+}
+
+.euro-fix-shield {
+  &::before {
+    content: "\e92d";
+    color: rgb(240, 240, 250);
+  }
+  &::after {
+    content: "\e92e";
+    margin-left: -0.814453125em;
+    color: rgb(217, 219, 231);
+  }
+}
+.si-plyr {
+  &--in {
+    .euro-in {
+      &::before {
+        color: #19c201;
+      }
+    }
+  }
+
+  &--out {
+    .euro-out {
+      &::before {
+        color: $error;
+      }
+    }
+  }
+
+  &--in-out {
+    .euro-in-out {
+      &::before {
+        content: "\e922";
+        color: rgb(255, 59, 59);
+      }
+
+      &::after {
+        content: "\e923";
+        color: rgb(25, 194, 1);
+        // font-size: 8px;
+        font-family: "euro-icomoon" !important;
+
+        @media screen and (min-width: $media-mobile-med) {
+          // font-size: 10px;
+        }
+      }
+    }
+  }
+}
+.euro-in-out {
+  &::before,
+  &::after {
+    font-size: 15px;
+    @media screen and (min-width: $media-tablet-min) {
+      font-size: 20px;
+    }
+  }
+  &::before {
+    content: "\e922";
+    color: rgb(255, 59, 59);
+  }
+  &::after {
+    content: "\e923";
+    color: rgb(25, 194, 1);
+    // font-size: 8px;
+    font-family: "euro-icomoon" !important;
+
+    @media screen and (min-width: $media-mobile-med) {
+      // font-size: 10px;
+    }
+  }
+}
+
+.euro-sent-off {
+  &::before {
+    content: "\e926";
+    color: $live;
+  }
+  &::after {
+    content: "\e927";
+    font-size: 10px;
+    margin-left: -4px;
+    color: $red;
+    z-index: 1;
+  }
+}

@@ -1,0 +1,77 @@
+.si-input {
+  &__box {
+    color: var(--uf-text-01);
+    text-align: center;
+    &.si-active {
+      .si-input__wrap {
+        &::after {
+          background-color: var(--uf-text-04);
+          @include transform(scale(1));
+        }
+      }
+    }
+    input {
+      background: transparent;
+      border: none;
+      border-bottom: 2px solid $white;
+      color: var(--uf-text-01);
+      font-size: 21px;
+      font-family: var(--uf-font-comp-bold);
+      margin-bottom: 10px;
+      padding: 5px 10px;
+      width: 250px;
+
+      &:focus {
+        outline: none;
+      }
+      &::-webkit-input-placeholder {
+        color: var(--uf-text-03);
+        text-align: center;
+      }
+      &::-moz-placeholder {
+        color: var(--uf-text-03);
+      }
+      &:-ms-input-placeholder {
+        color: var(--uf-text-03);
+      }
+      &:-moz-placeholder {
+        color: var(--uf-text-03);
+      }
+      @media screen and (min-width: $media-small-tablet-min) {
+        font-size: 32px;
+        margin: 0 auto 10px;
+        padding: 10px;
+        width: 500px;
+      }
+    }
+  }
+  &__wrap {
+    &::after {
+      content: "";
+      // background: $fantasy-secondary-color;
+      background-color: var(--uf-ui-02);
+      position: absolute;
+      bottom: 10px;
+      height: 1px;
+      width: 100%;
+      left: 0;
+      right: 0;
+      transition: transform 0.2s ease-in;
+      transform-origin: center;
+      @include transform(scale(0));
+    }
+  }
+  &__msg {
+    color: var(--uf-text-02);
+    font-size: 12px;
+    line-height: 16px;
+    margin-bottom: 20px;
+    @media screen and (min-width: $media-small-min) {
+      font-size: 16px;
+      line-height: 20px;
+    }
+    // &:last-child {
+    //   color: rgba($white, 0.8);
+    // }
+  }
+}

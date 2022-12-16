@@ -1,0 +1,8470 @@
+// Pick Player List
+.df-plyrSel {
+  &__wrap {
+    overflow: hidden;
+    background: $white;
+
+    .df-tbl {
+      padding: 0 16px;
+      width: 100%;
+      table-layout: fixed;
+
+      &__head {
+        .df-tbl__cell {
+          font-size: 12px;
+          color: $text-meta;
+          @extend .df-regularFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 14px;
+          }
+
+          &--thumb,
+          &--name,
+          &--pts,
+          &--amt,
+          &--captn {
+            cursor: pointer;
+          }
+
+          &.df-active {
+            &--up {
+              span {
+                &::after {
+                  @include transform(translateY(-50%) rotateX(180deg));
+                }
+              }
+            }
+
+            &--dw {
+              span {
+                &::after {
+                  @include transform(translateY(-50%));
+                }
+              }
+            }
+
+            &--up,
+            &--dw {
+              span {
+                display: inline-block;
+                color: $client-primary-color;
+                position: relative;
+
+                &::after {
+                  content: "\e908";
+                  font-family: "dfi" !important;
+                  color: $status;
+                  position: absolute;
+                  left: auto;
+                  right: -12px;
+                  top: 50%;
+                  width: 12px;
+                  height: 12px;
+                  font-size: 10px;
+                  justify-content: center;
+                  align-items: center;
+                  @extend %flexbox !optional;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &__body {
+        .df-tbl__cell {
+          &--pts {
+            font-size: 14px;
+            color: rgba($text-dark, 0.6);
+            @extend .df-boldFF !optional;
+
+            @media screen and (min-width: $media-mobile-max) {
+              font-size: 16px;
+            }
+          }
+
+          &--amt {
+            padding-right: 18px;
+            white-space: nowrap;
+            font-size: 14px;
+            text-align: left;
+            color: $text-dark;
+            @extend .df-boldFF !optional;
+            @media screen and (min-width: $media-mobile-max) {
+              font-size: 16px;
+            }
+          }
+
+          &--captn {
+            font-size: 12px;
+            color: rgba($text-dark, 0.6);
+            vertical-align: top;
+            padding-top: 4px;
+            @extend .df-regularFF !optional;
+
+            @media screen and (min-width: $media-mobile-max) {
+              font-size: 14px;
+            }
+          }
+        }
+      }
+
+      &__cell {
+        padding: 0 4px;
+
+        &--thumb {
+          width: 72px;
+          position: relative;
+          cursor: pointer;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 80px;
+          }
+        }
+
+        &--name {
+          width: 100%;
+        }
+
+        &--pts {
+          width: 70px;
+          padding-right: 24px;
+          text-align: right;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 80px;
+          }
+        }
+
+        &--amt {
+          width: 60px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 52px;
+          }
+        }
+
+        &--captn {
+          width: 60px;
+          text-align: center;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 92px;
+          }
+        }
+
+        &--cta {
+          width: 24px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 32px;
+          }
+        }
+      }
+    }
+  }
+
+  &-newJoinee {
+    background: transparent;
+
+    .df-plyrSel__list {
+      &.df-CompareTeam {
+        ul li {
+          background: $duck-egg-blue-two !important;
+          border-color: rgba(#dcdcdc, 0.6) !important;
+          opacity: 0.4;
+        }
+      }
+
+      ul li {
+        cursor: default;
+      }
+    }
+  }
+
+  &__top {
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(#dcdcdc, 0.6);
+    // &--fixed {
+    //   position: fixed;
+    //   background: $white;
+    //   z-index: 1;
+    //   max-width: 550px;
+    //   width: 100%;
+    // }
+  }
+
+  &__list {
+    background: $duck-egg-blue;
+    overflow-y: auto;
+    padding-bottom: 70px;
+
+    &-title {
+      padding: 12px 16px 0;
+      color: $client-primary-color;
+      font-size: 20px;
+      @extend .df-boldFF !optional;
+    }
+
+    .df-transfer__tbl .df-tbl {
+      padding: 0;
+    }
+
+    .df-accordion {
+      &__head {
+        padding-bottom: 0;
+
+        .df-transfer__fix ul li:not(:last-child) {
+          border-bottom: none;
+        }
+      }
+    }
+
+    .df-noDataFound {
+      padding: 32px 0;
+    }
+
+    ul {
+      li {
+        background: $white;
+        padding: 8px 0;
+        cursor: pointer;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(#dcdcdc, 0.6);
+        }
+
+        &.df-remove {
+          background: $pale;
+
+          .df-plyrSel__cta {
+            color: $status;
+            border-color: $status;
+
+            &::before,
+            &::after {
+              background: $status;
+            }
+
+            &::after {
+              height: 0;
+            }
+          }
+        }
+
+        &.df-unavailable {
+          // .df-plyrSel__name {
+          //   &::after {
+          //     content: "";
+          //     width: 12px;
+          //     height: 12px;
+          //     background: url(../images/unavailable.svg?v=#{$image-version}) center center no-repeat;
+          //     position: absolute;
+          //     left: auto;
+          //     right: 0;
+          //     top: 50%;
+          //     @include transform(translateY(-50%));
+          //     @include background-size(contain);
+          //   }
+          // }
+        }
+
+        &.df-injured {
+          // .df-plyrSel__name {
+          //   &::after {
+          //     content: "";
+          //     width: 12px;
+          //     height: 12px;
+          //     background: url(../images/injured.svg?v=#{$image-version}) center center no-repeat;
+          //     position: absolute;
+          //     left: auto;
+          //     right: 0;
+          //     top: 50%;
+          //     @include transform(translateY(-50%));
+          //     @include background-size(contain);
+          //   }
+          // }
+        }
+
+        &.df-disabled {
+          position: relative;
+          // pointer-events: none;
+          cursor: default;
+
+          &::after {
+            content: "";
+            pointer-events: none;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba($white, 0.4);
+          }
+
+          > div {
+            opacity: 0.4;
+          }
+
+          .df-plyrSel__cta {
+            border-color: rgb(163, 176, 208);
+
+            &::before,
+            &::after {
+              background: rgb(163, 176, 208);
+            }
+          }
+        }
+
+        &.df-injured,
+        &.df-unavailable,
+        &.df-banned,
+        &.df-in,
+        &.df-out {
+          .df-plyrSel__choice {
+            position: relative;
+            padding-left: 10px;
+            @extend %flexbox !optional;
+
+            &::after {
+              content: "";
+              position: absolute;
+              left: 0;
+              top: 50%;
+              @include transform(translateY(-50%));
+            }
+          }
+        }
+
+        &.df-in,
+        &.df-out {
+          .df-plyrSel__choice {
+            &::after {
+              width: 6px;
+              height: 6px;
+              @extend .df-borRad100 !optional;
+            }
+          }
+        }
+
+        &.df-in {
+          .df-plyrSel__choice {
+            color: $status-green;
+
+            &::after {
+              background: $status-green;
+            }
+          }
+        }
+
+        &.df-out {
+          .df-plyrSel__choice {
+            color: transparent;
+
+            &::after {
+              background: $tomato-red;
+            }
+          }
+        }
+
+        &.df-injured,
+        &.df-unavailable,
+        &.df-banned {
+          .df-plyrSel__choice {
+            padding-left: 16px;
+            color: $tomato-red;
+
+            &::after {
+              width: 12px;
+              height: 12px;
+              background-position: center center;
+              background-repeat: no-repeat;
+              @extend .si-bgSize--contain !optional;
+              @extend .df-borRad0 !optional;
+            }
+          }
+        }
+
+        &.df-injured {
+          .df-plyrSel__choice {
+            &::after {
+              background-image: url(../images/injured.svg?v=#{$image-version});
+            }
+          }
+        }
+
+        &.df-unavailable {
+          .df-plyrSel__choice {
+            &::after {
+              background-image: url(../images/unavailable.svg?v=#{$image-version});
+            }
+          }
+        }
+
+        &.df-banned {
+          // pointer-events: none;
+          cursor: default;
+
+          .df-tbl__cell--thumb,
+          .df-tbl__cell--pts,
+          .df-tbl__cell--amt,
+          .df-plyrSel__name {
+            opacity: 0.4;
+          }
+
+          .df-plyrSel__cta {
+            // display: none;
+          }
+
+          .df-plyrSel__choice {
+            &::after {
+              background-image: url(../images/ic-warning.svg?v=#{$image-version});
+            }
+          }
+        }
+
+        &.df-pagination-loader {
+          position: relative;
+          min-height: 4px * 30;
+        }
+
+        &.df-rank {
+          &First,
+          &Second {
+            .df-tbl__cell--amt {
+              padding: 0;
+              text-align: center;
+
+              em {
+                display: none;
+              }
+
+              span {
+                position: relative;
+                height: 40px;
+                width: 60px;
+                margin-right: 0;
+                margin-left: auto;
+                justify-content: center;
+                align-items: center;
+                @extend %flexbox !optional;
+
+                &::after,
+                &::before {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  top: 0;
+                  width: 100%;
+                  height: 100%;
+                  background-repeat: no-repeat;
+                  @extend .si-bgSize--contain !optional;
+                }
+
+                &::after {
+                  background-position: left center;
+                }
+
+                &::before {
+                  background-position: right center;
+                }
+              }
+            }
+          }
+
+          &First {
+            .df-tbl__cell--amt {
+              span {
+                &::after {
+                  background-image: url(../images/golden-leaf--lft.svg?v=#{$image-version});
+                }
+
+                &::before {
+                  background-image: url(../images/golden-leaf--right.svg?v=#{$image-version});
+                }
+              }
+            }
+          }
+
+          &Second {
+            .df-tbl__cell--amt {
+              span {
+                &::after {
+                  background-image: url(../images/silver-leaf--left.svg?v=#{$image-version});
+                }
+
+                &::before {
+                  background-image: url(../images/silver-leaf--right.svg?v=#{$image-version});
+                }
+              }
+            }
+          }
+        }
+
+        &.df-teamA {
+          .df-plyrSel__team {
+            color: $client-primary-color;
+            background-color: $white;
+          }
+        }
+
+        &.df-teamB {
+          .df-plyrSel__team {
+            background-color: $default;
+            color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  &__status {
+    position: absolute;
+    left: -12px;
+    top: auto;
+    bottom: -4px;
+    cursor: default;
+    // pointer-events: none;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-start;
+    flex-flow: column;
+    @extend %flexbox !optional;
+
+    > div {
+      &:not(:last-child) {
+        margin-bottom: 12px;
+      }
+    }
+  }
+
+  &__batch {
+    overflow: hidden;
+    flex-shrink: 0;
+    // border: 0.5px solid $light-grey-blue;
+    justify-content: flex-start;
+    align-items: center;
+    @extend .df-borRad10 !optional;
+    @include box-shadow(0, 1px, 3px, 0, rgba($black, 0.15));
+    @extend %inline-flex;
+  }
+
+  &__info {
+    width: 14px;
+    height: 100%;
+    font-size: 14px;
+    text-align: center;
+    color: #8f8f8f;
+
+    i {
+      cursor: pointer;
+
+      &:hover {
+        color: $client-primary-color;
+      }
+    }
+  }
+
+  &__flight {
+    display: none;
+    width: 16px;
+    height: 12px;
+    font-size: 10px;
+    text-align: center;
+    color: $light-grey-blue;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+      width: 20px;
+    }
+
+    .dfi-uncap {
+      &::before {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-image: url(../images/uncapped.svg?v=#{$image-version});
+        background-repeat: no-repeat;
+        background-position: center center;
+        @extend .si-bgSize--contain !optional;
+      }
+    }
+  }
+
+  &__logo {
+    width: 16px;
+    height: 16px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @extend .si-bgSize--contain !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  &__team,
+  &__skill {
+    padding: 2px 4px;
+    font-size: 10px;
+    @extend .df-regularFF !optional;
+  }
+
+  &__team {
+    color: $white;
+    background-color: $client-primary-color;
+  }
+
+  &__skill {
+    color: $white;
+    background-color: $primary-ink-hover;
+  }
+
+  &__thumb {
+    cursor: pointer;
+    margin-bottom: -8px;
+    margin-left: 5px;
+    height: 40px;
+    width: 40px;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+    @extend .si-bgSize--contain !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      height: 48px;
+      width: 48px;
+    }
+  }
+
+  &__name {
+    font-size: 14px;
+    @extend .df-boldFF !optional;
+    color: $text-dark;
+    position: relative;
+    display: inline-grid;
+    // padding-right: 16px;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+
+    span {
+      @include text-truncate;
+    }
+  }
+
+  &__admin-user {
+    margin-top: 4px;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 12px;
+    @extend .df-boldFF !optional;
+    @extend %inline-flex;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+
+    i {
+      margin-right: 4px;
+    }
+  }
+
+  &__stats {
+    font-size: 12px;
+    color: rgba($text-dark, 0.6);
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__choice {
+    display: none;
+    font-size: 10px;
+    justify-content: flex-start;
+    align-items: center;
+    min-height: 15px;
+    margin-top: 4px;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+  }
+
+  &__cta {
+    width: 20px;
+    height: 20px;
+    border: 2px solid $green;
+    position: relative;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: 24px;
+      height: 24px;
+    }
+
+    &::before,
+    &::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 0;
+      right: 0;
+      margin: 0 auto;
+      background: $green;
+      @include transform(translateY(-50%));
+      @include transition(all 0.1s linear);
+      @include border-radius(100px);
+    }
+
+    &::before {
+      width: calc(100% - 6px);
+      height: 2px;
+    }
+
+    &::after {
+      height: calc(100% - 6px);
+      width: 2px;
+    }
+  }
+
+  &__cap {
+    margin: 0 auto 4px;
+    background: $white;
+    color: rgba($text-dark, 0.6);
+    border: 1px solid rgba($text-dark, 0.6);
+    width: 36px;
+    height: 36px;
+    font-size: 14px;
+    justify-content: center;
+    align-items: center;
+    @extend .df-boldFF--it !optional;
+    @extend .df-borRad100 !optional;
+    @include transition(all 0.15s ease-in-out);
+    @extend %flexbox !optional;
+
+    i {
+      font-size: 18px;
+    }
+
+    &.df-active {
+      border-color: $secondary-electric;
+      background: $secondary-electric;
+      color: $white;
+    }
+  }
+
+  &__content {
+    padding: 16px;
+    background: $duck-egg-blue;
+    text-align: center;
+
+    > div {
+      &:not(:last-child) {
+        margin-bottom: 8px;
+      }
+    }
+
+    &-thumb {
+      width: 48px;
+      height: 48px;
+      margin: 0 auto 16px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-color: $very-light-purple;
+      @extend .df-borRad100 !optional;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &-txt {
+      &One {
+        font-size: 18px;
+        @extend .df-boldFF--it !optional;
+        color: $client-primary-color;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 20px;
+        }
+      }
+
+      &Two,
+      &Three {
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 14px;
+        }
+      }
+
+      &Two {
+        color: $text-body-grey;
+
+        em {
+          font-size: 12px;
+          margin: 0 4px;
+          padding: 1px 6px;
+          border: 1px solid $steel;
+          @extend .df-borRad100 !optional;
+        }
+      }
+
+      &Three {
+        color: $client-primary-color;
+      }
+    }
+
+    &-chkbox {
+      margin-bottom: -16px;
+      margin-top: 16px;
+
+      .df-checkBox {
+        [type="checkbox"] {
+          &:checked,
+          &:not(:checked) {
+            & + label {
+              display: inline-block;
+              padding-left: 30px;
+
+              &::after,
+              &::before {
+                width: 18px;
+                height: 18px;
+                left: 0;
+                @extend .df-borRad4 !optional;
+              }
+
+              &::before {
+                border: 2px solid #022170;
+              }
+
+              &::after {
+                color: $client-primary-color;
+              }
+            }
+
+            &:checked + label::after {
+              background: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__dtls {
+    justify-content: flex-start;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    .df-plyrSel__thumb {
+      @extend .si-bgSize--cover !optional;
+    }
+
+    .df-plyrSel__name {
+      padding: 0 12px !important;
+    }
+  }
+}
+
+// overlays
+.df-overlay {
+  &__wrap {
+    padding-top: 16px;
+    z-index: -9999;
+    background: rgba($client-primary-color, 0.8);
+    position: fixed;
+    left: 0;
+    top: 0;
+    min-width: 320px;
+    max-width: 550px;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: flex-end;
+    @extend %flexbox !optional;
+    @include transition(padding-top 0.1s linear);
+
+    &.df-active {
+      padding-top: 44px;
+
+      .df-toast__wrap {
+        z-index: 999999;
+        opacity: 1;
+        @include transform(translateY(0%));
+      }
+
+      .df-overlay__container {
+        min-height: calc(100% - 30px);
+        @include transition(min-height 0.1s linear);
+      }
+    }
+
+    &--contestToast {
+      .df-toast__wrap {
+        top: auto;
+      }
+    }
+  }
+
+  &__container {
+    position: relative;
+    z-index: 999999;
+    min-height: 100%;
+    background-color: $duck-egg-blue;
+    flex-direction: column;
+    @include border-radius(8px 8px 0 0);
+    @extend %flexbox !optional;
+
+    .df-cmo__tabs {
+      z-index: 1;
+    }
+
+    &.df-overlay {
+      &--alMat {
+      }
+
+      &--search {
+        background: $white;
+
+        .df-plyrSel__list {
+          padding-bottom: 0;
+        }
+
+        .df-overlay__body {
+          height: calc(100vh - 100px);
+        }
+      }
+
+      &--filter {
+        .df-overlay__body {
+          background: $white;
+          height: calc(100vh - 130px);
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: auto;
+            right: 0;
+            top: 1px;
+            background: $duck-egg-blue;
+            height: 100%;
+            width: calc(100% - 120px);
+          }
+        }
+
+        .df-overlay__cta {
+          z-index: 1;
+          cursor: pointer;
+          position: absolute;
+          left: auto;
+          right: 16px;
+          color: $cta-primary-color;
+          font-size: 14px;
+          @extend .df-boldFF !optional;
+        }
+      }
+
+      &--favTeam {
+        @extend .df-boldFF !optional;
+
+        .df-overlay__header {
+          border-bottom: 1px solid #e7e7e7;
+        }
+
+        .df-overlay__body {
+          background: transparent;
+          padding: 16px 0;
+        }
+      }
+
+      &--transfer {
+        .df-noDataFound {
+          padding-top: 16px;
+        }
+
+        .df-alMat__list ul li {
+          &:first-child {
+            padding-top: 0;
+          }
+
+          .df-alMat__box {
+            padding: 0;
+          }
+        }
+
+        .df-alMat__type {
+        }
+
+        .df-alMat__box {
+          padding: 0 16px 16px;
+          @extend .df-boldFF !optional;
+          justify-content: space-between;
+        }
+
+        .df-transfer__status {
+          font-size: 14px;
+          padding-left: 0;
+          span {
+            &:first-child {
+              @extend .df-boldFF !optional;
+            }
+          }
+          &.df-redTxt {
+            margin-bottom: 0;
+          }
+        }
+
+        .df-overlay__header {
+          @extend .df-boldFF !optional;
+          border-bottom: 1px solid #e7e7e7;
+        }
+
+        .df-overlay__body {
+          background: transparent;
+          // .df-accordion {
+          //   margin: 0;
+          // }
+        }
+
+        &-toast {
+          position: absolute;
+          width: 100%;
+          min-height: auto;
+          top: auto;
+          bottom: 0;
+          margin: 0;
+
+          // .df-overlay__header {
+          //   border-bottom: 1px solid #e7e7e7;
+          // }
+          // .df-overlay__title {
+          //   color: $client-primary-color;
+          // }
+          .df-overlay__body {
+            padding-top: 16px;
+            padding-bottom: 70px;
+            height: auto;
+          }
+          .df-overlay__title {
+            color: $client-primary-color;
+          }
+        }
+      }
+
+      &--contest {
+        background-color: $client-primary-color;
+        &-toast {
+          position: absolute;
+          width: 100%;
+          min-height: auto !important;
+          top: auto;
+          bottom: 0;
+          margin: 0;
+
+          .df-overlay__body {
+            padding-top: 16px;
+            padding-bottom: 70px;
+            height: auto;
+          }
+
+          .df-contest__title,
+          .df-contest__thumb {
+            cursor: default;
+          }
+
+          .df-contest__title {
+            span {
+              color: $white;
+              &:last-child {
+                color: rgba($white, 0.8);
+                margin-top: 6px;
+              }
+            }
+          }
+        }
+
+        .df-overlay__close,
+        .df-overlay__title {
+          color: $white;
+        }
+
+        .df-overlay__body {
+          background: $duck-egg-blue;
+          padding-bottom: 16px;
+        }
+        .df-contest__box-head {
+          background: url(../images/contest-overlay-header-bg.svg?v=#{$image-version})
+            no-repeat bottom right;
+          @include background-size(contain);
+        }
+      }
+
+      &--player {
+        justify-content: flex-start;
+        background-color: $client-primary-color;
+        // background: url(../images/contest-toast-bg.png?v=#{$image-version}) no-repeat top right $client-secondary-color;
+        // @include background-size(400px);
+
+        .df-overlay__body {
+          background: $duck-egg-blue;
+        }
+
+        .df-overlay__close,
+        .df-overlay__title {
+          color: $white;
+        }
+
+        .df-overlay__cta {
+          position: absolute;
+          left: 0;
+          top: 50%;
+          @include transform(translateY(-50%));
+        }
+      }
+
+      &--generic {
+        min-height: auto;
+        background: $white;
+
+        .df-overlay {
+          &__header {
+            border-bottom: 1px solid #e7e7e7;
+          }
+
+          &__body {
+            padding: 24px 16px;
+            padding-bottom: 70px;
+            height: auto !important;
+            padding-bottom: 120px;
+          }
+
+          &__foot ul {
+            display: block;
+
+            li {
+              &:not(:last-child) {
+                margin-bottom: 12px;
+              }
+            }
+          }
+        }
+
+        .df-plyrSel__content {
+          background-color: transparent;
+          padding: 0 0 24px;
+
+          &-txtTwo {
+            color: $client-primary-color;
+            line-height: 1.5;
+          }
+        }
+      }
+
+      &--booster {
+        .df-overlay__body {
+          padding: 24px 16px;
+          padding-bottom: 70px;
+        }
+
+        .df-plyrSel__content {
+          background-color: transparent;
+          padding: 0 0 24px;
+        }
+
+        &-home {
+          .df-booster__box {
+            border-color: transparent !important;
+          }
+        }
+
+        &-confirm {
+          .df-overlay__body {
+            padding-bottom: 120px;
+          }
+
+          .df-overlay__foot ul {
+            display: block;
+
+            li {
+              &:not(:last-child) {
+                margin-bottom: 12px;
+              }
+            }
+          }
+        }
+
+        &-performance {
+          .df-overlay__header {
+            padding: 0px 16px;
+            justify-content: center;
+            align-items: center;
+            @extend %flexbox !optional;
+
+            .df-overlay__title {
+              flex-basis: 100%;
+            }
+          }
+        }
+
+        &-confirm,
+        &-performance {
+          min-height: auto;
+
+          .df-overlay__body {
+            height: auto !important;
+          }
+        }
+
+        &-confirm {
+          .df-plyrSel__content-txtTwo {
+            color: $client-primary-color;
+          }
+        }
+      }
+
+      &--badge {
+        background-color: $white;
+
+        &-nativeShare {
+          min-height: auto;
+
+          .df-overlay__body {
+            height: auto;
+          }
+
+          .df-badge__box-lft {
+            margin-right: auto;
+            margin-left: auto;
+
+            @media screen and (min-width: $media-mobile-max) {
+              margin-right: 44px;
+            }
+          }
+        }
+
+        .df-overlay__header {
+          min-height: auto;
+
+          .df-badge {
+            &__box {
+              background-color: transparent;
+              display: block;
+
+              &-thumb {
+                width: 110px !important;
+                height: 120px !important;
+                margin-bottom: 12px;
+              }
+              &-title {
+                color: $white;
+                margin-bottom: 12px;
+                font-size: 20px;
+              }
+
+              &-caption {
+                color: $white;
+                font-size: 14px;
+              }
+
+              &-status {
+                font-size: 12px;
+              }
+
+              &-title,
+              &-caption {
+                text-align: center;
+              }
+
+              &-progress {
+                margin-top: 12px;
+              }
+
+              &-lft {
+                margin-left: auto;
+                margin-right: auto;
+              }
+            }
+          }
+        }
+
+        .df-overlay__body {
+          padding: 16px;
+          padding-bottom: 70px;
+        }
+
+        .df-badge__box:not(:last-child) {
+          margin-bottom: 16px;
+        }
+
+        &-sm,
+        &-collector,
+        &-share {
+          min-height: auto;
+
+          .df-overlay {
+            &__header {
+              // padding-bottom: 0;
+            }
+
+            &__body {
+              // padding-top: 4px;
+              height: auto;
+            }
+
+            &__foot ul {
+              display: block;
+
+              li {
+                &:not(:last-child) {
+                  margin-bottom: 12px;
+                }
+              }
+            }
+          }
+        }
+
+        &-sm {
+          .df-overlay__header {
+            padding-bottom: 16px;
+
+            .df-badge__box-lft {
+              margin-right: 0;
+            }
+          }
+        }
+
+        &-collector {
+          min-height: auto;
+
+          .df-overlay {
+            &__header {
+              // padding-bottom: 0;
+              padding-top: 0;
+
+              .df-badge__box {
+                padding-bottom: 0;
+                padding-top: 0;
+
+                &-caption {
+                  @extend .df-mediumFF !optional;
+                }
+
+                &-thumb {
+                  margin-top: -60px;
+                }
+              }
+
+              .df-badge__box-lft {
+                margin-right: 0;
+              }
+            }
+
+            &__body {
+              height: auto;
+            }
+          }
+        }
+
+        &-share {
+          position: relative;
+
+          &::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            right: 0;
+            margin: 0 auto;
+            top: -100%;
+            height: 100%;
+            width: calc(100% - 40%);
+            background-image: url(../images/stars-crackers.svg?v=#{$image-version});
+            background-position: bottom center;
+            background-repeat: no-repeat;
+            @extend .si-bgSize--contain !optional;
+            @include animation("df-popInUp .15s  .15s both");
+          }
+
+          .df-overlay__body {
+            padding-bottom: 120px;
+          }
+
+          &--new {
+            .df-badge__box-title {
+              margin-bottom: 4px !important;
+            }
+
+            .df-badge__box-caption {
+              text-align: center;
+            }
+
+            .df-overlay__header {
+              .df-badge__box-caption {
+                @extend .df-regularFF !optional;
+              }
+            }
+
+            .df-overlay__body {
+              .df-badge__box-caption {
+                margin-top: 12px;
+                margin-bottom: 16px;
+                padding-bottom: 16px;
+                position: relative;
+                font-size: 16px;
+
+                @media screen and (min-width: $media-mobile-max) {
+                  font-size: 20px;
+                  margin-bottom: 24px;
+                  padding-bottom: 24px;
+                }
+
+                &::after {
+                  content: "";
+                  position: absolute;
+                  left: 0;
+                  right: 0;
+                  bottom: 0;
+                  margin: 0 auto;
+                  height: 1px;
+                  width: 20px;
+                  background-color: rgba($client-primary-color, 0.6);
+
+                  @media screen and (min-width: $media-mobile-max) {
+                    width: 24px;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      &--whiteBG {
+        overflow: hidden;
+        @include border-radius(12px 12px 0 0);
+        .df-overlay {
+          &__header {
+            background: $white;
+            border-bottom: 1px solid #e7e7e7;
+          }
+          &__close,
+          &__title {
+            color: $client-primary-color;
+          }
+        }
+      }
+    }
+
+    &--badgTuts {
+      // justify-content: center;
+
+      .df-overlay__header {
+        background-color: transparent;
+        @media screen and (max-width: $media-mobile-max) {
+          padding: 0;
+          min-height: 20px;
+        }
+      }
+
+      .df-overlay__body {
+        height: auto !important;
+        overflow: hidden;
+      }
+
+      .df-overlay__foot {
+        padding-top: 16px;
+        position: relative;
+
+        .df-btn__white {
+          max-height: 100%;
+        }
+      }
+    }
+  }
+
+  &__title {
+    position: relative;
+    text-align: center;
+    color: $white;
+    font-size: 16px;
+    @extend .df-boldFF--it !optional;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      // font-size: 18px;
+    }
+
+    span {
+      margin-left: 10px;
+      margin-right: 10px;
+    }
+  }
+
+  &__close {
+    z-index: 1;
+    font-size: 16px;
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    justify-content: center;
+    align-items: center;
+    color: $white;
+    @extend %flexbox !optional;
+  }
+
+  &__header {
+    position: relative;
+    padding: 16px;
+    font-size: 16px;
+    min-height: 54px;
+    background-color: $client-primary-color;
+  }
+
+  &__body {
+    background: $white;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    height: calc(100vh - 150px);
+  }
+
+  &__foot {
+    position: fixed;
+    max-width: 550px;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+    top: auto;
+    padding: 16px;
+    z-index: 9999999;
+
+    ul {
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        text-align: center;
+        padding: 0 6px;
+        flex-basis: 100%;
+        flex-grow: 1;
+
+        .df-btn {
+          @include box-shadow(0, 6px, 12px, -3px, rgba(16, 13, 72, 0.2));
+        }
+      }
+    }
+
+    &--hide {
+      visibility: hidden;
+      pointer-events: none;
+    }
+  }
+}
+
+// All Match Overlay List
+.df-alMat {
+  &__wrap {
+  }
+
+  &__list {
+    overflow-y: auto;
+
+    ul {
+      li {
+        padding: 16px;
+        background: $white;
+
+        &.df-nextMatch {
+          background: $duck-egg-blue-two;
+        }
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba(#dcdcdc, 0.6);
+        }
+      }
+    }
+  }
+
+  &__box {
+    align-items: center;
+    justify-content: flex-end;
+    @extend %flexbox !optional;
+
+    &.df-danger,
+    &.df-success {
+      align-items: flex-start;
+    }
+
+    &.df-success {
+      color: $green;
+    }
+
+    &.df-danger {
+      color: $status;
+    }
+  }
+
+  &__lft {
+    flex-basis: 60%;
+  }
+
+  &__rgt {
+    flex-basis: 40%;
+  }
+
+  &__type,
+  &__date {
+    text-align: right;
+  }
+
+  &__type {
+    @extend .df-boldFF !optional;
+    margin-bottom: 4px;
+    color: $client-primary-color;
+    font-size: 12px;
+  }
+
+  &__date {
+    @extend .df-regularFF !optional;
+    font-size: 12px;
+    color: rgba($text-dark, 0.6);
+  }
+
+  &__status {
+    margin-top: 4px;
+    text-align: right;
+    font-size: 12px;
+    @extend .df-boldFF !optional;
+  }
+
+  &__result {
+    margin-top: 4px;
+    font-size: 12px;
+    @extend .df-regularFF !optional;
+  }
+}
+
+// Fixtures
+.df-fix {
+  &__matchday {
+    font-size: 10px;
+    margin-bottom: 4px;
+    display: block;
+    color: $client-primary-color;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+  }
+
+  &__team {
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &-A,
+    &-B {
+      width: 64px;
+      flex-shrink: 0;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-vs {
+      flex-basis: 36px;
+      flex-shrink: 0;
+      text-align: center;
+      font-size: 14px;
+      color: $client-primary-color;
+      @extend .df-regularFF !optional;
+    }
+
+    &-name {
+      margin: 0px 4px;
+      font-size: 14px;
+
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+    }
+
+    &-logo {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      background-repeat: no-repeat;
+      background-position: center center;
+      @extend .si-bgSize--contain !optional;
+    }
+  }
+}
+
+// search bar
+.df__searchBar {
+  justify-content: space-between;
+  align-items: center;
+  @extend %flexbox !optional;
+
+  &-lft {
+    flex-basis: 100%;
+  }
+
+  &-rgt {
+    padding-left: 16px;
+  }
+
+  &-cta {
+    cursor: pointer;
+    font-size: 14px;
+    @extend .df-boldFF !optional;
+    color: $cta-primary-color;
+  }
+}
+
+// Filter
+.df-filter {
+  &__wrap {
+    height: 100%;
+    border-top: 1px solid #e7e7e7;
+    justify-content: space-between;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+  }
+
+  &__lft {
+    width: 120px;
+    background: $white;
+    flex-shrink: 0;
+    height: 100%;
+  }
+
+  &__rgt {
+    padding: 0 12px;
+    flex-basis: 100%;
+    background: $duck-egg-blue;
+    position: relative;
+    z-index: 1;
+
+    ul {
+      padding-bottom: 70px;
+
+      li {
+        padding: 16px 0;
+        border-bottom: 1px solid #e7e7e7;
+      }
+    }
+  }
+
+  &__title {
+    cursor: pointer;
+    padding: 16px;
+    text-align: left;
+    font-size: 14px;
+    color: $text-body-grey;
+    @extend .df-boldFF !optional;
+
+    &.df-active {
+      span {
+        position: relative;
+        display: inline-block;
+        padding-right: 8px;
+
+        &::after {
+          content: "";
+          width: 4px;
+          height: 4px;
+          background: $status;
+          position: absolute;
+          left: auto;
+          top: 0;
+          right: 0;
+          @extend .df-borRad100 !optional;
+        }
+      }
+    }
+
+    &.df-selected {
+      color: $client-primary-color;
+      background: $duck-egg-blue;
+    }
+  }
+
+  &__subTxt {
+    display: block;
+    font-size: 12px;
+
+    span {
+      &:not(:last-child) {
+        padding-right: 8px;
+      }
+    }
+  }
+}
+
+// toast msg
+.df-toast {
+  &__wrap {
+    position: fixed;
+    top: 0;
+    z-index: -999999;
+    min-width: 320px;
+    max-width: 550px;
+    width: 100%;
+    padding: 16px 8px 24px;
+    color: $white;
+    text-align: center;
+    font-size: 12px;
+    opacity: 0;
+    @include transform(translateY(100%));
+    @include transition(transform 0.1s linear, opacity 0.1s linear);
+
+    &--topAppear {
+      @include transform(translateY(-100%));
+    }
+
+    &.df-success {
+      background: $green;
+    }
+
+    &.df-danger {
+      background: $status;
+    }
+
+    &.df-show {
+      z-index: 999999;
+      opacity: 1;
+      @include transform(translateY(0%));
+    }
+  }
+
+  &__title {
+    @extend .df-boldFF !optional;
+  }
+
+  &__text {
+    @extend .df-regularFF !optional;
+  }
+}
+
+// Fav team
+.df-favTeam {
+  &__wrap {
+  }
+
+  &__txt {
+    text-align: center;
+    font-size: 12px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+  }
+
+  &__list {
+    padding: 20px 0;
+
+    ul {
+      li {
+        cursor: pointer;
+        margin-bottom: 12px;
+
+        &.df-active {
+          .df-favTeam__cta {
+            border-color: $client-secondary-color;
+
+            &::before {
+              background: $client-secondary-color;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &__box {
+    padding: 16px;
+    background: $white;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-boxShadow--sm !optional;
+
+    &-lft {
+      flex-basis: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-rgt {
+      flex-basis: 50px;
+    }
+  }
+
+  &__thumb {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    background-position: center center;
+    background-repeat: no-repeat;
+    @extend .si-bgSize--contain !optional;
+  }
+
+  &__team {
+    padding-left: 16px;
+    flex-basis: 100%;
+
+    &-name {
+      font-size: 16px;
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+      margin-bottom: 4px;
+    }
+
+    &-stats {
+      font-size: 14px;
+      color: $steel;
+      @extend .df-regularFF !optional;
+    }
+  }
+
+  &__cta {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    background: $white;
+    border: 1px solid $steel;
+    justify-content: center;
+    align-items: center;
+    @extend .df-borRad100 !optional;
+    @extend %flexbox !optional;
+
+    &::before {
+      content: "";
+      position: absolute;
+      width: calc(100% - 10px);
+      height: calc(100% - 10px);
+      @extend .df-borRad100 !optional;
+    }
+  }
+}
+
+// Transfer
+.df-transfer {
+  &__wrap {
+  }
+
+  &__info {
+    position: relative;
+    color: $white;
+    margin: 0 -16px;
+    align-items: center;
+    justify-content: space-between;
+    @extend %flexbox !optional;
+
+    &.df-success {
+      background: $green;
+
+      .df-transfer__info-lft {
+        background: rgba($text-meta, 0.16);
+      }
+    }
+
+    &.df-danger {
+      background: $status;
+
+      .df-transfer__info-lft {
+        background: rgba($text-meta, 0.16);
+      }
+    }
+
+    &.df-active {
+      .df-transfer__info-lft {
+        @include transform(translateX(0%));
+      }
+
+      .df-transfer__info-mid {
+        display: none;
+      }
+      .df-transfer__info-rgt {
+        // font-size: 0;
+
+        i {
+          font-size: 16px;
+          margin-right: 4px;
+        }
+      }
+    }
+
+    &-lft,
+    &-mid,
+    &-rgt {
+      font-size: 14px;
+      padding: 12px 16px;
+      @extend .df-regularFF !optional;
+      line-height: 1.5;
+      @include transition(font-size 0.15s linear);
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 12px;
+      }
+
+      em {
+        font-size: 16px;
+        // margin-right: 4px;
+        @extend .df-boldFF !optional;
+      }
+    }
+
+    &-lft,
+    &-rgt {
+      span {
+        position: relative;
+        justify-content: flex-start;
+        align-items: baseline;
+        @extend %flexbox !optional;
+
+        i {
+          width: 20px;
+          height: 20px;
+          justify-content: center;
+          align-items: center;
+          @extend %flexbox !optional;
+        }
+      }
+    }
+
+    &-lft {
+      position: relative;
+      @include transform(translateX(-100%));
+      @include border-radius(0px 100px 100px 0px);
+      @include transition(transform 0.3s linear);
+
+      // @media screen and (min-width: $media-mobile-max) {
+      //   margin-left: -165px;
+      // }
+
+      span {
+        i {
+          margin-left: 12px;
+          align-self: center;
+          cursor: pointer;
+          border: 1px solid $white;
+          @extend .df-borRad100 !optional;
+
+          &::after {
+            content: "";
+            width: calc(100% - 8px);
+            height: 2px;
+            background: $white;
+          }
+        }
+      }
+    }
+
+    &-mid {
+      flex-grow: 1;
+      padding-right: 0;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+
+    &-rgt {
+      padding-left: 0;
+      cursor: pointer;
+      white-space: nowrap;
+      text-align: right;
+      justify-content: flex-end;
+      align-items: center;
+      @extend %flexbox !optional;
+      span {
+        position: relative;
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+        &:not(:last-child) {
+          margin-right: 10px;
+        }
+        i {
+          margin-right: 2px;
+          // &.dfi-reset {
+          //   margin-right: 0;
+          // }
+          // &::after {
+          //   content: "\e90c";
+          //   font-family: "dfi" !important;
+          //   font-style: normal;
+          // }
+        }
+      }
+    }
+  }
+
+  &__head {
+    font-size: 14px;
+    background: $white;
+    padding: 10px 16px;
+    margin-top: 4px;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-boxShadow--sm !optional;
+
+    span {
+      @extend .df-regularFF !optional;
+      color: $client-primary-color;
+
+      em {
+        @extend .df-boldFF--it !optional;
+      }
+    }
+
+    &--rowCol {
+      margin-bottom: 12px;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      span {
+        text-align: center;
+        font-size: 10px;
+        flex-basis: calc(100% / 4);
+        flex-grow: 1;
+        flex-shrink: 0;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+
+        em {
+          font-size: 16px;
+          display: block;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 18px;
+          }
+        }
+
+        &:not(:last-child) {
+          border-right: 1px solid $light-blue-grey-two;
+        }
+      }
+
+      .df-contest__viewMore {
+        display: inline-block;
+      }
+    }
+  }
+
+  &__status {
+    margin-bottom: 12px;
+    font-size: 14px;
+    color: $client-primary-color;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-regularFF !optional;
+
+    em {
+      @extend .df-boldFF !optional;
+    }
+
+    &--nmp {
+      margin-bottom: 0;
+      padding-left: 16px;
+    }
+  }
+
+  &__fix {
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    ul {
+      @extend %flexbox !optional;
+
+      li {
+        cursor: pointer;
+        font-size: 14px;
+        color: $steel;
+        letter-spacing: 0.18px;
+        @extend .df-boldFF !optional;
+
+        em {
+          @extend .df-regularFF !optional;
+        }
+
+        &:not(:last-child) {
+          padding-right: 32px;
+        }
+      }
+    }
+
+    .df-pitch__booster {
+      @extend .df-pitch__booster--overwrite;
+    }
+  }
+
+  &__tbl {
+    .df-tbl {
+      &__head {
+        position: relative;
+
+        &::after {
+          content: "\e90c";
+          font-family: "dfi" !important;
+          margin-left: calc(100% - 4%);
+          margin-top: -28px;
+          color: $client-primary-color;
+          float: left;
+          clear: both;
+        }
+
+        .df-tbl__cell {
+          text-align: center;
+          border-bottom: 1px solid $divider-stroke;
+          font-size: 12px;
+          color: $steel;
+          padding-bottom: 12px;
+          @extend .df-regularFF !optional;
+        }
+      }
+
+      &__body {
+        .df-tbl__cell {
+          width: 50%;
+          padding: 8px 0 0;
+
+          &--lft {
+            border-right: 1px solid $divider-stroke;
+          }
+
+          &--mid {
+            text-align: center;
+            width: 100px;
+          }
+        }
+      }
+
+      &__cell {
+        &--lft {
+          i {
+            padding: 0 8px;
+          }
+
+          .df-transfer__plyr {
+            margin: 0 16px 0 0;
+
+            &-name {
+              color: $steel;
+            }
+          }
+        }
+
+        &--rgt {
+          text-align: right;
+
+          i {
+            padding: 0 8px;
+            color: $dark-aquamarine;
+          }
+
+          .df-transfer__plyr {
+            margin: 0 0 0 16px;
+            flex-direction: row-reverse;
+          }
+        }
+      }
+    }
+  }
+
+  &__plyr {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    border-bottom: 1px solid $divider-stroke;
+    justify-content: flex-start;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &-thumb {
+      flex-shrink: 0;
+      height: 48px;
+      width: 48px;
+      background-repeat: no-repeat;
+      background-position: center bottom;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &-dtls {
+      flex-basis: 100%;
+      padding: 0 4px;
+    }
+
+    &-scr {
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+    }
+
+    &-name {
+      color: $client-primary-color;
+      font-size: 14px;
+      display: inline-grid;
+      @extend .df-boldFF !optional;
+      span {
+        @include text-truncate;
+      }
+    }
+
+    &-skill {
+      font-size: 10px;
+      @extend .df-regularFF !optional;
+      color: $client-primary-color;
+    }
+  }
+
+  &__icon {
+    position: relative;
+    color: $client-primary-color;
+    width: 80px;
+    height: 80px;
+    margin: 16px auto;
+    border: 2px solid $client-primary-color;
+    @extend .df-borRad100 !optional;
+
+    &::after {
+      content: "\e90b";
+      font-family: "dfi" !important;
+      height: 100%;
+      width: 100%;
+      font-size: 36px;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+    &--resetTransfer {
+      border: none;
+      &::after {
+        font-size: 80px;
+        content: "\e937";
+      }
+    }
+  }
+
+  &__content {
+    max-width: 80%;
+    margin: 0 auto;
+    text-align: center;
+    padding-bottom: 20px;
+    padding-top: 20px;
+    font-size: 14px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+
+    span {
+      display: block;
+    }
+  }
+
+  &__header {
+    padding: 16px 16px 4px;
+    text-align: center;
+    color: $client-primary-color;
+    font-size: 14px;
+    @extend .df-boldFF--it !optional;
+
+    &--fbox {
+      padding-top: 10px;
+      padding-bottom: 0;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      .df-pitch__booster {
+        @extend .df-pitch__booster--overwrite;
+      }
+    }
+  }
+}
+
+// Player Info Card
+.df-player {
+  &__head {
+    // min-height: 92px;
+    padding: 12px 16px 0;
+    justify-content: flex-start;
+    align-items: center;
+    background-image: url(../images/player-overlay-bg.svg?v=#{$image-version});
+    background-repeat: no-repeat;
+    background-position: bottom left;
+    @extend .si-bgSize--contain !optional;
+    @extend %flexbox !optional;
+  }
+
+  &__body {
+    padding-bottom: 70px;
+  }
+
+  &__thumb {
+    width: 100px;
+    height: 100px;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: top center;
+    @extend .si-bgSize--contain !optional;
+  }
+
+  &__stats {
+    flex-basis: 100%;
+
+    ul {
+      padding-left: 50px;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        padding-left: 80px;
+      }
+      li {
+        flex-grow: 1;
+        flex-basis: 100%;
+      }
+    }
+
+    &-txt {
+      font-size: 12px;
+      color: $white;
+      margin-bottom: 8px;
+      @extend .df-regularFF !optional;
+    }
+
+    &-num {
+      font-size: 28px;
+      color: $white;
+      @extend .df-boldFF--it !optional;
+      line-height: 1;
+    }
+  }
+
+  &__profile {
+    background: $white;
+    padding: 16px;
+    border-bottom: 1px solid rgba(#dcdcdc, 0.6);
+
+    &-row {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      &:first-child {
+        justify-content: space-between;
+      }
+
+      &:not(:last-child) {
+        margin-bottom: 6px;
+      }
+
+      &.df-injured,
+      &.df-unavailable,
+      &.df-banned,
+      &.df-in,
+      &.df-out {
+        .df-player__profile-icon {
+          position: relative;
+          justify-content: center;
+          align-items: center;
+          @extend %flexbox !optional;
+
+          &::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            @extend .df-borRad100 !optional;
+          }
+        }
+
+        .df-player__profile-txt {
+          span {
+            font-size: 12px;
+
+            @media screen and (min-width: $media-mobile-max) {
+              font-size: 14px;
+            }
+
+            em {
+              font-size: 8px;
+
+              @media screen and (min-width: $media-mobile-max) {
+                font-size: 12px;
+              }
+            }
+          }
+
+          a {
+            color: $client-primary-color;
+          }
+        }
+      }
+
+      &.df-in {
+        .df-player__profile-icon {
+          &::after {
+            background: $dark-aquamarine;
+          }
+        }
+
+        .df-player__profile-txt {
+          span {
+            &:first-child {
+              margin-right: 4px;
+              color: $dark-aquamarine;
+            }
+          }
+        }
+      }
+
+      &.df-out {
+        .df-player__profile-txt {
+          span {
+            @extend %flexbox !optional;
+          }
+        }
+
+        .df-player__profile-icon {
+          &::after {
+            background: $tomato-red;
+          }
+        }
+      }
+
+      &.df-banned,
+      &.df-injured,
+      &.df-unavailable {
+        .df-player__profile-icon {
+          &::after {
+            width: 12px;
+            height: 12px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            @extend .si-bgSize--contain !optional;
+            @include border-radius(0);
+          }
+        }
+
+        .df-player__profile-txt {
+          span {
+            &:first-child {
+              margin-right: 4px;
+              color: $tomato-red;
+            }
+          }
+        }
+      }
+
+      &.df-banned {
+        .df-player__profile-icon {
+          &::after {
+            background-image: url(../images/ic-warning.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-injured {
+        .df-player__profile-icon {
+          &::after {
+            background-image: url(../images/injured.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-unavailable {
+        .df-player__profile-icon {
+          &::after {
+            background-image: url(../images/unavailable.svg?v=#{$image-version});
+          }
+        }
+      }
+    }
+
+    &-name {
+      font-size: 20px;
+      @extend .df-boldFF !optional;
+      color: $client-primary-color;
+
+      &.df-unavailable,
+      &.df-injured {
+        position: relative;
+        display: inline-grid;
+        padding-right: 16px;
+        margin-right: 16px;
+
+        &::after {
+          content: "";
+          width: 12px;
+          height: 12px;
+          position: absolute;
+          left: auto;
+          right: 0;
+          top: 50%;
+          @include transform(translateY(-50%));
+        }
+
+        span {
+          @include text-truncate;
+        }
+      }
+
+      // &.df-unavailable {
+      //   &::after {
+      //     background: url(../images/booster-icon.svg?v=#{$image-version}) center center no-repeat;
+      //     @include background-size(contain);
+      //   }
+      // }
+
+      // &.df-injured {
+      //   &::after {
+      //     background: url(../images/injured.svg?v=#{$image-version}) center center no-repeat;
+      //     @include background-size(contain);
+      //   }
+      // }
+    }
+
+    &-cta {
+      display: none;
+      cursor: pointer;
+      text-align: right;
+      font-size: 12px;
+      flex-shrink: 0;
+      padding-left: 16px;
+      @extend .df-regularFF !optional;
+      color: $client-secondary-color;
+
+      i {
+        margin-left: 4px;
+        font-size: 10px;
+      }
+    }
+
+    &-icon,
+    &-logo {
+      width: 16px;
+      height: 16px;
+      margin-right: 4px;
+    }
+
+    &-logo {
+      background-position: center center;
+      background-repeat: no-repeat;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &-skill {
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+
+      span {
+        color: $text-body-grey;
+
+        &:not(:last-child) {
+          color: $client-primary-color;
+          @extend .df-boldFF !optional;
+        }
+      }
+    }
+
+    &-icon {
+      color: $steel;
+      font-size: 12px;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-txt {
+      font-size: 14px;
+      color: $steel;
+      @extend .df-regularFF !optional;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+  }
+
+  &__tbl {
+    margin: 12px 0;
+
+    .df-tbl {
+      width: 100%;
+      table-layout: fixed;
+
+      &__head {
+        .df-tbl__cell {
+          font-size: 12px;
+          color: $steel;
+          @extend .df-regularFF !optional;
+        }
+      }
+
+      &__body {
+        .df-tbl__cell {
+          font-size: 14px;
+          color: $client-primary-color;
+          @extend .df-regularFF !optional;
+        }
+
+        .df-tbl__row {
+          .df-tbl__cell {
+            border-top: 1px solid #e7e7e7;
+          }
+        }
+      }
+
+      &__cell {
+        padding: 8px 0px;
+
+        &--evt {
+        }
+
+        &--act,
+        &--pts {
+          text-align: right;
+        }
+      }
+    }
+  }
+
+  &--complete {
+    .df-accordion {
+      margin: 0;
+
+      &__box {
+        padding: 0;
+      }
+
+      &__head {
+        padding-bottom: 0;
+
+        &::after {
+          bottom: 4px;
+          right: 16px;
+        }
+      }
+
+      &__body {
+        border-top: none;
+        padding: 0 16px;
+
+        .df-player__tbl {
+          margin-top: 0;
+        }
+      }
+    }
+
+    .df-alMat {
+      &__box {
+        display: block;
+      }
+
+      &__lft {
+        width: 100%;
+        flex-basis: 100%;
+        margin-bottom: 8px;
+      }
+
+      &__rgt {
+        position: absolute;
+        bottom: 9px;
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+
+      &__type {
+        margin-bottom: 0;
+        margin-right: 8px;
+        color: $text-meta;
+      }
+    }
+
+    .df-player {
+      &__fBox {
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        &--head {
+          background: $white;
+          font-size: 12px;
+          padding: 8px 16px;
+          border-bottom: 1px solid #e7e7e7;
+          color: $text-meta;
+          @extend .df-regularFF !optional;
+        }
+
+        &--body {
+          padding: 8px 16px;
+          align-items: flex-start;
+          position: relative;
+          min-height: 58px;
+
+          .df-player__fItem--cent,
+          .df-player__fItem--pts {
+            font-size: 14px;
+            color: $client-primary-color;
+            @extend .df-boldFF !optional;
+          }
+        }
+      }
+
+      &__fItem {
+        &--mat {
+          flex-basis: 100%;
+        }
+
+        &--cent,
+        &--pts {
+          flex-shrink: 0;
+          flex-basis: 58px;
+        }
+
+        &--cent,
+        &--pts {
+          text-align: right;
+        }
+      }
+    }
+
+    .df-fix__team {
+      &-A,
+      &-B {
+        width: 30px;
+      }
+
+      &-name {
+        margin: 0;
+      }
+
+      &-vs {
+        flex-basis: 28px;
+      }
+
+      &-logo {
+        display: none;
+      }
+    }
+  }
+}
+
+// Pitch View
+.df-pitch {
+  &__wrap {
+    height: 100%;
+    min-height: 100%;
+    background: url(../images/pitch.jpg?v=#{$image-version}) no-repeat center
+      center;
+    flex-direction: column;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    @include background-size(cover);
+    @extend %flexbox !optional;
+    @include border-radius(8px 8px 0px 0px);
+
+    @media screen and (min-width: $media-mobile-max) {
+      overflow: hidden;
+      @include border-radius(0px);
+    }
+
+    .df-overlay {
+      &__header {
+        background: $client-primary-color;
+      }
+
+      &__close,
+      &__title {
+        color: $white;
+      }
+    }
+  }
+
+  &__area {
+    position: relative;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      overflow: auto;
+      background: none;
+    }
+  }
+
+  &__box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    min-height: 100%;
+    width: 100%;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding: 8px 0 0;
+    @extend %flexbox !optional;
+  }
+
+  &__row {
+    width: 100%;
+
+    &.df-view {
+      &--1 {
+      }
+
+      &--2 {
+      }
+
+      &--3 {
+      }
+
+      &--4 {
+      }
+
+      &--5,
+      &--6 {
+        .df-pitch__card {
+          flex-wrap: wrap;
+        }
+      }
+
+      &--5 {
+        .df-pitch__card {
+          .df-pitch__plyr {
+            flex-basis: 33.33%;
+            width: 33.33%;
+          }
+        }
+      }
+
+      &--6 {
+        .df-pitch__card {
+          .df-pitch__plyr {
+            flex-basis: 25%;
+            width: 25%;
+          }
+        }
+      }
+    }
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 10px;
+    color: rgba($white, 0.8);
+    margin-bottom: 4px;
+    // margin-bottom: 8px;
+    @extend .df-regularFF !optional;
+  }
+
+  &__card {
+    // padding: 8px 0;
+    padding: 4px 0;
+    justify-content: space-evenly;
+    align-items: center;
+    @extend %flexbox !optional;
+  }
+
+  &__plyr {
+    will-change: transform;
+    margin: 0 auto;
+    position: relative;
+    text-align: center;
+    @include animation("df-zoomIn .1s linear");
+
+    &.df-triBoos,
+    &.df-cap,
+    &.df-vcap {
+      .df-pitch__plyr-thumb {
+        position: relative;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: auto;
+          right: -16px;
+          top: 0;
+          width: 16px;
+          height: 16px;
+          background: $white;
+          color: $client-primary-color;
+          font-size: calc(100% - 8px);
+          justify-content: center;
+          align-items: center;
+          @extend %flexbox !optional;
+          @extend .df-boldFF !optional;
+          @extend .df-borRad100 !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 18px;
+            height: 18px;
+            font-size: calc(100% - 4px);
+          }
+        }
+      }
+    }
+
+    &.df-triBoos {
+      .df-pitch__plyr-thumb {
+        &::after {
+          content: "\e91e";
+          font-family: dfi !important;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: calc(100% - 6px);
+          }
+        }
+      }
+    }
+
+    &.df-cap {
+      .df-pitch__plyr-thumb {
+        &::after {
+          content: "C";
+        }
+      }
+    }
+
+    &.df-vcap {
+      .df-pitch__plyr-thumb {
+        &::after {
+          content: "VC";
+        }
+      }
+    }
+
+    &.df-uncap {
+      .df-pitch__flight {
+        visibility: visible;
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/uncapped.svg?v=#{$image-version});
+        background-repeat: no-repeat;
+        background-position: center center;
+        @extend .si-bgSize--contain !optional;
+
+        .dfi-flight {
+          display: none;
+        }
+      }
+    }
+
+    &.df-flight {
+      .df-pitch__flight {
+        visibility: visible;
+      }
+    }
+
+    &.df-unavailable,
+    &.df-injured,
+    &.df-banned {
+      .df-pitch__plyr-injured {
+        position: absolute;
+        left: auto;
+        right: 8px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        @extend .si-bgSize--contain !optional;
+
+        @media screen and (max-width: $media-mobile-min) {
+          right: -4px;
+        }
+      }
+    }
+
+    &.df-injured {
+      .df-pitch__plyr-injured {
+        top: 32px;
+        width: 14px;
+        height: 14px;
+        background-image: url(../images/injured.svg?v=#{$image-version});
+
+        // @media screen and (min-width: $media-mobile-max) {
+        //   top: 36px;
+        // }
+      }
+    }
+
+    &.df-banned {
+      .df-pitch__plyr-thumb,
+      .df-pitch__plyr-name,
+      .df-pitch__plyr-num {
+        opacity: 0.5;
+      }
+
+      .df-pitch__plyr-name span {
+        background: $status;
+      }
+
+      .df-pitch__plyr-injured {
+        top: 22px;
+        opacity: 1;
+        width: 18px;
+        height: 16px;
+        background-image: url(../images/ic-warning.svg?v=#{$image-version});
+      }
+    }
+
+    &.df-unavailable {
+      .df-pitch__plyr-injured {
+        top: 22px;
+        opacity: 1;
+        width: 16px;
+        height: 16px;
+        background-image: url(../images/unavailable.svg?v=#{$image-version});
+      }
+    }
+
+    &.df-in,
+    &.df-out {
+      .df-pitch__plyr-name {
+        &::after {
+          content: "";
+          position: absolute;
+          left: -3px;
+          top: 50%;
+          width: 6px;
+          height: 6px;
+          @extend .df-borRad100 !optional;
+          @include transform(translateY(-50%));
+        }
+      }
+    }
+
+    &.df-in {
+      .df-pitch__plyr-name {
+        &::after {
+          background: $green;
+        }
+      }
+    }
+
+    &.df-out {
+      .df-pitch__plyr-name {
+        &::after {
+          background: $status;
+        }
+      }
+    }
+
+    &.df-teamA {
+      .df-pitch__plyr-name {
+        span {
+          color: $client-primary-color;
+          background-color: $white;
+        }
+      }
+
+      .df-pitch__team {
+        color: $client-primary-color;
+        background-color: $white;
+      }
+    }
+
+    &.df-teamB {
+      .df-pitch__plyr-name {
+        span {
+          background-color: $default;
+          color: $white;
+        }
+      }
+
+      .df-pitch__team {
+        background-color: $default;
+        color: $white;
+      }
+    }
+
+    &-box {
+      position: relative;
+      display: inline-block;
+      width: 90px;
+      cursor: pointer;
+
+      @media screen and (max-width: $media-mobile-min) {
+        width: 80px;
+      }
+    }
+
+    &-icon {
+      position: absolute;
+      left: -16px;
+      top: auto;
+      bottom: 0;
+      height: 100%;
+      font-size: 10px;
+      text-align: center;
+      color: $light-grey-blue;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: flex-end;
+      @extend %flexbox !optional;
+
+      @media screen and (max-width: $media-mobile-min) {
+        left: -14px;
+      }
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 12px;
+      }
+    }
+
+    &-thumb {
+      position: relative;
+      margin: 0 auto;
+      width: 40px;
+      height: 40px;
+      background-repeat: no-repeat;
+      background-position: center top;
+      @extend .si-bgSize--contain !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        width: 48px;
+        height: 48px;
+      }
+    }
+
+    &-name {
+      text-align: center;
+      margin: 0 auto;
+      position: relative;
+      width: 72px;
+      font-size: 12px;
+      color: $white;
+      @extend .df-regularFF !optional;
+
+      @media screen and (max-width: $media-mobile-min) {
+        width: calc(100% - 10px);
+      }
+
+      span {
+        background: $client-primary-color;
+        display: block;
+        padding: 2px 6px;
+        @extend .df-borRad100 !optional;
+        @include text-truncate;
+      }
+    }
+
+    &-num {
+      font-size: 12px;
+      color: $white;
+      @extend .df-boldFF !optional;
+
+      em {
+        font-size: 10px;
+        @extend .df-regularFF !optional;
+      }
+    }
+  }
+
+  &__flight {
+    display: none;
+    visibility: hidden;
+  }
+
+  &__team {
+    margin-bottom: 2px;
+    padding: 0 2px;
+    background-color: rgba(#31353e, 0.8);
+    font-size: 10px;
+    color: $white;
+    @extend .df-regularFF !optional;
+    @include border-radius(2px);
+  }
+
+  &__fix {
+    position: relative;
+    padding: 12px;
+    background: rgba(#31353e, 0.4);
+    font-size: 12px;
+    color: $white;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+
+    .df-fix__team {
+      &-logo {
+        width: 16px;
+        height: 16px;
+        @media screen and (min-width: $media-mobile-max) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+
+      &-name {
+        font-size: 12px;
+        padding: 2px;
+        color: $white;
+        @extend .df-regularFF !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 14px;
+        }
+      }
+
+      &-vs {
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+      }
+
+      .df-teamA {
+        .df-fix__team-name {
+          color: $client-primary-color;
+          background-color: $white;
+          @extend .df-borRad2 !optional;
+        }
+      }
+
+      .df-teamB {
+        .df-fix__team-name {
+          background-color: #31353e;
+          color: $white;
+          @extend .df-borRad2 !optional;
+        }
+      }
+
+      &-A,
+      &-B {
+        width: auto;
+      }
+
+      &-vs {
+        font-size: 10px;
+        flex-basis: auto;
+        padding: 0 4px;
+        color: $white;
+      }
+
+      &-B {
+        flex-direction: row-reverse;
+      }
+    }
+
+    .df-pitch__booster {
+      position: relative;
+      left: 0;
+      top: 0;
+      @include transform(translateX(0%) translateY(0%));
+
+      .df-cmo__pickPlayer-booster-icon {
+        width: 24px;
+        height: 24px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+
+    &-lft {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+      @extend .df-boldFF !optional;
+
+      em {
+        margin: 0 4px;
+        @extend .df-regularFF !optional;
+      }
+
+      .df-cmo__fix {
+        padding: 0;
+
+        &-lft {
+          ul {
+            li {
+              color: $white;
+            }
+          }
+        }
+      }
+    }
+
+    &-rgt {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      @include transform(translate(-50%, -50%));
+      @extend .df-regularFF !optional;
+
+      em {
+        @extend .df-boldFF !optional;
+      }
+    }
+  }
+
+  &__freshView {
+    text-align: center;
+    padding: 24px;
+    background: rgba($black, 0.3);
+    color: $white;
+    @extend .df-boldFF !optional;
+    font-size: 14px;
+    width: calc(100% - 4px * 30);
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+
+    &-cta {
+      margin-top: 16px;
+      display: block;
+
+      @media screen and (min-width: $media-mobile-max) {
+        display: none;
+      }
+    }
+  }
+
+  &__booster {
+    // padding-left: 8px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+    @include transform(translateX(-50%) translateY(-50%));
+    // display: none;
+
+    &--reversed {
+      background: #ffebeb;
+      padding: 4px;
+      @extend .df-borRad100 !optional;
+    }
+
+    .df-cmo__pickPlayer-booster-icon {
+      background-color: $white;
+    }
+  }
+}
+
+// Contest Page
+.df-contest {
+  &--won {
+    .df-plyrSel__list {
+      @include linearGradient(159deg, $yellow-tan 28%, $marigold 73%);
+
+      ul {
+        li {
+          &.df-remove {
+            background-color: transparent !important;
+          }
+
+          .df-tbl__cell--pts,
+          .df-tbl__cell--amt em {
+            color: $client-primary-color !important;
+          }
+        }
+      }
+    }
+  }
+
+  &--create {
+    &.df-contest__box {
+      position: fixed;
+      box-shadow: none;
+      position: fixed;
+      min-height: 100px;
+      max-width: 550px;
+      width: 100%;
+      left: 0;
+      bottom: 52px;
+      top: auto;
+      background: linear-gradient(
+        360deg,
+        #aaaaaa 33.33%,
+        rgba(170, 170, 170, 0) 100%
+      );
+      justify-content: center;
+      align-items: flex-end;
+      @extend %flexbox !optional;
+      // padding: 0 16px 20px;
+      @media screen and (min-width: $media-mobile-max) {
+        min-height: 130px;
+      }
+      .df-contest__cta--fBox {
+        width: 100%;
+
+        ul {
+          @extend %flexbox !optional;
+          justify-content: center;
+          align-items: center;
+        }
+      }
+    }
+
+    .df-contest__title {
+      text-align: center;
+      border-bottom: 1px solid #e7e7e7;
+      padding-bottom: 12px;
+
+      span:last-child {
+        font-size: 14px;
+        // @extend .df-boldFF !optional;
+      }
+    }
+  }
+
+  &__wrap {
+    padding-top: 12px;
+    background: $duck-egg-blue;
+    position: relative;
+    padding: 16px 0;
+    // &--landingScr {
+    //   padding-bottom: 156px;
+    //   @media screen and (min-width: $media-mobile-max) {
+    //     padding-bottom: 170px;
+    //   }
+    // }
+    &--input {
+      min-height: auto;
+      padding-top: 16px;
+
+      .df-contest__box {
+        padding: 16px;
+        box-shadow: none;
+      }
+
+      .df-form {
+        &__control {
+          margin-bottom: calc(16px * 2);
+
+          &:last-of-type {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      .df-input {
+        input {
+          padding-left: 0;
+          padding-right: 0;
+          background: transparent;
+          border-bottom: 1px solid #d5d5d5;
+          @include border-radius(0);
+          @extend .df-regularFF !optional;
+        }
+      }
+
+      // .df-cmo__footer {
+      //   padding: 0;
+
+      //   ul {
+      //     li {
+      //       padding: 0;
+
+      //       .df-btn {
+      //         @include border-radius(0);
+      //       }
+      //     }
+      //   }
+      // }
+    }
+    &--homePts {
+      .df-booster__list ul li:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      .df-contest__box {
+        min-height: auto;
+        padding: 16px;
+        box-shadow: none;
+      }
+      .df-transfer__head {
+        margin-top: 16px;
+        margin-bottom: 0;
+        box-shadow: none;
+        span {
+          color: $disabled;
+          em {
+            color: $client-primary-color;
+          }
+        }
+      }
+    }
+    .df-transfer {
+      &__wrap {
+        margin-top: 16px;
+        background: $white;
+        @extend .df-boxShadow--sm !optional;
+      }
+
+      &__info {
+        margin: 0;
+        color: $cobalt-two;
+
+        &-mid {
+        }
+
+        &-rgt {
+          span i {
+            @extend .df-boldFF !optional;
+            margin-right: 0;
+          }
+        }
+      }
+    }
+
+    .df-noDataFound {
+      padding-top: 16px;
+    }
+  }
+
+  &__mHead {
+    background: $white;
+    margin: 0 -16px;
+
+    &.df-contest--team {
+      .df-contest__thumb {
+        @include border-radius(0);
+        @extend .si-bgSize--contain !optional;
+      }
+    }
+
+    .df-contest {
+      &__box {
+        &-head {
+          min-height: 76px;
+        }
+      }
+
+      &__title {
+        span {
+          &:first-child {
+            color: $client-primary-color;
+          }
+        }
+      }
+    }
+  }
+
+  &__box {
+    overflow: hidden;
+    position: relative;
+    min-height: 4 * 26px;
+    background: $white;
+    box-shadow: 0px 2px 4px rgba(1, 1, 6, 0.05);
+    // @extend .df-boxShadow--sm !optional;
+    // @extend .df-borRad8 !optional;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &.si-abandone {
+      .df-contest__dateLine {
+        // justify-content: flex-start;
+
+        span:last-child {
+          text-align: left;
+        }
+      }
+    }
+
+    &--team {
+      .df-contest__thumb {
+        @include border-radius(0);
+        @extend .si-bgSize--contain !optional;
+      }
+    }
+
+    &-top {
+      border-bottom: 1px solid #e7e7e7;
+      // @include linearGradient(
+      //   top,
+      //   rgba($client-primary-color, 0.1) 0%,
+      //   rgba($client-primary-color, 0) 100%
+      // );
+      .df-lBoard__tbl {
+        border-top: 1px solid #e7e7e7;
+        .df-plyrSel__list ul li {
+          background-color: $white;
+        }
+      }
+      .df-plyrSel__list {
+        padding-bottom: 0 !important;
+      }
+    }
+
+    &.df-teamPreview {
+      .df-transfer__status {
+        padding-left: 16px;
+        padding-right: 16px;
+
+        span {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      .df-cmo__fix {
+        padding: 0 16px 12px;
+        position: relative;
+        align-items: flex-end;
+
+        &-lft ul li {
+          color: $steel;
+          span {
+            @extend .df-boldFF--it !optional;
+          }
+        }
+
+        &-rgt {
+          color: $client-primary-color;
+          cursor: default;
+          @extend .df-regularFF !optional;
+
+          em {
+            margin-right: 4px;
+            @extend .df-boldFF !optional;
+          }
+          .df-pitch__booster {
+            @extend .df-pitch__booster--overwrite;
+          }
+        }
+      }
+
+      .df-contest {
+        &__box {
+          &-head {
+            color: $client-primary-color;
+            justify-content: space-between;
+
+            span {
+              font-size: 14px;
+              justify-content: flex-start;
+              align-items: center;
+              @extend %flexbox !optional;
+              @extend .df-boldFF !optional;
+
+              &.icon-share {
+                cursor: pointer;
+                margin-left: 24px;
+                width: 20px;
+                height: 20px;
+                flex-basis: 20px;
+                flex-shrink: 0;
+                font-size: 18px;
+                text-align: center;
+                align-items: center;
+                justify-content: center;
+                @extend %flexbox !optional;
+              }
+
+              &.df-transfer__overall {
+                color: $client-primary-color;
+                @extend .df-regularFF !optional;
+
+                em {
+                  margin-right: 4px;
+                  @extend .df-boldFF !optional;
+                }
+              }
+            }
+          }
+
+          &-body {
+            padding-bottom: 16px;
+          }
+        }
+
+        &__cta {
+          padding-top: 0;
+          padding-bottom: 0;
+        }
+      }
+    }
+
+    &.df-freezed {
+      .df-cmo__fix {
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          right: 0;
+          top: auto;
+          bottom: 0;
+          height: 1px;
+          margin: 0 auto;
+          width: calc(100% - 16px * 2);
+          background: #e7e7e7;
+        }
+      }
+    }
+
+    &.df-live {
+      .df-contest__box-head {
+        justify-content: flex-start;
+      }
+      .df-scoreBoard__lbl {
+        font-size: 10px !important;
+        background-color: $status;
+        margin-left: 8px;
+        padding-left: 12px;
+        padding-right: 8px;
+        @extend .df-borRad4 !optional;
+        position: relative;
+        @extend .df-mediumFF !optional;
+        &::after {
+          content: "";
+          position: absolute;
+          left: 4px;
+          top: 50%;
+          background-color: $white;
+          width: 4px;
+          height: 4px;
+          @extend .df-borRad100 !optional;
+          @include transform(translateY(-50%));
+        }
+      }
+    }
+
+    &-thumb {
+      padding: 4px 16px 12px;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      &-txt {
+        flex-basis: 100%;
+
+        span {
+          display: block;
+
+          &:first-child {
+            @extend .df-regularFF !optional;
+            font-size: 12px;
+            color: $steel;
+            margin-bottom: 4px;
+          }
+
+          &:last-child {
+            font-size: 14px;
+            @extend .df-boldFF !optional;
+            color: $client-primary-color;
+          }
+        }
+      }
+
+      &-img {
+        flex-basis: 44px;
+        flex-shrink: 0;
+
+        img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+      }
+    }
+
+    &-head {
+      position: relative;
+      padding: 12px 16px;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      .df-pitch__booster {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        @include transform(translateX(-50%) translateY(-50%));
+      }
+    }
+    &-strap {
+      padding: 16px;
+      padding-top: 0;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      span {
+        font-size: 14px;
+        @extend .df-regularFF !optional;
+      }
+      .df-matchNumber {
+        color: $black;
+      }
+      .df-matchpts {
+        color: $client-primary-color;
+      }
+      .df-matchCount {
+        font-size: 12px;
+        color: $disabled;
+        em {
+          font-size: 18px;
+          color: $client-primary-color;
+          @extend .df-boldFF--it !optional;
+        }
+      }
+    }
+    &-prize {
+      padding: 8px 16px;
+      background-color: #ffeef3;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      font-size: 14px;
+      color: $client-primary-color;
+      @extend .df-boldFF--it !optional;
+      &-thumb {
+        flex-shrink: 0;
+        flex-basis: 40px;
+        width: 40px;
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+      &-title {
+        margin-left: 8px;
+      }
+    }
+    &-foot {
+      cursor: pointer;
+      padding: 12px 16px;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      span {
+        font-size: 14px;
+        @extend .df-regularFF !optional;
+        color: $client-primary-color;
+      }
+    }
+    &-scoreCard {
+      padding: 12px 16px 0;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+      &-cta {
+        font-size: 14px;
+        color: $cta-primary-color;
+        cursor: pointer;
+        i {
+          font-size: 12px;
+        }
+      }
+      &-pts {
+        font-size: 12px;
+        color: $client-primary-color;
+        em {
+          font-size: 16px;
+          @extend .df-boldFF !optional;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    padding: 16px;
+    &.df-contest__cta--fBox {
+      ul {
+        justify-content: space-between;
+        align-items: center;
+        @extend %flexbox !optional;
+        @media screen and (min-width: $media-mobile-max) {
+          flex-direction: column;
+        }
+        li {
+          margin: 0 8px;
+          flex-grow: 1;
+          &:not(:last-child) {
+            margin-bottom: 0;
+          }
+          @media screen and (min-width: $media-mobile-max) {
+            margin: 0;
+            &:not(:last-child) {
+              margin-bottom: 16px;
+            }
+          }
+        }
+      }
+    }
+
+    ul {
+      li {
+        width: 100%;
+
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  &__pitch {
+    cursor: pointer;
+    margin: 0 16px;
+    overflow: hidden;
+    min-height: 95px;
+    height: auto;
+    _height: 95px;
+    background: url(../images/my-team-pitch.png?v=#{$image-version}) no-repeat
+      center center;
+    @include background-size(cover);
+    @extend .df-borRad8 !optional;
+
+    &-view {
+      padding: 16px 0 0;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      @media screen and (max-width: $media-mobile-sm-min) {
+        display: block;
+        // flex-direction: column;
+        padding-top: 0;
+      }
+
+      &-lft,
+      &-rgt {
+        flex-basis: 50%;
+        // padding: 8px 16px;
+        padding: 0 20px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          padding: 0 32px;
+        }
+
+        @media screen and (max-width: $media-mobile-sm-min) {
+          width: 100%;
+        }
+      }
+
+      &-lft {
+        flex-basis: auto;
+        padding-right: 0;
+      }
+
+      &-rgt {
+        .df-pitch__plyr {
+          &:not(:last-child) {
+            @media screen and (min-width: $media-mobile-max) {
+              margin-right: 48px;
+            }
+          }
+
+          &-box {
+            @media screen and (min-width: $media-mobile-max) {
+              width: 100%;
+
+              .df-pitch__plyr-injured {
+                top: 34px;
+                right: -2px;
+              }
+            }
+          }
+        }
+
+        // flex-basis: calc(100% - 0px);
+        @media screen and (max-width: $media-mobile-sm-min) {
+          padding: 0;
+          margin: 8px 0;
+        }
+      }
+
+      &-lft {
+        @media screen and (max-width: $media-mobile-sm-min) {
+          padding: 8px 16px;
+          justify-content: flex-start;
+          align-items: center;
+          @include flexbox;
+          @include linearGradient(
+            90deg,
+            rgba(#006231, 0.2) 20.58%,
+            rgba(#006231, 0) 42.84%
+          );
+        }
+      }
+
+      .df-pitch__card {
+        padding: 0;
+
+        @media screen and (max-width: $media-mobile-sm-min) {
+          justify-content: flex-start;
+
+          .df-pitch__plyr {
+            margin: 0;
+            flex-basis: calc(100% / 3);
+            width: calc(100% / 3);
+            text-align: left;
+          }
+        }
+      }
+    }
+
+    &-tabs {
+      background: rgba($dark-blue-green, 0.5);
+      margin-top: 16px;
+
+      @media screen and (max-width: $media-mobile-sm-min) {
+        margin-top: 0;
+      }
+
+      ul {
+        white-space: nowrap;
+        justify-content: space-between;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        li {
+          padding: 0 16px;
+          flex-basis: 100%;
+          text-align: center;
+          font-size: 14px;
+          color: $light-grey-blue;
+          @extend .df-regularFF !optional;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 20px;
+          }
+
+          em {
+            color: $white;
+          }
+
+          span {
+            display: inline-block;
+            padding: 8px 4px 12px;
+            position: relative;
+          }
+        }
+      }
+    }
+
+    &-txt {
+      color: $white;
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+    }
+
+    &-num {
+      font-size: 24px;
+      color: $white;
+      @extend .df-borRad100 !optional;
+      @extend .df-boldFF--it !optional;
+
+      @media screen and (max-width: $media-mobile-sm-min) {
+        background-color: rgba($white, 0.2);
+        margin-left: 8px;
+        font-size: 12px;
+        padding: 2px 8px;
+      }
+    }
+
+    &-teamName {
+      padding: 8px 20px;
+      color: $white;
+      background-color: rgba($black, 0.2);
+
+      @media screen and (min-width: $media-mobile-max) {
+        padding: 8px 24px;
+      }
+    }
+  }
+
+  &__invite {
+    &-head {
+      padding: 16px;
+      background-color: $client-primary-color;
+      // background: url(../images/Create-contest-bg@3x.jpg?v=#{$image-version}) $client-secondary-color no-repeat top right;
+      min-height: 128px;
+      margin-top: -12px;
+      color: $white;
+      flex-direction: column;
+      justify-content: flex-end;
+      align-items: center;
+      text-align: center;
+      @extend %flexbox !optional;
+      // @include background-size(contain);
+    }
+
+    &-body {
+      text-align: center;
+      padding: 24px 16px;
+    }
+
+    &-title {
+      font-size: 20px;
+      margin-bottom: 4px;
+      @extend .df-boldFF !optional;
+
+      &-subs {
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+      }
+    }
+  }
+
+  &__share {
+    &-bar,
+    &-lbl {
+      color: $client-primary-color;
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+      margin-bottom: 10px;
+    }
+
+    &-code {
+      padding: 10px;
+      border: 1px dashed #95a1a8;
+      color: $client-primary-color;
+      font-size: 20px;
+      @extend .df-blackBoldFF !optional;
+      justify-content: center;
+      align-items: center;
+      @extend %inline-flex !optional;
+      @extend .df-borRad4 !optional;
+
+      i {
+        cursor: pointer;
+        margin-left: 10px;
+      }
+    }
+
+    &-clipboard {
+      margin-top: 16px;
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+      color: $client-secondary-color;
+
+      span {
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        i {
+          font-size: 16px;
+          margin-left: 8px;
+          color: $client-primary-color;
+        }
+      }
+    }
+  }
+
+  &__thumb {
+    cursor: pointer;
+    background: no-repeat center center;
+    overflow: hidden;
+    flex-shrink: 0;
+    margin-right: 16px;
+    width: 52px;
+    height: 52px;
+    @extend .df-borRad100 !optional;
+    @include background-size(cover);
+  }
+
+  &__title {
+    flex-basis: 100%;
+    cursor: pointer;
+
+    span {
+      display: block;
+      @extend .df-regularFF !optional;
+      flex-basis: 100%;
+      color: $client-primary-color;
+
+      em {
+        @extend .df-boldFF !optional;
+      }
+
+      &:first-child {
+        font-size: 20px;
+        @extend .df-boldFF--it !optional;
+      }
+
+      &:last-child {
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+        cursor: pointer;
+      }
+    }
+    &-matchNumber {
+      color: $text-body-grey;
+    }
+  }
+
+  &__shareIcon {
+    color: $client-primary-color;
+    font-size: 16px;
+    cursor: pointer;
+    width: calc(32px + 4px * 2);
+    height: calc(32px + 4px * 2);
+    flex-shrink: 0;
+    justify-content: center;
+    align-items: flex-start;
+    margin-right: -16px;
+    @extend %flexbox !optional;
+  }
+
+  &__dateLine {
+    color: $client-primary-color;
+    padding: 16px;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    span {
+      font-size: 14px;
+
+      &:last-child {
+        text-align: right;
+        cursor: pointer;
+        .si-info__fbox {
+          justify-content: flex-end;
+        }
+      }
+
+      em {
+        font-size: 16px;
+        display: block;
+        @extend .df-boldFF !optional;
+
+        i {
+          margin-left: 4px;
+        }
+      }
+    }
+  }
+
+  &__matchPts {
+    font-size: 14px;
+    color: $white;
+    padding-left: 12px;
+    @extend .df-boldFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+
+    span {
+      padding-left: 16px;
+      position: relative;
+
+      &::after {
+        content: "";
+        width: 4px;
+        height: 4px;
+        position: absolute;
+        left: 0;
+        top: 50%;
+        background: #aeaeae;
+        @include transform(translateY(-50%));
+        @extend .df-borRad100 !optional;
+      }
+    }
+  }
+
+  &__text {
+    font-size: 14px;
+    padding: 0 16px 16px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+
+    em {
+      @extend .df-boldFF !optional;
+    }
+  }
+
+  &__viewMore {
+    // padding-right: 10px;
+    position: relative;
+
+    &.df-dark--tooltip {
+      padding-top: 2px;
+
+      &:hover {
+        @media screen and (min-width: $media-mobile-max) {
+          .df-contest__viewMore-menu {
+            pointer-events: all;
+            z-index: 11;
+            opacity: 1;
+            @include transform(translateY(0em));
+          }
+        }
+      }
+
+      .df-contest__viewMore-icon {
+        width: auto;
+        font-size: 14px;
+        margin-left: 2px;
+      }
+
+      .df-contest__viewMore-menu {
+        background-color: #7d879f;
+        color: $white;
+        right: calc(100% - 36px);
+        min-width: 128px;
+        margin-top: 8px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          min-width: 150px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          top: -5px;
+          right: 22px;
+          left: auto;
+          width: 10px;
+          height: 10px;
+          background-color: #7d879f;
+          @include transform(rotate(45deg));
+        }
+      }
+    }
+
+    &.df-active {
+      .df-contest__viewMore-menu {
+        pointer-events: all;
+        z-index: 11;
+        opacity: 1;
+        @include transform(translateY(0em));
+      }
+    }
+
+    &-text {
+      span {
+        color: $white;
+        display: block;
+      }
+    }
+
+    &-icon {
+      text-align: right;
+      width: 10px;
+      cursor: pointer;
+      color: $client-primary-color;
+    }
+
+    &-menu {
+      position: absolute;
+      top: auto;
+      right: 0;
+      left: auto;
+      padding: 8px;
+      background: $white;
+      z-index: -9999;
+      pointer-events: none;
+      opacity: 0;
+      @include box-shadow(0, 2px, 6px, 0, rgba($black, 0.2));
+      @include border-radius(4px);
+      @include transform(translateY(1em));
+      @include transition(transform 0.2s ease-in-out);
+
+      ul {
+        li {
+          cursor: pointer;
+          padding: 0 !important;
+          background: transparent !important;
+          border: none !important;
+          color: $client-primary-color;
+          font-size: 14px;
+          @extend .df-regularFF !optional;
+          justify-content: flex-start;
+          align-items: center;
+          @extend %flexbox !optional;
+
+          &:not(:last-child) {
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+
+    &-lft {
+      margin-right: 8px;
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      background-color: $very-light-purple;
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      @extend .df-borRad100 !optional;
+    }
+
+    &-rgt {
+      white-space: nowrap;
+    }
+  }
+}
+
+// leaderboard
+.df-lBoard {
+  &__tbl {
+    .df-plyrSel {
+      &__list {
+        padding-bottom: 32px;
+
+        &.df-CompareTeam {
+          ul li {
+            background: $light-blue-grey-two;
+            border-bottom-color: $light-blue-grey;
+
+            &.df-remove {
+              background: $duck-egg-blue-two;
+              opacity: 0.4;
+              cursor: default;
+            }
+          }
+        }
+
+        ul li {
+          padding: 12px 0;
+
+          &.df-disabled {
+            background-color: rgba($duck-egg-blue, 0.6);
+          }
+        }
+      }
+
+      &__wrap {
+        .df-tbl {
+          padding: 0 12px;
+
+          &__head {
+            .df-tbl__cell {
+              &--name,
+              &--pts,
+              &--amt {
+                cursor: default;
+              }
+            }
+          }
+
+          &__body {
+            .df-tbl__cell {
+              &--name {
+                justify-content: flex-start;
+                align-items: center;
+                @extend %flexbox !optional;
+              }
+
+              &--pts {
+              }
+
+              &--amt {
+                em {
+                  @extend .df-regularFF !optional;
+                  color: $steel;
+                }
+              }
+            }
+          }
+
+          &__cell {
+            &--pts {
+              width: 100px;
+            }
+
+            &--amt {
+              width: 80px;
+
+              .df-contest__viewMore {
+                padding-left: 10px;
+                display: inline-block;
+
+                &-icon {
+                  color: #7d879f;
+                }
+              }
+            }
+
+            &--pts,
+            &--amt {
+              padding-right: 4px;
+              text-align: right;
+
+              @media screen and (min-width: $media-mobile-max) {
+                width: 120px;
+              }
+            }
+          }
+        }
+      }
+
+      &__thumb {
+        flex-shrink: 0;
+        width: 40px;
+        height: 40px;
+        margin-right: 8px;
+        margin-bottom: 0;
+        @include background-size(cover);
+        @extend .df-borRad100 !optional;
+      }
+
+      &__name {
+        padding-right: 0;
+        @extend .df-regularFF !optional;
+      }
+    }
+  }
+}
+
+// player stats
+.df-playerStats {
+  &__wrap {
+    &-nav {
+      .df-playerStats__box {
+        padding-bottom: 84px;
+
+        @media screen and (max-width: $media-mobile-sm-min) {
+          padding-bottom: 104px;
+        }
+      }
+
+      .df-playerStats__legends {
+        bottom: 52px;
+      }
+    }
+  }
+
+  &-rowHead {
+    border-bottom: 1px solid $disabled;
+    font-size: 12px;
+    color: $steel;
+    @extend .df-regularFF !optional;
+  }
+
+  &-rowBody {
+    min-height: 41px;
+    font-size: 14px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+  }
+
+  &-tab {
+    margin: 0px -16px;
+    padding: 10px;
+    background: $duck-egg-blue;
+
+    .df-cmo__info {
+      border-bottom: none;
+      background: transparent;
+      padding: 0;
+    }
+
+    .df-cmo__tabs {
+      overflow: hidden;
+      padding: 0;
+      margin: 0;
+      @include box-shadow(0, 0, 0, 0, transparent);
+      @extend .df-borRad100 !optional;
+
+      ul {
+        position: relative;
+        z-index: 1;
+
+        li {
+          flex-grow: 1;
+          padding: 0;
+          color: $cta-primary-color;
+          font-size: 12px;
+          @extend .df-regularFF !optional;
+
+          &.df-active {
+            color: $white;
+
+            span {
+              &::after {
+                z-index: -1;
+                height: 100%;
+                @extend .df-borRad100 !optional;
+              }
+            }
+          }
+
+          span {
+            padding: 10px 16px;
+
+            &::after {
+              height: 100%;
+              @include transition(none 0.3s ease-in);
+            }
+          }
+        }
+      }
+
+      &-underline {
+        height: 100%;
+        @extend .df-borRad100 !optional;
+      }
+    }
+  }
+
+  &__box {
+    padding-bottom: 4px * 8;
+    overflow: hidden;
+    width: 100%;
+    border-top: 1px solid $disabled;
+    background: $white;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+
+    @media screen and (max-width: $media-mobile-sm-min) {
+      padding-bottom: 50px;
+    }
+
+    &-lft,
+    &-rgt {
+      position: relative;
+
+      ul {
+        li {
+          position: relative;
+          justify-content: flex-start;
+          align-items: center;
+          @extend %flexbox !optional;
+
+          &::after {
+            content: "";
+            position: absolute;
+            top: auto;
+            bottom: 0;
+            left: 0;
+            width: 100vh;
+            height: 1px;
+            background: #e7e7e7;
+          }
+        }
+      }
+    }
+
+    &-lft {
+      border-right: 1px solid $disabled;
+      flex-basis: 200px;
+      flex-shrink: 0;
+
+      .df-playerStats-rowBody {
+        justify-content: flex-start;
+        align-items: flex-end;
+      }
+
+      .df-playerStats-rowHead {
+        span {
+          padding: 8px 16px;
+        }
+      }
+
+      .df-transfer__plyr {
+        padding-left: 4px;
+        position: relative;
+        margin: 0;
+        border-bottom: none;
+        width: 100%;
+        cursor: pointer;
+        min-height: 44px;
+        overflow: hidden;
+
+        &.df-unavailable,
+        &.df-injured {
+          .df-transfer__plyr-name {
+            position: relative;
+            display: inline-grid;
+            padding-right: 16px;
+
+            &::after {
+              content: "";
+              width: 12px;
+              height: 12px;
+              background-position: center center;
+              background-repeat: no-repeat;
+              position: absolute;
+              left: auto;
+              right: 0;
+              top: 50%;
+              @include transform(translateY(-50%));
+              @extend .si-bgSize--contain !optional;
+            }
+
+            span {
+              @include text-truncate;
+            }
+          }
+        }
+
+        &.df-unavailable {
+          .df-transfer__plyr-name {
+            &::after {
+              background-image: url(../images/unavailable.svg?v=#{$image-version});
+            }
+          }
+        }
+
+        &.df-injured {
+          .df-transfer__plyr-name {
+            &::after {
+              background-image: url(../images/injured.svg?v=#{$image-version});
+            }
+          }
+        }
+
+        &-skill {
+          @extend .df-mediumFF !optional;
+
+          em {
+            @extend .df-regularFF !optional;
+            padding-left: 4px;
+            color: $steel;
+          }
+        }
+
+        &-thumb {
+          height: 36px;
+          width: 46px;
+          position: relative;
+          flex-shrink: 0;
+          margin-bottom: -6px;
+        }
+      }
+
+      .df-plyrSel__status {
+        left: 0;
+        top: 0;
+        bottom: auto;
+
+        .df-plyrSel__flight {
+          width: 12px;
+        }
+      }
+    }
+
+    &-rgt {
+      overflow: hidden;
+      flex-basis: 100%;
+
+      .df-playerStats-rowHead,
+      .df-playerStats-rowBody {
+        white-space: nowrap;
+
+        span {
+          margin: 8px 16px;
+          min-width: 50px;
+          text-align: right;
+        }
+      }
+
+      .df-playerStats-rowBody {
+        min-height: 44px;
+
+        span {
+          position: relative;
+
+          &.df-in {
+            &::after {
+              content: "";
+              position: absolute;
+              left: auto;
+              right: 0;
+              top: -4px;
+              width: 8px;
+              height: 8px;
+              background: $status-green;
+              border: 1px solid $white;
+              @extend .df-borRad100 !optional;
+            }
+          }
+        }
+      }
+
+      &-scroll {
+        width: 100%;
+        overflow: hidden;
+        scroll-behavior: smooth;
+        -webkit-overflow-scrolling: touch;
+        .swiper-slide {
+          margin-right: 0 !important;
+        }
+      }
+    }
+  }
+
+  &__legends {
+    z-index: 2;
+    position: fixed;
+    top: auto;
+    bottom: 0;
+    left: 0;
+    max-width: 550px;
+    width: 100%;
+    padding: 4px 16px;
+    background: rgba(#31353e, 0.95);
+
+    ul {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        font-size: 10px;
+        color: $light-grey-blue;
+        @extend .df-regularFF !optional;
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+
+        &:not(:last-child) {
+          padding-right: 20px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            padding-right: 24px;
+          }
+        }
+      }
+    }
+
+    &-icon {
+      justify-content: center;
+      align-items: center;
+      width: 10px;
+      height: 10px;
+      flex-basis: 12px;
+      flex-shrink: 0;
+      margin-right: 4px;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        width: 12px;
+        height: 12px;
+      }
+
+      img {
+        display: block;
+        // width: 100%;
+      }
+
+      @media screen and (min-width: $media-mobile-max) {
+        width: 16px;
+        height: 16px;
+        flex-basis: 16px;
+      }
+    }
+
+    &-text {
+      flex-shrink: 0;
+    }
+
+    &-dot {
+      background: $status-green;
+      width: 6px;
+      height: 6px;
+      @extend .df-borRad100 !optional;
+    }
+  }
+}
+
+// compare
+.df-compare {
+  &__wrap {
+    .df-noDataFound {
+      padding-top: 16px;
+    }
+  }
+
+  &__head {
+    padding: 16px;
+  }
+
+  &__title {
+    padding-top: 16px;
+    text-align: center;
+    color: $client-primary-color;
+    @extend .df-boldFF !optional;
+  }
+
+  &__box {
+    padding: 16px 0;
+    background: $white;
+    margin-top: 12px;
+    @extend .df-boxShadow--sm !optional;
+
+    &-title {
+      text-align: center;
+      color: $client-primary-color;
+      @extend .df-regularFF !optional;
+      em {
+        @extend .df-boldFF !optional;
+      }
+    }
+
+    .df-transfer__plyr {
+      &.df-triBoos,
+      &.df-cap,
+      &.df-vcap {
+        .df-transfer__plyr-thumb {
+          position: relative;
+
+          &::after {
+            color: $white;
+            position: absolute;
+            left: 4px;
+            top: 4px;
+            width: 16px;
+            height: 16px;
+            background: $secondary-electric;
+            font-size: calc(100% - 8px);
+            line-height: 0;
+            @extend .df-boldFF !optional;
+            justify-content: center;
+            align-items: center;
+            @extend .df-borRad100 !optional;
+            @extend %flexbox !optional;
+          }
+        }
+      }
+
+      &.df-cap {
+        .df-transfer__plyr-thumb {
+          &::after {
+            content: "C";
+          }
+        }
+      }
+
+      &.df-vcap {
+        .df-transfer__plyr-thumb {
+          &::after {
+            content: "VC";
+          }
+        }
+      }
+
+      &.df-triBoos {
+        .df-transfer__plyr-thumb {
+          &::after {
+            content: "\e91e";
+            font-family: "dfi" !important;
+            font-size: 6px;
+          }
+        }
+      }
+    }
+
+    .df-transfer__tbl .df-tbl__cell--lft {
+      border-right: none;
+
+      .df-transfer__plyr-name {
+        color: $steel;
+      }
+    }
+  }
+
+  &__row {
+    justify-content: flex-start;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &:not(:first-child) {
+      padding: 8px 0;
+      border-bottom: 1px solid rgba($divider-stroke, 0.5);
+
+      .df-compare__row-mid {
+        color: $steel;
+      }
+    }
+
+    // &:nth-child(2) {
+    //   border-bottom: 1px solid rgba($divider-stroke, 0.5);
+    // }
+
+    // &:nth-child(3) {
+    //   padding-bottom: 0;
+    // }
+
+    &-lft,
+    &-rgt {
+      flex-basis: 100%;
+      color: $client-primary-color;
+      @extend .df-regularFF !optional;
+      font-size: 14px;
+
+      .df-plyrSel {
+        &__thumb {
+          overflow: hidden;
+          flex-shrink: 0;
+          margin-bottom: 0;
+          width: 48px;
+          height: 48px;
+          @extend .df-borRad100 !optional;
+        }
+
+        &__name {
+          font-size: 16px;
+          padding-left: 4px;
+          padding-right: 4px;
+        }
+      }
+    }
+
+    @extend .df-boldFF !optional;
+
+    &-mid {
+      font-size: 12px;
+      text-align: center;
+      flex-basis: 100px;
+      flex-shrink: 0;
+      color: $client-primary-color;
+      @extend .df-regularFF !optional;
+    }
+
+    &-lft {
+      .df-pitch__booster {
+        justify-content: flex-start;
+      }
+    }
+
+    &-rgt {
+      text-align: right;
+
+      .df-pitch__booster {
+        justify-content: flex-end;
+      }
+
+      .df-plyrSel__dtls {
+        flex-direction: row-reverse;
+      }
+    }
+  }
+
+  &__booster {
+    font-size: 12px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+
+    .df-pitch__booster {
+      @extend .df-pitch__booster--overwrite;
+
+      .df-cmo__pickPlayer-booster-icon {
+        width: 24px;
+        height: 24px;
+      }
+    }
+  }
+}
+
+// announcement notify
+.df-announcement {
+  &__wrap {
+    //margin: 0 -16px;
+    padding: 12px 16px;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #fffadb;
+    @extend %flexbox !optional;
+    &--hp {
+      position: relative;
+      z-index: 1;
+      padding-top: 50px;
+      padding-bottom: 20px;
+      margin-top: -60px;
+    }
+    &--league {
+      margin: 0 -16px -16px;
+    }
+  }
+
+  &__icon {
+    margin-right: 16px;
+    font-size: 20px;
+  }
+
+  &__text {
+    font-size: 12px;
+    color: $black;
+    @extend .df-regularFF !optional;
+
+    em {
+      @extend .df-boldFF !optional;
+    }
+  }
+}
+
+// score card (ULC)
+.df-scoreBoard {
+  width: 100%;
+  overflow: hidden;
+  // background: $client-secondary-color;
+  margin: 12px auto;
+  @include transition(height 0.1s linear, margin 0.1s linear);
+
+  &__box {
+    width: 100%;
+    min-height: 90px;
+    padding: 12px;
+    overflow: hidden;
+    // background: $french-blue;
+    background-color: rgba($white, 1);
+    @extend .df-borRad8 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      min-height: 104px;
+    }
+
+    // &:first-child {
+    //   margin-left: 16px;
+    // }
+
+    // &:last-child {
+    //   margin-right: 16px !important;
+    // }
+    &.df-match__box {
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    &.df-upcoming {
+      .df-scoreBoard__lbl {
+        display: none;
+      }
+    }
+
+    &.df-review,
+    &.df-completed,
+    &.df-live {
+      .df-scoreBoard__lbl {
+        padding-left: 16px;
+        padding-right: 6px;
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 6px;
+          top: 50%;
+          width: 6px;
+          height: 6px;
+          @include transform(translateY(-50%));
+          @extend .df-borRad100 !optional;
+        }
+      }
+    }
+
+    &.df-live {
+      .df-scoreBoard__lbl {
+        &::after {
+          background: $status;
+        }
+      }
+    }
+
+    &.df-completed {
+      .df-scoreBoard__lbl {
+        &::after {
+          background: $green;
+        }
+      }
+    }
+
+    &.df-review {
+      .df-scoreBoard__lbl {
+        &::after {
+          background-color: #3f8efc;
+        }
+      }
+    }
+  }
+
+  &__status {
+    font-size: 12px;
+    color: $client-primary-color;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__lbl {
+    // padding: 2px 8px;
+    position: relative;
+    font-size: 10px;
+    padding-bottom: 1px;
+    color: $white;
+    background: $secondary-electric;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+  }
+
+  &__status,
+  &__teamName {
+    @include transition(transform 0.2s linear, opacity 0.2s linear);
+  }
+
+  &__teamName {
+    font-size: 12px;
+    color: $client-primary-color;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__fix {
+    padding: 4px 0;
+
+    .df-scoreBoard__status {
+      display: none;
+    }
+
+    .df-fix__team {
+      justify-content: space-between;
+
+      &-A,
+      &-B {
+        width: auto;
+
+        &.df-loss {
+          .df-fix__team-name {
+            color: $light-blue-grey;
+          }
+        }
+      }
+
+      &-B {
+        flex-direction: row-reverse;
+      }
+
+      &-vs {
+        color: $light-grey-blue;
+        flex-basis: 100px;
+        @include transition(transform 0.2s linear, opacity 0.2s linear);
+      }
+
+      &-name {
+        margin: 0px 4px;
+        color: $client-primary-color;
+
+        @media screen and (max-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+
+        em {
+          @extend .df-regularFF !optional;
+        }
+      }
+
+      &-logo {
+        width: 32px;
+        height: 32px;
+
+        @media screen and (max-width: $media-mobile-max) {
+          width: 24px;
+          height: 24px;
+        }
+      }
+    }
+  }
+
+  &--v2 {
+    background-color: transparent;
+
+    .df-scoreBoard {
+      &__box {
+        min-height: auto;
+        padding: 0;
+        background-color: transparent;
+      }
+
+      &__teamName {
+        color: $light-blue-grey;
+      }
+
+      &__status {
+        color: $white;
+        justify-content: center;
+
+        &:not(:last-child) {
+          margin-bottom: 4px;
+        }
+      }
+
+      &__lbl {
+        background: no-repeat;
+        @extend .df-boldFF !optional;
+      }
+    }
+
+    .df-fix__team-name {
+      font-size: 20px;
+
+      span {
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+
+      em {
+        margin-left: 4px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.df-blank {
+  height: 12px;
+  background: transparent !important;
+  padding: 0 !important;
+}
+
+.df-nextLabel {
+  padding: 2px 12px;
+  margin: 0 4px;
+  background: $secondary-electric;
+  color: $white;
+  font-size: 10px !important;
+  font-family: $regular_font-family !important;
+  font-weight: $regular_font-weight !important;
+  @extend .df-borRad100 !optional;
+}
+
+.df-scrUpdate {
+  font-size: 12px;
+  color: $steel;
+  @extend .df-regularFF !optional;
+}
+
+.df__nav {
+  line-height: 1;
+  position: fixed;
+  top: auto;
+  left: 0;
+  bottom: 0;
+  background-color: $white;
+  max-width: 550px;
+  width: 100%;
+  min-height: 52px;
+  z-index: 99;
+  justify-content: center;
+  align-items: center;
+  @include box-shadow(0, -1px, 6px, 0, rgba(1, 1, 6, 0.1));
+  @extend %flexbox !optional;
+
+  &-counter {
+    position: absolute;
+    left: auto;
+    right: -14px;
+    top: -4px;
+    width: 16px;
+    height: 16px;
+    color: $white;
+    font-size: 8px;
+    justify-content: center;
+    align-items: center;
+    background-color: $status;
+    border: 1px solid $white;
+    @extend %flexbox !optional;
+    @extend .df-regularFF !optional;
+    @include border-radius(100px);
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 10px;
+      width: 18px;
+      height: 18px;
+    }
+  }
+
+  &-icon {
+    font-size: 22px;
+  }
+
+  &-text {
+    margin-top: 2px;
+    font-size: 12px;
+  }
+
+  ul {
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    li {
+      cursor: pointer;
+      flex-basis: 100%;
+      text-align: center;
+      position: relative;
+
+      a {
+        display: block;
+        color: $disabled;
+      }
+
+      &.df-active {
+        a {
+          color: $client-primary-color;
+        }
+      }
+      .dfi-home {
+        &::before {
+          content: "\e91a";
+        }
+      }
+
+      .dfi-contests {
+        &::before {
+          content: "\e91c";
+        }
+      }
+
+      .dfi-stats {
+        &::before {
+          content: "\e916";
+        }
+      }
+
+      .dfi-rules {
+        &::before {
+          content: "\e918";
+        }
+      }
+
+      .dfi-badge {
+        &::before {
+          content: "\e926";
+        }
+      }
+      .dfi-badge {
+        position: relative;
+      }
+    }
+  }
+}
+
+// Point System
+.df-ptSyt {
+  &-list {
+    padding: 0 16px;
+  }
+
+  ul {
+    li {
+      padding: 12px 16px;
+      color: $client-primary-color;
+      @extend .df-regularFF !optional;
+      font-size: 14px;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      &:nth-child(even) {
+        background: $duck-egg-blue;
+      }
+
+      span {
+        em {
+          display: block;
+          font-size: 10px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 12px;
+          }
+        }
+      }
+    }
+  }
+  &__content {
+    padding: 16px;
+    p {
+      font-size: 12px;
+      line-height: 1.5;
+      color: $black;
+      @extend .df-regularFF !optional;
+      &:not(:last-child) {
+        margin-bottom: 8px;
+        border-bottom: none;
+      }
+    }
+    .df-ptSyt__notes {
+      padding-top: 0;
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+  &__thumb {
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+  &__notes {
+    padding: 16px;
+
+    &-title {
+      font-size: 12px;
+      color: $black;
+      @extend .df-boldFF !optional;
+      margin-bottom: 8px;
+    }
+
+    ul {
+      list-style: disc outside;
+      margin-left: calc(16px + 8px);
+
+      li {
+        background-color: transparent;
+        border-bottom: none;
+        font-size: 12px;
+        line-height: 1.5;
+        color: $text-dark;
+        display: list-item;
+        padding: 0;
+        padding-bottom: 4px;
+        @extend .df-regularFF !optional;
+
+        &:not(:last-child) {
+          margin-bottom: 8px;
+          border-bottom: none;
+        }
+        ul {
+          list-style: lower-alpha outside;
+        }
+      }
+    }
+  }
+  .df-accordion__box {
+    padding-left: 0;
+    padding-right: 0;
+
+    &.df-active {
+      .df-accordion__head {
+        padding-bottom: 12px;
+
+        &::after {
+          @include transform(translateY(-50%) rotateX(180deg));
+        }
+      }
+    }
+  }
+
+  .df-accordion__head {
+    color: $client-primary-color;
+    @extend .df-boldFF--it !optional;
+    font-size: 14px;
+    padding-left: 16px;
+    padding-right: 16px;
+    padding-bottom: 0;
+
+    &::after {
+      top: 50%;
+      bottom: auto;
+      right: 16px;
+      color: $client-primary-color;
+      @include transform(translateY(-50%));
+    }
+
+    em {
+      display: block;
+      font-size: 10px;
+      @extend .df-regularFF !optional;
+    }
+  }
+
+  .df-accordion__body {
+    padding-top: 0;
+  }
+}
+
+// Prizes
+.df-prize {
+  &__box {
+    text-align: center;
+    padding: 20px 16px;
+    background: #fff;
+    @extend .df-boxShadow--sm !optional;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+  }
+
+  &__header {
+    position: relative;
+    display: inline-block;
+    margin: 0 auto;
+    min-width: 100px;
+    min-height: 40px;
+    text-align: center;
+
+    &-text {
+      &--1 {
+        color: $text-body-grey;
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+      }
+
+      &--2 {
+        color: $client-primary-color;
+        font-size: 20px;
+        @extend .df-boldFF--it !optional;
+      }
+    }
+
+    &::after {
+      content: "";
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      background-repeat: no-repeat, no-repeat;
+      background-position: left center, right center;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &.df-first {
+      &::after {
+        background-image: url(../images/golden-leaf--lft.svg?v=#{$image-version}),
+          url(../images/golden-leaf--right.svg?v=#{$image-version});
+      }
+    }
+
+    &.df-second {
+      &::after {
+        background-image: url(../images/silver-leaf--left.svg?v=#{$image-version}),
+          url(../images/silver-leaf--right.svg?v=#{$image-version});
+      }
+    }
+
+    &.df-third {
+      &::after {
+        background-image: url(../images/bronze-leaf--left.svg?v=#{$image-version}),
+          url(../images/bronze-leaf--right.svg?v=#{$image-version});
+      }
+    }
+    &.df-fourth {
+      &::after {
+        background-image: url(../images/gray-leaf--left.svg?v=#{$image-version}),
+          url(../images/gray-leaf--right.svg?v=#{$image-version});
+      }
+    }
+  }
+
+  &__list {
+    margin-top: 20px;
+    padding: 0 16px;
+    background-color: rgba($secondary-electric, 0.1);
+    @extend .df-borRad8 !optional;
+
+    ul {
+      li {
+        padding: 12px 0;
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+
+        &:not(:last-child) {
+          border-bottom: 1px solid rgba($primary-ink-hover, 0.1);
+        }
+      }
+    }
+
+    &-thumb {
+      flex-basis: 20px;
+      flex-shrink: 0;
+      margin-right: 20px;
+    }
+
+    &-details {
+      text-align: left;
+      flex-basis: 100%;
+
+      &--one {
+        color: $client-primary-color;
+        font-size: 14px;
+        @extend .df-boldFF !optional;
+      }
+
+      &--two {
+        color: $text-body-grey;
+        font-size: 12px;
+        @extend .df-regularFF !optional;
+      }
+    }
+  }
+}
+
+.df-uncapped {
+  &--strip {
+    background-color: $light-blue-grey-two;
+    color: $client-primary-color;
+    font-size: 10px;
+    padding: 8px 16px;
+    margin: 10px auto;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    @include transform(translateX(-50%));
+    @extend .df-borRad100 !optional;
+    @extend .df-regularFF !optional;
+    @extend %inline-flex;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+
+    i.dfi-uncap {
+      margin-right: 8px;
+
+      &::before {
+        content: "";
+        display: block;
+        width: 16px;
+        height: 16px;
+        background: url(../images/uncapped.svg?v=#{$image-version}) no-repeat
+          center center;
+        @extend .si-bgSize--contain !optional;
+      }
+    }
+  }
+}
+
+// booster
+.df-booster {
+  &__list {
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 16px;
+        }
+      }
+    }
+  }
+
+  &__box {
+    min-height: 88px;
+    cursor: pointer;
+    padding: 20px;
+    background-color: $white;
+    border: 1px solid $light-blue-grey;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-borRad8 !optional;
+    @include transition(background 0.3s ease-in-out);
+
+    &.df-tmp {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/3x_over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+
+    &.df-dbs {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+
+    &.df-st {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/arrow_over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-bat {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_bat-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-bowl {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_bowl-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-ar {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_ar-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-keeper {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_wk-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-uncapped {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_uc-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-p-guest {
+      .df-booster {
+        &__icon {
+          background-image: url(../images/booster-icons/2x_op-over-stroke.svg?v=#{$image-version});
+        }
+      }
+    }
+    &.df-active,
+    &.df-selected {
+      &.df-tmp,
+      &.df-dbs,
+      &.df-st,
+      &.df-p-bat,
+      &.df-p-bowl,
+      &.df-p-ar,
+      &.df-p-keeper,
+      &.df-p-uncapped,
+      &.df-p-guest {
+        .df-booster {
+          &__title {
+            @extend .df-boldFF--it !optional;
+          }
+
+          &__para {
+            color: $client-primary-color;
+          }
+
+          &__radioBtn {
+            &::after {
+              @include transform(scale(1));
+            }
+          }
+        }
+      }
+
+      &.df-tmp {
+        @include linearGradient(
+          180deg,
+          rgba(255, 95, 66, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/3x_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-dbs {
+        @include linearGradient(
+          180deg,
+          rgba(197, 75, 177, 0.2) 0%,
+          rgba($white, 0) 134.09%
+        );
+
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-st {
+        @include linearGradient(
+          180deg,
+          rgba(0, 180, 157, 0.2) 0%,
+          rgba($white, 0) 148.3%
+        );
+
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/arrow_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-bat {
+        @include linearGradient(
+          180deg,
+          rgba(224, 134, 0, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_bat-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-bowl {
+        @include linearGradient(
+          180deg,
+          rgba(199, 164, 0, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_bowl-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-ar {
+        @include linearGradient(
+          180deg,
+          rgba(169, 170, 0, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_ar-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-keeper {
+        @include linearGradient(
+          180deg,
+          rgba(255, 59, 170, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_wk-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-uncapped {
+        @include linearGradient(
+          180deg,
+          rgba(0, 154, 132, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_uc-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-guest {
+        @include linearGradient(
+          180deg,
+          rgba(224, 134, 0, 0.2) -8.52%,
+          rgba($white, 0) 132.95%
+        );
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_op-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+    }
+
+    &.df-selected {
+      &.df-tmp,
+      &.df-dbs,
+      &.df-st,
+      &.df-p-bat,
+      &.df-p-bowl,
+      &.df-p-ar,
+      &.df-p-keeper,
+      &.df-p-uncapped,
+      &.df-p-guest {
+        border-color: $client-secondary-color;
+      }
+    }
+
+    &.df-active {
+      &.df-tmp,
+      &.df-dbs,
+      &.df-st,
+      &.df-p-bat,
+      &.df-p-bowl,
+      &.df-p-ar,
+      &.df-p-keeper,
+      &.df-p-uncapped,
+      &.df-p-guest {
+        cursor: default;
+        border-color: transparent;
+        border: none;
+      }
+    }
+
+    &.df-disabled {
+      cursor: default;
+      pointer-events: none;
+      @include linearGradient(
+        180deg,
+        #ecf0fa 0%,
+        rgba(255, 255, 255, 0) 134.09%
+      );
+
+      .df-booster__title,
+      .df-booster__para {
+        color: $steel;
+      }
+
+      &.df-tmp {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/3x_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-dbs {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+
+      &.df-st {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/arrow_over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-bat {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_bat-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-bowl {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_bowl-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-ar {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_ar-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-keeper {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_wk-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-uncapped {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_uc-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+      &.df-p-guest {
+        .df-booster {
+          &__icon {
+            background-image: url(../images/booster-icons/2x_op-over-stroke.svg?v=#{$image-version});
+          }
+        }
+      }
+    }
+
+    &.df-disabled,
+    &.df-active {
+      .df-booster__radioBtn {
+        display: none;
+      }
+    }
+  }
+
+  &__icon {
+    width: 36px;
+    height: 36px;
+    align-self: flex-start;
+    flex-shrink: 0;
+    background-repeat: no-repeat;
+    background-position: center center;
+    @extend .si-bgSize--contain !optional;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: 42px;
+      height: 42px;
+    }
+  }
+
+  &__content {
+    flex-basis: 100%;
+    margin: 0 16px;
+  }
+
+  &__title {
+    margin-bottom: 4px;
+    font-size: 16px;
+    color: $client-primary-color;
+    @extend .df-mediumFF--it !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 18px;
+    }
+  }
+
+  &__para {
+    font-size: 12px;
+    color: $text-body-grey;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      padding-right: 20%;
+      font-size: 14px;
+    }
+  }
+
+  &__note {
+    margin-top: 10px;
+    font-size: 10px;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      padding-right: 20%;
+      font-size: 12px;
+    }
+  }
+
+  &__radioBtn {
+    position: relative;
+    width: 22px;
+    height: 22px;
+    flex-shrink: 0;
+    background-color: $white;
+    border: 2px solid $light-grey-blue;
+    justify-content: center;
+    align-items: center;
+    align-self: flex-start;
+    @extend %flexbox !optional;
+    @extend .df-borRad100 !optional;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 12px;
+      height: 12px;
+      background-color: $client-secondary-color;
+      @include transition(transform 0.3s ease-in-out);
+      @include transform(scale(0));
+      @extend .df-borRad100 !optional;
+    }
+  }
+
+  &__status {
+    margin-top: 8px;
+    font-size: 10px;
+    padding: 4px 8px;
+    border: 1px solid #dddfe1;
+    background-color: $white;
+    color: $client-primary-color;
+    justify-content: center;
+    align-items: center;
+    @extend %inline-flex;
+    @extend .df-regularFF !optional;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+    i {
+      margin-right: 4px;
+    }
+    span {
+      position: relative;
+
+      &:first-child {
+        padding-right: 10px;
+        margin-right: 4px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          padding-right: 14px;
+          margin-right: 8px;
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: auto;
+          right: -1px;
+          top: 50%;
+          width: 3px;
+          height: 3px;
+          background-color: $client-primary-color;
+          @extend .df-borRad100 !optional;
+          @include transform(translateY(-50%));
+
+          @media screen and (min-width: $media-mobile-max) {
+            width: 6px;
+            height: 6px;
+          }
+        }
+      }
+    }
+
+    em {
+      @extend .df-boldFF !optional;
+    }
+
+    &.df-disabled {
+      color: $disabled;
+    }
+  }
+}
+
+// df-performance__counter
+.df-performance {
+  &__counter {
+    position: absolute;
+    left: auto;
+    right: 0;
+    top: 50%;
+    font-size: 10px;
+    padding: 4px 8px;
+    color: $client-primary-color;
+    border: 1px solid $light-blue-grey-three;
+    background-color: $light-blue-grey-two;
+    @include transform(translateY(-50%));
+    @extend .df-regularFF !optional;
+    @extend .df-borRad100 !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 12px;
+    }
+
+    // em {
+    //   @extend .df-boldFF !optional;
+    // }
+  }
+}
+
+.df-booster__icon-holder {
+  position: relative;
+  text-align: center;
+  left: auto;
+  top: auto;
+  transform: none;
+  margin-bottom: 15px;
+  z-index: 1;
+}
+
+// Badge
+.df-badge {
+  &__wrap {
+    .df-cmo__bck {
+      flex-basis: auto;
+    }
+  }
+
+  &__row {
+    &:not(:last-child) {
+      margin-bottom: 32px;
+    }
+  }
+
+  &__list {
+    margin-top: 16px;
+
+    &-btn {
+      text-align: center;
+
+      .df-btn {
+        @extend %inline-flex;
+      }
+    }
+
+    ul {
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        cursor: pointer;
+        margin-bottom: 24px;
+        text-align: center;
+        flex-basis: calc(100% / 3);
+
+        .df-badge__box-thumb {
+          width: 72px;
+          height: 72px;
+        }
+
+        .df-badge__box-title {
+          font-size: 14px;
+          margin-bottom: 0;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+
+  &__swiper {
+    overflow: hidden;
+
+    &-wrap {
+      overflow: hidden;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    .swiper-slide {
+      // width: calc(100% - 32px * 2);
+      // margin-left: 16px;
+      &:first-child {
+        padding-left: 16px;
+      }
+
+      &:last-child {
+        padding-right: 16px;
+      }
+    }
+  }
+
+  &__noData {
+    margin-top: 16px;
+
+    .df-badge__box {
+      display: block;
+      text-align: center;
+
+      &-lft {
+        margin: 0 auto;
+      }
+
+      &-thumb {
+        width: 90px;
+        height: 90px;
+        margin: 0 auto 24px;
+      }
+
+      &-caption {
+        font-size: 14px;
+        color: $steel;
+      }
+    }
+  }
+
+  &__head {
+    width: 100%;
+    padding: 8px 0 12px;
+    align-items: center;
+    justify-content: flex-start;
+    @extend %flexbox !optional;
+
+    &-lft {
+      flex-shrink: 0;
+      margin-right: 12px;
+    }
+
+    &-thumb {
+      width: 32px;
+      height: 32px;
+      background-color: $light-grey-blue;
+      background-position: center center;
+      background-repeat: no-repeat;
+      @extend .df-borRad100 !optional;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &-rgt {
+      flex-basis: 100%;
+      letter-spacing: 0.15px;
+    }
+
+    &-userName {
+      color: $white;
+      font-size: 14px;
+      @extend .df-boldFF !optional;
+    }
+
+    &-userLvl {
+      font-size: 12px;
+      color: $light-grey-blue;
+      @extend .df-regularFF !optional;
+    }
+  }
+
+  &__container {
+    padding: 16px;
+  }
+
+  &__title {
+    margin-bottom: 16px;
+    text-align: center;
+    font-size: 16px;
+    color: $dark-indigo;
+    @extend .df-boldFF !optional;
+
+    span {
+      position: relative;
+
+      &::after,
+      &::before {
+        content: "";
+        position: absolute;
+        top: 50%;
+        width: 25px;
+        height: 1px;
+        border-top: 1px dashed $light-blue-grey-three;
+        @include transform(translateY(-50%));
+      }
+
+      &::after {
+        left: -30px;
+      }
+
+      &::before {
+        right: -30px;
+        left: auto;
+      }
+    }
+  }
+
+  &__box {
+    cursor: pointer;
+    padding: 16px 12px;
+    justify-content: flex-start;
+    align-items: center;
+    @extend %flexbox !optional;
+    @extend .df-borRad8 !optional;
+
+    &:not(:last-child) {
+      margin-bottom: 12px;
+    }
+
+    &.df-collector {
+      .df-badge__box-thumb {
+        width: 80px !important;
+        height: 80px !important;
+        position: relative;
+
+        @media screen and (min-width: $media-mobile-max) {
+          width: 100px !important;
+          height: 100px !important;
+        }
+
+        &::after {
+          content: "";
+          width: 24px;
+          height: 24px;
+          position: absolute;
+          top: 6px;
+          left: auto;
+          right: 0;
+          background-image: url(../images/collector-ticked.svg?v=#{$image-version});
+          background-position: center center;
+          background-repeat: no-repeat;
+          justify-content: center;
+          align-items: center;
+          @extend %flexbox !optional;
+          @extend .si-bgSize--contain !optional;
+        }
+      }
+    }
+
+    &.df-earned {
+      position: relative;
+      background-color: $badg-earned;
+
+      &::after {
+        content: "";
+        width: 28px;
+        height: 28px;
+        position: absolute;
+        top: 6px;
+        left: auto;
+        right: 6px;
+        background-image: url(../images/earned-ticked.svg?v=#{$image-version});
+        background-position: center center;
+        background-repeat: no-repeat;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+        @extend .si-bgSize--contain !optional;
+      }
+
+      .df-badge__box-title {
+        color: $client-primary-color;
+      }
+    }
+
+    &.df-locked {
+      position: relative;
+
+      &::after {
+        content: "\e927";
+        font-family: "dfi" !important;
+        width: 24px;
+        height: 24px;
+        position: absolute;
+        top: 8px;
+        left: auto;
+        right: 8px;
+        font-size: 14px;
+        background-color: green;
+        color: #575e6f;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+        @extend .df-borRad8 !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          top: 12px;
+          right: 12px;
+        }
+      }
+    }
+
+    &.df-gold {
+      background-color: $badg-gold;
+
+      &.df-locked {
+        &::after {
+          background-color: $badg-gold--dark;
+        }
+      }
+
+      .df-badge__box-progress {
+        &-bar,
+        &-lbl {
+          background-color: $badg-gold--dark;
+        }
+      }
+    }
+
+    &.df-silver {
+      background-color: $badg-silver;
+
+      &.df-locked {
+        &::after {
+          background-color: #e3e5ea;
+        }
+      }
+
+      .df-badge__box-progress {
+        &-bar,
+        &-lbl {
+          background-color: $badg-silver--dark;
+        }
+      }
+    }
+
+    &.df-bronze {
+      background-color: $badg-bronze;
+
+      &.df-locked {
+        &::after {
+          background-color: #f5dfd6;
+        }
+      }
+
+      .df-badge__box-progress {
+        &-bar,
+        &-lbl {
+          background-color: $badg-bronze--dark;
+        }
+      }
+    }
+
+    &.df-diamond {
+      background-color: $badg-daimond;
+
+      &.df-locked {
+        &::after {
+          background-color: $badg-daimond--dark;
+        }
+      }
+
+      .df-badge__box-progress {
+        &-bar,
+        &-lbl {
+          background-color: $badg-daimond--dark;
+        }
+      }
+    }
+
+    &.df-booster {
+      background-color: $badg-booster;
+
+      &.df-locked {
+        &::after {
+          background-color: $badg-booster--dark;
+        }
+      }
+
+      .df-badge__box-progress {
+        &-bar,
+        &-lbl {
+          background-color: $badg-booster--dark;
+        }
+      }
+    }
+
+    &-lft {
+      margin-right: 16px;
+      position: relative;
+    }
+
+    &-rgt {
+      flex-basis: 100%;
+    }
+
+    &-thumb {
+      position: relative;
+      z-index: 1;
+      margin: 0 auto;
+      width: 56px;
+      height: 68px;
+      background-position: center center;
+      background-repeat: no-repeat;
+      @extend .si-bgSize--contain !optional;
+    }
+
+    &-title {
+      margin-bottom: 4px;
+      font-size: 14px;
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 16px;
+      }
+    }
+
+    &-caption {
+      margin-bottom: 4px;
+      font-size: 12px;
+      @extend .df-mediumFF !optional;
+      color: $client-primary-color;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+    }
+
+    &-status {
+      color: $steel;
+      font-size: 10px;
+      @extend .df-regularFF !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 12px;
+      }
+    }
+
+    &-progress {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      &-bar {
+        position: relative;
+        flex-basis: 100%;
+        height: 3px;
+        overflow: hidden;
+        @extend .df-borRad100 !optional;
+
+        span {
+          position: absolute;
+          left: 0;
+          top: 0;
+          height: 100%;
+          background-color: $teal;
+          @extend .df-borRad100 !optional;
+        }
+      }
+
+      &-lbl {
+        margin-left: -4px;
+        position: relative;
+        z-index: 1;
+        flex-shrink: 0;
+        color: $steel;
+        font-size: 10px;
+        padding: 2px 8px;
+        @extend .df-regularFF !optional;
+        @extend .df-borRad100 !optional;
+      }
+    }
+
+    &-info {
+      text-align: center;
+      font-size: 14px;
+      color: $steel;
+      @extend .df-regularFF !optional;
+    }
+  }
+
+  &__tut {
+    &-wrap {
+      text-align: center;
+      color: $white;
+    }
+
+    &-header {
+      font-size: 16px;
+      @extend .df-boldFF !optional;
+      color: $client-primary-color;
+      padding: 14px;
+      line-height: 1;
+      text-align: left;
+      border-bottom: 1px solid $light-blue-grey-two;
+      align-items: center;
+      justify-content: flex-start;
+      @extend %flexbox !optional;
+      span {
+        span {
+          font-size: 12px;
+          color: #515b84;
+          @extend .df-regularFF !optional;
+        }
+      }
+      i {
+        font-size: 24px;
+        margin-right: 14px;
+      }
+    }
+
+    &-body {
+      padding: 14px;
+
+      .df-booster {
+        &__box {
+          background: none !important;
+          padding: 0;
+          min-height: auto;
+          text-align: left;
+
+          &.df-dbs {
+            .df-booster__icon {
+              background-image: url(../images/booster-icons/2x_white-border.svg?v=#{$image-version});
+            }
+          }
+
+          &.df-st {
+            .df-booster__icon {
+              background-image: url(../images/booster-icons/arrow_white-border.svg?v=#{$image-version});
+            }
+          }
+
+          &.df-tmp {
+            .df-booster__icon {
+              background-image: url(../images/booster-icons/3x_white-border.svg?v=#{$image-version});
+            }
+          }
+
+          &.df-p-bat {
+            .df-booster__icon {
+              background-image: url(../images/booster-icons/2x_bat-over-stroke.svg?v=#{$image-version});
+            }
+          }
+          &.df-p-bowl {
+            .df-booster {
+              &__icon {
+                background-image: url(../images/booster-icons/2x_bowl-over-stroke.svg?v=#{$image-version});
+              }
+            }
+          }
+          &.df-p-ar {
+            .df-booster {
+              &__icon {
+                background-image: url(../images/booster-icons/2x_ar-over-stroke.svg?v=#{$image-version});
+              }
+            }
+          }
+          &.df-p-keeper {
+            .df-booster {
+              &__icon {
+                background-image: url(../images/booster-icons/2x_wk-over-stroke.svg?v=#{$image-version});
+              }
+            }
+          }
+          &.df-p-uncapped {
+            .df-booster {
+              &__icon {
+                background-image: url(../images/booster-icons/2x_uc-over-stroke.svg?v=#{$image-version});
+              }
+            }
+          }
+          &.df-p-guest {
+            .df-booster {
+              &__icon {
+                background-image: url(../images/booster-icons/2x_op-over-stroke.svg?v=#{$image-version});
+              }
+            }
+          }
+        }
+
+        &__content {
+          margin: 0 0 0 8px;
+        }
+
+        &__title {
+          font-size: 14px;
+          margin-bottom: 0;
+          font-family: $bold_font-family !important;
+          font-weight: $bold_font-weight !important;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 16px;
+          }
+        }
+
+        &__para {
+          font-size: 12px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            font-size: 14px;
+          }
+        }
+      }
+    }
+
+    &-box {
+      min-height: 310px;
+      height: auto;
+      _height: 310px;
+      margin-top: 8px;
+      opacity: 0.7;
+      background-color: $white;
+      @extend .df-borRad12 !optional;
+      @include transition(opacity 0.1s linear);
+
+      @media screen and (min-width: $media-mobile-max) {
+        margin-top: 24px;
+      }
+
+      &.df-introducingBadges {
+        .df-badge__tut {
+          &-body {
+            padding: 0 0 14px;
+          }
+
+          &-box-img {
+            img {
+              width: 100%;
+            }
+          }
+
+          &-box-content {
+            padding-left: 24px;
+            padding-right: 24px;
+          }
+        }
+      }
+
+      &.df-adminControls {
+        .df-badge__tut {
+          &-body {
+            padding: 0 0 14px;
+          }
+
+          &-box-img {
+            img {
+              width: 100%;
+            }
+          }
+
+          &-box-content {
+            padding-left: 24px;
+            padding-right: 24px;
+          }
+        }
+      }
+
+      &-img {
+        width: 100%;
+        min-height: 90px;
+        margin-bottom: 14px;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+      }
+
+      &-content {
+        font-size: 14px;
+        color: $client-primary-color;
+        @extend .df-regularFF !optional;
+        line-height: 1.5em;
+
+        em {
+          display: block;
+          font-size: 12px;
+          color: $steel;
+          @extend .df-regularFF !optional;
+        }
+      }
+    }
+
+    &-list {
+      width: 100%;
+
+      ul {
+        justify-content: flex-start;
+        align-items: flex-start;
+        @extend %flexbox !optional;
+
+        li {
+          text-align: left;
+          flex-basis: calc(100% / 4);
+          flex-grow: 1;
+        }
+      }
+
+      &Title {
+        font-size: 10px;
+        color: $steel;
+        margin-bottom: 12px;
+
+        @media screen and (min-width: $media-mobile-max) {
+          font-size: 12px;
+        }
+      }
+
+      &Img {
+      }
+    }
+
+    &-swiper {
+      position: relative;
+
+      .swiper-container {
+        padding-bottom: 8px;
+      }
+
+      .swiper-button-next,
+      .swiper-button-prev {
+        margin-top: 0;
+        width: 42px;
+        height: 42px;
+        @extend .si-bgSize--contain !optional;
+      }
+
+      .swiper-button-next {
+        background-image: url(../images/swiper-next.png?v=#{$image-version});
+      }
+
+      .swiper-button-prev {
+        background-image: url(../images/swiper-prev.png?v=#{$image-version});
+      }
+
+      .swiper-pagination {
+        bottom: 0;
+        margin: 16px auto 0;
+        left: 0;
+        right: 0;
+        z-index: 2;
+
+        &-bullet {
+          width: 6px;
+          height: 6px;
+          background-color: $white;
+          opacity: 1;
+          margin-left: 2px !important;
+          margin-right: 2px !important;
+          @extend .df-borRad12 !optional;
+          @include transition(width 0.1s linear);
+
+          &-active {
+            width: 24px;
+            background-color: #f2eb0b;
+          }
+        }
+      }
+
+      .swiper-slide-prev,
+      .swiper-slide-next {
+        .df-badge__tut-box {
+          cursor: pointer;
+        }
+      }
+
+      .swiper-slide-active {
+        .df-badge__tut-box {
+          opacity: 1;
+        }
+
+        .df-badge__tut-intro {
+          visibility: visible;
+        }
+      }
+    }
+
+    &-intro {
+      visibility: hidden;
+      @include transition(visibility 0.1s linear);
+    }
+
+    &-title {
+      margin-bottom: 8px;
+      font-size: 24px;
+      @extend .df-boldFF--it !optional;
+    }
+
+    &-intro {
+      // min-height: 50px;
+      line-height: 1.5em;
+      font-size: 14px;
+      @extend .df-regularFF !optional;
+    }
+  }
+
+  &__share {
+    &-box {
+      .df-badge__box {
+        background: none;
+
+        @media screen and (min-width: $media-mobile-max) {
+          padding: 0;
+        }
+
+        @media screen and (max-width: $media-mobile-max) {
+          display: block;
+
+          &-lft {
+            margin-right: 0;
+            margin-bottom: 12px;
+          }
+
+          &-title,
+          &-caption {
+            text-align: center;
+          }
+        }
+
+        .df-collector {
+          .df-badge__box-thumb {
+            width: 86px !important;
+            height: 96px !important;
+          }
+        }
+
+        &-thumb {
+          width: 86px !important;
+          height: 86px !important;
+          z-index: 1;
+        }
+
+        &-title {
+          font-size: 20px;
+          margin-bottom: 0;
+        }
+
+        &-caption {
+          font-size: 14px;
+        }
+
+        &-title,
+        &-caption {
+          color: $white;
+        }
+
+        &-lft {
+          justify-content: center;
+          align-items: center;
+          @extend %flexbox !optional;
+
+          @media screen and (max-width: $media-mobile-max) {
+            width: 80px;
+            height: 80px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+          }
+
+          &::after,
+          &::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            @include transform(translate(-50%, -50%));
+            @extend .df-borRad100 !optional;
+          }
+
+          // &::after {
+          //   background: linear-gradient(180deg, #231274 0%, #10044a 88.85%);
+          //   width: calc(100% + 20px);
+          //   height: calc(100% + 20px);
+
+          //   @media screen and (min-width: $media-mobile-max) {
+          //     width: calc(100% + 30px);
+          //     height: calc(100% + 30px);
+          //   }
+          // }
+
+          &::before {
+            background: linear-gradient(180deg, #231274 0%, #10044a 88.85%);
+            width: calc(100% + (20px * 2));
+            height: calc(100% + (20px * 2));
+
+            @media screen and (min-width: $media-mobile-max) {
+              width: calc(100% + (30px * 2));
+              height: calc(100% + (30px * 2));
+            }
+          }
+        }
+      }
+    }
+
+    &-thumb {
+      height: 200px;
+      margin: 0 auto 34px;
+      background-color: $client-primary-color;
+      background-image: url(../images/sharenative-bg-mob.png?v=#{$image-version});
+      background-position: top left;
+      background-repeat: no-repeat;
+      justify-content: center;
+      align-items: center;
+      @include background-size(contain);
+      @extend .df-borRad8 !optional;
+      @include box-shadow(0px, 7px, 14px, 0, rgba(15, 30, 90, 0.27));
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-mobile-max) {
+        padding-left: 130px;
+        padding-right: 34px;
+        justify-content: flex-start;
+        background-image: url(../images/sharenative-bg-web.png?v=#{$image-version});
+      }
+    }
+
+    &-native {
+      ul {
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: flex-start;
+        @extend %flexbox !optional;
+
+        li {
+          cursor: pointer;
+          flex-basis: calc(100% / 4);
+          text-align: center;
+          margin-bottom: 20px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            flex-basis: calc(100% / 5);
+            margin-bottom: 24px;
+          }
+        }
+      }
+
+      &-icon {
+        width: 48px;
+        height: 48px;
+        margin: 0 auto 4px;
+
+        img {
+          display: block;
+          width: 100%;
+        }
+      }
+
+      &-title {
+        font-size: 12px;
+        color: $black;
+        @extend .df-regularFF !optional;
+      }
+
+      .df-contest__cta {
+        padding: 0;
+        margin-bottom: 24px;
+
+        ul {
+          display: block;
+
+          li {
+            margin: 0;
+          }
+        }
+
+        i {
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+// swiper view all
+.df__vMore {
+  &-slide {
+    width: auto !important;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+  }
+
+  &-box {
+    white-space: nowrap;
+    margin-left: 16px;
+    cursor: pointer;
+  }
+
+  &-thumb {
+    margin-bottom: 8px;
+    width: 37px;
+    height: 37px;
+    background: url(../images/viewMore--arrow.svg?v=#{$image-version}) center
+      center no-repeat $light-blue-grey-two;
+    @include background-size(20px);
+    @extend .df-borRad100 !optional;
+  }
+
+  &-title {
+    font-size: 12px;
+    color: $client-primary-color;
+    @extend .df-boldFF !optional;
+  }
+}
+
+// sportlights
+.df-spotlight {
+  &__wrap {
+    background-color: $secondary-electric;
+    padding: 16px;
+    @extend .df-borRad8 !optional;
+    @include box-shadow(0, 12px, 24px, 0, rgba($black, 0.1));
+  }
+
+  &__box {
+    margin-bottom: 20px;
+    color: $white;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+  }
+
+  &__lft {
+    flex-basis: 100%;
+  }
+
+  &__rgt {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      width: 100px;
+      height: 100px;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__title {
+    margin-bottom: 12px;
+    font-size: 14px;
+    @extend .df-boldFF--it !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 18px;
+    }
+  }
+
+  &__note,
+  &__caption {
+    line-height: 1.6;
+    font-size: 12px;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__note {
+    margin-top: 12px;
+    color: rgba($white, 0.5);
+
+    // @media screen and (min-width: $media-mobile-max) {
+    //   font-size: 14px;
+    // }
+  }
+
+  &__caption {
+    .df-plyrSel__cta {
+      width: 18px;
+      height: 18px;
+      display: inline-block;
+      margin: 0px 4px;
+    }
+  }
+
+  &__foot {
+    justify-content: flex-end;
+    align-items: center;
+    @extend %flexbox !optional;
+  }
+
+  &__indicator {
+    ul {
+      list-style-type: none;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      li {
+        cursor: pointer;
+        width: 6px;
+        height: 6px;
+        // background-color: $faded-blue;
+        background-color: rgba($white, 0.3);
+        @extend .df-borRad100 !optional;
+
+        @media screen and (min-width: $media-mobile-max) {
+          width: 8px;
+          height: 8px;
+        }
+
+        &::marker {
+          display: none;
+          content: "";
+          width: 0;
+          height: 0;
+          background: none;
+        }
+
+        &:not(:last-child) {
+          margin-right: 4px;
+
+          @media screen and (min-width: $media-mobile-max) {
+            margin-right: 6px;
+          }
+        }
+
+        &.df-active {
+          background-color: $white;
+        }
+      }
+    }
+  }
+
+  &__cta {
+    width: 100%;
+    justify-content: flex-end;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    .df-btn {
+      font-size: 12px;
+      height: 28px;
+      padding-left: 20px;
+      padding-right: 20px;
+      margin: 0;
+      min-width: auto;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+        height: 36px;
+      }
+
+      &:not(:first-child) {
+        margin-left: 12px;
+      }
+
+      &__white {
+        &--outline {
+          border-width: 2px;
+        }
+      }
+    }
+  }
+}
+
+.df-spotlight-tab {
+  .df-cmo__info {
+    margin-left: -16px;
+    margin-right: -16px;
+  }
+}
+
+.swiper-slide {
+  &--vMore {
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    .df-badge__box {
+      flex-basis: 100%;
+
+      &:not(:last-child) {
+        margin-bottom: 0;
+      }
+    }
+
+    .df__vMore-box {
+      flex-shrink: 0;
+    }
+  }
+}
+
+.si-info__fbox {
+  align-items: center;
+  justify-content: flex-start;
+  display: flex !important;
+}
+
+// EOT
+.df-eot {
+  &__wrap {
+    text-align: center;
+    padding: 16px;
+    padding-top: 0;
+  }
+
+  &__thumb {
+  }
+
+  &__text {
+    margin: 16px 0;
+    font-size: 14px;
+    color: $client-primary-color;
+    @extend .df-regularFF !optional;
+  }
+
+  &__cta {
+    .df-btn {
+      max-width: 160px;
+    }
+  }
+}
+
+// Register
+.df-register {
+  &__wrap {
+  }
+
+  &__top {
+    background-color: $client-primary-color;
+
+    .df-cmo__top {
+      min-height: 56px;
+      justify-content: center;
+    }
+
+    .df-cmo__mat-num {
+      margin: 0;
+    }
+  }
+
+  &__form {
+    padding: 16px;
+    background-color: $white;
+  }
+
+  &__social {
+    margin: 0 -4px;
+    justify-content: center;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      margin: 0px -8px;
+    }
+
+    .df-btn {
+      flex-basis: 100%;
+      flex-grow: 1;
+      margin: 0 4px;
+      @extend .df-mediumFF !optional;
+      @include box-shadow(0, 1px, 2px, 0, rgba($black, 0.2));
+
+      @media screen and (min-width: $media-mobile-max) {
+        margin: 0px 8px;
+      }
+
+      img {
+        margin-right: 8px;
+      }
+    }
+  }
+
+  &__or {
+    padding-top: 16px;
+    font-size: 12px;
+    text-align: center;
+    color: #9b9b9b;
+    @extend .df-mediumFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__inputs {
+    .df-contest__wrap {
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+    }
+
+    .df-contest__box {
+      box-shadow: none;
+      padding: 0;
+    }
+  }
+
+  &__cBox {
+    margin-top: 30px;
+    margin-bottom: 30px;
+
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 18px;
+        }
+      }
+    }
+
+    .df-checkBox [type="checkbox"]:checked + label,
+    .df-checkBox [type="checkbox"]:not(:checked) + label {
+      padding-left: 40px;
+      font-size: 12px;
+      padding-right: 0;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+    }
+
+    .df-checkBox [type="checkbox"]:checked + label::after,
+    .df-checkBox [type="checkbox"]:checked + label::before,
+    .df-checkBox [type="checkbox"]:not(:checked) + label::after,
+    .df-checkBox [type="checkbox"]:not(:checked) + label::before {
+      left: 0;
+      @extend .df-borRad2 !optional;
+    }
+
+    .df-checkBox [type="checkbox"]:checked + label::before,
+    .df-checkBox [type="checkbox"]:not(:checked) + label::before {
+      border-width: 2px;
+    }
+
+    .df-checkBox [type="checkbox"]:checked + label a,
+    .df-checkBox [type="checkbox"]:not(:checked) + label a {
+      color: $client-primary-color;
+      border-bottom: 1px solid $client-primary-color;
+    }
+  }
+
+  &__login {
+    padding: 16px;
+
+    ul {
+      li {
+        &:not(:last-child) {
+          margin-bottom: 8px;
+        }
+      }
+    }
+  }
+}
+
+.df-match {
+  &__row {
+  }
+
+  &__swiper {
+    .swiper-slide {
+      padding: 8px 12px;
+      padding-right: 0;
+
+      &:last-child {
+        padding-right: 12px;
+      }
+    }
+
+    .swiper-wrapper {
+    }
+
+    .swiper-pagination {
+      position: relative;
+      margin-top: 20px;
+
+      &-bullet {
+        opacity: 1;
+        width: 6px;
+        height: 6px;
+        margin: 0 4px;
+        background: $light-blue-grey-three;
+        @include border-radius(100px);
+
+        &-active {
+          background: $client-primary-color;
+        }
+      }
+    }
+  }
+
+  &__box {
+    overflow: hidden;
+    background-color: $white;
+    box-shadow: 0px 2px 4px rgba(1, 1, 6, 0.05);
+    @extend .df-borRad8 !optional;
+
+    &-top {
+      padding: 0 12px;
+    }
+
+    &-bot {
+      padding: 16px 0;
+    }
+
+    &-foot {
+      padding: 8px 12px;
+      background: #f5f5f5;
+    }
+
+    &-status {
+      font-size: 12px;
+      @extend .df-regularFF !optional;
+      color: rgba($client-primary-color, 0.6);
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+
+      em {
+        color: $client-primary-color;
+        @extend .df-mediumFF !optional;
+      }
+    }
+  }
+
+  &__heading {
+    padding: 8px 0;
+    border-bottom: 1px solid #f5f5f5;
+    color: rgba($client-primary-color, 0.6);
+    font-size: 12px;
+    font-style: normal;
+    @extend .df-regularFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 14px;
+    }
+  }
+
+  &__fix {
+    padding: 0 12px;
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &.df-upcoming {
+      .df-match__fix-mid {
+      }
+    }
+
+    &.df-review,
+    &.df-complete,
+    &.df-live {
+      .df-match__fix-mid {
+        @extend .df-boldFF !optional;
+
+        span {
+          position: relative;
+
+          &::after {
+            content: "";
+            width: 6px;
+            height: 6px;
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            @include transform(translateY(-50%));
+            @extend .df-borRad100 !optional;
+          }
+        }
+      }
+    }
+
+    &.df-review {
+      .df-match__fix-mid {
+        span {
+          &::after {
+            background-color: #3f8efc;
+          }
+        }
+      }
+    }
+
+    &.df-live {
+      .df-match__fix-mid {
+        span {
+          &::after {
+            background-color: $status;
+          }
+        }
+      }
+    }
+
+    &.df-complete {
+      .df-match__fix-mid {
+        color: $green;
+
+        span {
+          &::after {
+            background-color: $green;
+          }
+        }
+      }
+    }
+
+    &-lft,
+    &-rgt {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+
+    &-lft {
+      .df-match__logo {
+        &::before {
+          left: -12px;
+        }
+      }
+    }
+
+    &-rgt {
+      flex-direction: row-reverse;
+
+      .df-match__logo {
+        &::before {
+          left: auto;
+          right: -12px;
+          @include transform(translateY(-50%) rotate(180deg));
+        }
+      }
+    }
+
+    &-mid {
+      @extend .df-mediumFF !optional;
+      font-size: 12px;
+      text-align: center;
+      color: $status;
+
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 14px;
+      }
+    }
+  }
+
+  &__logo {
+    width: 28px;
+    height: 28px;
+    padding-top: 28px;
+    flex-grow: 1;
+    flex-shrink: 0;
+    position: relative;
+    @extend .df-borRad100 !optional;
+
+    &::before {
+      content: "";
+      width: 24px;
+      height: 20px;
+      position: absolute;
+      top: 50%;
+      @include transform(translateY(-50%));
+    }
+
+    &.df-team {
+      &--ind {
+        &::before {
+          background: linear-gradient(
+            90deg,
+            rgba(255, 210, 131, 0.699219) 0%,
+            #ffa64c 100%
+          );
+        }
+      }
+
+      &--pak {
+        &::before {
+          background: linear-gradient(
+            90deg,
+            rgba(255, 210, 131, 0.699219) 0%,
+            #ffa64c 100%
+          );
+        }
+      }
+    }
+
+    img {
+      z-index: 1;
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      filter: drop-shadow(0px 1px 3px rgba($black, 0.22));
+    }
+  }
+
+  &__name {
+    flex-basis: 100%;
+    margin: 0 8px;
+    font-size: 14px;
+    color: $client-primary-color;
+    @extend .df-mediumFF !optional;
+
+    @media screen and (min-width: $media-mobile-max) {
+      font-size: 16px;
+    }
+  }
+}
+
+.df-content__pitch-list {
+  padding-bottom: 16px;
+
+  ul {
+    li {
+      font-size: 16px;
+    }
+  }
+
+  // .df-contest__pitch {
+  //   margin: 0;
+  // }
+}
+
+.df-big {
+  &--title {
+    .df-cmo__mat-time {
+      font-size: 18px;
+      margin-top: 0;
+      @extend .df-boldFF--it !optional;
+    }
+  }
+}
+
+.df-userScrsDtls {
+  &__wrap {
+    margin: -30px 0 0;
+    padding: 0 16px 30px;
+    position: relative;
+    z-index: 2;
+    // &::after {
+    //   content: "";
+    //   position: absolute;
+    //   top: auto;
+    //   bottom: 0;
+    //   left: 0;
+    //   height: calc(50% + 20px);
+    //   width: 100%;
+    //   background-color: $white;
+    // }
+    ul {
+      position: relative;
+      z-index: 1;
+      box-shadow: 0px 1px 1px 0px rgba($black, 0.18);
+      padding: 16px 0;
+      background: $white;
+      justify-content: space-between;
+      align-items: center;
+      @extend %flexbox !optional;
+      @extend .df-borRad4 !optional;
+
+      li {
+        cursor: pointer;
+        flex-grow: 1;
+        justify-content: center;
+        align-items: center;
+        @extend %flexbox !optional;
+        &:not(:last-child) {
+          border-right: 1px solid rgba($client-primary-color, 0.1);
+        }
+
+        &.df-disabled {
+          opacity: 0.4;
+          pointer-events: none;
+        }
+      }
+    }
+  }
+  &__icon {
+    margin-right: 10px;
+    font-size: 20px;
+    color: $disabled;
+  }
+  &__info {
+    flex-grow: 100%;
+  }
+  &__num {
+    @extend .df-mediumFF !optional;
+    font-size: 14px;
+    color: $client-primary-color;
+  }
+  &__text {
+    @extend .df-regularFF !optional;
+    font-size: 12px;
+    color: $text-body-grey;
+  }
+}
+
+.df-rangeBox {
+  margin-top: 8px;
+  margin-bottom: 10px;
+  justify-content: space-between;
+  align-items: center;
+  @extend %flexbox !optional;
+  &-lft,
+  &-rgt {
+    flex-basis: 100%;
+    flex-grow: 1;
+  }
+  &-rgt {
+    text-align: right;
+  }
+  &-mid {
+    font-size: 12px;
+    color: $black;
+  }
+  &-matchNums {
+    margin-top: 4px;
+    font-size: 14px;
+    color: $black;
+    @extend .df-boldFF !optional;
+  }
+  &-matchName {
+    font-size: 12px;
+    color: $text-body-grey;
+    @extend .df-regularFF !optional;
+
+    span {
+      display: block;
+    }
+  }
+}
+
+.df-sponsor {
+  padding: calc(16px * 2) 0;
+
+  &__wrap {
+  }
+
+  &__row {
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: flex-end;
+    @extend %flexbox !optional;
+
+    // @media screen and (min-width: $media-mobile-max) {
+    //   margin-bottom: calc(16px + 8px);
+    // }
+
+    // &:not(:last-child) {
+    //   margin-bottom: calc(16px + 8px);
+    // }
+  }
+
+  &__box {
+    padding: 16px 8px;
+    // flex-grow: 1;
+    // flex-basis: calc(100% / 2);
+  }
+
+  &__thumb {
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    @extend %flexbox !optional;
+    &:not(:last-child) {
+      margin-bottom: 16px;
+    }
+    // @media screen and (min-width: $media-mobile-max) {
+    //   min-height: 5rem;
+    // }
+
+    img {
+      margin: 8px 8px;
+    }
+  }
+
+  &__heading {
+    text-align: center;
+    font-size: 12px;
+    color: $disabled;
+    @extend .df-boldFF--it !optional;
+  }
+}
+
+.df-homePts {
+  &__header {
+    &-fBox {
+      justify-content: flex-start;
+      align-items: baseline;
+      @extend %flexbox !optional;
+    }
+    &-lft {
+      flex-basis: 100%;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+    &-rgt {
+    }
+    &-icon {
+      color: $secondary-electric;
+      font-size: 28px;
+      margin-right: 10px;
+      line-height: 0;
+    }
+    &-text {
+      font-size: 10px;
+      color: $disabled;
+      @extend .df-regularFF !optional;
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 12px;
+      }
+      em {
+        margin-right: 4px;
+        font-size: 32px;
+        color: $client-primary-color;
+        @extend .df-boldFF--it !optional;
+        span {
+          font-size: 14px;
+          color: $disabled;
+        }
+      }
+    }
+    &-cta {
+      cursor: pointer;
+      white-space: nowrap;
+      color: $client-primary-color;
+      font-size: 10px;
+      @extend .df-regularFF !optional;
+      @media screen and (min-width: $media-mobile-max) {
+        font-size: 12px;
+      }
+      i {
+        margin-left: 4px;
+      }
+    }
+  }
+  &__intro {
+    &-title {
+      margin-bottom: 8px;
+      font-size: 18px;
+      @extend .df-boldFF--it !optional;
+      color: rgba($client-primary-color, 0.8);
+    }
+    &-para {
+      font-size: 12px;
+      color: $text-body-grey;
+    }
+    &-cta {
+      margin-top: 16px;
+      .df-btn {
+        min-width: auto;
+        @extend %inline-flex !optional;
+      }
+    }
+  }
+  &__history {
+    &-fBox {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+    &-lft {
+      flex-basis: 100%;
+      .df-fix__team-logo {
+        width: 32px;
+        height: 32px;
+      }
+    }
+    &-rgt {
+    }
+    &-title {
+      margin-bottom: 8px;
+      font-size: 18px;
+      @extend .df-boldFF--it !optional;
+      color: $client-primary-color;
+    }
+    &-list {
+      ul {
+        li {
+          cursor: pointer;
+          padding: 16px 0;
+          &:not(:last-child) {
+            border-bottom: 1px solid rgba($black, 0.08);
+          }
+
+          &.df-noClick {
+            pointer-events: none;
+          }
+        }
+      }
+      &.df-noClick {
+        ul {
+          li {
+            cursor: none;
+          }
+        }
+      }
+      .df-booster {
+        &__box {
+          min-height: auto;
+          padding: 12px 0 0;
+          background: none !important;
+        }
+        &__content {
+          margin-left: 6px;
+        }
+        &__icon {
+          width: 20px;
+          height: 20px;
+        }
+        &__title {
+          font-size: 12px;
+          margin: 0;
+          font-family: $bold_font-family !important;
+          font-weight: $bold_font-weight !important;
+        }
+      }
+    }
+    &-pts {
+      white-space: nowrap;
+      text-align: right;
+      font-size: 20px;
+      @extend .df-boldFF--it !optional;
+      color: $client-primary-color;
+      justify-content: flex-end;
+      align-items: center;
+      @extend %flexbox !optional;
+      i {
+        line-height: 1;
+        color: $disabled;
+        margin-right: 4px;
+        font-size: 18px;
+      }
+    }
+    &-matchDtls {
+      color: $disabled;
+      margin-bottom: 8px;
+      justify-content: flex-start;
+      align-items: baseline;
+      @extend %flexbox !optional;
+      span {
+        font-size: 10px;
+        &:not(:last-child) {
+          font-size: 12px;
+          margin-right: 8px;
+        }
+      }
+    }
+  }
+}
+
+.df-static {
+  &__wrap {
+    // margin: 12px 0;
+    position: relative;
+    // padding: 16px;
+    &--tnc {
+      .df-ptSyt__notes {
+        ul {
+          li {
+            ul {
+              list-style: circle outside;
+              li {
+                padding: 0;
+                &:not(:last-child) {
+                  margin-bottom: 4px;
+                }
+              }
+            }
+            p {
+              &:not(:last-child) {
+                margin-bottom: 10px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &__box {
+    background: $white;
+    padding: 16px;
+    // @extend .df-borRad8 !optional;
+    box-shadow: 0 3px 6px 0 rgba($black, 0.15);
+
+    &:not(:last-child) {
+      margin-bottom: 16px;
+      // border-bottom: 1px solid rgba(#dcdcdc, 0.6);
+    }
+  }
+  &__content {
+    .df-ptSyt__notes {
+      padding-top: 0;
+    }
+    a {
+      color: $client-primary-color;
+      @extend .df-boldFF !optional;
+    }
+    p {
+      color: $black;
+      font-size: 12px;
+      line-height: 1.5;
+      &:not(:last-child) {
+        margin-bottom: 20px;
+      }
+    }
+    .df-prize__header {
+      min-height: auto;
+      &-text--2 {
+        text-align: left;
+        font-size: 14px;
+      }
+    }
+    .df-prize__list {
+      margin-top: 8px;
+      &:not(:last-child) {
+        margin-bottom: 16px;
+      }
+      &-details {
+        justify-content: flex-start;
+        align-items: center;
+        @extend %flexbox !optional;
+        &--one {
+          text-align: center;
+          color: $text-dark;
+          font-size: 12px;
+          margin-right: 16px;
+          width: 100px;
+          flex-shrink: 0;
+          @extend .df-regularFF !optional;
+          em {
+            color: $client-primary-color;
+            display: block;
+            font-size: 14px;
+            @extend .df-boldFF--it !optional;
+          }
+        }
+      }
+    }
+  }
+  &__title {
+    color: $client-primary-color;
+    @extend .df-boldFF !optional;
+    font-size: 14px;
+    margin-bottom: 16px;
+  }
+}
+
+.df-fancode {
+  &__wrap {
+    background-color: $white;
+    overflow: hidden;
+    @extend .df-borRad8 !optional;
+  }
+  &__box {
+    // justify-content: space-between;
+    // align-items: flex-end;
+    // @extend %flexbox !optional;
+    background-image: url(../images/whats-new-props-1.png?v=#{$image-version}),
+      url(../images/whats-new-props-2.svg?v=#{$image-version});
+    background-position: left top, right bottom;
+    background-repeat: no-repeat;
+    background-size: contain, auto;
+    .df-hp__badge {
+      &-box {
+        padding-top: 0;
+        padding-bottom: 0;
+        background: none;
+        align-items: flex-end;
+        &-lft {
+          flex-basis: 107px;
+          margin-left: 16px;
+          @media screen and (min-width: $media-mobile-max) {
+            flex-basis: 120px;
+          }
+        }
+      }
+      &-thumb {
+        width: auto;
+        height: auto;
+        align-items: flex-end;
+      }
+      &-title {
+        line-height: 1;
+        color: $client-primary-color;
+        @extend .df-blackBoldFF !optional;
+      }
+      &-btn {
+        margin-bottom: 16px;
+        .df-btn {
+          background-color: $client-primary-color;
+        }
+      }
+    }
+    &-lhs {
+    }
+    &-rhs {
+    }
+  }
+}

@@ -1,0 +1,132 @@
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  .si-filter--recommend {
+    .si-new {
+      flex-direction: column;
+      i {
+        margin-top: -3px;
+      }
+    }
+  }
+  .si-plist {
+    &__col {
+      &.si-list-info {
+        flex: 0 0 8%;
+      }
+      &.si-list-img {
+        flex: 0 0 37px;
+      }
+      &.si-list-name {
+        width: 21%;
+        flex: 0 0 21%;
+      }
+      &.si-list-val {
+        flex: 0 0 16%;
+      }
+    }
+    &__row {
+      &.si-lazy-load {
+        .si-plist__col {
+          &.si-list-name {
+            width: 100%;
+            flex: 1;
+          }
+        }
+      }
+    }
+  }
+  .si-modal {
+    flex-direction: column;
+    // .si-tooltip {
+    // }
+  }
+  .si-popup {
+    // &__footer {
+    // }
+    .si-media {
+      &__desc {
+        width: 300px;
+      }
+    }
+    &--selected {
+      .si-media {
+        &__desc {
+          width: auto;
+        }
+      }
+    }
+  }
+  .si-toast {
+    left: 0;
+    right: 0;
+  }
+  .si-btn {
+    @media screen and (min-width: $media-tablet-min) {
+      height: 48px;
+    }
+  }
+  .si-tooltip {
+    min-width: 120px;
+  }
+  .si-save-team {
+    .si-wrap {
+      @media screen and (min-width: $media-tablet-min) {
+        min-height: 700px;
+      }
+    }
+  }
+  .si-filter {
+    .si-dropdown__txt {
+      height: 24px;
+    }
+  }
+  .si-filter--club {
+    .si-filter--search {
+      .si-search {
+        flex: 1 0 auto;
+        width: 100%;
+      }
+    }
+  }
+  .si-board__section {
+    @media screen and (min-width: $media-desktop-min) {
+      height: 48px;
+    }
+  }
+  .si-md__left {
+    flex: 1;
+  }
+  .si-icon--top {
+    // border: 1px solid transparent;
+  }
+  .si-plyr--played {
+    .si-list__row {
+      .si-plyr--name {
+        min-width: 145px;
+        width: 145px;
+      }
+    }
+  }
+}
+
+//for edge only
+_:-ms-lang(x),
+_:-webkit-full-screen,
+.si-save-team {
+  .si-wrap {
+    @media screen and (min-width: $media-tablet-min) {
+      min-height: 700px;
+    }
+  }
+}
+
+// for safari only
+
+html[xmlns*=""]:root .si-filter {
+  -webkit-mask-image: -webkit-radial-gradient(white, black);
+}
+
+// html[xmlns*=""]:root .si-no-landscape {
+//   @media screen and (min-width: $media-tablet-min) and (orientation: portrait) {
+// display: flex;
+//   }
+// }

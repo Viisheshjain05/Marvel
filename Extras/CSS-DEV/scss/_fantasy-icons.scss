@@ -1,0 +1,199 @@
+@font-face {
+  font-family: "dfi";
+  src: url("../fonts/dfi.eot?v=#{$cache}");
+  src: url("../fonts/dfi.eot?v=#{$cache}") format("embedded-opentype"),
+    url("../fonts/dfi.ttf?v=#{$cache}") format("truetype"),
+    url("../fonts/dfi.woff?v=#{$cache}") format("woff"),
+    url("../fonts/dfi.svg?v=#{$cache}") format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+[class^="dfi-"],
+[class*=" dfi-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "dfi" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  &::before {
+    font-family: "dfi" !important;
+  }
+}
+.dfi-reset-transfer:before {
+  content: "\e937";
+}
+.dfi-contest-pts:before {
+  content: "\e935";
+}
+.dfi-subs-1:before {
+  content: "\e933";
+}
+.dfi-lightning:before {
+  content: "\e934";
+}
+.dfi-booster-clock:before {
+  content: "\e930";
+}
+.dfi-booster-lock:before {
+  content: "\e931";
+}
+.dfi-booster-tick:before {
+  content: "\e932";
+}
+.dfi-history:before {
+  content: "\e92e";
+}
+.dfi-reset:before {
+  content: "\e92f";
+}
+.dfi-admin-outline:before {
+  content: "\e92c";
+}
+.dfi-intro-badge-outline:before {
+  content: "\e92d";
+}
+.dfi-booster-outline:before {
+  content: "\e928";
+}
+.dfi-subs-outline:before {
+  content: "\e929";
+}
+.dfi-jersy-outline:before {
+  content: "\e92a";
+}
+.dfi-stats-outline:before {
+  content: "\e92b";
+}
+.dfi-leagues-outline:before {
+  content: "\e936";
+}
+.dfi-lock:before {
+  content: "\e927";
+}
+.dfi-badge:before {
+  content: "\e925";
+}
+.dfi-badge-fill:before {
+  content: "\e926";
+}
+.dfi-admin-user:before {
+  content: "\e924";
+}
+.dfi-remove:before {
+  content: "\e923";
+}
+.dfi-logout:before {
+  content: "\e921";
+}
+.dfi-share-stroke:before {
+  content: "\e922";
+}
+.dfi-tab-more:before {
+  content: "\e920";
+}
+.dfi-uncap:before {
+  content: "\e91f";
+}
+.dfi-tripleX:before {
+  content: "\e91e";
+}
+.dfi-stats:before {
+  content: "\e915";
+}
+.dfi-stats-fill:before {
+  content: "\e916";
+}
+.dfi-rules:before {
+  content: "\e917";
+}
+.dfi-rules-fill:before {
+  content: "\e918";
+}
+.dfi-home:before {
+  content: "\e919";
+}
+.dfi-home-fill:before {
+  content: "\e91a";
+}
+.dfi-contests:before {
+  content: "\e91b";
+}
+.dfi-contests-fill:before {
+  content: "\e91c";
+}
+.dfi-more:before {
+  content: "\e91d";
+}
+.dfi-info:before {
+  content: "\e914";
+}
+.dfi-announcement:before {
+  content: "\e913";
+}
+.dfi-copy:before {
+  content: "\e912";
+}
+.dfi-share:before {
+  content: "\e911";
+}
+.dfi-view-more:before {
+  content: "\e910";
+}
+.dfi-subs:before {
+  content: "\e90c";
+}
+.dfi-sub-in:before {
+  content: "\e90d";
+}
+.dfi-sub-out:before {
+  content: "\e90e";
+}
+.dfi-injured:before {
+  content: "\e90f";
+}
+.dfi-list:before {
+  content: "\e90a";
+}
+.dfi-tick:before {
+  content: "\e90b";
+}
+.dfi-help:before {
+  content: "\e909";
+}
+.dfi-search:before {
+  content: "\e900";
+}
+.dfi-flight:before {
+  content: "\e901";
+}
+.dfi-filter:before {
+  content: "\e902";
+}
+.dfi-close:before {
+  content: "\e903";
+}
+.dfi-aUp:before {
+  content: "\e904";
+}
+.dfi-aRgt:before {
+  content: "\e905";
+}
+.dfi-aDw:before {
+  content: "\e906";
+}
+.dfi-aLft:before {
+  content: "\e907";
+}
+.dfi-aDown:before {
+  content: "\e908";
+}

@@ -1,0 +1,104 @@
+
+
+%tt-tip {
+  &::after {
+    content: "";
+    display: none;
+    border-radius: 4px;
+    background: $white;
+    //not using theme variable for tooltip as it causes issue with icons
+    // @include color(background-color, uf-elevation-01);
+    height: 17px;
+    width: 17px;
+
+    position: absolute;
+    left: 50%;
+    bottom: 25px;
+    z-index: zindex(default);
+    @include transform(translateX(-50%) rotate(45deg));
+    // @include box-shadow(2px, 2px, 4px, rgba($black, 0.2));
+    @media screen and (min-width: $media-small-tablet-min) {
+    }
+  }
+}
+
+.si-tooltip {
+  display: none;
+  background: $white;
+  //not using theme variable for tooltip as it causes issue with icons
+  // @include color(background-color, uf-elevation-01);
+  // @include color(color, uf-text-01);
+  border-radius: 5px;
+  color: $default;
+  align-items: center;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: var(--uf-font-base-regular);
+  font-weight: var(--uf-font-weight-m);
+  position: absolute;
+  left: 50%;
+  // padding: 14px 10px;
+  // min-width: 150px;
+  // bottom: 32px;
+  bottom: 30px;
+  padding: 10px 6px;
+  min-width: 110px;
+  text-align: center;
+  justify-content: center;
+  z-index: zindex(default);
+  @include transform(translateX(-50%) translate3d(0, 0, 0));
+  @include box-shadow(4px, 4px, 0, rgba($black, 0.25));
+  @media screen and (min-width: $media-small-tablet-min) {
+  }
+  &.si-show {
+    display: flex;
+  }
+  &.si-left-tt {
+    left: -8px;
+    @include transform(translateX(0));
+  }
+  &.si-right-tt {
+    left: auto;
+    right: -12px;
+    @include transform(translateX(0));
+  }
+}
+.si-tt-active {
+  @extend %tt-tip;
+  &::after {
+    display: block;
+  }
+  .si-tooltip {
+    @extend .si-flexBox;
+  }
+  &:hover {
+    &::after {
+      display: block;
+    }
+    .si-tooltip {
+      @extend .si-flexBox;
+    }
+  }
+  &-down {
+    @extend .si-tt-active;
+    &::after {
+      display: block;
+      bottom: -12px;
+      // @include box-shadow(0, -3px, 0, rgba($black, 0.15));
+    }
+    .si-tooltip {
+      bottom: -39px;
+      // @include box-shadow(1px, -3px, 0, rgba($black, 0.15));
+    }
+  }
+}
+.si-tt__wrap {
+  position: relative;
+  @extend %tt-tip;
+}
+
+.si-pitch__section {
+  .si-tooltip {
+    justify-content: center;
+  }
+}

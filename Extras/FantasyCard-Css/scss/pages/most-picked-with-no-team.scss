@@ -1,0 +1,16 @@
+@import "../_variables";
+@import "../_mixins";
+
+.si-fantasy-card-wrap {
+  &.si-no-team {
+    .si-card-body {
+    }
+  }
+  &.si-logged-out {
+    .si-card-body {
+      @media screen and (min-width: $media-tablet-min) and (max-width: $media-desktop-min) {
+        display: none;
+      }
+    }
+  }
+}

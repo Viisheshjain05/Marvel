@@ -1,0 +1,106 @@
+.si-header {
+
+  &__wrap {
+    padding-top: var(--half-space);
+    padding-bottom: var(--half-space);
+    @include animation('si-opacity 1s linear both');
+
+    @media screen and (min-width: $media-tablets-min) {
+      padding-top: var(--full-space);
+      padding-bottom: var(--full-space);
+    }
+  }
+
+  &__container {
+    justify-content: space-between;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    &-lft {}
+
+    &-rgt {
+      justify-content: flex-end;
+      align-items: center;
+      @extend %flexbox !optional;
+    }
+  }
+
+  &__logo {
+    width: 70px;
+    object-fit: contain;
+
+    @media screen and (min-width: $media-tablets-min) {
+      width: 100px;
+    }
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      width: 160px;
+    }
+
+    a {
+      display: block;
+
+      img {
+        width: 100%;
+        display: block;
+      }
+    }
+  }
+}
+
+// Nav
+.si-nav {
+  &__wrap {
+    @media screen and (max-width: $media-tablets-min) {
+      position: absolute;
+      width: 100%;
+      left: 0;
+      right: 0;
+      top: 8rem;
+      overflow: hidden;
+    }
+
+    ul {
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      @media screen and (max-width: $media-tablets-min) {
+        overflow-x: auto;
+        padding-left: var(--full-space);
+        padding-right: var(--full-space);
+      }
+
+      li {
+        &:not(:last-child) {
+          margin-right: 45px;
+
+          @media screen and (min-width: $media-xlg-desktop-min) {
+            margin-right: 65px;
+          }
+        }
+
+
+
+        a {
+          @extend .si-boldFF !optional;
+          font-size: 1.4rem;
+          display: block;
+          color: rgba(var(--white-rgb), .5);
+
+          &.si-active {
+            color: var(--white);
+          }
+
+          @media screen and (min-width: $media-tablets-min) {
+            font-size: 1.6rem;
+          }
+
+          @media screen and (min-width: $media-xlg-desktop-min) {
+            font-size: 1.8rem;
+          }
+        }
+      }
+    }
+  }
+}

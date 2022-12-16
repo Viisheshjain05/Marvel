@@ -1,0 +1,18 @@
+Create Lib to make write css easy 
+
+Features - 
+1. Choice preprocessor and framework of choice
+2. Easy build make and html/css files for developer
+3. Component store for common use
+
+
+Process -
+
+1. Create a css template using best practicies
+
+Idea is to 
+1. Starting new project
+- Defining path from idea -> Figma -> Design Guide -> Css Generator/Easy Css Maker
+
+2. Build partion component for project
+- Assisting in creating css/html for project and providing to developer

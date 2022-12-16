@@ -1,0 +1,83 @@
+.si-landing {
+  &.si-landing {
+    &--prizes {
+      .si-color {
+        &--primary {
+          color: $default;
+        }
+      }
+      .si-section__img {
+        background-image: url("../images/prizes/first-banner-web.png?v=#{$cache-img}");
+        width: 100%;
+        height: 169px;
+        @media screen and (max-width: $media-xsmall-max) {
+
+          margin-bottom: 40px;
+        }
+        @media screen and (min-width: $media-mobile-med) {
+          width: 375px;
+          height: 199px;
+        }
+        @media screen and (min-width: $media-small-min) and (max-width: $media-small-max) {
+          width: 255px;
+          height: 139px;
+        }
+        @media screen and (min-width: $media-small-tablet-min) {
+          width: 474px;
+          height: 252px;
+        }
+      }
+      .si-section {
+        &--banner {
+          background-image: url("../images/prizes/header-bg-mob.svg?v=#{$cache-img}");
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          padding-bottom: 90px;
+
+          @media screen and (min-width: $media-small-tablet-min) {
+            background-image: url("../images/prizes/header-bg.svg?v=#{$cache-img}");
+          }
+          &::after {
+            display: none;
+          }
+          .si-section__col {
+            &:last-child {
+              @media screen and (max-width: $media-mobile-small-max) {
+                margin: 0 -40px;
+              }
+            }
+          }
+          .si-coming-soon {
+            font-size: 20px;
+            line-height: 22px;
+            font-family: var(--uf-font-comp-regular);
+            margin-bottom: 30px;
+          }
+        }
+        &--how-to {
+          margin-top: -20px;
+          padding: 0px 0 80px;
+          .si-head {
+            margin-bottom: 50px;
+            &::before {
+              display: none;
+            }
+          }
+          .si-first {
+            @media screen and (max-width: $media-small-max) {
+              margin-bottom: 40px;
+            }
+            .si-section__col {
+              &:not(:last-child) {
+                @media screen and (max-width: $media-small-max) {
+                  margin-bottom: 60px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,710 @@
+// card
+.si-card {
+  &__wrap {
+    overflow: hidden;
+    position: relative;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+
+    @media screen and (max-width: $media-mobile-min) {
+      margin-top: 5rem;
+      padding-bottom: 7rem;
+      justify-content: space-between;
+      height: 80vh;
+    }
+  }
+
+  &__row {
+    position: relative;
+    z-index: 1;
+
+    &--deck,
+    &--bot,
+    &--user {
+      width: 100%;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        padding: var(--full-space);
+      }
+    }
+
+    &--bot {
+      order: 0;
+      padding-bottom: 0;
+
+      @media screen and (max-width: $media-mobile-min) {
+        flex-direction: column-reverse;
+      }
+    }
+
+    &--user {
+      order: 2;
+      padding-top: 0;
+      flex-direction: row-reverse;
+
+      @media screen and (max-width: $media-mobile-min) {
+        align-items: flex-end;
+        flex-direction: column;
+      }
+
+      .si-card__profile-score {
+        flex-direction: row-reverse;
+      }
+
+      .si-card__profile-wrap {
+        @media screen and (max-width: $media-mobile-min) {
+          margin-bottom: 4rem;
+        }
+      }
+
+      .si-card__profile-turn {
+        @media screen and (max-width: $media-mobile-min) {
+          left: auto;
+          top: auto;
+          bottom: -3rem;
+          right: .5rem;
+          @include transform(rotate(-90deg));
+
+        }
+
+        span {
+          @include animation('si-bounceAlpha 1.4s linear reverse infinite both');
+        }
+      }
+
+      .si-card__item {
+        ul {
+          flex-direction: row-reverse;
+        }
+      }
+
+      .si-card__profile {
+        flex-direction: row-reverse;
+        @include animation('si-slideInRight .5s linear both');
+
+        @media screen and (max-width: $media-mobile-min) {
+          align-items: end;
+          flex-direction: column;
+        }
+
+        &-info {
+          text-align: right;
+        }
+
+        &-glow {
+          &::after {
+            background: radial-gradient(79.55% 79.55% at 39.95% 8.68%, #FF996D 0%, #FF0000 100%);
+          }
+
+          &::before {
+            background: linear-gradient(180deg, rgba(255, 153, 109, 0) 38.13%, rgba(255, 0, 0, 0.2) 100%), radial-gradient(51.96% 85.48% at 50% 100%, rgba(255, 153, 109, 0.5) 0%, rgba(255, 0, 0, 0.5) 20.94%, rgba(255, 0, 0, 0) 100%);
+            background-size: 400%;
+          }
+        }
+      }
+    }
+
+    &--deck {
+      order: 1;
+      min-height: 200px;
+      background-image: url(../images/card-pitch-bg.png?v=#{$image-version});
+      background-repeat: no-repeat;
+      background-position: center center;
+      @extend .si-bgSize--contain !optional;
+      @include animation('si-opacity 1s linear both');
+
+      @media screen and (max-width: $media-mobile-min) {
+        margin: -180px 0;
+        padding-top: 4rem;
+        z-index: -1;
+        background-position: center 90px;
+        @include background-size(200px);
+      }
+    }
+  }
+
+  &__profile {
+    z-index: 2;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    @extend %flexbox !optional;
+    @include animation('si-slideInLeft .5s linear both');
+
+    @media screen and (min-width: $media-desktop-min) {
+      margin-bottom: var(--full-space);
+      flex-direction: row;
+    }
+
+    &-wrap {
+      @media screen and (max-width: $media-mobile-min) {
+        z-index: 1;
+        margin-top: 4rem;
+      }
+    }
+
+    &-lft {}
+
+    &-rgt {
+      @media screen and (min-width: $media-desktop-min) {
+        padding: 0 var(--full-space);
+      }
+    }
+
+    &-thumb {
+      width: var(--profileThumbnail);
+      padding-top: var(--profileThumbnail);
+      overflow: hidden;
+      position: relative;
+      object-fit: cover;
+      @extend .si-borRad100 !optional;
+
+      img {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 100%;
+        @include transform(translateX(-50%) translateY(-50%));
+      }
+    }
+
+    &-glow {
+      margin-top: calc(-6rem /2);
+      width: var(--profileThumbnail);
+      height: 5rem;
+      position: relative;
+
+      @media screen and (min-width: $media-desktop-min) {
+        height: 6rem;
+      }
+
+      &::before,
+      &::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        left: 0;
+      }
+
+      &::after {
+        top: auto;
+        bottom: 0;
+        height: 0.5rem;
+        background: radial-gradient(79.55% 79.55% at 39.95% 8.68%, #9DB2FF 0%, #6D8DFF 100%);
+        border-radius: 100%;
+      }
+
+      &::before {
+        height: 100%;
+        top: -.1rem;
+        filter: blur(4px);
+        background: linear-gradient(180deg, rgba(109, 141, 255, 0) 38.13%, rgba(109, 141, 255, 0.2) 100%), radial-gradient(51.96% 85.48% at 50% 100%, rgba(184, 200, 255, 0.5) 0%, rgba(109, 141, 255, 0.5) 20.94%, rgba(109, 141, 255, 0) 100%);
+        background-size: 400%;
+        @include animation("si-bgPos 4s linear alternate both infinite");
+      }
+    }
+
+    &-info {}
+
+    &-name {
+      font-size: 1.2rem;
+      color: var(--white);
+      margin-bottom: var(--half-space);
+      padding-bottom: var(--half-space);
+      display: inline-block;
+      border-bottom: 1px solid rgba(var(--white-rgb), .3);
+      @extend .si-regularFF !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 1.8rem;
+      }
+
+      @media screen and (min-width: $media-xlg-desktop-min) {
+        font-size: 2rem;
+      }
+    }
+
+    &-score {
+      font-size: 2rem;
+      color: var(--cyan);
+      @extend .si-boldFF !optional;
+      justify-content: flex-start;
+      align-items: center;
+      @extend %flexbox !optional;
+
+      @media screen and (min-width: $media-desktop-min) {
+        font-size: 2.8rem;
+      }
+
+      @media screen and (min-width: $media-xlg-desktop-min) {
+        font-size: 3rem;
+      }
+    }
+
+    &-turn {
+      position: relative;
+      margin: 0 var(--full-space);
+      justify-content: center;
+      align-items: center;
+      visibility: hidden;
+      @extend %flexbox !optional;
+
+      @media screen and (max-width: $media-mobile-min) {
+        margin: 0;
+        position: absolute;
+        top: -3rem;
+        left: 0.5rem;
+        @include transform(rotate(-90deg));
+      }
+
+      &.si-visible {
+        visibility: visible;
+      }
+
+      span {
+        transform-origin: center center;
+        width: 1rem;
+        height: 1rem;
+        display: block;
+        @include animation('si-bounceAlpha 1.4s linear infinite both');
+
+        @media screen and (min-width: $media-desktop-min) {
+          width: 1.6rem;
+          height: 1.6rem;
+        }
+
+        @for $i from 1 through 3 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * (.1s);
+          }
+        }
+
+        img {
+          display: block;
+          height: 100%;
+        }
+      }
+    }
+
+    &-cta {
+      text-align: center;
+
+      @media screen and (max-width: $media-mobile-min) {
+        position: absolute;
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -5rem;
+        z-index: 5;
+      }
+
+      .si-btn {
+        min-height: 5rem;
+        position: relative;
+        overflow: visible;
+
+        @media screen and (max-width: $media-mobile-min) {
+          width: calc(100% - 4rem);
+        }
+
+        @media screen and (min-width: $media-desktop-min) {
+          &:hover {
+            &::after {
+              bottom: 0;
+            }
+          }
+        }
+
+
+        &::after {
+          content: '';
+          position: absolute;
+          width: 80%;
+          height: 50%;
+          top: auto;
+          bottom: -1rem;
+          background-color: var(--cyan);
+          filter: blur(8px);
+          z-index: -1;
+          opacity: .6;
+          @extend .si-borRad10 !optional;
+          @include transition(bottom 0.1s ease-in);
+        }
+      }
+    }
+  }
+
+  &__item {
+    width: 100%;
+    margin: var(--full-space) 0;
+
+    @media screen and (min-width: $media-desktop-min) {
+      margin: 0;
+      padding: 0 var(--full-space);
+    }
+
+    ul {
+      position: relative;
+      z-index: 1;
+      justify-content: flex-start;
+      align-items: flex-start;
+      @extend %flexbox !optional;
+
+      li {
+        // margin: 0 var(--half-space);
+        position: relative;
+        width: calc(var(--card-w)/2);
+        height: calc(var(--card-h)/2);
+        @include border-radius(0 var(--full-space) 0 0);
+        border: 1px dashed #00D1FF;
+        @include linearGradient(180deg, #00022E 0%, #002256 100%);
+        backface-visibility: hidden;
+        @include animation('si-zoomIn .4s linear both');
+
+        @media screen and (min-width: $media-desktop-min) {
+          margin: 0 var(--half-space);
+          width: var(--card-w);
+          height: var(--card-h);
+        }
+
+        @for $i from 1 through 6 {
+          &:nth-child(#{$i}) {
+            animation-delay: $i * (.1s);
+          }
+        }
+
+        &::after {
+          content: "";
+          position: absolute;
+          left: 0;
+          top: 0;
+          width: 100%;
+          height: 100%;
+          background-image: url(../images/union.svg);
+          background-position: center center;
+          background-repeat: no-repeat;
+          @include background-size(calc(100% /2));
+        }
+      }
+    }
+  }
+
+  &__deck {
+    position: relative;
+    width: 100%;
+    height: 100%;
+
+    &.si-onLoad {
+      ul {
+        li {
+          left: 0;
+          @include animation('si-cardScale .5s linear both');
+
+          @for $i from 1 through 12 {
+            &:nth-last-child(#{$i}) {
+              animation-delay: $i * (.2s);
+              left: $i * (1px);
+            }
+          }
+
+          // @for $i from 1 through 1 {
+          //   &:nth-child(1) {
+          //     transform: rotate(10deg) scale(.9);
+          //     z-index: 1;
+          //   }
+          // }
+        }
+      }
+    }
+
+    &.si-reset {
+      ul {
+        li {
+          left: 50%;
+          @include transform(scale(.9) rotate(0deg) translateX(-50%));
+
+          &:nth-child(1) {
+            z-index: 1;
+            transition-delay: .3s;
+            @include transform(scale(.9) rotate(18deg) translateX(-50%));
+          }
+        }
+      }
+    }
+
+    ul {
+      position: relative;
+      @extend %flexbox !optional;
+
+      li {
+        position: absolute;
+        transform-origin: center center;
+        width: calc(var(--card-w)/1);
+        height: calc(var(--card-h)/1);
+        @include transition(all 0.3s linear);
+
+        @media screen and (min-width: $media-desktop-min) {
+          width: var(--card-w);
+          height: var(--card-h);
+        }
+
+        &.si-card-spin {
+          @include animation('si-spin .5s infinite linear both !important');
+        }
+
+        &.si-active {
+          @include transform(scale(1.01) rotate(0deg) translateX(-50%) !important);
+        }
+      }
+    }
+  }
+
+  &__box {
+    position: relative;
+    width: calc(var(--card-w)/1);
+    height: calc(var(--card-h)/1);
+    transform-style: preserve-3d;
+    transform-origin: center right;
+    transition: transform .3s;
+
+    @media screen and (min-width: $media-desktop-min) {
+      width: var(--card-w);
+      height: var(--card-h);
+    }
+
+    &.si-active {
+      @include transform(translateX(-100%) rotateY(-180deg));
+    }
+
+    &-face {
+      position: absolute;
+
+      backface-visibility: hidden;
+      width: calc(var(--card-w)/1);
+      height: calc(var(--card-h)/1);
+
+      @media screen and (min-width: $media-desktop-min) {
+        width: var(--card-w);
+        height: var(--card-h);
+      }
+
+      &.si-front,
+      &.si-back {
+        img {
+          display: block;
+          height: 100%;
+          width: 100%;
+        }
+      }
+
+      &.si-back {
+        @include transform(rotateY(180deg));
+      }
+    }
+  }
+}
+
+// Weekly Score Box
+.si-weekly {
+  &__wrap {
+    margin-left: var(--full-space);
+    justify-content: flex-end;
+    align-items: center;
+    @extend %flexbox !optional;
+
+    @media screen and (min-width: $media-tablets-min) {
+      margin-left: calc(var(--full-space) *3);
+    }
+  }
+
+  &__box {
+    position: relative;
+    overflow: hidden;
+    text-align: right;
+    padding: var(--half-space) var(--full-space);
+    background-color: rgba(var(--white-rgb), .05);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
+    border: 1px solid rgba(var(--white-rgb), 0.1);
+    @include border-radius(var(--half-border-radius));
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: auto;
+      bottom: 0;
+      width: 100%;
+      height: 50%;
+      background-color: var(--american-gold);
+      filter: blur(20px);
+      opacity: .6;
+      @extend .si-borRad100 !optional;
+    }
+
+    &:not(:last-of-type) {
+      margin-right: var(--half-space);
+
+      @media screen and (min-width: $media-tablets-min) {
+        margin-right: var(--full-space);
+      }
+    }
+  }
+
+  &__title,
+  &__score {
+    position: relative;
+    z-index: 1;
+  }
+
+  &__title {
+    font-size: 1rem;
+    color: rgba(var(--white-rgb), .6);
+    margin-bottom: var(--half-space);
+    @extend .si-regularFF !optional;
+
+    @media screen and (min-width: $media-tablets-min) {
+      font-size: 1.2rem;
+    }
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      font-size: 1.4rem;
+    }
+  }
+
+  &__score {
+    font-size: 1.6rem;
+    color: var(--american-gold);
+    @extend .si-boldFF !optional;
+
+    @media screen and (min-width: $media-tablets-min) {
+      font-size: 1.8rem;
+    }
+
+    @media screen and (min-width: $media-xlg-desktop-min) {
+      font-size: 2rem;
+    }
+
+    em {
+      font-size: 1rem;
+      @extend .si-regularFF !optional;
+
+      @media screen and (min-width: $media-tablets-min) {
+        font-size: 1.2rem;
+      }
+
+      @media screen and (min-width: $media-xlg-desktop-min) {
+        font-size: 1.4rem;
+      }
+    }
+  }
+}
+
+// Prizes Podium
+.si-prize {
+  &__podium {
+    position: relative;
+    z-index: 1;
+    text-align: center;
+
+    &.si-gold {
+      padding-left: var(--full-space);
+      padding-right: var(--full-space);
+      margin-left: var(--full-space);
+      margin-right: var(--full-space);
+
+      .si-prize__podium-thumb {
+        &::before {
+          background-image: url(../images/crown-gold.png?v=#{$image-version});
+        }
+      }
+    }
+
+    &.si-silver {
+      .si-prize__podium-thumb {
+        &::before {
+          background-image: url(../images/crown-silver.png?v=#{$image-version});
+        }
+      }
+    }
+
+    &.si-bronze {
+      .si-prize__podium-thumb {
+        &::before {
+          background-image: url(../images/crown-bronze.png?v=#{$image-version});
+        }
+      }
+    }
+
+    &-thumb {
+      position: relative;
+      z-index: 1;
+      width: 25rem;
+      height: 25rem;
+      margin-bottom: var(--full-space);
+      justify-content: center;
+      align-items: center;
+      @extend %flexbox !optional;
+      @extend .si-borRad100 !optional;
+      @extend .si-extraBoldFF !optional;
+      @include linearGradient(180deg, #D3B86D 0%, rgba(0, 0, 0, 0) 100%, rgba(140, 114, 63, 0) 100%);
+
+      span {
+        position: relative;
+        z-index: 1;
+        opacity: .2;
+        font-size: 12.6rem;
+        background: -webkit-linear-gradient(#eee, #333);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+      }
+
+      &::after {
+        content: '';
+        width: calc(100% - 4px);
+        height: calc(100% - 4px);
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        background: #263871;
+        @extend .si-borRad100 !optional;
+        @include transform(translate(-50%, -50%));
+      }
+
+      &::before {
+        content: '';
+        position: absolute;
+        z-index: 1;
+        left: -10%;
+        right: 0;
+        top: -28%;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        background-repeat: no-repeat;
+        background-position: center bottom;
+        @extend .si-bgSize--contain !optional;
+      }
+    }
+
+    &-name {
+      font-size: 3.2rem;
+      @extend .si-extraBoldFF !optional;
+      background: -webkit-linear-gradient(#EFBF58, #BFA259);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    &-caption {
+      font-size: 1.6rem;
+      color: var(--white);
+      @extend .si-mediumFF !optional;
+    }
+  }
+}

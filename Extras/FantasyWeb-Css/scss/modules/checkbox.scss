@@ -1,0 +1,48 @@
+.si-checkbox {
+  margin-right: 10px;
+  position: relative;
+  input {
+    cursor: pointer;
+    width: 12px;
+    height: 12px;
+    opacity: 0;
+    position: absolute;
+    &:checked {
+      & ~ {
+        .si-check-mark {
+          &::after {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  .si-check-mark {
+    background-color: var(--uf-interaction-high-contrast);
+    border: 1px solid var(--uf-text-02);
+    border-radius: 2px;
+    height: 12px;
+    width: 12px;
+    &::after {
+      content: "";
+      position: absolute;
+      display: none;
+      left: 4px;
+      top: 2px;
+      width: 4px;
+      height: 7px;
+      border: solid $fantasy-primary2-color;
+      border-width: 0 1px 1px 0;
+      @include transform(rotate(45deg));
+    }
+    span {
+      display: block;
+      padding-left: 20px;
+      height: 20px;
+      width: 200px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}
